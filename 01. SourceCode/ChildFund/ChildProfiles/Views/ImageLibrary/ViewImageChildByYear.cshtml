@@ -1,0 +1,111 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model IList<ChildProfiles.Model.Model.FliesLibrary.ImageChildByYearView>
+<section class="wrapper main-wrapper">
+    <div ui-view="" class="ng-scope">
+        <div class="content-wrapper">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="row">
+                    <ul class="breadcrumb">
+                        <li class="home">
+                            <a href="/ImageLibrary/ViewImageChild">CPR photo</a>
+                        </li>
+                        @Html.Raw(ViewBag.nav)
+                        @Html.Raw(ViewBag.navSub)
+                        <li><span>@ViewBag.navName</span></li>
+                    </ul>
+                </div>
+                <section class="box ">
+                    <div class="">
+                        <div id="divListImage">
+                            <div class="row">
+                                @foreach (var item in Model)
+                                {
+                                    <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                                        <label class="icheck icheck-primary">
+                                            <input type="checkbox" class="itemp" value="@item.Id">
+                                            <i></i>
+                                        </label><span style="font-weight: bold;"> @item.ChildCode - @item.ChildName </span>
+                                        <a class="thumbnail" href="#" data-title="@item.ChildCode - @item.ChildName"
+                                           data-image="@item.ImageUrl" data-toggle="modal"
+                                           data-target="#image-gallery">
+                                            <img class="img-thumbnail"
+                                                 src="@item.ImageThumbnail">
+                                        </a>
+                                    </div>
+                                }
+                            </div>
+                            @if (Model != null && Model.Count > 0)
+                            {
+                                <div class="row padding-10">
+                                    <div class="col-md-11 col-sm-11 col-xs-11 text-right">
+                                        @*<button class="btn btn-xs btnfuntion" onclick="DeleteConfim()">
+                                                <i class="fa fa-remove"></i> &nbsp; <span>Xoá ảnh/Delete</span>
+                                            </button>*@
+                                        @*<button class="btn btn-xs btnfuntion" onclick="DownLoadImage()">
+                                                <i class="fa fa-remove"></i> &nbsp; <span>Tải ảnh/Download</span>
+                                            </button>*@
+                                        @*<button class="btn btn-xs btnfuntion" onclick="DownLoadImageAll()">
+                                                <i class="fa fa-remove"></i> &nbsp; <span>Tải tất cả/Download all</span>
+                                            </button>*@
+                                        <button type="button" class="btn btn-danger btn-s margin-bottom-5" onclick="DeleteConfim()">
+                                            <span class="glyphicon glyphicon-trash"></span>Xoá ảnh/Delete
+                                        </button>
+                                        <button type="button" class="btn btn-success btn-s margin-bottom-5" onclick="DownLoadImage()">
+                                            <span class="glyphicon glyphicon-download-alt"></span>Tải ảnh/Download
+                                        </button>
+                                        <button type="button" class="btn btn-success btn-s margin-bottom-5" onclick="DownLoadImageAll()">
+                                            <span class="glyphicon glyphicon-download-alt"></span>Tải tất cả/Download all
+                                        </button>
+                                        <a href="/ImageLibrary/ViewImageChild" class="btn btn-danger btn-s margin-bottom-5">
+                                            <i class="fa fa-power-off"></i> &nbsp; <span>Thoát/Exit</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            }
+                            <div class="modal fade" id="image-gallery" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg" style="margin-top:auto">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title" id="image-gallery-title"></h4>
+                                            <button type="button" class="close" data-dismiss="modal" style="margin-top:-15px; margin-right:-25px">
+                                                <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="row">
+                                                <img id="image-gallery-image" class="img-responsive col-md-12" src="">
+                                            </div>
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary float-left" id="show-previous-image">
+                                                <i class="fa fa-arrow-left"></i>
+                                            </button>
+                                            <button type="button" id="show-next-image" class="btn btn-secondary float-right">
+                                                <i class="fa fa-arrow-right"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+<link href="~/Content/modelImage.css" rel="stylesheet" />
+<script src="~/ScriptControllers/ViewImageByYearView.js"></script>
+<style>
+    .modal-title {
+        color: white !important
+    }
+
+    .modal-header .close {
+        margin-top: -3px !important
+    }
+</style>

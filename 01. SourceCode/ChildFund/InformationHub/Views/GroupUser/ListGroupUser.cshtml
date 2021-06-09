@@ -1,0 +1,92 @@
+﻿@model IList<InformationHub.Model.Model.GroupUser.GroupUserSearchResult>
+@{ string createDate = ""; }
+<div style="overflow-x:auto">
+    <table class="table table-bordered table-hover" style="min-width:1150px">
+        <thead>
+            <tr>
+                <th width="50px" class="text-center">@InformationHub.Resource.Resource.Index_Title</th>
+                <th width="85px" class="text-center">@InformationHub.Resource.Resource.Funtion_Title</th>
+                <th width="150px">@InformationHub.Resource.Resource.GroupUser_Type</th>
+                <th width="150px">@InformationHub.Resource.Resource.GroupUser_Code</th>
+                <th width="200px">@InformationHub.Resource.Resource.GroupUser_Name</th>
+                <th width="160px">@InformationHub.Resource.Resource.GroupUser_Create_By</th>
+                <th width="100px" class="text-center">@InformationHub.Resource.Resource.Label_Create_Date</th>
+                <th>@InformationHub.Resource.Resource.Label_Description</th>
+                <th width="130px">@InformationHub.Resource.Resource.Label_Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{ int index = ViewBag.Index; string content = "";}
+            @if (Model != null && Model.Count > 0)
+            {
+                foreach (var item in Model)
+                {
+                    content = NTS.Common.Utils.Common.FormatContentNews(item.Description, 110);
+                    index++;
+                    createDate = "";
+                    if (item.CreateDate != null)
+                    {
+                        createDate = item.CreateDate.ToString("dd/MM/yyyy");
+                    }
+            <tr>
+                <td class="text-center">@index</td>
+                <td align="center">
+                    @if (InformationHub.Common.LoginCommon.CheckPermission("C0008"))
+                    {
+                        <a href="/GroupUser/UpdateGroupUser/@item.Id" class="btn btn-xs btnfuntion" title="@InformationHub.Resource.Resource.GroupUser_Update_Title"><i class="material-icons btnicon" style="color:orange">edit</i></a>
+                    }
+                    @*@if (item.IsDisable == false)
+                    {
+                        if (InformationHub.Common.LoginCommon.CheckPermission("C0009"))
+                        {
+                            <button onclick="LockGroup('@item.Id')" type="button" class="btn btn-xs btnfuntion" title="@InformationHub.Resource.Resource.GroupUser_Lock"><i class="material-icons btnicon" style="color:red">lock_open</i></button>
+                        }
+                    }
+                    else
+                    {
+                        if (InformationHub.Common.LoginCommon.CheckPermission("C0009"))
+                        {
+                            <button onclick="UnLockGroup('@item.Id')" type="button" class="btn btn-xs btnfuntion" title="@InformationHub.Resource.Resource.GroupUser_Unlock"><i class="material-icons btnicon" style="color:red">lock</i></button>
+                        }
+                    }*@
+                </td>
+                <td>@item.TypeView</td>
+                <td>@item.Code</td>
+                <td>@item.Name</td>
+                <td>@item.CreateBy</td>
+                <td class="text-center">@createDate</td>
+                <td>@content</td>
+                <td>
+                    @if (item.IsDisable == true)
+                    {<span>@InformationHub.Resource.Resource.Label_Status_Active</span> }
+                else
+                { <span>@InformationHub.Resource.Resource.Label_Status_DeActive</span>}
+                </td>
+            </tr>
+                }
+            }
+    </table>
+</div>
+<div class="pagerbottom margin-top-10">
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+        <div class="form-group">
+            <div class="controls">
+                <select class="form-control combobox-padding" onchange="ChangeSize()" id="pageSize">
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="30">30</option>
+                    <option value="40">40</option>
+                    <option value="50">50</option>
+                </select>
+                <span>@InformationHub.Resource.Resource.NumberPage_Title</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-lg col-md-8 col-sm-6 col-xs-6">
+        @Html.Raw(ViewBag.pages)
+    </div>
+</div>
+<script>
+    $('#count_data').html(@ViewBag.TotalItem);
+    $('#pageSize').val(@ViewBag.PageSize);
+</script>

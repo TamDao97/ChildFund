@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Share Image View Controller-->
+        <scene sceneID="ETj-bj-GFz">
+            <objects>
+                <viewController storyboardIdentifier="ShareImageViewController" id="FaU-IV-Rgi" customClass="ShareImageViewController" customModule="childprofile" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NSn-yp-RSR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="efe-Es-hNo">
+                                <rect key="frame" x="16" y="74" width="343" height="44"/>
+                                <color key="backgroundColor" red="0.94509803921568625" green="0.44469713184931509" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="hCL-lb-85S"/>
+                                </constraints>
+                                <state key="normal" title="Chọn ảnh để chia sẻ">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="viewCornerRadius">
+                                        <real key="value" value="22"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="selectImageButtonWasTouched:" destination="FaU-IV-Rgi" eventType="touchUpInside" id="lq2-NX-yy4"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="efe-Es-hNo" firstAttribute="top" secondItem="dcJ-Zb-Kog" secondAttribute="top" constant="54" id="DbW-kb-gcB"/>
+                            <constraint firstItem="dcJ-Zb-Kog" firstAttribute="trailing" secondItem="efe-Es-hNo" secondAttribute="trailing" constant="16" id="anY-wB-rnh"/>
+                            <constraint firstItem="efe-Es-hNo" firstAttribute="leading" secondItem="dcJ-Zb-Kog" secondAttribute="leading" constant="16" id="voP-6L-nyE"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dcJ-Zb-Kog"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="obL-Xh-boO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="70" y="161"/>
+        </scene>
+    </scenes>
+</document>

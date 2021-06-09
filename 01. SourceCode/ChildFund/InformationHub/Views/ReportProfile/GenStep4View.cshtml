@@ -1,0 +1,125 @@
+﻿@{
+    InformationHub.Model.Model.ReportProfile.SupportPlantModel supportPlantModel = ViewBag.supportPlantModel;
+    var dateNow = DateTime.Now;
+}
+<div class="row">
+    <div class="col-md-4 col-sm-4 col-xs-4">
+        <div class="form-group">
+            <label class="form-label" for="field-1">@InformationHub.Resource.Resource.Label_Planning_Date</label><span class="required">*</span>
+            <div class="controls">
+                <input type="hidden" value="@supportPlantModel.Id" id="idSupportPlant" />
+                <input type="text" class="form-control datepickerfml4" id="SupPlantDate" value="@(supportPlantModel.PlantDate != null ? supportPlantModel.PlantDate.Value.ToString("dd/MM/yyyy") : dateNow.ToString("dd/MM/yyyy"))" />
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8 col-sm-8 col-xs-8">
+        <div class="form-group">
+            <label class="form-label" for="field-1">@InformationHub.Resource.Resource.Plant_Title</label><span class="required">*</span>
+            <div class="controls">
+                <input type="text" class="form-control" value="@supportPlantModel.TitlePlant" id="SupTitlePlant" />
+            </div>
+        </div>
+    </div>
+</div>
+<label class="control-label">1. @InformationHub.Resource.Resource.Label_Task</label>
+<textarea id="SupTargetNote" class="form-control margin-bottom-10" rows="8">@supportPlantModel.TargetNote</textarea>
+<label class="control-label">2. @InformationHub.Resource.Resource.Report_Activate</label>
+@*<textarea id="SupActionNote" class="form-control"></textarea>*@
+@Html.TextAreaFor(u => supportPlantModel.ActionNote)
+<div class="clearfix margin-bottom-15"></div>
+<div class="col-lg-6 text-left no-padding">
+    <label class="control-label">3.@InformationHub.Resource.Resource.Report_Organization_Doing</label>
+</div>
+<div class="col-lg-6 text-right no-padding">
+    <button class="btn btn-s btn-success btn-icon margin-bottom-5" type="button" onclick="AddActionTable()">
+        <i class="fa fa-plus"></i> &nbsp; <span>@InformationHub.Resource.Resource.Add_Title</span>
+    </button>
+</div>
+<table class="table table-bordered table-hover" id="tableActivityTab3">
+    <thead>
+        <tr>
+            <th width="100px">@InformationHub.Resource.Resource.Funtion_Title</th>
+            <th>@InformationHub.Resource.Resource.Report_Activate_Name</th>
+            <th>@InformationHub.Resource.Resource.Report_Activate_By</th>
+            <th>@InformationHub.Resource.Resource.Report_Activate_Other_By</th>
+            <th width="240px">@InformationHub.Resource.Resource.Report_Activate_Time_Doing</th>
+        </tr>
+    </thead>
+    <tbody id="tbodyItem">
+
+        @Html.Action("GenListActionTable", "ReportProfile", new { model = supportPlantModel.ListOrganizationActivities })
+    </tbody>
+</table>
+
+<label class="control-label">4. @InformationHub.Resource.Resource.Report_Bubget</label>
+<span class="required" style=" text-transform:none;"> @InformationHub.Resource.Resource.Report_Document_Size</span>
+<div>
+    <label class="icheck icheck-primary ">
+        <input name="SupIsEstimateCost" id="SupIsEstimateCost" @(supportPlantModel.IsEstimateCost == false ? "checked" : "") type="checkbox">
+        <i></i> @InformationHub.Resource.Resource.Cost_Title
+    </label>
+</div>
+<div class="row" id="divEstimateCost" style="@(supportPlantModel.IsEstimateCost==false?"display:none":"display:block")">
+    <div class="col-md-12" style="margin-bottom: 20px">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th width="100px">@InformationHub.Resource.Resource.Funtion_Title</th>
+                    <th>@InformationHub.Resource.Resource.Document_Name </th>
+                    <th width="120px">@InformationHub.Resource.Resource.Label_Size</th>
+                    <th width="120px">@InformationHub.Resource.Resource.Label_Upload_Date</th>
+                </tr>
+            </thead>
+            <tbody id="bodyAttachmentSup">
+                @Html.Action("GenViewFileUpdateSub", "ReportProfile", new { Name = "file", ListProfileAttachment = supportPlantModel.ListProfileAttachment })
+            </tbody>
+        </table>
+        <div>
+            <input type="file" id="uploadFileProfileSup" uploader="uploader" multiple="" style="display:none;">
+            <button type="button" class="btn btn-success btn-s" onclick="$('#uploadFileProfileSup').click()">
+                <span class="glyphicon glyphicon-upload"></span> @InformationHub.Resource.Resource.Label_Choose_File
+            </button>
+        </div>
+    </div>
+</div>
+
+<textarea hidden id="idlistFileSup">@ViewBag.listFileSup</textarea>
+<script src="~/Scripts/bootstrap-datepicker.js"></script>
+<script src="~/Scripts/bootstrap-datepicker.vi.min.js"></script>
+<script type="text/javascript">
+    $('.datepickerfml4').datepicker({
+        format: 'dd/mm/yyyy',
+        endDate: '+0d',
+        autoclose: true
+    });
+    var sizeFile = 0;
+    $('#uploadFileProfileSup').change(function (e) {
+        var files = e.target.files;
+        var kq = false;
+        for (var i = 0; i < files.length; i++) {
+            kq = CheckFileSup(files[i]);
+            if (kq === true) {
+                sizeFile = parseInt(files[i].size / 1024);
+                if (sizeFile===0) {
+                    sizeFile = 1;
+                }
+                if (sizeFile <= 10024) {
+                    _listFileAttachmentSup.push(files[i]);
+                    _listProfileAttachmentSup.push({ Id: Guid(), Name: files[i].name, Size: sizeFile, UploadDate: jQuery.format.date(Date.now(), _shortDateFormatSup) });
+                } else {
+                    toastr.error("File " + files[i].name + ' '+GetNotifyByKey('Waring_File2'), { timeOut: 5000 }); return false;
+                }
+            }
+        }
+        ViewProfileAttachmentUpdateSup();
+    });
+    function createEditor(languageCode, id) {
+        var editor = CKEDITOR.replace(id, {
+            language: languageCode,
+            toolbar: 'Basic'
+        });
+    }
+    $(function () {
+        createEditor('vi', 'supportPlantModel_ActionNote');
+    });
+</script>

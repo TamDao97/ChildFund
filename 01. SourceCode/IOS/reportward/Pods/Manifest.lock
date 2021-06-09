@@ -1,0 +1,42 @@
+PODS:
+  - Alamofire (4.8.1)
+  - IQKeyboardManagerSwift (6.2.0)
+  - JGProgressHUD (2.0.3)
+  - Kingfisher (5.1.1)
+  - Moya (12.0.1):
+    - Moya/Core (= 12.0.1)
+  - Moya/Core (12.0.1):
+    - Alamofire (~> 4.1)
+    - Result (~> 4.0)
+  - Result (4.1.0)
+  - Toast-Swift (4.0.1)
+
+DEPENDENCIES:
+  - IQKeyboardManagerSwift
+  - JGProgressHUD
+  - Kingfisher (~> 5.0)
+  - Moya (~> 12.0)
+  - Toast-Swift (~> 4.0.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - IQKeyboardManagerSwift
+    - JGProgressHUD
+    - Kingfisher
+    - Moya
+    - Result
+    - Toast-Swift
+
+SPEC CHECKSUMS:
+  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
+  IQKeyboardManagerSwift: b07ccf9d8cafe993dcd6cb794eb4ba34611a0c4e
+  JGProgressHUD: 12b20a8f4ffe05258f8635c1ab92816e451f904d
+  Kingfisher: 2558186963e5be42d98c5b110ccb3130148b77e4
+  Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
+  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
+  Toast-Swift: e42a638589a2f95036b4bb7626cfbdde7daf0393
+
+PODFILE CHECKSUM: db409d86976ad59090e9a694edc99b8a1d782171
+
+COCOAPODS: 1.6.0

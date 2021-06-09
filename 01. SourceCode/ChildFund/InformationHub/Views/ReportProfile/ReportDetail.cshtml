@@ -1,0 +1,1229 @@
+﻿@model InformationHub.Model.ReportProfileModel
+@{
+    bool viewMore = ViewBag.viewMore;
+    InformationHub.Model.Repositories.ReportForward reportForward = ViewBag.ForwardInfo;
+    InformationHub.Model.Model.ReportProfile.EvaluationFirstModel evaluationFirstModel = ViewBag.evaluationFirstModel;
+    InformationHub.Model.Model.ReportProfile.CaseVerificationModel caseVerificationModel = ViewBag.caseVerificationModel;
+}
+<section class="wrapper main-wrapper">
+    <div ui-view="" class="ng-scope">
+        <div class="content-wrapper">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <section class="box ">
+                    <div class="content-body form-validate padding-bottom-10">
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="stepwizard margin-bottom-30 margin-top-10">
+                                    <div class="stepwizard-row setup-panel" id="divStep">
+                                        <div class="stepwizard-step" style="text-align:left;">
+                                            <a href="#step-1" type="button" class="btn btn-success btn-success-focus">1</a>
+                                            <p>@InformationHub.Resource.Resource.ReportProfile_Status1</p>
+                                        </div>
+                                        <div class="stepwizard-step" style="width:25%">
+                                            <a href="#step-2" type="button" class="@(Model.StatusStep2 ==true ? "btn btn-success" : "btn btn-default ")">2</a>
+                                            <p>@InformationHub.Resource.Resource.ReportProfile_Status2</p>
+                                        </div>
+                                        <div class="stepwizard-step" style="width:25%">
+                                            <a href="#step-3" type="button" class="@(Model.StatusStep3 ==true ? "btn btn-success" : "btn btn-default ")">3</a>
+                                            <p>@InformationHub.Resource.Resource.ReportProfile_Status3</p>
+                                        </div>
+                                        <div class="stepwizard-step" style="width:25%">
+                                            <a href="#step-4" type="button" class="@(Model.StatusStep4 ==true ? "btn btn-success" : "btn btn-default ")">4</a>
+                                            <p>@InformationHub.Resource.Resource.ReportProfile_Status4</p>
+                                        </div>
+                                        <div class="stepwizard-step" style="text-align:right;">
+                                            <a href="#step-5" type="button" class="@(Model.StatusStep5 ==true ? "btn btn-success" : "btn btn-default ")">5</a>
+                                            <p>@InformationHub.Resource.Resource.ReportProfile_Status5</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <form role="form" id="form">
+                            <div class="row setup-content" id="step-1">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="col-md-12">
+                                            <h3>@InformationHub.Resource.Resource.Report_Process_Step1</h3>
+                                        </div>
+                                        @if (viewMore == true && reportForward != null)
+                                        {
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                <div class="card padding-bottom-10">
+                                                    <div class="col-md-12">
+                                                        <h4 class="card-header">
+                                                            @InformationHub.Resource.Resource.NoteForward_Title
+                                                            <span class="text-info bold" style="font-size:16px"> (@reportForward.CreateDate.ToString("dd/MM/yyyy HH:mm"))</span>
+                                                        </h4>
+                                                    </div>
+                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                        <div class="form-group">
+                                                            <text>@reportForward.ForwardNote</text>
+                                                        </div>
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                            </div>
+                                        }
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                            <div class="card card445">
+                                                <div class="col-md-12">
+                                                    <h4 class="card-header">@InformationHub.Resource.Resource.Report_Info</h4>
+                                                </div>
+                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                    <div class="form-group">
+                                                        <label class="form-label">@InformationHub.Resource.Resource.Code_Report</label><br />
+                                                        <text>@Model.Code</text>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                    <div class="form-group">
+                                                        <label class="form-label">@InformationHub.Resource.Resource.Time_Title</label><br />
+                                                        <text>@(Model.ReceptionDate != null ? Model.ReceptionDate.Value.ToString("dd/MM/yyyy") : "") <span> @Model.ReceptionTime</span></text>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                    <div class="form-group">
+                                                        <label class="form-label" for="field-1">@InformationHub.Resource.Resource.Report_Level</label><br />
+                                                        <text>@(NTS.Common.Utils.Common.GenLevel(Model.SeverityLevel.Value))</text>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                    <div class="form-group">
+                                                        <label class="form-label">@InformationHub.Resource.Resource.ReportProfile_InformationSources</label><br />
+                                                        <text>@(NTS.Common.Utils.Common.GenSource(Model.InformationSources))</text>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                    <div class="form-group">
+                                                        <label class="form-label">@InformationHub.Resource.Resource.ReportProfile_AbuseType</label><br />
+                                                        <text>
+                                                            @(
+                                                                string.Join(", ", Model.ListAbuseType.Where(u => !u.Id.Equals(NTS.Common.Constants.Abuse5)).Select(u => u.Name))
+                                                                +
+                                                                ((Model.ListAbuseType.Where(u => !u.Id.Equals(NTS.Common.Constants.Abuse5)).Count() > 0
+                                                                && Model.ListAbuseType.Where(u => u.Id.Contains(NTS.Common.Constants.Abuse5)).Count() > 0) ? ", " : "")
+                                                                + (Model.ListAbuseType.Where(u => u.Id.Contains(NTS.Common.Constants.Abuse5)).Count() > 0 ? Model.TypeOther : "")
+                                                            )
+
+                                                        </text>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                    <div class="form-group">
+                                                        <label class="form-label">@InformationHub.Resource.Resource.Word_Title</label><br />
+                                                        <text>@Model.WordTitle</text>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                    <div class="form-group">
+                                                        <label class="form-label">@InformationHub.Resource.Resource.Label_Status</label><br />
+                                                        @if (Model.StatusStep6 == true)
+                                                        {
+                                                            <text>@InformationHub.Resource.Resource.ReportProfile_Status6</text>
+                                                        }
+                                                        else
+                                                        {
+                                                            <text>@InformationHub.Resource.Resource.Report_Open</text>
+                                                        }
+                                                    </div>
+                                                </div>
+                                                @if (Model.StatusStep6 == true)
+                                                {
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                        <div class="form-group">
+                                                            <label class="form-label">@InformationHub.Resource.Resource.Label_Close_Date</label><br />
+                                                            <text>@(Model.FinishDate != null ? Model.FinishDate.Value.ToString("dd/MM/yyyy") : "")</text>
+                                                        </div>
+                                                    </div>
+                                                }
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                    <div class="form-group">
+                                                        <label class="form-label">@InformationHub.Resource.Resource.SourceNote_Title</label><br />
+                                                        <textarea class="form-control" readonly>@Model.SourceNote</textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                            <div class="card card445">
+                                                <div class="col-md-12">
+                                                    <h4 class="card-header">@InformationHub.Resource.Resource.Report_Info_Child</h4>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                    <div class="form-group">
+                                                        <label class="form-label">@InformationHub.Resource.Resource.ReportProfile_ChildName</label><br />
+                                                        <text>@Model.ChildName</text>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                    <div class="form-group">
+                                                        <label class="form-label">@InformationHub.Resource.Resource.ReportProfile_Gender</label><br />
+                                                        <text>@(NTS.Common.Utils.Common.GenGender(Model.Gender.Value))</text>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                    <div class="form-group">
+                                                        <label class="form-label">@InformationHub.Resource.Resource.Label_Birthday</label><br />
+                                                        <text>@(Model.ChildBirthdate != null ? Model.ChildBirthdate.Value.ToString("dd/MM/yyyy") : "")</text>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                    <div class="form-group">
+                                                        <label class="form-label">@InformationHub.Resource.Resource.Label_Age</label><br />
+                                                        <text>@Model.Age</text>
+                                                    </div>
+                                                </div>
+                                                <div class="clearfix"></div>
+
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                    <div class="form-group">
+                                                        <label class="form-label">@InformationHub.Resource.Resource.ReportProfile_Address</label><br />
+                                                        <text>@Model.FullAddress</text>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                    <div class="form-group">
+                                                        <label class="form-label">@InformationHub.Resource.Resource.ReportProfile_ReportAddress</label><br />
+                                                        <textarea class="form-control" readonly>@Model.CaseLocation</textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                    <div class="form-group">
+                                                        <label class="form-label">
+                                                            @InformationHub.Resource.Resource.SummaryCase_Title
+                                                        </label>
+                                                        <div class="controls">
+                                                            <textarea type="text" class="form-control textrelative" readonly id="SummaryCase" maxlength="300">@NTS.Common.Utils.Common.StripHTML(Model.SummaryCase, 85)</textarea>
+                                                            <i class="material-icons btnicon icon-absolute" onclick="GetPopupContent('SummaryCase')" style="color:orange">more</i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                            <div class="card card410">
+                                                <div class="col-md-12">
+                                                    <h4 class="card-header">@InformationHub.Resource.Resource.Report_Info_Family</h4>
+                                                </div>
+                                                <div class="col-lg-5 col-md-4 col-sm-7 col-xs-7">
+                                                    <div class="form-group">
+                                                        <label class="form-label">@InformationHub.Resource.Resource.Report_Name_Dad</label><br />
+                                                        <text>@Model.FatherName</text>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-3 col-md-4 col-sm-5 col-xs-5">
+                                                    <div class="form-group">
+                                                        <label class="form-label">@InformationHub.Resource.Resource.YearDate_Title</label><br />
+                                                        <text>@Model.FatherAge</text>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4 col-md-4 col-sm-7 col-xs-7">
+                                                    <div class="form-group">
+                                                        <label class="form-label">@InformationHub.Resource.Resource.Label_Career</label><br />
+                                                        <text>@Model.FatherJob</text>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-5 col-md-4 col-sm-5 col-xs-5">
+                                                    <div class="form-group">
+                                                        <label class="form-label">@InformationHub.Resource.Resource.Report_Name_Mom</label><br />
+                                                        <text>@Model.MotherName</text>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-3 col-md-4 col-sm-7 col-xs-7">
+                                                    <div class="form-group">
+                                                        <label class="form-label">@InformationHub.Resource.Resource.YearDate_Title</label><br />
+                                                        <text>@Model.MotherAge</text>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4 col-md-4 col-sm-5 col-xs-5">
+                                                    <div class="form-group">
+                                                        <label class="form-label">@InformationHub.Resource.Resource.Label_Career</label><br />
+                                                        <text>@Model.MotherJob</text>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                    <div class="form-group">
+                                                        <label class="form-label">@InformationHub.Resource.Resource.Report_Situation_Family</label>
+                                                        <div class="controls">
+                                                            <textarea type="text" class="form-control textrelative" readonly id="FamilySituation" maxlength="300">@NTS.Common.Utils.Common.StripHTML(Model.FamilySituation, 85)</textarea>
+                                                            <i class="material-icons btnicon icon-absolute" onclick="GetPopupContent('FamilySituation')" style="color:orange">more</i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                    <div class="form-group ">
+                                                        <label class="form-label">@InformationHub.Resource.Resource.Report_Take_Care</label><br />
+                                                        <div class="div-scoll">
+                                                            <text> @Model.PeopleCare</text>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                            <div class="card card410">
+                                                <div class="col-md-12">
+                                                    <h4 class="card-header">@InformationHub.Resource.Resource.Report_ConditionLive_Child</h4>
+                                                </div>
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                    <div class="form-group">
+                                                        <label class="form-label">
+                                                            @InformationHub.Resource.Resource.Report_Now
+                                                        </label>
+                                                        <div class="controls">
+                                                            <textarea type="text" class="form-control textrelative" readonly id="CurrentHealth" maxlength="300">@NTS.Common.Utils.Common.StripHTML(Model.CurrentHealth, 85)</textarea>
+                                                            <i class="material-icons btnicon icon-absolute" onclick="GetPopupContent('CurrentHealth')" style="color:orange">more</i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                    <div class="form-group">
+                                                        <label class="form-label">
+                                                            @InformationHub.Resource.Resource.Report_Helped
+                                                            <a href="javascript:void(0)" data-toggle="tooltip" data-placement="bottom" title="@InformationHub.Resource.Resource.Report_Example_Helped"><span class="badge badge-help">?</span></a>
+                                                        </label>
+                                                        <div class="controls">
+                                                            <textarea type="text" class="form-control textrelative" readonly id="Support" maxlength="300">@NTS.Common.Utils.Common.StripHTML(Model.Support, 85)</textarea>
+                                                            <i class="material-icons btnicon icon-absolute" onclick="GetPopupContent('Support')" style="color:orange">more</i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                    <div class="form-group">
+                                                        <label class="form-label">@InformationHub.Resource.Resource.Report_Predict_Result</label>
+                                                        <div class="controls">
+                                                            <textarea type="text" class="form-control textrelative" readonly id="SequelGuess" maxlength="300">@NTS.Common.Utils.Common.StripHTML(Model.SequelGuess, 85)</textarea>
+                                                            <i class="material-icons btnicon icon-absolute" onclick="GetPopupContent('SequelGuess')" style="color:orange">more</i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="card card325">
+                                                <div class="col-md-12">
+                                                    <h4 class="card-header">@InformationHub.Resource.Resource.Report_Info_Reporter</h4>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                    <div class="form-group">
+                                                        <label class="form-label">@InformationHub.Resource.Resource.Label_Name</label><br />
+                                                        <text>@Model.ProviderName</text>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                    <div class="form-group">
+                                                        <label class="form-label">@InformationHub.Resource.Resource.Phone_Title</label><br />
+                                                        <text>@Model.ProviderPhone</text>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                    <div class="form-group">
+                                                        <label class="form-label">@InformationHub.Resource.Resource.ReportProfile_Address</label><br />
+                                                        <textarea class="form-control" readonly>@Model.ProviderAddress</textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                    <div class="form-group">
+                                                        <label class="form-label">@InformationHub.Resource.Resource.Label_Note</label><br />
+                                                        <textarea class="form-control" readonly>@Model.ProviderNote</textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="card card325">
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                    <h4 class="card-header">@InformationHub.Resource.Resource.Report_Document</h4>
+                                                </div>
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-bottom: 20px">
+                                                    <table class="table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th width="100px">@InformationHub.Resource.Resource.Funtion_Title</th>
+                                                                <th>@InformationHub.Resource.Resource.Document_Name</th>
+                                                                <th width="120px">@InformationHub.Resource.Resource.Label_Size</th>
+                                                                <th width="120px">@InformationHub.Resource.Resource.Label_Upload_Date</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            @for (int i = 0; i < Model.ListProfileAttachment.Count; i++)
+                                                            {
+                                                                <tr>
+                                                                    <td><a target="_blank" href="@Model.ListProfileAttachment[i].Path" class="btn btn-xs btnfuntion" title="Download"><i class="material-icons btnicon" style="color:#1656cb">file_download</i></a></td>
+                                                                    <td>@Model.ListProfileAttachment[i].Name</td>
+                                                                    <td>@Model.ListProfileAttachment[i].Size</td>
+                                                                    <td>@Model.ListProfileAttachment[i].UploadDate</td>
+                                                                </tr>
+                                                            }
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12 col-sm-12 col-xs-12 text-right">
+                                            <div class="form-group margin-top-20">
+                                                <button onclick="ExportWordForm1()" type="button" class="btn btn-info btn-icon margin-right-10">
+                                                    <i class="fa fa-file-word-o"></i> &nbsp; <span>@InformationHub.Resource.Resource.ExportDoc_Title</span>
+                                                </button>
+                                                <a href="/ReportProfile/Index" class="btn btn-default btn-icon">
+                                                    <i class="fa fa-power-off"></i> &nbsp; <span>@InformationHub.Resource.Resource.Exit_Title</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="row setup-content" id="step-2">
+                                <div class="col-md-12">
+                                    <h3> @InformationHub.Resource.Resource.Step02_Title</h3>
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-4 col-xs-4">
+                                            <div class="form-group">
+                                                <label class="form-label" for="field-1">@InformationHub.Resource.Resource.Report_First_Date_Evaluate</label>
+                                                <div class="controls">
+                                                    <input type="hidden" class="form-control" />
+                                                    <input type="text" class="form-control " readonly id="EvPerformingDate" value="@(evaluationFirstModel.PerformingDate != null ? evaluationFirstModel.PerformingDate.Value.ToString("dd/MM/yyyy") : string.Empty)" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <label class="control-label">1. @InformationHub.Resource.Resource.Report_Evaluate_1</label>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <label class="control-label">a) @InformationHub.Resource.Resource.Report_Evaluate_Harm</label>
+                                            <table class="table table-bordered table-hover" id="table1_tab1">
+                                                <thead>
+                                                    <tr>
+                                                        <th rowspan="2" width="25%" style="vertical-align:middle;">@InformationHub.Resource.Resource.Report_Evaluate_Harm</th>
+                                                        <th colspan="4" class="text-center">@InformationHub.Resource.Resource.Label_Level</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th width="10%" class="text-center">@InformationHub.Resource.Resource.ReportProfile_Hight</th>
+                                                        <th width="10%" class="text-center">@InformationHub.Resource.Resource.ReportProfile_Nomal</th>
+                                                        <th width="10%" class="text-center">@InformationHub.Resource.Resource.ReportProfile_Low</th>
+                                                        <th class="text-center">@InformationHub.Resource.Resource.Label_Note</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>1. @InformationHub.Resource.Resource.Report_Evaluate_Harm </td>
+                                                        <td class="text-center">
+                                                            <label class="icheck icheck-danger tooltip">
+                                                                <span class="tooltiptext2">@InformationHub.Resource.Resource.M02_EvLevelHarmH</span>
+                                                                <input type="radio" name="EvLevelHarm" value="2">
+                                                                <i></i>
+                                                            </label>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <label class="icheck icheck-primary tooltip">
+                                                                <span class="tooltiptext2">@InformationHub.Resource.Resource.M02_EvLevelHarmN</span>
+                                                                <input type="radio" name="EvLevelHarm" value="1">
+                                                                <i></i>
+                                                            </label>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <label class="icheck icheck-info tooltip">
+                                                                <span class="tooltiptext2">@InformationHub.Resource.Resource.M02_EvLevelHarmL</span>
+                                                                <input type="radio" name="EvLevelHarm" value="0">
+                                                                <i></i>
+                                                            </label>
+                                                        </td>
+                                                        <td>
+                                                            <textarea class="form-control" id="EvLevelHarmNote" readonly maxlength="500">@evaluationFirstModel.LevelHarmNote</textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2. @InformationHub.Resource.Resource.Report_Evaluate_Harm_Continue </td>
+                                                        <td class="text-center">
+                                                            <label class="icheck icheck-danger tooltip">
+                                                                <span class="tooltiptext2">@InformationHub.Resource.Resource.M02_EvLevelHarmContinueH</span>
+                                                                <input type="radio" name="EvLevelHarmContinue" value="2">
+                                                                <i></i>
+                                                            </label>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <label class="icheck icheck-primary tooltip">
+                                                                <span class="tooltiptext2">@InformationHub.Resource.Resource.M02_EvLevelHarmContinueN</span>
+                                                                <input type="radio" name="EvLevelHarmContinue" value="1">
+                                                                <i></i>
+                                                            </label>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <label class="icheck icheck-info tooltip">
+                                                                <span class="tooltiptext2">@InformationHub.Resource.Resource.M02_EvLevelHarmContinueL</span>
+                                                                <input type="radio" name="EvLevelHarmContinue" value="0">
+                                                                <i></i>
+                                                            </label>
+                                                        </td>
+                                                        <td>
+                                                            <textarea class="form-control" id="EvLevelHarmContinueNote" readonly maxlength="500">@evaluationFirstModel.LevelHarmContinueNote</textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><b>@InformationHub.Resource.Resource.Total_Title</b></td>
+                                                        <td class="text-center">
+                                                            <b class="badge badge-danger" id="EvTotalLevelHigh"></b>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <b class="badge badge-primary" id="EvTotalLevelAverage"></b>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <b class="badge badge-info" id="EvTotalLevelLow"></b>
+                                                        </td>
+                                                        <td></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <label class="control-label">b) @InformationHub.Resource.Resource.Report_Evaluate_Protect</label>
+                                            <table class="table table-bordered table-hover" id="table2_tab1">
+                                                <thead>
+                                                    <tr>
+                                                        <th rowspan="2" width="25%" style="vertical-align:middle;">@InformationHub.Resource.Resource.Report_Evaluate_Protect</th>
+                                                        <th colspan="4" class="text-center">@InformationHub.Resource.Resource.Label_Level</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th width="10%" class="text-center">@InformationHub.Resource.Resource.ReportProfile_Hight</th>
+                                                        <th width="10%" class="text-center">@InformationHub.Resource.Resource.ReportProfile_Nomal</th>
+                                                        <th width="10%" class="text-center">@InformationHub.Resource.Resource.ReportProfile_Low</th>
+                                                        <th class="text-center">@InformationHub.Resource.Resource.Label_Note</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>1. @InformationHub.Resource.Resource.Report_Protect</td>
+                                                        <td class="text-center">
+                                                            <label class="icheck icheck-danger tooltip">
+                                                                <span class="tooltiptext2">@InformationHub.Resource.Resource.M02_EvAbilityProtectYourselfH</span>
+                                                                <input type="radio" name="EvAbilityProtectYourself" value="2">
+                                                                <i></i>
+                                                            </label>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <label class="icheck icheck-primary tooltip">
+                                                                <span class="tooltiptext2">@InformationHub.Resource.Resource.M02_EvAbilityProtectYourselfN</span>
+                                                                <input type="radio" name="EvAbilityProtectYourself" value="1">
+                                                                <i></i>
+                                                            </label>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <label class="icheck icheck-info tooltip">
+                                                                <span class="tooltiptext2">@InformationHub.Resource.Resource.M02_EvAbilityProtectYourselfL</span>
+                                                                <input type="radio" name="EvAbilityProtectYourself" value="0">
+                                                                <i></i>
+                                                            </label>
+                                                        </td>
+                                                        <td>
+                                                            <textarea class="form-control" id="EvAbilityProtectYourselfNote" readonly maxlength="500">@evaluationFirstModel.AbilityProtectYourselfNote</textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2. @InformationHub.Resource.Resource.Report_Ability_Receive_Support </td>
+                                                        <td class="text-center">
+                                                            <label class="icheck icheck-danger tooltip">
+                                                                <span class="tooltiptext2">@InformationHub.Resource.Resource.M02_EvAbilityReceiveSupportH</span>
+                                                                <input type="radio" name="EvAbilityReceiveSupport" value="2">
+                                                                <i></i>
+                                                            </label>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <label class="icheck icheck-primary tooltip">
+                                                                <span class="tooltiptext2">@InformationHub.Resource.Resource.M02_EvAbilityReceiveSupportN</span>
+                                                                <input type="radio" name="EvAbilityReceiveSupport" value="1">
+                                                                <i></i>
+                                                            </label>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <label class="icheck icheck-info tooltip">
+                                                                <span class="tooltiptext2">@InformationHub.Resource.Resource.M02_EvAbilityReceiveSupportL</span>
+                                                                <input type="radio" name="EvAbilityReceiveSupport" value="0">
+                                                                <i></i>
+                                                            </label>
+                                                        </td>
+                                                        <td>
+                                                            <textarea class="form-control" id="EvAbilityReceiveSupportNote" readonly maxlength="500">@evaluationFirstModel.AbilityReceiveSupportNote</textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><b>@InformationHub.Resource.Resource.Total_Title</b></td>
+                                                        <td class="text-center">
+                                                            <b class="badge badge-danger" id="EvTotalAbilityHigh"></b>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <b class="badge badge-primary" id="EvTotalAbilityAverage"></b>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <b class="badge badge-info" id="EvTotalAbilityLow"></b>
+                                                        </td>
+                                                        <td></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <label class="control-label">@InformationHub.Resource.Resource.Report_Evaluate_Result </label>
+                                    <textarea class="form-control" id="EvResult" readonly rows="6">@evaluationFirstModel.Result</textarea>
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <label class="control-label">2. @InformationHub.Resource.Resource.Report_Solution_Protect</label>
+                                        </div>
+                                        <table class="table table-bordered table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>@InformationHub.Resource.Resource.Report_Solution_Protect_Need</th>
+                                                    <th width="37%">@InformationHub.Resource.Resource.Report_Solution_Protect_Service</th>
+                                                    <th width="37%">@InformationHub.Resource.Resource.Report_Solution_Protect_Provider</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1. @InformationHub.Resource.Resource.Report_Accommodation</td>
+                                                    <td>
+                                                        <textarea class="form-control" readonly id="EvServiceProvideLiving" cols="5">@evaluationFirstModel.ServiceProvideLiving</textarea>
+                                                    </td>
+                                                    <td>
+                                                        <div class="controls margin-bottom-0">
+                                                            <textarea class="form-control" readonly id="EvUnitProvideLiving" cols="5">@evaluationFirstModel.UnitProvideLiving</textarea>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2. @InformationHub.Resource.Resource.Report_Physique </td>
+                                                    <td>
+                                                        <textarea class="form-control" readonly id="EvServiceProvideCare" cols="5">@evaluationFirstModel.ServiceProvideCare</textarea>
+                                                    </td>
+                                                    <td>
+                                                        <div class="controls margin-bottom-0">
+                                                            <textarea class="form-control" readonly id="EvUnitProvideCare" cols="5">@evaluationFirstModel.UnitProvideCare</textarea>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-12 text-right margin-top-15">
+                                            @if (Model.StatusStep2 == true)
+                                            {
+                                                <button onclick="ExportWordForm2()" type="button" class="btn btn-info btn-icon margin-right-10">
+                                                    <i class="fa fa-file-word-o"></i> &nbsp; <span>@InformationHub.Resource.Resource.ExportDoc_Title</span>
+                                                </button>
+                                            }
+                                            <a href="/ReportProfile/Index" class="btn btn-default btn-icon">
+                                                <i class="fa fa-power-off"></i> &nbsp; <span>@InformationHub.Resource.Resource.Exit_Title</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row setup-content" id="step-3">
+                                <div class="col-md-12">
+                                    <h3> @InformationHub.Resource.Resource.Step03_Title</h3>
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-4 col-xs-4">
+                                            <div class="form-group">
+                                                <label class="form-label" for="field-1">@InformationHub.Resource.Resource.DateReview_Verify</label>
+                                                <div class="controls">
+                                                    <input type="hidden" class="form-control" />
+                                                    <input type="text" class="form-control " readonly id="CaPerformingDate" value="@(caseVerificationModel.PerformingDate != null ? caseVerificationModel.PerformingDate.Value.ToString("dd/MM/yyyy") : string.Empty)" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-sm-4 col-xs-4">
+                                            <div class="form-group">
+                                                <label class="form-label" for="field-1">@InformationHub.Resource.Resource.PersonReview_Verify</label>
+                                                <div class="controls">
+                                                    <input type="text" class="form-control" readonly id="CaPerformingBy" value="@caseVerificationModel.PerformingBy" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <label class="control-label">1. @InformationHub.Resource.Resource.Report_Collect_Information</label>
+                                    <table class="table table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th width="50%">@InformationHub.Resource.Resource.Report_Question</th>
+                                                <th>@InformationHub.Resource.Resource.Report_Answer</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>@InformationHub.Resource.Resource.Report_Status_Child</td>
+                                                <td>
+                                                    <div class="controls margin-bottom-0">
+                                                        <textarea class="form-control" cols="5" readonly id="CaCondition">@caseVerificationModel.Condition</textarea>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>@InformationHub.Resource.Resource.Report_Situation_Child </td>
+                                                <td>
+                                                    <div class="controls margin-bottom-0">
+                                                        <textarea class="form-control" cols="5" readonly id="CaFamilySituation">@caseVerificationModel.FamilySituation</textarea>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>@InformationHub.Resource.Resource.Report_Impact_Factors_Child</td>
+                                                <td>
+                                                    <div class="col-md-6 col-sm-6 col-xs-6 form-group">
+                                                        <label class="form-label" for="field-6">@InformationHub.Resource.Resource.Report_Factor_Positive</label>
+                                                        <div class="controls margin-bottom-0">
+                                                            <textarea class="form-control" readonly cols="5" id="CaCurrentQualityCareOK">@caseVerificationModel.CurrentQualityCareOK</textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-sm-6 col-xs-6 form-group">
+                                                        <label class="form-label" for="field-6">@InformationHub.Resource.Resource.Report_Factor_Negative</label>
+                                                        <div class="controls margin-bottom-0">
+                                                            <textarea class="form-control" readonly cols="5" id="CaCurrentQualityCareNG">@caseVerificationModel.CurrentQualityCareNG</textarea>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>@InformationHub.Resource.Resource.Report_Care_Future</td>
+                                                <td>
+                                                    <div class="controls">
+                                                        <textarea class="form-control margin-bottom-0" readonly id="CaPeopleCareFuture" cols="5">@caseVerificationModel.PeopleCareFuture</textarea>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>@InformationHub.Resource.Resource.Report_Factor_Care  </td>
+                                                <td>
+                                                    <div class="col-md-6 col-sm-6 col-xs-6 form-group">
+                                                        <label class="form-label" for="field-6">@InformationHub.Resource.Resource.Report_Factor_Positive</label>
+                                                        <div class="controls margin-bottom-0">
+                                                            <textarea class="form-control" readonly cols="5" id="CaFutureQualityCareOK">@caseVerificationModel.FutureQualityCareOK</textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-sm-6 col-xs-6 form-group no">
+                                                        <label class="form-label" for="field-6">@InformationHub.Resource.Resource.Report_Factor_Negative</label>
+                                                        <div class="controls margin-bottom-0">
+                                                            <textarea class="form-control" readonly cols="5" id="CaFutureQualityCareNG">@caseVerificationModel.FutureQualityCareNG</textarea>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <label class="control-label">2. @InformationHub.Resource.Resource.Report_Process_Specific</label>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <label class="control-label">a) @InformationHub.Resource.Resource.Report_Evaluate_Harm</label>
+                                            <table class="table table-bordered table-hover" id="table1_tab2">
+                                                <thead>
+                                                    <tr>
+                                                        <th rowspan="2" width="25%" style="vertical-align:middle;">@InformationHub.Resource.Resource.Report_Evaluate_Harm</th>
+                                                        <th colspan="4" class="text-center">@InformationHub.Resource.Resource.Label_Level</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th width="10%" class="text-center">@InformationHub.Resource.Resource.ReportProfile_Hight</th>
+                                                        <th width="10%" class="text-center">@InformationHub.Resource.Resource.ReportProfile_Nomal</th>
+                                                        <th width="10%" class="text-center">@InformationHub.Resource.Resource.ReportProfile_Low</th>
+                                                        <th>@InformationHub.Resource.Resource.Label_Note</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>1. @InformationHub.Resource.Resource.Report_Evaluate_Harm_Child </td>
+                                                        <td class="text-center">
+                                                            <label class="icheck icheck-danger tooltip">
+                                                                <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaLevelHarmH</span>
+                                                                <input type="radio" value="2" checked name="CaLevelHarm">
+                                                                <i></i>
+                                                            </label>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <label class="icheck icheck-primary tooltip">
+                                                                <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaLevelHarmN</span>
+                                                                <input type="radio" value="1" name="CaLevelHarm">
+                                                                <i></i>
+                                                            </label>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <label class="icheck icheck-info tooltip">
+                                                                <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaLevelHarmL</span>
+                                                                <input type="radio" value="0" name="CaLevelHarm">
+                                                                <i></i>
+                                                            </label>
+                                                        </td>
+                                                        <td>
+                                                            <textarea class="form-control" readonly maxlength="500" id="CaLevelHarmNote">@caseVerificationModel.LevelHarmNote</textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2. @InformationHub.Resource.Resource.Report_Attack_Child_Future</td>
+                                                        <td class="text-center">
+                                                            <label class="icheck icheck-danger tooltip">
+                                                                <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaLevelApproachH</span>
+                                                                <input type="radio" value="2" checked name="CaLevelApproach">
+                                                                <i></i>
+                                                            </label>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <label class="icheck icheck-primary tooltip">
+                                                                <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaLevelApproachN</span>
+                                                                <input type="radio" value="1" name="CaLevelApproach">
+                                                                <i></i>
+                                                            </label>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <label class="icheck icheck-info tooltip">
+                                                                <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaLevelApproachL</span>
+                                                                <input type="radio" value="0" name="CaLevelApproach">
+                                                                <i></i>
+                                                            </label>
+                                                        </td>
+                                                        <td>
+                                                            <textarea class="form-control" maxlength="500" readonly id="CaLevelApproachNote">@caseVerificationModel.LevelApproachNote</textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>3. @InformationHub.Resource.Resource.Report_Attack_Result </td>
+                                                        <td class="text-center">
+                                                            <label class="icheck icheck-danger tooltip">
+                                                                <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaLevelDevelopmentEffectH</span>
+                                                                <input type="radio" value="2" checked name="CaLevelDevelopmentEffect">
+                                                                <i></i>
+                                                            </label>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <label class="icheck icheck-primary tooltip">
+                                                                <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaLevelDevelopmentEffectN</span>
+                                                                <input type="radio" value="1" name="CaLevelDevelopmentEffect">
+                                                                <i></i>
+                                                            </label>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <label class="icheck icheck-info tooltip">
+                                                                <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaLevelDevelopmentEffectL</span>
+                                                                <input type="radio" value="0" name="CaLevelDevelopmentEffect">
+                                                                <i></i>
+                                                            </label>
+                                                        </td>
+                                                        <td>
+                                                            <textarea class="form-control" readonly maxlength="500" id="CaLevelDevelopmentEffectNote">@caseVerificationModel.LevelDevelopmentEffectNote</textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>4. @InformationHub.Resource.Resource.Report_Difficult_Care_Child </td>
+                                                        <td class="text-center">
+                                                            <label class="icheck icheck-danger tooltip">
+                                                                <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaLevelCareObstacleH</span>
+                                                                <input type="radio" value="2" checked name="CaLevelCareObstacle">
+                                                                <i></i>
+                                                            </label>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <label class="icheck icheck-primary tooltip">
+                                                                <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaLevelCareObstacleN</span>
+                                                                <input type="radio" value="1" name="CaLevelCareObstacle">
+                                                                <i></i>
+                                                            </label>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <label class="icheck icheck-info tooltip">
+                                                                <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaLevelCareObstacleL</span>
+                                                                <input type="radio" value="0" name="CaLevelCareObstacle">
+                                                                <i></i>
+                                                            </label>
+                                                        </td>
+                                                        <td>
+                                                            <textarea class="form-control" readonly maxlength="500" id="CaLevelCareObstacleNote">@caseVerificationModel.LevelCareObstacleNote</textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            5. @InformationHub.Resource.Resource.Report_Unable_Care_Child
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <label class="icheck icheck-danger tooltip">
+                                                                <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaLevelNoGuardianH</span>
+                                                                <input type="radio" value="2" checked name="CaLevelNoGuardian">
+                                                                <i></i>
+                                                            </label>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <label class="icheck icheck-primary tooltip">
+                                                                <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaLevelNoGuardianN</span>
+                                                                <input type="radio" value="1" name="CaLevelNoGuardian">
+                                                                <i></i>
+                                                            </label>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <label class="icheck icheck-info tooltip">
+                                                                <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaLevelNoGuardianL</span>
+                                                                <input type="radio" value="0" name="CaLevelNoGuardian">
+                                                                <i></i>
+                                                            </label>
+                                                        </td>
+                                                        <td>
+                                                            <textarea class="form-control" readonly maxlength="500" id="CaLevelNoGuardianNote">@caseVerificationModel.LevelNoGuardianNote</textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><b>@InformationHub.Resource.Resource.Total_Title</b></td>
+                                                        <td class="text-center">
+                                                            <b class="badge badge-danger" id="CaTotalLevelHigh"></b>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <b class="badge badge-primary" id="CaTotalLevelAverage"></b>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <b class="badge badge-info" id="CaTotalLevelLow"></b>
+                                                        </td>
+                                                        <td></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <label class="control-label">b) @InformationHub.Resource.Resource.Report_Evaluate_Protect</label>
+                                            <table class="table table-bordered table-hover" id="table2_tab2">
+                                                <thead>
+                                                    <tr>
+                                                        <th rowspan="2" width="25%" style="vertical-align:middle;">@InformationHub.Resource.Resource.Report_Evaluate_Protect</th>
+                                                        <th colspan="4" class="text-center">@InformationHub.Resource.Resource.Label_Level</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th width="10%" class="text-center">@InformationHub.Resource.Resource.ReportProfile_Hight</th>
+                                                        <th width="10%" class="text-center">@InformationHub.Resource.Resource.ReportProfile_Nomal</th>
+                                                        <th width="10%" class="text-center">@InformationHub.Resource.Resource.ReportProfile_Low</th>
+                                                        <th>@InformationHub.Resource.Resource.Label_Note</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>1. @InformationHub.Resource.Resource.Report_Child_Protect  </td>
+                                                        <td class="text-center">
+                                                            <label class="icheck icheck-danger tooltip">
+                                                                <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaAbilityProtectYourselfH</span>
+                                                                <input type="radio" value="2" checked name="CaAbilityProtectYourself">
+                                                                <i></i>
+                                                            </label>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <label class="icheck icheck-primary tooltip">
+                                                                <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaAbilityProtectYourselfN</span>
+                                                                <input type="radio" value="1" name="CaAbilityProtectYourself">
+                                                                <i></i>
+                                                            </label>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <label class="icheck icheck-info tooltip">
+                                                                <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaAbilityProtectYourselfL</span>
+                                                                <input type="radio" value="0" name="CaAbilityProtectYourself">
+                                                                <i></i>
+                                                            </label>
+                                                        </td>
+                                                        <td>
+                                                            <textarea class="form-control" readonly maxlength="500" id="CaAbilityProtectYourselfNote">@caseVerificationModel.AbilityProtectYourselfNote</textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            2. @InformationHub.Resource.Resource.Report_Child_Know_Protecter
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <label class="icheck icheck-danger tooltip">
+                                                                <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaAbilityKnowGuardH</span>
+                                                                <input type="radio" value="2" checked name="CaAbilityKnowGuard">
+                                                                <i></i>
+                                                            </label>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <label class="icheck icheck-primary tooltip">
+                                                                <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaAbilityKnowGuardN</span>
+                                                                <input type="radio" value="1" name="CaAbilityKnowGuard">
+                                                                <i></i>
+                                                            </label>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <label class="icheck icheck-info tooltip">
+                                                                <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaAbilityKnowGuardL</span>
+                                                                <input type="radio" value="0" name="CaAbilityKnowGuard">
+                                                                <i></i>
+                                                            </label>
+                                                        </td>
+                                                        <td>
+                                                            <textarea class="form-control" readonly maxlength="500" id="CaAbilityKnowGuardNote">@caseVerificationModel.AbilityKnowGuardNote</textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            3. @InformationHub.Resource.Resource.Report_Child_Create_Relationship
+
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <label class="icheck icheck-danger tooltip">
+                                                                <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaAbilityEstablishRelationshipH</span>
+                                                                <input type="radio" value="2" checked name="CaAbilityEstablishRelationship">
+                                                                <i></i>
+                                                            </label>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <label class="icheck icheck-primary tooltip">
+                                                                <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaAbilityEstablishRelationshipN</span>
+                                                                <input type="radio" value="1" name="CaAbilityEstablishRelationship">
+                                                                <i></i>
+                                                            </label>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <label class="icheck icheck-info tooltip">
+                                                                <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaAbilityEstablishRelationshipL</span>
+                                                                <input type="radio" value="0" name="CaAbilityEstablishRelationship">
+                                                                <i></i>
+                                                            </label>
+                                                        </td>
+                                                        <td>
+                                                            <textarea class="form-control" readonly maxlength="500" id="CaAbilityEstablishRelationshipNote">@caseVerificationModel.AbilityEstablishRelationshipNote</textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>4. @InformationHub.Resource.Resource.Report_Child_Ask_Protecter  </td>
+                                                        <td class="text-center">
+                                                            <label class="icheck icheck-danger tooltip">
+                                                                <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaAbilityRelyGuardH</span>
+                                                                <input type="radio" value="2" checked name="CaAbilityRelyGuard">
+                                                                <i></i>
+                                                            </label>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <label class="icheck icheck-primary tooltip">
+                                                                <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaAbilityRelyGuardN</span>
+                                                                <input type="radio" value="1" name="CaAbilityRelyGuard">
+                                                                <i></i>
+                                                            </label>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <label class="icheck icheck-info tooltip">
+                                                                <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaAbilityRelyGuardL</span>
+                                                                <input type="radio" value="0" name="CaAbilityRelyGuard">
+                                                                <i></i>
+                                                            </label>
+                                                        </td>
+                                                        <td>
+                                                            <textarea class="form-control" readonly maxlength="500" id="CaAbilityRelyGuardNote">@caseVerificationModel.AbilityRelyGuardNote</textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>5. @InformationHub.Resource.Resource.Report_Other_Care_Child </td>
+                                                        <td class="text-center">
+                                                            <label class="icheck icheck-danger tooltip">
+                                                                <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaAbilityHelpOthersH</span>
+                                                                <input type="radio" value="2" checked name="CaAbilityHelpOthers">
+                                                                <i></i>
+                                                            </label>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <label class="icheck icheck-primary tooltip">
+                                                                <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaAbilityHelpOthersN</span>
+                                                                <input type="radio" value="1" name="CaAbilityHelpOthers">
+                                                                <i></i>
+                                                            </label>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <label class="icheck icheck-info tooltip">
+                                                                <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaAbilityHelpOthersL</span>
+                                                                <input type="radio" value="0" name="CaAbilityHelpOthers">
+                                                                <i></i>
+                                                            </label>
+                                                        </td>
+                                                        <td>
+                                                            <textarea class="form-control" readonly maxlength="500" id="CaAbilityHelpOthersNote">@caseVerificationModel.AbilityHelpOthersNote</textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><b>@InformationHub.Resource.Resource.Total_Title</b></td>
+                                                        <td class="text-center">
+                                                            <b class="badge badge-danger" id="CaTotalAbilityHigh"></b>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <b class="badge badge-primary" id="CaTotalAbilityAverage"></b>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <b class="badge badge-info" id="CaTotalAbilityLow"></b>
+                                                        </td>
+                                                        <td></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <label class="control-label">3. @InformationHub.Resource.Resource.Report_Conclusion_Risk</label>
+                                    <textarea class="form-control" id="CaResult" readonly rows="6">@caseVerificationModel.Result</textarea>
+                                    <div class="row">
+                                        <div class="col-md-6 col-sm-6 col-xs-6">
+                                            <div class="form-group">
+                                                <label class="form-label" for="field-1">4. @InformationHub.Resource.Resource.Report_Problems_Child</label>
+                                                <div class="controls">
+                                                    <textarea class="form-control" readonly cols="5" id="CaProblemIdentify">@caseVerificationModel.ProblemIdentify</textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6">
+                                            <div class="form-group">
+                                                <label class="form-label" for="field-1">5. @InformationHub.Resource.Resource.Report_Idea_Child</label>
+                                                <div class="controls">
+                                                    <textarea class="form-control" readonly cols="5" id="CaChildAspiration">@caseVerificationModel.ChildAspiration</textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6">
+                                            <div class="form-group">
+                                                <label class="form-label" for="field-1">6. @InformationHub.Resource.Resource.Report_Idea_Carer</label>
+                                                <div class="controls">
+                                                    <textarea class="form-control" readonly cols="5" id="CaFamilyAspiration">@caseVerificationModel.FamilyAspiration</textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6">
+                                            <div class="form-group">
+                                                <label class="form-label" for="field-1">7. @InformationHub.Resource.Resource.Report_Child_Need</label>
+                                                <div class="controls">
+                                                    <textarea class="form-control" readonly cols="5" id="CaServiceNeeds">@caseVerificationModel.ServiceNeeds</textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <label class="control-label">8. @InformationHub.Resource.Resource.KeyCaExtend</label>
+                                    <textarea class="form-control" readonly id="CaExtend" rows="6">@caseVerificationModel.Extend</textarea>
+
+                                    <div class="row">
+                                        <div class="col-lg-12 text-right margin-top-15">
+                                            @if (Model.StatusStep3 == true)
+                                            {
+                                                <button onclick="ExportWordForm3()" type="button" class="btn btn-info btn-icon margin-right-10">
+                                                    <i class="fa fa-file-word-o"></i> &nbsp; <span>@InformationHub.Resource.Resource.ExportDoc_Title</span>
+                                                </button>
+                                            }
+                                            <a href="/ReportProfile/Index" class="btn btn-default btn-icon">
+                                                <i class="fa fa-power-off"></i> &nbsp; <span>@InformationHub.Resource.Resource.Exit_Title</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row setup-content" id="step-4">
+                                <div class="col-md-12">
+                                    <h3> @InformationHub.Resource.Resource.Step04_Title</h3>
+                                    <div class="row">
+                                    </div>
+                                    <div class="row" id="title-data-step4">
+                                        @Html.Action("GenTitleStep4DetailView", "ReportProfile", new { reportProfileId = Model.Id })
+                                    </div>
+
+                                    <div id="data-step4">
+                                        @Html.Action("GenStep4DetailView", "ReportProfile", new { id = "", reportProfileId = Model.Id })
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12 col-xs-12 text-right">
+                                            <div class="form-group margin-top-20">
+                                                @if (Model.StatusStep4 == true)
+                                                {
+                                                    <button onclick="ExportWordForm4()" type="button" class="btn btn-info btn-icon margin-right-10">
+                                                        <i class="fa fa-file-word-o"></i> &nbsp; <span>@InformationHub.Resource.Resource.ExportDoc_Title</span>
+                                                    </button>
+                                                }
+                                                <a href="/ReportProfile/Index" class="btn btn-default btn-icon">
+                                                    <i class="fa fa-power-off"></i> &nbsp; <span>@InformationHub.Resource.Resource.Exit_Title</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row setup-content" id="step-5">
+                                <div class="col-md-12">
+                                    <h3> @InformationHub.Resource.Resource.Step06_Title</h3>
+                                    <div class="row">
+
+                                    </div>
+                                    <div class="row" id="title-data-step5">
+                                        @Html.Action("GenTitleStep5DetailView", "ReportProfile", new { reportProfileId = Model.Id })
+                                    </div>
+
+                                    <div id="data-step5">
+                                        @Html.Action("GenStep5DetailView", "ReportProfile", new { id = "", reportProfileId = Model.Id })
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12 col-xs-12 text-right">
+                                            <div class="form-group margin-top-20">
+                                                @if (Model.StatusStep5 == true)
+                                                {
+                                                    <button onclick="ExportWordForm5()" type="button" class="btn btn-info btn-icon margin-right-10">
+                                                        <i class="fa fa-file-word-o"></i> &nbsp; <span>@InformationHub.Resource.Resource.ExportDoc_Title</span>
+                                                    </button>
+                                                }
+                                                <a href="/ReportProfile/Index" class="btn btn-default btn-icon">
+                                                    <i class="fa fa-power-off"></i> &nbsp; <span>@InformationHub.Resource.Resource.Exit_Title</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+<a id="linkDowload"></a>
+<div id="contentView"></div>
+<script src="~/ScriptControllers/DetailProfileControllers.js"></script>
+<script type="text/javascript">
+       window.onload = InitModel('@Model.Id');
+    //set giá trị cho tab số 2
+    $("input[name=EvLevelHarm][value=" + @evaluationFirstModel.LevelHarm.ToString() + "]").prop('checked', true);
+    $("input[name=EvLevelHarmContinue][value=" + @evaluationFirstModel.LevelHarmContinue.ToString() + "]").prop('checked', true);
+    $("input[name=EvAbilityProtectYourself][value=" + @evaluationFirstModel.AbilityProtectYourself.ToString() + "]").prop('checked', true);
+    $("input[name=EvAbilityReceiveSupport][value=" + @evaluationFirstModel.AbilityReceiveSupport.ToString() + "]").prop('checked', true);
+    //set giá trị cho tab số 3
+    $("input[name=CaLevelHarm][value=" + @caseVerificationModel.LevelHarm.ToString() + "]").prop('checked', true);
+    $("input[name=CaLevelApproach][value=" + @caseVerificationModel.LevelApproach.ToString() + "]").prop('checked', true);
+    $("input[name=CaLevelDevelopmentEffect][value=" + @caseVerificationModel.LevelDevelopmentEffect.ToString() + "]").prop('checked', true);
+    $("input[name=CaLevelCareObstacle][value=" + @caseVerificationModel.LevelCareObstacle.ToString() + "]").prop('checked', true);
+    $("input[name=CaLevelNoGuardian][value=" + @caseVerificationModel.LevelNoGuardian.ToString() + "]").prop('checked', true);
+
+    $("input[name=CaAbilityProtectYourself][value=" + @caseVerificationModel.AbilityProtectYourself.ToString() + "]").prop('checked', true);
+    $("input[name=CaAbilityKnowGuard][value=" + @caseVerificationModel.AbilityKnowGuard.ToString() + "]").prop('checked', true);
+    $("input[name=CaAbilityEstablishRelationship][value=" + @caseVerificationModel.AbilityEstablishRelationship.ToString() + "]").prop('checked', true);
+    $("input[name=CaAbilityRelyGuard][value=" + @caseVerificationModel.AbilityRelyGuard.ToString() + "]").prop('checked', true);
+    $("input[name=CaAbilityHelpOthers][value=" + @caseVerificationModel.AbilityHelpOthers.ToString() + "]").prop('checked', true);
+
+</script>
+<style>
+    .card text {
+        padding-left: 10px;
+    }
+
+    .card label {
+        padding-top: 10px;
+        font-weight: 600 !important;
+    }
+
+    label {
+        font-weight: 600 !important;
+    }
+</style>

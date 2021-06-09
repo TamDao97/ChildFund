@@ -1,0 +1,126 @@
+﻿@{
+                /**/
+
+                ViewBag.Title = "Quản lý nhóm quyền";
+                Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="wrapper main-wrapper">
+    <div ui-view="" class="ng-scope">
+        <div class="content-wrapper">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <section class="box collapsed">
+                    <header class="panel_header">
+                        <h2 class="title pull-left">@InformationHub.Resource.Resource.Search_Title</h2>
+                        <div class="actions panel_actions pull-right">
+                            <i class="box_toggle material-icons">expand_more</i>
+                        </div>
+                    </header>
+                    <div class="content-body padding-bottom-10">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-4">
+                                <div class="form-group">
+                                    <label class="form-label">@InformationHub.Resource.Resource.GroupUser_Type</label>
+                                    <span class="desc"></span>
+                                    <div class="controls">
+                                        <select class="form-control" id="typeSearch">
+                                            <option value="">@InformationHub.Resource.Resource.All_Title</option>
+                                            <option value="0">@InformationHub.Resource.Resource.GroupUser_Type_Admin</option>
+                                            <option value="1">@InformationHub.Resource.Resource.GroupUser_Type_Province</option>
+                                            <option value="2">@InformationHub.Resource.Resource.GroupUser_Type_District</option>
+                                            <option value="3">@InformationHub.Resource.Resource.GroupUser_Type_Ward</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-4">
+                                <div class="form-group">
+                                    <label class="form-label">@InformationHub.Resource.Resource.GroupUser_Name</label>
+                                    <span class="desc"></span>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" id="nameSearch">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-4">
+                                <div class="form-group">
+                                    <label class="form-label">@InformationHub.Resource.Resource.Label_Status</label>
+                                    <span class="desc"></span>
+                                    <div class="controls">
+                                        <select class="form-control" id="statusSearch">
+                                            <option value="">@InformationHub.Resource.Resource.All_Title</option>
+                                            <option value="1">@InformationHub.Resource.Resource.Label_Status_Active</option>
+                                            <option value="0">@InformationHub.Resource.Resource.Label_Status_DeActive</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 text-right">
+                                <div class="form-group margin-top-20">
+                                    <button onclick="SearchGroupUser()" class="btn btn-success btn-icon right10">
+                                        <i class="fa fa-search"></i> &nbsp; <span>@InformationHub.Resource.Resource.Search_Title</span>
+                                    </button>
+                                    <button onclick="RefreshGroupUser()" class="btn btn-default btn-icon">
+                                        <i class="fa fa-refresh"></i> &nbsp; <span>@InformationHub.Resource.Resource.Reset_Title</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <section class="box ">
+                    <header class="panel_header">
+                        <h2 class="title pull-left">@InformationHub.Resource.Resource.GroupUser_List</h2>
+                        <div class="actions panel_actions pull-right">
+                            <i class="box_toggle material-icons">expand_more</i>
+                        </div>
+                    </header>
+                    <div class="content-body padding-bottom-10">
+                        <div class="row margin-bottom-5">
+                            <div class="col-lg-93 col-md-9 col-sm-8 col-xs-12 text-left">
+                                <h4>
+                                    @InformationHub.Resource.Resource.Total_Title <b class="badge badge-primary" id="count_data"></b> @InformationHub.Resource.Resource.GroupUser_Group
+                                </h4>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 text-right">
+                                @if (InformationHub.Common.LoginCommon.CheckPermission("C0007"))
+                                {
+                                    <a href="/GroupUser/CreateGroupUser" class="btn btn-success btn-icon right10">
+                                        <i class="fa fa-plus"></i> &nbsp; <span>@InformationHub.Resource.Resource.Add_Title</span>
+                                    </a>
+                                }
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="margin-bottom-10" id="list_data">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 margin-bottom-10">
+                                <hr class="margin-bottom-10 margin-top-0" />
+                                <button class="btn btn-xs btnfuntion" title="@InformationHub.Resource.Resource.GroupUser_Update_Title">
+                                    <i class="material-icons btnicon" style="color:orange">edit</i>
+                                </button>&nbsp;<small class="padding-right-20">@InformationHub.Resource.Resource.GroupUser_Update_Title</small>
+                                @*<button class="btn btn-xs btnfuntion" title="Khóa nhóm quyền">
+                                    <i class="material-icons btnicon" style="color:red">lock_open</i>
+                                </button>&nbsp;<small class="padding-right-20">@InformationHub.Resource.Resource.GroupUser_Lock</small>
+                                <button class="btn btn-xs btnfuntion" title="Bỏ khóa nhóm quyền">
+                                    <i class="material-icons btnicon" style="color:red">lock</i>
+                                </button>&nbsp;<small class="padding-right-20">@InformationHub.Resource.Resource.GroupUser_Unlock</small>*@
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="~/ScriptControllers/GroupUserListControllers.js"></script>
+<script>
+    window.onload = SearchGroupUser();
+</script>

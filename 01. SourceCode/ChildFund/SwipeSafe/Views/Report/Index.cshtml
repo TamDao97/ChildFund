@@ -1,0 +1,180 @@
+﻿@{
+    ViewBag.Title = "Quản lý ca báo cáo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="wrapper main-wrapper">
+    <div ui-view="" class="ng-scope">
+        <div class="content-wrapper">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <section class="box ">
+                    <header class="panel_header">
+                        <h2 class="title pull-left">Tìm kiếm </h2>
+                        <div class="actions panel_actions pull-right">
+                            <i class="box_toggle material-icons">expand_more</i>
+                        </div>
+                    </header>
+                    <div class="content-body padding-bottom-10">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                <div class="form-group">
+                                    <label class="form-label">Người báo cáo</label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" id="nameSearch">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                <div class="form-group">
+                                    <label class="form-label">Điện thoại</label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" id="phoneSearch">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                <div class="form-group">
+                                    <label class="form-label">Email</label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" id="emailSearch">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                <div class="form-group">
+                                    <label class="form-label">Loại báo cáo</label>
+                                    <div class="controls">
+                                        <select class="form-control" id="typeSearch">
+                                            <option value="">Tất cả</option>
+                                            <option value="0">Báo cáo ẩn danh</option>
+                                            <option value="1">Báo cáo thường</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                <div class="form-group">
+                                    <label class="form-label">Ngày tạo từ ngày</label>
+                                    <div class="controls">
+                                        <input placeholder="Chọn ngày" id="dateFromSearch" type="text" class="form-control datepicker">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                <div class="form-group">
+                                    <label class="form-label">Đến ngày</label>
+                                    <div class="controls">
+                                        <input placeholder="Chọn ngày" id="dateToSearch" type="text" class="form-control datepicker">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                <div class="form-group">
+                                    <label class="form-label">Tỉnh/Thành phố</label>
+                                    <span class="desc"></span>
+                                    <div class="controls">
+                                        <select class="form-control" onchange="ChangeProvince()" id="provinceIdSearch">
+                                            <option value="">Tất cả</option>
+                                            @Html.Action("GetProvince", "Combobox")
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                <div class="form-group">
+                                    <label class="form-label">Quận/Huyện</label>
+                                    <span class="desc"></span>
+                                    <div class="controls">
+                                        <select class="form-control" onchange="ChangeDistrict()" id="districtIdSearch">
+                                            <option value="">Tất cả</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                <div class="form-group">
+                                    <label class="form-label">Xã/Phường</label>
+                                    <span class="desc"></span>
+                                    <div class="controls">
+                                        <select class="form-control" id="wardIdSearch">
+                                            <option value="">Tất cả</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            @*<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                <div class="form-group">
+                                    <label class="form-label">Trạng thái</label>
+                                    <div class="controls">
+                                        <select class="form-control" id="statusSearch">
+                                            <option value="">Tất cả</option>
+                                            <option value="0">Chưa xử lý</option>
+                                            <option value="1">Đang xử lý</option>
+                                            <option value="2">Đã xử lý</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>*@
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right">
+                                <div class="form-group margin-top-20">
+                                    <button onclick="Search()" class="btn btn-success btn-icon right10">
+                                        <i class="fa fa-search"></i> &nbsp; <span>Tìm kiếm</span>
+                                    </button>
+                                    <button onclick="Refresh()" class="btn btn-default btn-icon">
+                                        <i class="fa fa-refresh"></i> &nbsp; <span>Làm mới</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="col-lg-12 col-md-12">
+                <section class="box ">
+                    <header class="panel_header">
+                        <h2 class="title pull-left">Danh sách ca báo cáo</h2>
+                        <div class="actions panel_actions pull-right">
+                            <i class="box_toggle material-icons">expand_more</i>
+                        </div>
+                    </header>
+                    <div class="content-body padding-bottom-10">
+                        <div class="row margin-bottom-5">
+                            <div class="col-md-9 col-sm-9 col-xs-9 text-left">
+                                <h4>
+                                    Tổng số <b class="badge badge-primary" id="count_data"></b> ca báo cáo
+                                </h4>
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-3 text-right">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="margin-bottom-10" id="list_data">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 margin-bottom-10">
+                                <hr class="margin-bottom-10 margin-top-0" />
+                                <button class="btn btn-xs btnfuntion" title="Xem chi tiết">
+                                    <i class="material-icons btnicon" style="color:mediumaquamarine">assignment_ind</i>
+                                </button>&nbsp;<small class="padding-right-20">Xem chi tiết</small>
+                                <button class="btn btn-xs btnfuntion" title="Xóa ca báo cáo">
+                                    <i class="material-icons btnicon" style="color:red">delete</i>
+                                </button>&nbsp;<small class="padding-right-20">Xóa ca báo cáo</small>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="~/Scripts/JsControllers/ReportControllers.js"></script>
+<script>
+    window.onload = Search();
+</script>

@@ -1,0 +1,60 @@
+﻿{
+  "OtherName": "Nguồn khác/ Other",
+  "OtherValue": "",
+  "ListObject": [
+    {
+      "Id": "01",
+      "Check": "false",
+      "Name": "Nước máy/Piped water",
+      "NameEN": "piping system",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "02",
+      "Check": "false",
+      "Name": "Nước giếng/Well",
+      "NameEN": "well",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "03",
+      "Check": "false",
+      "Name": "Suối, sông/Stream, river",
+      "NameEN": "stream",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "04",
+      "Check": "false",
+      "Name": "Nước tự chảy/Gravity system",
+      "NameEN": "gravity system",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "05",
+      "Check": "false",
+      "Name": "Nước mưa/Rain water",
+      "NameEN": "rain water tank",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "06",
+      "Check": "false",
+      "Name": "Nước mỏ/Underground water",
+      "NameEN": "underground source",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    }
+  ]
+}

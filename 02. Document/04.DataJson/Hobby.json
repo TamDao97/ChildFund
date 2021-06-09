@@ -1,0 +1,78 @@
+﻿{
+  "OtherName": "Các trò chơi/sở thích khác",
+  "OtherValue": "",
+  "ListObject": [
+    {
+      "Id": "01",
+      "Check": "false",
+      "Name": "Đá bóng",
+      "NameEN": "",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "02",
+      "Check": "false",
+      "Name": "Cầu lông",
+      "NameEN": "",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "03",
+      "Check": "false",
+      "Name": "Nhảy dây",
+      "NameEN": "",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "04",
+      "Check": "false",
+      "Name": "Bơi",
+      "NameEN": "",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "05",
+      "Check": "false",
+      "Name": "Hát",
+      "NameEN": "",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "06",
+      "Check": "false",
+      "Name": "Múa",
+      "NameEN": "",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "07",
+      "Check": "false",
+      "Name": "Đọc sách",
+      "NameEN": "",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "08",
+      "Check": "false",
+      "Name": "Chơi đồ chơi",
+      "NameEN": "",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+﻿@model IList<ChildProfiles.Model.DocumentType.DocumentTypeSearchResult>
+@{ string uploadDate = ""; }
+<div style="overflow-x:auto">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th width="10px" class="text-center">STT</th>
+                <th width="50px" class="text-center">Chức năng</th>
+                <th width="50px">Tên nhóm tài liệu</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @{ int index = ViewBag.Index; string content = "";}
+            @if (Model != null && Model.Count > 0)
+            {
+                foreach (var item in Model)
+                {
+                    content = NTS.Common.Utils.Common.FormatContentNews(item.Description, 110);
+                    index++;
+                    <tr>
+                        <td class="text-center">@index</td>
+                        <td align="center">
+                            <button onclick="UpdateDocumentTypeShow('@item.Id','@item.Name')" type="button" class="btn btn-xs btnfuntion" title="Cập nhật"><i class="material-icons btnicon" style="color:orange">edit</i></button>
+                            @*<a href="" class="btn btn-xs btnfuntion" title="@InformationHub.Resource.Resource.Document_Update"><i class="material-icons btnicon" style="color:orange">edit</i></a>*@
+
+                            <button onclick="DeleteConfim('@item.Id')" type="button" class="btn btn-xs btnfuntion" title="Xóa"><i class="material-icons btnicon" style="color:red">delete</i></button>
+
+                        </td>
+                        <td>@item.Name</td>
+                    </tr>
+                }
+            }
+    </table>
+</div>
+<div class="pagerbottom margin-top-10">
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+        <div class="form-group">
+            <div class="controls">
+                <select class="form-control combobox-padding" onchange="ChangeSize()" id="pageSize">
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="30">30</option>
+                    <option value="40">40</option>
+                    <option value="50">50</option>
+                </select>
+                <span>bản ghi/Trang</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-8 col-md-8 col-sm-6 col-xs-6">
+        @Html.Raw(ViewBag.pages)
+    </div>
+</div>
+<script>
+    $('#count_data').html(@ViewBag.TotalItem);
+    $('#pageSize').val(@ViewBag.PageSize);
+</script>

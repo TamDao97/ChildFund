@@ -1,0 +1,52 @@
+package reportward.nts.reportward.model;
+
+import java.util.List;
+
+public class UpdateReportMobileModel {
+    public String loaiCa;
+    public String maTinh;
+    public String maSoHoSo;
+    public String ngayTaoHoSo;
+    public String nguoiTaoHoSo;
+    public String ngayTuVanCuoiCung;
+    public String maDoiTuong;
+    public String hoTen;
+    public String namSinh;
+    public String gioiTinh;
+    public String maHoanCanh;
+    public String maTrinhDoVanHoa;
+    public String maDanToc;
+    public String maTinhNguoiGoi;
+    public String maHuyenNguoiGoi;
+    public String maXaNguoiGoi;
+    public String ngaySuaCuoi;
+    public String nguoiSuaCuoi;
+    public String gioiTinhTre;
+    public String tuoiCuaTre;
+    public String maDanTocCuaTre;
+    public String maTrinhDoVanHoaCuaTre;
+    public String soDienThoai;
+    public String cacVanDe;
+    public String cacVanDeKhac;
+    public String phanLoaiHoSo;
+    public String moiTruongXamHai;
+    public String trangThaiHoSo;
+    public String ketQuaHoTroCanThiep;
+    public String loaiHoSo;
+    public String nguonThongTin;
+    public String lienQuanInternet;
+    public String suDung;
+    public ComboboxResult doiTuongInit;
+    public ComboboxResult loaiHoSoInit;
+    public ComboboxResult trangThaiHoSoInit;
+    public ComboboxResult danTocInit;
+    public ComboboxResult phanLoaiHoSoInit;
+    public ComboboxResult moiTruongXamHaiInit;
+    public ComboboxResult nguonThongTinInit;
+    public String treCoDiHoc;
+    public List<String> tuVanKhac;
+    public List<String> dsKetQuaString;
+    public List<String> dsVanDeString;
+    public String nguoiDung;
+    public CaTuVanUpdateModel caTuVan;
+}

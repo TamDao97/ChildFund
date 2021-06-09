@@ -1,0 +1,87 @@
+﻿@model IList<SwipeSafe.Model.SearchResults.ReportSearchResult>
+
+<div style="overflow-x:auto">
+    <table class="table table-bordered table-hover" style="min-width:2150px">
+        <thead>
+            <tr>
+                <th width="60px" class="text-center">STT</th>
+                <th width="100px" class="text-center">Chức năng</th>
+                <th width="160px">Loại báo cáo</th>
+                <th width="140px">Trạng thái</th>
+                <th width="90px">Thời gian</th>
+                <th width="110px" class="text-center">Số nạn nhân</th>
+                <th width="110px" class="text-center">Số thủ phạm</th>
+                <th width="200px">Người báo cáo</th>
+                <th width="130px">Điện thoại</th>
+                <th width="150px">Email</th>
+                <th width="90px">Ngày sinh</th>
+                <th width="80px">Giới tính</th>
+                <th width="200px">Mối quan hệ</th>
+                <th width="250px">Địa chỉ</th>
+                <th>Mô tả</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{ int index = ViewBag.Index; string content = ""; string dateView = ""; string birthdayView = "";}
+            @foreach (var item in Model)
+            {
+                dateView = "";
+                birthdayView = "";
+                if (item.CreateDate != null)
+                {
+                    dateView = item.CreateDate.Value.ToString("dd/MM/yyyy");
+                }
+                if (item.Birthday != null)
+                {
+                    birthdayView = item.Birthday.Value.ToString("dd/MM/yyyy");
+                }
+                content = NTS.Common.Utils.Common.FormatContentNews(item.Description, 110);
+                index++;
+                <tr>
+                    <td class="text-center">@index</td>
+                    <td align="center">
+                        <button  @(item.Status.Equals("0")?"":"disabled") onclick="CreateProfileConfim('@item.Id')" type="button" class="btn btn-xs btnfuntion" title="Tạo ca"><i class="material-icons btnicon" style="color:green">note_add</i></button>
+                        <button onclick="Detail('@item.Id')" type="button" class="btn btn-xs btnfuntion" title="Xem chi tiết"><i class="material-icons btnicon" style="color:blue">assignment_ind</i></button>
+                        <button onclick="DeleteConfim('@item.Id')" type="button" class="btn btn-xs btnfuntion" title="Xóa ca báo cáo"><i class="material-icons btnicon" style="color:red">delete</i></button>
+                    </td>
+                    <td>@item.Type</td>
+                    <td>@item.StatusView</td>
+                    <td>@dateView</td>
+                    <td  class="text-center">@item.CountChild</td>
+                    <td  class="text-center">@item.CountPrisoner</td>
+                    <td>@item.Name</td>
+                    <td>@item.Phone</td>
+                    <td>@item.Email</td>
+                    <td>@birthdayView</td>
+                    <td>@item.Gender</td>
+                    <td>@item.Relationship</td>
+                    <td>@item.FullAddress</td>
+                    <td>@content</td>
+                </tr>
+            }
+            </tbody>
+    </table>
+</div>
+<div class="pagerbottom margin-top-10">
+    <div class="col-md-4 col-sm-4 col-xs-4">
+        <div class="form-group">
+            <div class="controls">
+                <select class="form-control combobox-padding" onchange="ChangeSize()" id="pageSize">
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="30">30</option>
+                    <option value="40">40</option>
+                    <option value="50">50</option>
+                </select>
+                <span>bản ghi/Trang</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8 col-sm-8 col-xs-8">
+        @Html.Raw(ViewBag.pages)
+    </div>
+</div>
+<script>
+    $('#count_data').html(@ViewBag.TotalItem);
+    $('#pageSize').val(@ViewBag.PageSize);
+</script>

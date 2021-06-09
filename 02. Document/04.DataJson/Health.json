@@ -1,0 +1,51 @@
+﻿{
+  "OtherName": "Mô tả quá trình chữa trị",
+  "OtherValue": "",
+  "ListObject": [
+    {
+      "Id": "01",
+      "Check": "false",
+      "Name": "Khoẻ mạnh",
+      "NameEN": "",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "02",
+      "Check": "false",
+      "Name": "Trung bình",
+      "NameEN": "",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "03",
+      "Check": "false",
+      "Name": "Yếu ",
+      "NameEN": "",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "04",
+      "Check": "false",
+      "Name": "Khuyết tật",
+      "NameEN": "",
+      "Value": "",
+      "OtherName": "Mô tả rõ",
+      "OtherValue": ""
+    },
+    {
+      "Id": "05",
+      "Check": "false",
+      "Name": "Bệnh mãn tính",
+      "NameEN": "",
+      "Value": "",
+      "OtherName": "Ghi rõ",
+      "OtherValue": ""
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+﻿@{ string id = Guid.NewGuid().ToString();}
+<div class="row-survey" id="row-survey_@id">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="form-group">
+            <label class="text-danger" style="font-weight:bold" >Tên chủ đề</label>
+            <div class="controls">
+                <input type="text" placeholder="Chủ đề" class="form-control input-custom survey-item">
+                <button onclick="DeleteSurvey('@id')" type="button" class="btn btn-xs btnfuntion" title="Xóa khảo sát"><i class="material-icons btnicon" style="color:red">delete</i></button>
+            </div>
+        </div>
+        <hr />
+    </div>
+    @Html.Action("GenQuestion", "Question", new { nameGroup = id })
+</div>
+<div class="col-md-12 col-sm-12 col-xs-12 text-right">
+    <hr />
+    <button onclick="AddQuestion('@id')" type="button" class="btn btn-xs btnfuntion" title="Thêm câu hỏi"><i class="material-icons btnicon" style="color:orange">add_circle_ou...</i></button>
+</div>

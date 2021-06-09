@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingBottom="?attr/actionBarSize">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <TextView
+                        style="@style/TitleStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Thông tin liên hệ"
+                        android:textColor="@color/blue_600"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/blue_600" />
+            </LinearLayout>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/lyForm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:background="#fff"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/LabelStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="0dp"
+                            android:text="Hình thức liên hệ" />
+
+                        <EditText
+                            android:id="@+id/spnHinhThucLienHe"
+                            style="@style/SpinnerStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:nextFocusDown="@id/txtSoDienThoai"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/LabelStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="0dp"
+                            android:text="Số điện thoại" />
+
+                        <EditText
+                            android:id="@+id/txtSoDienThoai"
+                            style="@style/EditTextStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number|phone"
+                            android:nextFocusDown="@id/txtMangXaHoi"
+                            android:drawableRight="@drawable/ic_input_phone"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/LabelStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="0dp"
+                            android:text="Facebook" />
+
+                        <EditText
+                            android:id="@+id/txtMangXaHoi"
+                            style="@style/EditTextStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="text"
+                            android:nextFocusDown="@id/txtEmail"
+                            android:drawableRight="@drawable/ic_input_facebook"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/LabelStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="0dp"
+                            android:text="Email" />
+
+                        <EditText
+                            android:id="@+id/txtEmail"
+                            style="@style/EditTextStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textEmailAddress"
+                            android:nextFocusDown="@id/txtNoiDungTuVan"
+                            android:drawableRight="@drawable/ic_input_email"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/LabelStyleRequired"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="0dp"
+                            android:text="Nội dung" />
+
+                        <EditText
+                            android:id="@+id/txtNoiDungTuVan"
+                            style="@style/TextareaTextStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="fill_parent"
+                            android:gravity="top"
+                            android:lines="5"
+                            android:maxLines="15"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        >
+
+                        <TextView
+                            style="@style/LabelStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Gửi kèm hình ảnh/ video"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/txtFileSize1"
+                            style="@style/LabelStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text=" (0 Mb)"
+                            android:textStyle="bold"
+                            android:textColor="@color/blue_600"/>
+
+                        <ImageView
+                            android:id="@+id/imageChoosePhoto1"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@null"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/ic_add_photos"
+                            android:tint="@android:color/holo_orange_dark" />
+
+                        <ImageView
+                            android:id="@+id/imageCaptureEngine1"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:background="@null"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/ic_camera"
+                            android:tint="@android:color/holo_green_dark" />
+                    </LinearLayout>
+
+                    <TextView
+                        style="@style/LabelStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="(Tổng độ lớn tối đa của các file gửi kèm là 100 MB)"
+                        android:textAlignment="center"
+                        android:textStyle="bold"
+                        android:textColor="@color/red_600"
+                        android:layout_marginBottom="10dp"/>
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/rvGalleryChoose"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+
+                        android:scrollbars="vertical"
+                        android:scrollingCache="true" />
+
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+
+        <include
+            android:id="@+id/progressDialog"
+            layout="@layout/progress_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,42 @@
+﻿{
+  "OtherName": "",
+  "OtherValue": "",
+  "ListObject": [
+    {
+      "Id": "01",
+      "Check": "false",
+      "Name": "< 500m",
+      "NameEN": "less than 500m",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "02",
+      "Check": "false",
+      "Name": "500 - 1000m",
+      "NameEN": "500 - 1000m",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "03",
+      "Check": "false",
+      "Name": "1000m - 3000m",
+      "NameEN": "1000m - 3000m",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "04",
+      "Check": "false",
+      "Name": ">3000m",
+      "NameEN": ">3000m",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    }
+  ]
+}

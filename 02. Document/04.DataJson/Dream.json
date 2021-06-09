@@ -1,0 +1,96 @@
+﻿{
+  "OtherName": "Ước mơ khác",
+  "OtherValue": "",
+  "ListObject": [
+    {
+      "Id": "01",
+      "Check": "false",
+      "Name": "Bác sĩ",
+      "NameEN": "",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "02",
+      "Check": "false",
+      "Name": "Bộ đội",
+      "NameEN": "",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "03",
+      "Check": "false",
+      "Name": "Công an",
+      "NameEN": "",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "04",
+      "Check": "false",
+      "Name": "Ca sĩ",
+      "NameEN": "",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "05",
+      "Check": "false",
+      "Name": "Hoạ sĩ",
+      "NameEN": "",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "06",
+      "Check": "false",
+      "Name": "Nông dân",
+      "NameEN": "",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "07",
+      "Check": "false",
+      "Name": "Giáo viên",
+      "NameEN": "",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "08",
+      "Check": "false",
+      "Name": "Lái xe",
+      "NameEN": "",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "09",
+      "Check": "false",
+      "Name": "Nhà khoa học",
+      "NameEN": "",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "10",
+      "Check": "false",
+      "Name": "Kĩ sư",
+      "NameEN": "",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    }
+  ]
+}

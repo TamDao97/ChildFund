@@ -1,0 +1,135 @@
+﻿@model ChildProfiles.Model.ObjectBaseModel
+@{
+    var hobbyModel = (ChildProfiles.Model.ObjectBaseModel)ViewBag.hobbyModel;
+    var dreamModel = (ChildProfiles.Model.ObjectBaseModel)ViewBag.dreamModel;
+
+    var dateRow1 = Model.ListObject;
+    var dateRow2 = hobbyModel.ListObject;
+    var dateRow3 = dreamModel.ListObject;
+    string check1;
+}
+<div class="margin-bottom-10">
+    <textarea hidden id="hidpersonalityModel">@(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(Model))</textarea>
+    <textarea hidden id="hidhobbyModel">@(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(hobbyModel))</textarea>
+    <textarea hidden id="hiddreamModel">@(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(dreamModel))</textarea>
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+        <div class="row">
+            <table class="table table-bordered table-hover" id="tbpersonalityModel">
+                <thead>
+                    <tr>
+                        <th colspan="2">Tính cách của trẻ/Child’s characteristics</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in dateRow1)
+                    {
+                        check1 = item.Check ? "checked" : "";
+                        <tr>
+                            <td width="20">
+                                <label class="icheck icheck-primary">
+                                    <input type="checkbox" name="ckPersonalit" @check1 value="@item.Id">
+                                    <i></i>
+                                </label>
+                            </td>
+                            <td>@item.Name</td>
+                        </tr>
+                    }
+                    @*<tr class="row-custom">
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr class="row-custom">
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>*@
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="2">
+                            <span>@Model.OtherName</span> <input value="@Model.OtherValue" type="text" id="PersonalitOther" class="form-control">
+                        </td>
+
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+        <div class="row">
+            <table class="table table-bordered table-hover" id="tbhobbyModel">
+                <thead>
+                    <tr>
+                        <th colspan="2">Các trò chơi, sở thích của trẻ/Hobbies</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in dateRow2)
+                    {
+                        check1 = item.Check ? "checked" : "";
+                        <tr>
+                            <td width="20">
+                                <label class="icheck icheck-primary">
+                                    <input type="checkbox" name="ckHobby" @check1 value="@item.Id">
+                                    <i></i>
+                                </label>
+                            </td>
+                            <td>@item.Name</td>
+                        </tr>
+                    }
+                    @*<tr class="row-custom">
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr class="row-custom">
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>*@
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="2">
+                            <span>@hobbyModel.OtherName</span> <input value="@hobbyModel.OtherValue" type="text" id="HobbyOther" class="form-control">
+                        </td>
+
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+        <div class="row">
+            <table class="table table-bordered table-hover" id="tbdreamModel">
+                <thead>
+                    <tr>
+                        <th colspan="2">
+                            Lớn lên trẻ muốn trở thành/Dream work (áp dụng cho trẻ học từ mẫu giáo trở lên/Applicable for children aged 3 and above)
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in dateRow3)
+                    {
+                        check1 = item.Check ? "checked" : "";
+                        <tr>
+                            <td width="20">
+                                <label class="icheck icheck-primary">
+                                    <input type="checkbox" name="ckDream" @check1 value="@item.Id">
+                                    <i></i>
+                                </label>
+                            </td>
+                            <td>@item.Name</td>
+                        </tr>
+                    }
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="2">
+                            <span>@dreamModel.OtherName</span> <input value="@dreamModel.OtherValue" type="text" id="DreamOther" class="form-control">
+                        </td>
+
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>

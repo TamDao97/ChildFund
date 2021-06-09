@@ -1,0 +1,21 @@
+﻿@{ string type = ViewBag.type; string id = Guid.NewGuid().ToString();}
+<div class="col-md-12 col-sm-12 col-xs-12 list-answer" id="answer_@id">
+    <div class="form-group">
+        <div class="controls">
+            @if (type.Equals("1"))
+            {
+                <label class="icheck icheck-primary">
+                    <input type="checkbox" disabled/>
+                    <i></i>
+                </label>
+            }
+            else if (type.Equals("0"))
+            {
+                <input type="radio" disabled class="radio-custom"/>
+            }
+            <input type="text" placeholder="Khác" value="Khác" typeof="1" class="form-control input-other" style="width:30%;display:inline-block">
+            <input type="text"  disabled style="width:50%;display:inline-block"/>
+            <a href="javascript:void(0)" title="Xóa đáp án" onclick="DeleteAnswer('@id','@ViewBag.idq',1)">X</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+﻿{
+  "OtherName": "Thành tích nổi trội/Outstanding achievements",
+  "OtherValue": "",
+  "ListObject": [
+    {
+      "Id": "01",
+      "Check": "false",
+      "Name": "Hoàn thành xuất sắc/ Excellent",
+      "NameEN": "",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "02",
+      "Check": "false",
+      "Name": "Hoàn thành tốt/ Good",
+      "NameEN": "",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "03",
+      "Check": "false",
+      "Name": "Hoàn thành/ Fairly good",
+      "NameEN": "",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "04",
+      "Check": "false",
+      "Name": "Chưa hoàn thành/ Below average",
+      "NameEN": "",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    }
+  ]
+}

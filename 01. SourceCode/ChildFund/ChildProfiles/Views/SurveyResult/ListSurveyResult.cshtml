@@ -1,0 +1,55 @@
+﻿@model IList<ChildProfiles.Model.SurveyResult.SurveyResultModel>
+<div style="overflow-x:auto">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th width="60px" class="text-center">STT</th>
+                <th width="100px" class="text-center">Chức năng</th>
+                <th>Tên khảo sát</th>
+                <th width="130px">Ngày tạo</th>
+                <th width="200px" class="text-left">Người tạo</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{ int index = ViewBag.Index; }
+            @foreach (var item in Model)
+            {
+                index++;
+                <tr>
+                    <td class="text-center">@index</td>
+                    <td align="center">
+                        <button onclick="DeleteConfim('@item.Id')" type="button" class="btn btn-xs btnfuntion" title="Xóa kết quả"><i class="material-icons btnicon" style="color:red">delete</i></button>
+                        <a href="/SurveyResult/GetSurveyResultInfo/@item.Id" class="btn btn-xs btnfuntion" title="Chi tiết khảo sát"><i class="material-icons btnicon" style="color:#26C6DA">info</i></a>
+                    </td>
+                    <td>@item.SurveyName</td>
+                    <td>@item.CreateDate.Value.ToString("dd/MM/yyyy")</td>
+                    <td>@item.UserName</td>
+                </tr>
+            }
+    </table>
+</div>
+<div class="pagerbottom margin-top-10">
+    <div class="col-md-4 col-sm-4 col-xs-4">
+        <div class="form-group">
+            <div class="controls">
+                <select class="form-control combobox-padding" onchange="ChangeSize()" id="pageSize">
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="30">30</option>
+                    <option value="40">40</option>
+                    <option value="50">50</option>
+                </select>
+                <span>bản ghi/Trang</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8 col-sm-8 col-xs-8">
+        @Html.Raw(ViewBag.pages)
+    </div>
+</div>
+<script>
+    $('#count_data').html(@ViewBag.TotalItem);
+    $('#dataListId').val('@ViewBag.ListId');
+    $('#pageSize').val(@ViewBag.PageSize);
+</script>
+

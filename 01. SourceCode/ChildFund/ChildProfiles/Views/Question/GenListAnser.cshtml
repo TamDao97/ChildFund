@@ -1,0 +1,117 @@
+﻿@model ChildProfiles.Model.Question.AnswerModelTemp
+@{ string type = Model.type; string id = "";}
+@if (type.Equals("2"))
+{
+    id = Guid.NewGuid().ToString();
+    <div class="col-md-12 col-sm-12 col-xs-12 list-answer" id="answer_@id">
+        <div class="form-group">
+            <div class="controls">
+                <input type="text" typeof="2" disabled class="form-control" />
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    if (Model.lstReult == null || Model.lstReult.Count == 0)
+    {
+        id = Guid.NewGuid().ToString();
+        <div class="col-md-12 col-sm-12 col-xs-12 list-answer" id="answer_@id">
+            <div class="form-group">
+                <div class="controls">
+                    @if (type.Equals("1"))
+                    {
+                        <label class="icheck icheck-primary">
+                            <input type="checkbox" disabled/>
+                            <i></i>
+                        </label>
+                    }
+                    else if (type.Equals("0"))
+                    {
+                        <input type="radio" disabled class="radio-custom"/>
+                    }
+                    <input type="text" placeholder="Đáp án" typeof="0" class="form-control input-custom">
+                    <a href="javascript:void(0)" title="Xóa đáp án" onclick="DeleteAnswer('@id','@Model.idq',0)">X</a>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        foreach (var item in Model.lstReult)
+        {
+            if (item.Type.Equals("0"))
+            {
+                id = Guid.NewGuid().ToString();
+                <div class="col-md-12 col-sm-12 col-xs-12 list-answer" id="answer_@id">
+                    <div class="form-group">
+                        <div class="controls">
+                            @if (type.Equals("1"))
+                            {
+                                <label class="icheck icheck-primary">
+                                    <input type="checkbox" disabled/>
+                                    <i></i>
+                                </label>
+                            }
+                            else if (type.Equals("0"))
+                            {
+                                <input type="radio" disabled class="radio-custom"/>
+                            }
+                            <input type="text" placeholder="Đáp án" typeof="0" value="@item.Answer" class="form-control input-custom">
+                            <a href="javascript:void(0)" title="Xóa đáp án" onclick="DeleteAnswer('@id','@Model.idq',0)">X</a>
+                        </div>
+                    </div>
+                </div>
+            }
+            else if (item.Type.Equals("1"))
+            {
+                id = Guid.NewGuid().ToString();
+                <div class="col-md-12 col-sm-12 col-xs-12 list-answer" id="answer_@id">
+                    <div class="form-group">
+                        <div class="controls">
+                            @if (type.Equals("1"))
+                            {
+                                <label class="icheck icheck-primary">
+                                    <input type="checkbox" disabled/>
+                                    <i></i>
+                                </label>
+                            }
+                            else if (type.Equals("0"))
+                            {
+                                <input type="radio" disabled class="radio-custom"/>
+                            }
+                            <input type="text" placeholder="Khác" value="@item.Answer" typeof="1" class="form-control input-other" style="width:30%;display:inline-block">
+                            <input type="text" disabled style="width:50%;display:inline-block" />
+                            <a href="javascript:void(0)" title="Xóa đáp án" onclick="DeleteAnswer('@id','@Model.idq',1)">X</a>
+                        </div>
+                    </div>
+                </div>
+            }
+            else
+            {
+                id = Guid.NewGuid().ToString();
+                <div class="col-md-12 col-sm-12 col-xs-12 list-answer" id="answer_@id">
+                    <div class="form-group">
+                        <div class="controls">
+                            @if (type.Equals("1"))
+                            {
+                                <label class="icheck icheck-primary">
+                                    <input type="checkbox" disabled/>
+                                    <i></i>
+                                </label>
+                            }
+                            else if (type.Equals("0"))
+                            {
+                                <input type="radio" disabled class="radio-custom" />
+                            }
+                            <input type="text" placeholder="Đáp án" typeof="0" class="form-control input-custom">
+                            <a href="javascript:void(0)" title="Xóa đáp án" onclick="DeleteAnswer('@id','@Model.idq',0)">X</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    }
+}
+
+

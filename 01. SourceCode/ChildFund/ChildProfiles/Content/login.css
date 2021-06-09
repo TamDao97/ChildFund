@@ -1,0 +1,975 @@
+/*--
+    Author: W3layouts
+    Author URL: http://w3layouts.com
+    License: Creative Commons Attribution 3.0 Unported
+    License URL: http://creativecommons.org/licenses/by/3.0/
+--*/
+
+
+
+/*-- Reset Code --*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, dl, dt, dd, ol, nav ul, nav li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/*css xoay*/
+.loader {
+    position: absolute;
+    left: 22%;
+    top: 52%;
+    z-index: 1000000;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 14px solid blue;
+    border-right: 14px solid green;
+    border-bottom: 14px solid red;
+    border-left: 14px solid pink;
+    width: 75px;
+    height: 75px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+#overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2;
+    cursor: pointer;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+ol, ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+    blockquote:before, blockquote:after, q:before, q:after {
+        content: '';
+        content: none;
+    }
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.txt-rt {
+    text-align: right;
+}
+
+.txt-lt {
+    text-align: left;
+}
+
+.txt-center {
+    text-align: center;
+}
+
+.float-rt {
+    float: right;
+}
+
+.float-lt {
+    float: left;
+}
+
+.clear {
+    clear: both;
+}
+
+.pos-relative {
+    position: relative;
+}
+
+.pos-absolute {
+    position: absolute;
+}
+
+.vertical-base {
+    vertical-align: baseline;
+}
+
+.vertical-top {
+    vertical-align: top;
+}
+
+.underline {
+    padding-bottom: 5px;
+    border-bottom: 1px solid #eee;
+    margin: 0 0 20px 0;
+}
+
+nav.vertical ul li {
+    display: block;
+}
+
+nav.horizontal ul li {
+    display: inline-block;
+}
+
+img {
+    max-width: 100%;
+}
+
+/*-- Reset Code --*/
+
+
+
+/*-- Index-Page-Styling --*/
+
+body {
+    /*background: url("../img/bg.png");*/
+    /*background-color: #84bd00;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	background-size: cover;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	color: #FFF;
+	font-family: 'Quicksand', sans-serif;
+	text-align: center;*/
+    display: table;
+    width: 100%;
+    background-color: #84BD00;
+    height: -webkit-fill-available;
+}
+
+.logo {
+    margin-left: auto;
+    margin-right: auto;
+    vertical-align: middle;
+    max-width: 250px;
+    /* max-height: 113px; */
+}
+
+.left {
+    display: table-cell;
+    height: auto;
+    text-align: center;
+}
+
+.right {
+    display: table-cell;
+    vertical-align: top;
+    background: url("../img/ssbg1.jpg");
+    width: 50%;
+    height: 100%;
+    color: rgba(255, 255, 255, 0.6);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+body a {
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+    text-decoration: none;
+}
+
+input[type="button"], input[type="button"] {
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+}
+
+h1 {
+    font-size: 45px;
+    font-weight: 300;
+    color: #fff;
+    letter-spacing: 7px;
+    margin: 65px auto;
+}
+
+.content {
+    width: 50%;
+    margin: 0 auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    margin-top: 20%;
+}
+
+h2 {
+    font-size: 35px;
+    font-weight: 300;
+    margin-bottom: 15px;
+    color: #007A45;
+    text-transform: uppercase;
+}
+
+input[type="text"], input[type="password"], input[type="email"] {
+    width: 100%;
+    padding: 10px 10px 10px 40px;
+    font-size: 16px;
+    background: transparent;
+    border: 1px solid #007A45;
+    outline: none;
+    margin-top: 15px;
+    color: #1a1a1a;
+    font-family: 'Quicksand', sans-serif;
+    border-radius: 4px;
+}
+
+#login input[type="text"] {
+    background: url("../img/user.png") no-repeat 10px 11px;
+    background-size: 18px;
+}
+
+#login input[type="email"] {
+    background: url("../img/e-mail.png") no-repeat 98% 11px;
+    background-size: 25px;
+}
+
+input[type="password"] {
+    background: url("../img/password.png") no-repeat 10px 11px;
+    background-size: 18px;
+}
+
+ul.agileinfotickwthree {
+    list-style: none;
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 40px;
+    text-align: left;
+    padding-left: 10px;
+}
+
+    ul.agileinfotickwthree li input[type="checkbox"] {
+        display: none;
+    }
+
+        ul.agileinfotickwthree li input[type="checkbox"] + label {
+            position: relative;
+            padding-left: 50px;
+            border: #F0F8FF;
+            display: inline-block;
+            font-size: 15px;
+            color: #fff;
+        }
+
+    ul.agileinfotickwthree a {
+        float: right;
+        margin-right: 40px;
+        color: #fff;
+        font-size: 15px;
+    }
+
+        ul.agileinfotickwthree a:hover {
+            color: #537b35;
+        }
+
+    ul.agileinfotickwthree li input[type="checkbox"] + label span:first-child {
+        width: 15px;
+        height: 15px;
+        display: inline-block;
+        border: 2px solid #537b35;
+        position: absolute;
+        top: -1px;
+        left: 20px;
+        bottom: 4px;
+    }
+
+    ul.agileinfotickwthree li input[type="checkbox"]:checked + label span:first-child:before {
+        content: "";
+        background: url(../img/tick.png)no-repeat;
+        position: absolute;
+        left: 3px;
+        top: 3px;
+        font-size: 10px;
+        width: 10px;
+        height: 10px;
+    }
+
+input[type="button"] {
+    font-size: 16px;
+    padding: 10px 65px;
+    background-color: #007A45;
+    color: #FFF;
+    border: none;
+    border-radius: 0px;
+    outline: none;
+    float: none;
+    cursor: pointer;
+    margin-top: 30px;
+    /* width: 90%; */
+    width: 100%;
+    padding: 15px 10px 15px;
+    font-weight: 600;
+    border-radius: 25px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+    input[type="button"]:hover {
+        background-color: #7CB342;
+        color: #fff;
+    }
+
+.aitssend p {
+    text-align: center;
+    margin-top: 20px;
+    /* text-transform: capitalize; */
+    letter-spacing: 1px;
+    color: #0091EA;
+    font-weight: 600;
+    font-family: 'Quicksand', sans-serif;
+}
+
+    .aitssend p a {
+        color: #fff;
+        font-weight: 600;
+        padding: 8px 20px;
+        border: 1px solid #fff;
+    }
+
+        .aitssend p a span {
+            font-size: 18px;
+        }
+
+        .aitssend p a:hover {
+            color: #537b35;
+            border: 1px solid #537b35;
+        }
+
+::-webkit-input-placeholder {
+    color: #FFF;
+}
+
+::-moz-placeholder {
+    color: #FFF;
+}
+
+::-moz-placeholder {
+    color: #FFF;
+}
+
+::-ms-input-placeholder {
+    color: #FFF;
+}
+
+.footer {
+    margin: 100px 0px 20px;
+}
+
+    .footer p a {
+        color: #000;
+        font-weight: 700;
+    }
+
+    .footer p {
+        letter-spacing: 2px;
+        color: #fff;
+        font-family: 'Quicksand', sans-serif;
+    }
+
+        .footer p a:hover {
+            color: #fff;
+        }
+
+/*-- Index-Page-Styling --*/
+
+/* pop-up-box-styling */
+
+.contact-form1 {
+    padding: 60px 40px;
+    background: #537b35;
+}
+
+#small-dialog, #small-dialog1, #small-dialog2 {
+    max-width: 555px;
+}
+
+label.checkbox {
+    display: block;
+    margin: 5px 0px 0px 23px;
+    text-align: left;
+}
+
+label {
+    color: #000;
+    font-size: 15px;
+}
+
+input[type="checkbox"] {
+    margin: 3px 13px 3px 4px;
+}
+
+.submit-w3l {
+    margin-top: 30px;
+}
+
+.contact-w3-agileits h3 {
+    color: #fff;
+    font-size: 35px;
+    text-align: center;
+    margin-bottom: 40px;
+    letter-spacing: 4px;
+}
+
+.form-sub-w3ls input[type="text"], .form-sub-w3ls input[type="password"], .form-sub-w3ls input[type="email"] {
+    border: 2px solid #fff;
+}
+
+.submit-w3l input[type="button"] {
+    background: #fff;
+    color: #537b35;
+}
+
+    .submit-w3l input[type="button"]:hover {
+        background: #fff;
+        color: #000;
+    }
+
+/* pop-up-box-styling */
+
+
+/*--- Responsive Code ---*/
+
+@media screen and (max-width: 1440px) {
+    .content {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 1366px) {
+    .content {
+        width: 50%;
+    }
+    .footer {
+        margin: 100px 10px 20px;
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    .content {
+        width: 37%;
+    }
+}
+
+@media screen and (max-width: 1080px) {
+    .content {
+        width: 45%;
+    }
+    .right {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    h1 {
+        font-size: 45px;
+        margin: 50px auto;
+    }
+
+    .content {
+        width: 47%;
+    }
+
+    .footer {
+        margin: 50px 10px 20px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .content {
+        width: 48%;
+    }
+    .right {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .content {
+        width: 53%;
+    }
+    .right {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 853px) {
+    .content {
+        width: 58%;
+    }
+    .right {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .content {
+        width: 59%;
+    }
+    .right {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .content {
+        width: 61%;
+    }
+    .right {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 736px) {
+    h1 {
+        font-size: 40px;
+        margin: 40px auto;
+    }
+
+    .content {
+        width: 65%;
+    }
+
+    h2 {
+        font-size: 35px;
+    }
+
+    .aitssend p {
+        font-size: 14px;
+    }
+    .right {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 667px) {
+    .content {
+        width: 70%;
+    }
+
+        .content input[type="text"], .content input[type="password"], .content input[type="email"] {
+            width: 87%;
+        }
+
+    .footer p {
+        letter-spacing: 1px;
+        line-height: 24px;
+    }
+    .right {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    h1 {
+        margin: 35px auto;
+    }
+
+    .content {
+        width: 74%;
+    }
+    .right {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 603px) {
+    .content {
+        width: 78%;
+    }
+    .right {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .content {
+        width: 78%;
+    }
+
+        .content input[type="text"], .content input[type="password"], .content input[type="email"] {
+            width: 87%;
+        }
+
+    .footer p {
+        line-height: 24px;
+    }
+    .right {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 568px) {
+    h1 {
+        font-size: 35px;
+        margin: 25px auto;
+    }
+
+    h2 {
+        font-size: 30px;
+    }
+
+    .content input[type="text"], .content input[type="password"], .content input[type="email"] {
+        width: 92%;
+    }
+
+    ul.tick {
+        margin-bottom: 20px;
+    }
+
+        ul.tick li input[type="checkbox"] + label {
+            font-size: 15px;
+        }
+
+            ul.tick li input[type="checkbox"] + label span:first-child {
+                width: 15px;
+                height: 15px;
+                top: 0;
+                border: 1px solid #EEE;
+            }
+
+    input[type="button"] {
+        font-size: 15px;
+        padding: 10px 40px;
+    }
+
+    .footer p {
+        font-size: 14px;
+    }
+
+    .contact-form1 {
+        padding: 60px 33px;
+    }
+    .right {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 35px;
+        margin: 25px auto;
+        letter-spacing: 4px;
+    }
+
+    .content {
+        width: 70%;
+    }
+
+    .aitssend {
+        text-align: center;
+    }
+
+    ul.agileinfotickwthree {
+        padding-left: 0;
+    }
+
+    .aitssend p {
+        float: left;
+    }
+
+    .content input[type="text"], .content input[type="password"], .content input[type="email"] {
+        width: 94%;
+        padding: 13px 8px 13px;
+    }
+
+    input[type="email"] {
+        background: url(../img/e-mail.png) no-repeat 300px 11px;
+        background-size: 23px;
+    }
+
+    input[type="password"] {
+        background: url(../img/password.png) no-repeat 300px 11px;
+        background-size: 23px;
+    }
+
+    ul.agileinfotickwthree a {
+        margin-right: 5px;
+    }
+
+    ul.agileinfotickwthree li input[type="checkbox"] + label span:first-child {
+        left: 5px;
+    }
+
+    ul.agileinfotickwthree li input[type="checkbox"] + label {
+        padding-left: 35px;
+    }
+
+    input[type="text"] {
+        background: url(../img/user.png) no-repeat 300px 11px;
+        background-size: 25px;
+    }
+    .right {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 414px) {
+    .content {
+        width: 70%;
+    }
+
+    h1 {
+        font-size: 30px;
+        letter-spacing: 3px;
+    }
+
+    input[type="email"] {
+        background: url(../img/e-mail.png) no-repeat 255px 11px;
+        background-size: 23px;
+    }
+
+    input[type="password"] {
+        background: url(../img/password.png) no-repeat 255px 11px;
+        background-size: 23px;
+    }
+
+    .aitssend p {
+        font-size: 13px;
+    }
+
+        .aitssend p a {
+            font-weight: 500;
+            padding: 6px 5px;
+        }
+
+    .footer p {
+        letter-spacing: 0px;
+    }
+
+    input[type="text"] {
+        background: url(../img/user.png) no-repeat 254px 11px;
+        background-size: 25px;
+    }
+
+    .contact-w3-agileits h3 {
+        font-size: 32px;
+        margin-bottom: 37px;
+        letter-spacing: 4px;
+    }
+
+    .contact-form1 {
+        padding: 60px 33px;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+
+    .footer {
+        margin: 20px 10px;
+    }
+    .right {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 384px) {
+    h1 {
+        letter-spacing: 0;
+    }
+
+    .content {
+        width: 78%;
+    }
+
+    input[type="text"], input[type="password"], input[type="email"] {
+        font-size: 13px;
+    }
+
+    .contact-form1 {
+        padding: 50px 18px;
+    }
+
+    h2 {
+        font-size: 26px;
+    }
+    .right {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .content {
+        width: 80%;
+    }
+
+    .contact-form1 {
+        padding: 60px 14px;
+    }
+
+    h2 {
+        font-size: 26px;
+    }
+    .right {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    h1 {
+        font-size: 28px;
+        font-weight: 500;
+    }
+
+    h2 {
+        font-size: 25px;
+    }
+
+    .content {
+        width: 86%;
+    }
+
+    .content {
+        padding: 20px 15px;
+    }
+
+    input[type="email"] {
+        background: url(../img/e-mail.png) no-repeat 230px 11px;
+        background-size: 23px;
+    }
+
+    input[type="password"] {
+        background: url(../img/password.png) no-repeat 230px 11px;
+        background-size: 23px;
+    }
+
+    ul.agileinfotickwthree li input[type="checkbox"] + label span:first-child {
+        width: 13px;
+        height: 13px;
+        top: 0px;
+        left: 56px;
+    }
+
+    ul.agileinfotickwthree li input[type="checkbox"] + label {
+        padding-left: 85px;
+    }
+
+    ul.agileinfotickwthree a {
+        margin-right: 72px;
+        margin-top: 9px;
+    }
+
+    ul.agileinfotickwthree {
+        margin-bottom: 15px;
+    }
+
+    .aitssend p {
+        float: none;
+        text-align: center;
+        font-size: 14px;
+        margin-top: 20px;
+    }
+
+        .aitssend p a, .aitssend p a:hover {
+            margin-left: 13px;
+            border: none;
+        }
+
+    input[type="text"] {
+        background: url(../img/user.png) no-repeat 229px 11px;
+        background-size: 25px;
+    }
+
+    .contact-form1 {
+        padding: 45px 3px;
+    }
+
+    .contact-w3-agileits h3 {
+        font-size: 30px;
+        margin-bottom: 30px;
+        letter-spacing: 3px;
+    }
+    .right {
+        display: none;
+    }
+}
+
+.notify {
+    color: #C23934;
+    font-size: 12px;
+    text-align: left;
+    padding: 10px 20px;
+    line-height: 16px;
+}
+
+    .notify .badge-error {
+        background: #C23934;
+        padding: 1px 5px;
+        top: -6px;
+        font-size: 11px;
+        -webkit-border-radius: 2px;
+        font-weight: 700;
+        width: 14px;
+        margin-right: 5px;
+        color: #fff;
+    }
+
+.form-label .required {
+    font-weight: 700;
+    color: #ff0000;
+}
+
+.margin-bottom-15 {
+    margin-bottom: 15px;
+}
+/*--- Responsive Code ---*/
+#authorize h2 {
+    font-size: 28px;
+}
+
+#authorize .form-group {
+    text-align: left;
+}
+
+    #authorize .form-group .form-label {
+        color: #616161;
+        margin-bottom: 5px;
+    }
+
+    #authorize .form-group input {
+        margin-top: 5px;
+        margin-bottom: 10px;
+        width: 100%;
+        background: transparent;
+    }
+
+#authorize input[type="button"] {
+    width: 100%;
+    padding: 10px 10px 10px;
+}

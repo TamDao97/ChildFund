@@ -1,0 +1,96 @@
+﻿{
+  "OtherName": "Ước mơ khác/ Other",
+  "OtherValue": "",
+  "ListObject": [
+    {
+      "Id": "01",
+      "Check": "false",
+      "Name": "Bác sĩ/ doctor",
+      "NameEN": "doctor",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "02",
+      "Check": "false",
+      "Name": "Bộ đội/ army officer",
+      "NameEN": "soldiers",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "03",
+      "Check": "false",
+      "Name": "Công an/ police officer",
+      "NameEN": "police",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "04",
+      "Check": "false",
+      "Name": "Ca sĩ/ singer",
+      "NameEN": "singer",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "05",
+      "Check": "false",
+      "Name": "Hoạ sĩ/ artist",
+      "NameEN": "artist",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "06",
+      "Check": "false",
+      "Name": "Nông dân/ farmer",
+      "NameEN": "farmer",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "07",
+      "Check": "false",
+      "Name": "Giáo viên/ teacher",
+      "NameEN": "teacher",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "08",
+      "Check": "false",
+      "Name": "Lái xe/ driver",
+      "NameEN": "driver",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "09",
+      "Check": "false",
+      "Name": "Nhà khoa học/ scientist",
+      "NameEN": "scientist",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "10",
+      "Check": "false",
+      "Name": "Kĩ sư/ engineer",
+      "NameEN": "engineer",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    }
+  ]
+}

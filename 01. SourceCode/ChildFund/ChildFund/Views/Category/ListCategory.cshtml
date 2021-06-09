@@ -1,0 +1,101 @@
+﻿
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th width="50px">STT</th>
+            <th>Tên nhóm tin</th>
+            <th>Nhóm cha</th>
+            <th>Thứ tự</th>
+            <th>Hiển trang chủ</th>
+            <th width="100px">Trạng thái</th>
+            <th width="160px">Chức năng</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>Chính sách pháp luật</td>
+            <td>Nhóm cha</td>
+            <td>1</td>
+            <td>
+                <label class="iswitch bg-accent ">
+                    <input type="checkbox" checked="">
+                    <i></i>
+                </label>
+            </td>
+            <td>
+                <label class="iswitch bg-accent ">
+                    <input type="checkbox" checked="">
+                    <i></i>
+                </label>
+            </td>
+            <td>
+                <button type="button" class="btn btn-xs btn-warning" title="Cập nhật bài viết"><i class="material-icons">edit</i></button>
+                <button type="button" class="btn btn-xs btn-danger" title="Xóa bài viết"><i class="material-icons">delete</i></button>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>Các khóa đào tạo trẻ em</td>
+            <td>Nhóm cha</td>
+            <td>2</td>
+            <td>
+                <label class="iswitch bg-accent ">
+                    <input type="checkbox" checked="checked">
+                    <i></i>
+                </label>
+            </td>
+            <td>
+                <label class="iswitch bg-accent ">
+                    <input type="checkbox">
+                    <i></i>
+                </label>
+            </td>
+            <td>
+                <button type="button" class="btn btn-xs btn-warning" title="Cập nhật bài viết"><i class="material-icons">edit</i></button>
+                <button type="button" class="btn btn-xs btn-danger" title="Xóa bài viết"><i class="material-icons">delete</i></button>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td>Tài liệu hướng dẫn</td>
+            <td>Nhóm cha</td>
+            <td>3</td>
+            <td>
+                <label class="iswitch bg-accent ">
+                    <input type="checkbox" checked="">
+                    <i></i>
+                </label>
+            </td>
+            <td>
+                <label class="iswitch bg-accent ">
+                    <input type="checkbox" checked="">
+                    <i></i>
+                </label>
+            </td>
+            <td>
+                <button type="button" class="btn btn-xs btn-warning" title="Cập nhật bài viết"><i class="material-icons">edit</i></button>
+                <button type="button" class="btn btn-xs btn-danger" title="Xóa bài viết"><i class="material-icons">delete</i></button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div class="pagerbottom">
+    <div class="col-md-4 col-sm-4 col-xs-4">
+        <div class="form-group">
+            <div class="controls">
+                <select class="form-control" style="width:50px;display:inline-block" id="pageSize">
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="30">30</option>
+                    <option value="40">40</option>
+                    <option value="50">50</option>
+                </select>
+                <span >bản ghi/Trang</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-4 col-xs-4">
+        @Html.Raw(ViewBag.pages)
+    </div>
+</div>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#134266"
+                android:orientation="horizontal"
+                android:weightSum="10">
+
+                <TextView
+                    style="@style/LabelStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="1dp"
+                    android:layout_weight="6"
+                    android:background="#3366FF"
+                    android:gravity="center"
+                    android:text="Đối tượng"
+                    android:textColor="#FFF" />
+
+                <TextView
+                    style="@style/LabelStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="2"
+                    android:background="#3366FF"
+                    android:gravity="center"
+                    android:text="Kinh"
+                    android:textColor="#FFF" />
+
+                <TextView
+                    style="@style/LabelStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="2"
+                    android:background="#3366FF"
+                    android:gravity="center"
+                    android:text="Khác"
+                    android:textColor="#FFF" />
+            </TableRow>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/listBaoCaoDanToc"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:cacheColorHint="#0000"
+                android:scrollbars="vertical"
+                android:scrollingCache="true" />
+
+        </TableLayout>
+
+        <!--<com.github.mikephil.charting.charts.BarChart-->
+        <!--android:id="@+id/barChart"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="300dp" />-->
+
+    </LinearLayout>
+
+    <include
+        android:id="@+id/progressDialog"
+        layout="@layout/progress_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+</android.support.constraint.ConstraintLayout>

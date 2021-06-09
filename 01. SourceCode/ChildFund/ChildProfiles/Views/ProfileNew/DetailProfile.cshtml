@@ -1,0 +1,252 @@
+﻿@model ChildProfiles.Model.ChildProfileModels.ChildProfileModel
+@{
+    ViewBag.Title = "Chi tiết hồ sơ trẻ/Profile's detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string dateView = "";
+    if (Model.DateOfBirth != null)
+    {
+        dateView = Model.DateOfBirth.ToString("dd/MM/yyyy");
+    }
+    var leaningStatusLeft = ChildProfiles.Common.CommonProcess.GenLeaningStatus(Model.LeaningStatus, Model.Handicap);
+    var subjectsLeft = ChildProfiles.Common.CommonProcess.GenInfoBase(Model.FavouriteSubjectModel);
+    var capacityLeft = ChildProfiles.Common.CommonProcess.GenInfoBase(Model.LearningCapacityModel);
+    var familyWorkLeft = ChildProfiles.Common.CommonProcess.GenInfoBase(Model.HouseworkModel);
+    var healthLeft = ChildProfiles.Common.CommonProcess.GenInfoBase(Model.HealthModel);
+    var personalityLeft = ChildProfiles.Common.CommonProcess.GenInfoBase(Model.PersonalityModel);
+    var homeConditionLeft = ChildProfiles.Common.CommonProcess.GenInfoBase(Model.HobbyModel);
+    var conditionOtherLeft = ChildProfiles.Common.CommonProcess.GenInfoBase(Model.DreamModel);
+
+}
+
+<section class="wrapper main-wrapper">
+    <div ui-view="" class="ng-scope">
+        <div class="content-wrapper">
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <section class="box ">
+                    <header class="panel_header">
+                        <h2 class="title pull-left">Xem thông tin về trẻ/Child's information</h2>
+                        <div class="actions panel_actions pull-right">
+                            <i class="box_toggle material-icons">expand_more</i>
+                        </div>
+                    </header>
+                    <div class="content-body padding-bottom-10">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4 class="margin-bottom-5 bold text-success">1. Thông tin chung về trẻ và chương trình/General information about child and program</h4>
+                                <hr />
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="col-md-3 col-sm-3 col-xs-3 text-right">
+                                    <label class="form-label">Mã số chương trình/Program code:</label>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3 text-left">
+                                    @Model.ProgramCode
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3 text-right">
+                                    <label class="form-label">Mã số trẻ/Child Number:</label>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3 text-left">
+                                    @Model.ChildCode
+                                </div>
+                                <div class="clearfix"></div>
+                          
+                                <div class="col-md-3 col-sm-3 col-xs-3 text-right">
+                                    <label class="form-label">Dân tộc của trẻ/Child's ethnic:</label>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3 text-left">
+                                    @Model.EthnicId
+                                </div>
+
+                   
+                                <div class="col-md-3 col-sm-3 col-xs-3 text-right">
+                                    <label class="form-label">Tôn giáo của trẻ/Child's religion:</label>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3 text-left">
+                                    @Model.ReligionId
+                                </div>
+                                <div class="clearfix"></div>
+
+                                <div class="col-md-3 col-sm-3 col-xs-3 text-right">
+                                    <label class="form-label">Tỉnh thành/Province:</label>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3 text-left">
+                                    @Model.ProvinceId
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3 text-right">
+                                    <label class="form-label">Huyện/District:</label>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3 text-left">
+                                    @Model.DistrictId
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="col-md-3 col-sm-3 col-xs-3 text-right">
+                                    <label class="form-label">Xã/Commune:</label>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3 text-left">
+                                    @Model.WardId
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3 text-right">
+                                    <label class="form-label">Thôn/xóm/Village:</label>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3 text-left">
+                                    @Model.Address
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4 class="margin-bottom-5 bold text-success">2. Thông tin cụ thể về trẻ/Child's specific information</h4>
+                                <hr />
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-3 text-right">
+                                <label class="form-label">Họ và tên/Full name:</label>
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-3 text-left">
+                                @Model.Name
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-3 text-right">
+                                <label class="form-label">Tên khác (nếu có)/Other name:</label>
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-3 text-left">
+                                @Model.NickName
+                            </div>
+                            <div class="clearfix"></div>
+
+                            <div class="col-md-3 col-sm-3 col-xs-3 text-right">
+                                <label class="form-label">Ngày sinh/Date of birth:</label>
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-3 text-left">
+                                @dateView
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-3 text-right">
+                                <label class="form-label">Giới tính/Gender:</label>
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-3 text-left">
+                                @if (Model.Gender == 1)
+                                {
+                                    <span>Nam/Male</span>
+                                }
+                                else
+                                { <span>Nữ/Female</span>}
+                            </div>
+                            <div class="clearfix"></div>
+
+                            <div class="col-md-3 col-sm-3 col-xs-3 text-right">
+                                <label class="form-label">Trường học/School:</label>
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-3 text-left">
+                                @Model.SchoolId
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="col-md-3 col-sm-3 col-xs-3 text-right">
+                                <label class="form-label">Tình trạng học của trẻ/Learning status:</label>
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-3 text-left">
+                                @leaningStatusLeft
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-3 text-right">
+                                <label class="form-label">Học lực của trẻ/Learning capacity:</label>
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-3 text-left">
+                                @capacityLeft
+                            </div>
+                            <div class="clearfix"></div>
+
+                            <div class="col-md-3 col-sm-3 col-xs-3 text-right">
+                                <label class="form-label">Các môn học trẻ thích/Favorite subject:</label>
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-3 text-left">
+                                @subjectsLeft
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-3 text-right">
+                                <label class="form-label">Các công việc trẻ giúp gia đình/Family's jobs that child helps:</label>
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-3 text-left">
+                                @familyWorkLeft
+                            </div>
+                            <div class="clearfix"></div>
+
+                            <div class="col-md-3 col-sm-3 col-xs-3 text-right">
+                                <label class="form-label">Sức khỏe của trẻ/Child's health:</label>
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-3 text-left">
+                                @healthLeft
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-3 text-right">
+                                <label class="form-label">Tính cách của trẻ/Child's personality:</label>
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-3 text-left">
+                                @personalityLeft
+                            </div>
+                            <div class="clearfix"></div>
+
+                            <div class="col-md-3 col-sm-3 col-xs-3 text-right">
+                                <label class="form-label">Sở thích của trẻ/Child's hobbies:</label>
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-3 text-left">
+                                @homeConditionLeft
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-3 text-right">
+                                <label class="form-label">Ước mơ của trẻ/Child's dream:</label>
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-3 text-left">
+                                @conditionOtherLeft
+                            </div>
+                            <div class="clearfix"></div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4 class="margin-bottom-5 bold text-success">3. Một số hình ảnh và câu chuyện của trẻ/Photos and stories of child</h4>
+                                <hr />
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-6 no-padding">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="form-group">
+                                        <label class="form-label">Nội dung câu chuyện/Main content</label>
+                                        <div class="controls">
+                                            <textarea id="mainContentStory" @(string.IsNullOrEmpty(Model.StoryContent) ? "disabled" : "") class="form-control" style="height:300px" rows="10">@Model.StoryContent</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @foreach (var item in Model.ListImage)
+                            {
+                                <div class="col-md-2 col-sm-2 col-xs-3 no-padding">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div class="form-group">
+                                            <div class="controls text-center margin-top-10">
+                                                <img src="@item.Image" width="200">
+                                            </div>
+                                            <div class="controls text-center">
+                                                @item.CreateDate.Value.ToString("dd/MM/yyyy")
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12 text-right">
+                                <div class="form-group margin-bottom-10 ">
+                                    @if (!string.IsNullOrEmpty(Model.StoryContent))
+                                    {
+                                        <button type="button" onclick="ResetStory('@Model.Id')" class="btn btn-info"><i class="fa fa-refresh" aria-hidden="true"></i> Làm mới câu chuyện/Refresh</button>
+                                        <button type="button" onclick="UpdateStory('@Model.Id')" class="btn btn-primary"><i class="glyphicon glyphicon-floppy-save"></i> Lưu câu chuyện/Save</button>
+                                    }
+                                    <a href="/ProfileNew/@ViewBag.backUrl" class="btn btn-default btn-icon">
+                                        <i class="fa fa-power-off"></i> &nbsp; <span>Thoát/Exit</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+        </div>
+    </div>
+</section>
+<script src="~/ScriptControllers/DetailProfileControllers.js"></script>
+

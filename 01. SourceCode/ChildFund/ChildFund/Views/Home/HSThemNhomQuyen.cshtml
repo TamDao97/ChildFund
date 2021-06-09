@@ -1,0 +1,143 @@
+﻿@model ChildFund.Controllers.ModelContent
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="wrapper main-wrapper">
+    <div ui-view="" class="ng-scope">
+        <div class="content-wrapper">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <section class="box">
+                    <header class="panel_header">
+                        <h2 class="title pull-left">Thêm mới nhóm quyền</h2>
+                        <div class="actions panel_actions pull-right">
+                            <i class="box_toggle material-icons">expand_more</i>
+                        </div>
+                    </header>
+                    <div class="content-body padding-bottom-0">
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4 col-xs-4">
+                                <div class="form-group">
+                                    <label class="form-label" for="field-1">Tên nhóm quyền</label>
+                                    <span class="desc"></span>
+                                    <div class="controls">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-8 col-sm-8 col-xs-8">
+                                <div class="form-group">
+                                    <label class="form-label" for="field-1">Mô tả</label>
+                                    <span class="desc"></span>
+                                    <div class="controls">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row margin-bottom-5 margin-top-15">
+                            <div class="col-md-12 col-sm-12 col-xs-12 text-left">
+                                <h4>
+                                    Tổng số <b class="badge badge-primary">10</b> quyền (<span class="text-primary">Đã chọn: <b>3</b></span> - <span class="text-danger">Chưa chọn: <b>7</b></span>)
+                                </h4>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="margin-bottom-10">
+                                    <table class="table table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th width="50px">#</th>
+                                                <th>Mã quyền</th>
+                                                <th width="80%">Quản lý hồ sơ</th>
+                                                <th width="60px">
+                                                    <label class="icheck icheck-primary">
+                                                        <input type="checkbox" value="" checked="">
+                                                        <i></i>
+                                                    </label>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>QL0001</td>
+                                                <td>Tải hồ sơ</td>
+                                                <td>
+                                                    <label class="icheck icheck-primary">
+                                                        <input type="checkbox" value="" checked="">
+                                                        <i></i>
+                                                    </label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">2</th>
+                                                <td>QL0002</td>
+                                                <td>cập nhật hồ sơ</td>
+                                                <td>
+                                                    <label class="icheck icheck-primary">
+                                                        <input type="checkbox" value="" checked="">
+                                                        <i></i>
+                                                    </label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">3</th>
+                                                <td>QL0003</td>
+                                                <td>Duyệt hồ sơ</td>
+                                                <td>
+                                                    <label class="icheck icheck-primary">
+                                                        <input type="checkbox" value="" checked="">
+                                                        <i></i>
+                                                    </label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">4</th>
+                                                <td>QL0004</td>
+                                                <td>Xóa hồ sơ</td>
+                                                <td>
+                                                    <label class="icheck icheck-primary">
+                                                        <input type="checkbox" value="" checked="">
+                                                        <i></i>
+                                                    </label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">5</th>
+                                                <td>QL0005</td>
+                                                <td>Cập nhật hồ sơ</td>
+                                                <td>
+                                                    <label class="icheck icheck-primary">
+                                                        <input type="checkbox" value="" checked="">
+                                                        <i></i>
+                                                    </label>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12 text-right">
+                                <div class="form-group margin-bottom-10 ">
+                                    <a href="/home/danhsachca">
+                                        <button class="btn btn-success btn-icon right10">
+                                            <i class="fa fa-save "></i> &nbsp; <span>Lưu</span>
+                                        </button>
+                                    </a>
+                                    <button class="btn btn-default btn-icon">
+                                        <i class="fa fa-power-off"></i> &nbsp; <span>Thoát</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+

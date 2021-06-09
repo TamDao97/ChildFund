@@ -1,0 +1,119 @@
+﻿@model IList<ChildProfiles.Model.FamilyMemberModel>
+@{int i = 0, j = 0; string gender1 = "", gender0 = "", check0 = "", check1 = "";}
+<input type="text" id="strDataTableFamilyInfo" style="display:none" value="@ViewBag.strDataTableFamilyInfo">
+<table class="table table-bordered table-hover" id="familyTable" style="min-width:900px">
+    <thead>
+        <tr>
+            <th rowspan="2" width="50px" style="vertical-align:top;">Stt</th>
+            <th class="text-center" style="vertical-align:top;">Liệt kê họ và tên đầy đủ của các thành viên trong gia đình/Full name <br /> (không liệt kê trẻ được tuyển/excluding the child)</th>
+            <th class="text-center" style="vertical-align:top;">Ngày tháng năm sinh/DOB</th>
+            <th class="text-center" style="vertical-align:top;" width="150px" rowspan="2"> Mối quan hệ với trẻ được tuyển/Relationship with child </th>
+            <th class="text-center" style="vertical-align:top;" width="100px">Giới tính/Gender</th>
+            <th class="text-center" style="vertical-align:top;" rowspan="2">Nghề nghiệp/Occupation</th>
+            <th class="text-center" style="vertical-align:top;" rowspan="2">Có sống cùng với trẻ không/Live with child or not?</th>
+            <th class="text-center" style="vertical-align:top;" width="60px" rowspan="2">Xóa</th>
+        </tr>
+        <tr>
+            <th class="text-center" style="font-weight:300">Tên theo giấy khai sinh/Full name<span class="required"> *</span></th>
+            <th class="text-center" style="font-weight:300">(theo giấy khai sinh)</th>
+            <th class="text-center" style="font-weight:300">Nam/Nữ (Male/Female) </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            gender1 = item.Gender == 1 ? "checked" : "";
+            gender0 = item.Gender == 0 ? "checked" : "";
+            check1 = item.LiveWithChild == 1 ? "checked" : "";
+            check0 = item.LiveWithChild == 0 ? "checked" : "";
+            j++;
+            <tr>
+                <td style="vertical-align:bottom">
+                    @j
+                </td>
+                <td style="vertical-align:bottom">
+                    <input type="text" name="name" id="name_@i" value="@item.Name" maxlength="150" class="form-control">
+                </td>
+                <td style="vertical-align:bottom">
+                    @if (item.DateOfBirth.HasValue)
+                    {
+                        <input type="text" placeholder="Năm sinh" id="dateb_@i" name="dateb" value="@item.DateOfBirth.Value.ToString("dd/MM/yyyy").Substring(6,4)" class="form-control">
+                    }
+                    else
+                    {
+                        <input type="text" placeholder="Năm sinh" id="dateb_@i" name="dateb" class="form-control">
+                    }
+                </td>
+                <td style="vertical-align:bottom">
+                    <select class="form-control" id="relationship_@i" onchange="CountGender(@i)" name="relationship">
+                        @Html.Action("RelationshipCBB", "Combobox")
+                    </select>
+                    @if (!string.IsNullOrEmpty(item.RelationshipId))
+                    {
+                        <script>
+                        $('select[id="relationship_@i"]').val('@item.RelationshipId');
+                        </script>
+                    }
+
+                </td>
+                <td style="vertical-align:bottom">
+                    <label class="icheck icheck-primary">
+                        <input type="radio" value="1" id="gender_@i" name="gender_@i" @gender1>
+                        <i></i> Nam
+                    </label>&nbsp;
+                    <label class="icheck icheck-primary">
+                        <input type="radio" value="0" id="gender2_@i" name="gender_@i" @gender0>
+                        <i></i> Nữ
+                    </label>
+                </td>
+                <td style="vertical-align:bottom">
+                    <select class="form-control" id="job_@i" name="job">
+                        @Html.Action("JobCBB", "Combobox")
+                    </select>
+                    @if (!string.IsNullOrEmpty(item.Job))
+                    {
+                        <script>
+                            $('select[id="job_@i"]').val('@item.Job');
+                        </script>
+                    }
+                </td>
+                <td style="vertical-align:bottom" class="abc">
+                    <label class="icheck icheck-primary">
+                        <input type="radio" value="1" id="live_@i" name="check_@i" @check1 onclick="SetCheckboxLivingWithParent()">
+                        <i></i> Có
+                    </label>&nbsp;
+                    <label class="icheck icheck-primary">
+                        <input type="radio" value="0" id="live2_@i" name="check_@i" @check0 onclick="SetCheckboxLivingWithParent()">
+                        <i></i> Không
+                    </label>
+                </td>
+                <td style="vertical-align:bottom">
+                    <button type="button" onclick="DeleteRow(@j)" class="btn bt n-xs btn-danger" title="Xóa hồ sơ"><i class="material-icons">delete</i></button>
+                </td>
+            </tr>
+            i++;
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3" style="font-weight:600">Tổng số anh/em trai ruột của trẻ/Number of brothers: <span id="countMale">0</span></td>
+
+            <td colspan="5" style="font-weight:600">Tổng số chị/em gái ruột của trẻ/Number of sisters: <span id="countFeMale">0</span></td>
+
+        </tr>
+    </tfoot>
+</table>
+
+
+@if (Model != null && Model.Count > 0)
+{
+    <script src="~/Scripts/bootstrap-datepicker.js"></script>
+    <script src="~/Scripts/bootstrap-datepicker.vi.min.js"></script>
+    @*<script>
+            $(document).ready(function () {
+                $('.datepickerfml').datepicker({
+                    format: 'dd/mm/yyyy'
+                });
+            });
+        </script>*@
+}

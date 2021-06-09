@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/TitleStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="0dp"
+            android:text="Báo cáo địa bàn trẻ can thiệp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/LabelStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Từ ngày" />
+
+                <EditText
+                    android:id="@+id/spnYearFrom"
+                    style="@style/SpinnerStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/LabelStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Đến ngày" />
+
+                <EditText
+                    android:id="@+id/spnYearTo"
+                    style="@style/SpinnerStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="10">
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="3" />
+
+            <Button
+                android:id="@+id/btnSearch"
+                android:layout_width="match_parent"
+                style="@style/SearchButtonStatic"
+                android:layout_weight="7"
+                android:background="@drawable/btn_rounded_green"
+                android:text="Tìm kiếm"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+
+            <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#134266"
+                    android:orientation="horizontal"
+                    android:weightSum="10">
+
+                    <TextView
+                        style="@style/LabelStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="1dp"
+                        android:layout_weight="4"
+                        android:background="#3366FF"
+                        android:gravity="center"
+                        android:text="Đối tượng"
+
+                        android:textColor="#FFF" />
+
+                    <TextView
+                        style="@style/LabelStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_weight="2"
+                        android:background="#3366FF"
+                        android:gravity="center"
+                        android:text="Địa bàn"
+
+                        android:textColor="#FFF" />
+
+                    <TextView
+                        style="@style/LabelStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_weight="2"
+                        android:background="#3366FF"
+                        android:gravity="center"
+                        android:text="Số lượng"
+
+                        android:textColor="#FFF" />
+
+                    <TextView
+                        style="@style/LabelStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_weight="2"
+                        android:background="#3366FF"
+                        android:gravity="center"
+                        android:text="Tỷ lệ"
+
+                        android:textColor="#FFF" />
+                </TableRow>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/listBaoCaoDiaBan"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:cacheColorHint="#0000"
+                    android:scrollbars="vertical"
+                    android:scrollingCache="true" />
+
+            </TableLayout>
+
+            <!--<com.github.mikephil.charting.charts.BarChart-->
+            <!--android:id="@+id/barChart"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="300dp" />-->
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <include
+        android:id="@+id/progressDialog"
+        layout="@layout/progress_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+</android.support.constraint.ConstraintLayout>

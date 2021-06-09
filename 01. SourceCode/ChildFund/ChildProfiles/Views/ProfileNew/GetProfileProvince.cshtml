@@ -1,0 +1,128 @@
+﻿@model IList<ChildProfiles.Model.ChildProfileModels.ChildProfileSearchResult>
+@{ string dateOfBirthView = ""; string createDateView = ""; string approveDate = ""; string officeApproveDate = "";}
+<div style="overflow-x:auto">
+    <table class="table table-bordered table-hover" style="min-width:2100px">
+        <thead>
+            <tr>
+                <th width="50px" class="text-center">No.</th>
+                <th width="50px" class="text-center">
+                    <label class="icheck icheck-primary">
+                        <input type="checkbox" onchange="CheckAllData()" id="checkAllData" />
+                        <i></i>
+                    </label>
+                </th>
+                <th width="140px" class="text-center">Function</th>
+                <th width="80px" class="text-center">Photo</th>
+                <th width="125px">Program code</th>
+                <th width="120px">Child number</th>
+                <th width="200px">Child full name</th>
+                <th width="80px">Gender</th>
+                <th width="120px">Date of birth</th>
+                <th width="220px">School</th>
+                <th>Child address</th>
+                <th width="150px">Created by</th>
+                <th width="120px">Date created</th>
+                <th width="170px">Date approved by ADO</th>
+                <th width="170px">Date approved by HNO</th>
+                <th width="100px">Salesforce ID</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @{ int index = ViewBag.Index;}
+            @foreach (var item in Model)
+            {
+
+                index++;
+                dateOfBirthView = "";
+                createDateView = "";
+                approveDate = "";
+                officeApproveDate = "";
+                if (item.DateOfBirth != null)
+                {
+                    dateOfBirthView = item.DateOfBirth.ToString("dd/MM/yyyy");
+                }
+                if (item.CreateDate != null)
+                {
+                    createDateView = item.CreateDate.Value.ToString("dd/MM/yyyy");
+                }
+                if (item.ApproveDate != null)
+                {
+                    approveDate = item.ApproveDate.Value.ToString("dd/MM/yyyy");
+                }
+
+                if (item.OfficeApproveDate != null)
+                {
+                    officeApproveDate = item.OfficeApproveDate.Value.ToString("dd/MM/yyyy");
+                }
+                <tr>
+                    <td class="text-center">@index</td>
+                    <td class="text-center">
+                        <label class="icheck icheck-primary">
+                            <input type="checkbox" onchange="CheckData('@item.Id')" class="itemp" id="ck_@item.Id" value="@item.Id" />
+                            <i></i>
+                        </label>
+                    </td>
+                    <td class="text-center">
+                        <a href="/ProfileNew/ViewImage?id=@item.Id" type="button" class="btn btn-xs btnfuntion" title="Xem hồ sơ/View profile"><i class="material-icons btnicon" style="color:aquamarine">remove_red_eye</i></a>
+
+                        @if (ViewBag.Type == "Confim")
+                        {
+                            <a href="/ProfileNew/DetailProfileConfim/@item.Id" type="button" class="btn btn-xs btnfuntion" title="Xem hồ sơ/View profile"><i class="material-icons btnicon" style="color:mediumaquamarine">assignment_ind</i></a>
+                        }
+                        else
+                        {
+                            <a href="/ProfileNew/DetailProfile/@item.Id" type="button" class="btn btn-xs btnfuntion" title="Xem hồ sơ/View profile"><i class="material-icons btnicon" style="color:mediumaquamarine">assignment_ind</i></a>
+                        }
+                        <button @(item.Status.Equals("1") == true ? "" : "disabled") onclick="ConfimProfile('@item.Id','@item.Avata')" type="button" class="btn btn-xs btnfuntion" title="Duyệt hồ sơ/Approve"><i class="material-icons btnicon" style="color:limegreen">assignment_turned_in</i></button>
+                        <button onclick="DeleteConfim('@item.Id')" type="button" class="btn btn-xs btnfuntion" title="Khóa hồ sơ/Lock"><i class="material-icons btnicon" style="color:red">lock</i></button>
+                    </td>
+                    <td class="text-center"><img class="img-avata" src="@item.Avata" /></td>
+                    <td><a href="javascript:void(0)" onclick="ShowModal('@item.Id', '@item.ProgramCode')">@item.ProgramCode</a></td>
+                    <td>@item.ChildCode</td>
+                    <td class="td-new">
+                        @item.Name
+                        @if (item.Handicap || item.HealthHandicap)
+                        {
+                            <img src="/img/disabilities.png" class="img-new" />
+                        }
+                    </td>
+                    <td>@item.Gender</td>
+                    <td>@dateOfBirthView</td>
+                    <td>@item.School</td>
+                    <td>@item.Address</td>
+                    <td>@item.CreateBy</td>
+                    <td>@createDateView</td>
+                    <td>@approveDate</td>
+                    <td>@officeApproveDate</td>
+                    <td>@item.SalesforceID</td>
+                </tr>
+            }
+    </table>
+</div>
+<div class="pagerbottom margin-top-10">
+    <div class="col-md-4 col-sm-4 col-xs-4">
+        <div class="form-group">
+            <div class="controls">
+                <select class="form-control combobox-padding" onchange="ChangeSize()" id="pageSize">
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="30">30</option>
+                    <option value="40">40</option>
+                    <option value="50">50</option>
+                </select>
+                <span>record(s)/Page</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8 col-sm-8 col-xs-8">
+        @Html.Raw(ViewBag.pages)
+    </div>
+</div>
+<script>
+    $('#count_data').html(@ViewBag.TotalItem);
+    $('#dataListId').val('@ViewBag.ListId');
+    $('#pageSize').val(@ViewBag.PageSize);
+     var link = document.getElementById('linkDowload');
+    link.href = '@ViewBag.PathFile';
+</script>

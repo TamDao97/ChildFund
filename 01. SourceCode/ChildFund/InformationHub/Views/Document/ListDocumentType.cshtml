@@ -1,0 +1,65 @@
+﻿@model IList<InformationHub.Model.Model.DocumentType.DocumentTypeSearchResult>
+@{ string uploadDate = ""; int type = ViewBag.Type; }
+<div style="overflow-x:auto">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th width="10px" class="text-center">@InformationHub.Resource.Resource.Index_Title</th>
+                <th width="50px" class="text-center">@InformationHub.Resource.Resource.Funtion_Title</th>
+                <th width="50px">@InformationHub.Resource.Resource.Document_Group_Name</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @{ int index = ViewBag.Index; string content = "";}
+            @if (Model != null && Model.Count > 0)
+            {
+                foreach (var item in Model)
+                {
+                    content = NTS.Common.Utils.Common.FormatContentNews(item.Description, 110);
+                    index++;
+                    <tr>
+                        <td class="text-center">@index</td>
+                        <td align="center">
+                            @if (type < 3)
+                            {
+                                if (InformationHub.Common.LoginCommon.CheckPermission("C0023"))
+                                {
+                                    <button onclick="UpdateDocumentTypeShow('@item.Id','@item.Name')" type="button" class="btn btn-xs btnfuntion" title="@InformationHub.Resource.Resource.Label_Update"><i class="material-icons btnicon" style="color:orange">edit</i></button>
+                                    //<a href="" class="btn btn-xs btnfuntion" title="@InformationHub.Resource.Resource.Document_Update"><i class="material-icons btnicon" style="color:orange">edit</i></a>
+                                }
+                                if (InformationHub.Common.LoginCommon.CheckPermission("C0024"))
+                                {
+                                    <button onclick="DeleteConfim('@item.Id')" type="button" class="btn btn-xs btnfuntion" title="@InformationHub.Resource.Resource.Document_Group_Delete"><i class="material-icons btnicon" style="color:red">delete</i></button>
+                                }
+                            }
+                        </td>
+                        <td>@item.Name</td>
+                    </tr>
+                }
+            }
+    </table>
+</div>
+<div class="pagerbottom margin-top-10">
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+        <div class="form-group">
+            <div class="controls">
+                <select class="form-control combobox-padding" onchange="ChangeSize()" id="pageSize">
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="30">30</option>
+                    <option value="40">40</option>
+                    <option value="50">50</option>
+                </select>
+                <span>@InformationHub.Resource.Resource.NumberPage_Title</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-8 col-md-8 col-sm-6 col-xs-6">
+        @Html.Raw(ViewBag.pages)
+    </div>
+</div>
+<script>
+    $('#count_data').html(@ViewBag.TotalItem);
+    $('#pageSize').val(@ViewBag.PageSize);
+</script>

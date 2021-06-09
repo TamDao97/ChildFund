@@ -1,0 +1,24 @@
+﻿@model IList<InformationHub.Model.Model.Function.FunctionModel>
+@foreach (var item in Model)
+{
+    <tr style="@(string.IsNullOrEmpty(item.GroupFunctionId)?"background-color: #D8F0DA":"")">
+        <td colspan="@(!string.IsNullOrEmpty(item.GroupFunctionId) ? "1" : "2")" class="text-center">@(item.Index.Equals("0") ? "" : item.Index)</td>
+        @if (!string.IsNullOrEmpty(item.GroupFunctionId))
+        {
+            <td>@item.Code</td>
+        }
+        <td colspan="@(!string.IsNullOrEmpty(item.GroupFunctionId) ? "1" : "2")">@item.Name</td>
+        @if (!string.IsNullOrEmpty(item.GroupFunctionId))
+        {
+            <td class="text-center">
+                <label class="icheck icheck-primary">
+                    <input type="checkbox" @item.ItemChecked onchange="CheckPermission('@item.PermissionId')" class="itemp" id="ck_@item.PermissionId" value="@item.PermissionId" />
+                    <i></i>
+                </label>
+            </td>
+        }
+    </tr>
+}
+<script>
+    $('#count_data').html(@ViewBag.TotalItem);
+</script>

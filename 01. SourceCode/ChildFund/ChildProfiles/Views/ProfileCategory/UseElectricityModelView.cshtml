@@ -1,0 +1,211 @@
+﻿@model ChildProfiles.Model.ObjectBaseModel
+@{
+    var useElectricityModel = (ChildProfiles.Model.ObjectBaseModel)ViewBag.useElectricityModel;
+    var schoolDistanceModel = (ChildProfiles.Model.ObjectBaseModel)ViewBag.schoolDistanceModel;
+    var clinicDistanceModel = (ChildProfiles.Model.ObjectBaseModel)ViewBag.clinicDistanceModel;
+    var waterSourceDistanceModel = (ChildProfiles.Model.ObjectBaseModel)ViewBag.waterSourceDistanceModel;
+    var waterSourceUseModel = (ChildProfiles.Model.ObjectBaseModel)ViewBag.waterSourceUseModel;
+    var roadConditionModel = (ChildProfiles.Model.ObjectBaseModel)ViewBag.roadConditionModel;
+
+    var dateRow1 = useElectricityModel.ListObject;
+    var dateRow2 = schoolDistanceModel.ListObject;
+    var dateRow3 = clinicDistanceModel.ListObject;
+    var dateRow4 = waterSourceDistanceModel.ListObject;
+    var dateRow5 = waterSourceUseModel.ListObject;
+    var dateRow6 = roadConditionModel.ListObject;
+    string check1;
+}
+<div class="margin-bottom-10">
+    <textarea hidden id="hiduseElectricityModel">@(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(useElectricityModel))</textarea>
+    <textarea hidden id="hidschoolDistanceModel">@(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(schoolDistanceModel))</textarea>
+    <textarea hidden id="hidclinicDistanceModel">@(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(clinicDistanceModel))</textarea>
+    <textarea hidden id="hidwaterSourceDistanceModel">@(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(waterSourceDistanceModel))</textarea>
+    <textarea hidden id="hidwaterSourceUseModel">@(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(waterSourceUseModel))</textarea>
+    <textarea hidden id="hidroadConditionModel">@(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(roadConditionModel))</textarea>
+
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" style="display:none;">
+        <div class="row">
+            <table class="table table-bordered table-hover" id="tbuseElectricityModel">
+                <thead>
+                    <tr>
+                        <th colspan="2">Gia đình có điện không/Does the family have electricity?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in dateRow1)
+                    {
+                        check1 = item.Check ? "checked" : "";
+                        <tr>
+                            <td width="20">
+                                <label class="icheck icheck-primary">
+                                    <input type="checkbox" @check1 value="@item.Id" name="ckuseElectricity" onclick="ChangeCheckbox(@item.Id,'#tbuseElectricityModel','ckuseElectricity')">
+                                    <i></i>
+                                </label>
+                            </td>
+                            <td>@item.Name</td>
+                        </tr>
+                    }
+                    @for (int i = 0; i < 2; i++)
+                    {
+                        <tr class="row-custom-block">
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        <div class="row">
+            <table class="table table-bordered table-hover" id="tbschoolDistanceModel">
+                <thead>
+                    <tr>
+                        <th colspan="2">
+                            Từ nhà tới trường học bao xa?/How far from home to school?
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in dateRow2)
+                    {
+                        check1 = item.Check ? "checked" : "";
+                        <tr>
+                            <td width="20">
+                                <label class="icheck icheck-primary">
+                                    <input type="checkbox" @check1 value="@item.Id" name="ckschoolDistance" onclick="ChangeCheckbox(@item.Id,'#tbschoolDistanceModel','ckschoolDistance')">
+                                    <i></i>
+                                </label>
+                            </td>
+                            <td>@item.Name</td>
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        <div class="row">
+            <table class="table table-bordered table-hover" id="tbclinicDistanceModel">
+                <thead>
+                    <tr>
+                        <th colspan="2">
+                            Từ nhà tới trạm y tế bao xa?/How far from home to health center
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in dateRow3)
+                    {
+                        check1 = item.Check ? "checked" : "";
+                        <tr>
+                            <td width="20">
+                                <label class="icheck icheck-primary">
+                                    <input type="checkbox" @check1 value="@item.Id" name="ckclinicDistance" onclick="ChangeCheckbox(@item.Id,'#tbclinicDistanceModel','ckclinicDistance')">
+                                    <i></i>
+                                </label>
+                            </td>
+                            <td>@item.Name</td>
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        <div class="row">
+            <table class="table table-bordered table-hover" id="tbwaterSourceDistanceModel">
+                <thead>
+                    <tr>
+                        <th colspan="2">
+                            Từ nhà tới nguồn nước bao xa?/How far from home to water source?
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in dateRow4)
+                    {
+                        check1 = item.Check ? "checked" : "";
+                        <tr>
+                            <td width="20">
+                                <label class="icheck icheck-primary">
+                                    <input type="checkbox" @check1 value="@item.Id" name="ckwaterSourceDistance" onclick="ChangeCheckbox(@item.Id,'#tbwaterSourceDistanceModel','ckwaterSourceDistance')">
+                                    <i></i>
+                                </label>
+                            </td>
+                            <td>@item.Name</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+        <div class="row">
+            <table class="table table-bordered table-hover" id="tbwaterSourceUseModel">
+                <thead>
+                    <tr>
+                        <th colspan="2">
+                            Gia đình sử dụng nguồn nước từ đâu?/Where is water collected?
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in dateRow5)
+                    {
+                        check1 = item.Check ? "checked" : "";
+                        <tr>
+                            <td width="20">
+                                <label class="icheck icheck-primary">
+                                    <input type="checkbox" @check1 value="@item.Id" name="ckwaterSourceUse" onclick="ChangeCheckbox(@item.Id,'#tbwaterSourceUseModel','ckwaterSourceUse')">
+                                    <i></i>
+                                </label>
+                            </td>
+                            <td>@item.Name</td>
+                        </tr>
+                    }
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="2">
+                            <span>@waterSourceUseModel.OtherName</span> <input value="@waterSourceUseModel.OtherValue" type="text" id="waterSourceUseOther" class="form-control">
+                        </td>
+
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+        <div class="row">
+            <table class="table table-bordered table-hover" id="tbroadConditionModel">
+                <thead>
+                    <tr>
+                        <th colspan="2">
+                            Điều kiện đường xá tới trường học, trạm y tế/Conditions of road to school/health station
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in dateRow6)
+                    {
+                        check1 = item.Check ? "checked" : "";
+                        <tr>
+                            <td width="20">
+                                <label class="icheck icheck-primary">
+                                    <input type="checkbox" @check1 value="@item.Id" name="ckroadCondition" onclick="ChangeCheckbox(@item.Id,'#tbroadConditionModel','ckroadCondition')">
+                                    <i></i>
+                                </label>
+                            </td>
+                            <td>@item.Name</td>
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,1692 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Abuse_Type_01" xml:space="preserve">
+    <value>Physical</value>
+  </data>
+  <data name="Abuse_Type_02" xml:space="preserve">
+    <value>Sexual</value>
+  </data>
+  <data name="Abuse_Type_03" xml:space="preserve">
+    <value>Mental</value>
+  </data>
+  <data name="Abuse_Type_04" xml:space="preserve">
+    <value>Distracted</value>
+  </data>
+  <data name="Add_Title" xml:space="preserve">
+    <value>Create new</value>
+  </data>
+  <data name="AllNotifyNew_Title" xml:space="preserve">
+    <value>All notifications</value>
+  </data>
+  <data name="All_Title" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="AreaDelete_Deleted" xml:space="preserve">
+    <value>Area has been deleted by another user</value>
+  </data>
+  <data name="AreaDelete_Used" xml:space="preserve">
+    <value>Used area can not be delete</value>
+  </data>
+  <data name="Area_AddArea" xml:space="preserve">
+    <value>Create new area</value>
+  </data>
+  <data name="Area_Add_Title" xml:space="preserve">
+    <value>Create new area</value>
+  </data>
+  <data name="Area_Area" xml:space="preserve">
+    <value>Area</value>
+  </data>
+  <data name="Area_Delete" xml:space="preserve">
+    <value>Delete area</value>
+  </data>
+  <data name="Area_InfoArea" xml:space="preserve">
+    <value>Area information</value>
+  </data>
+  <data name="Area_Info_District" xml:space="preserve">
+    <value>District information</value>
+  </data>
+  <data name="Area_Info_Ward" xml:space="preserve">
+    <value>Ward information</value>
+  </data>
+  <data name="Area_List" xml:space="preserve">
+    <value>List area</value>
+  </data>
+  <data name="Area_Manager" xml:space="preserve">
+    <value>Manager</value>
+  </data>
+  <data name="Area_Manager_Title" xml:space="preserve">
+    <value>Area Management</value>
+  </data>
+  <data name="Area_Name" xml:space="preserve">
+    <value>Area name</value>
+  </data>
+  <data name="Area_Province" xml:space="preserve">
+    <value>Province</value>
+  </data>
+  <data name="Area_Table_Header" xml:space="preserve">
+    <value>Area</value>
+  </data>
+  <data name="Area_Title" xml:space="preserve">
+    <value>Area Management</value>
+  </data>
+  <data name="Area_Total_District" xml:space="preserve">
+    <value>Number of districs</value>
+  </data>
+  <data name="Area_Total_Ward" xml:space="preserve">
+    <value>Number of wards</value>
+  </data>
+  <data name="Area_Update" xml:space="preserve">
+    <value>Update area</value>
+  </data>
+  <data name="Area_Update_Title" xml:space="preserve">
+    <value>Update area</value>
+  </data>
+  <data name="Assessment_Closing" xml:space="preserve">
+    <value>Form No.6 - Assessment in closing stages</value>
+  </data>
+  <data name="Authorize_Change_Password" xml:space="preserve">
+    <value>Change password</value>
+  </data>
+  <data name="Authorize_Confirm_Change_Password" xml:space="preserve">
+    <value>Confirm and change password</value>
+  </data>
+  <data name="Authorize_Confirm_Code" xml:space="preserve">
+    <value>Verify code</value>
+  </data>
+  <data name="Authorize_Confirm_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Authorize_Confirm_New_Password" xml:space="preserve">
+    <value>Confirm new password</value>
+  </data>
+  <data name="Authorize_Confirm_Password" xml:space="preserve">
+    <value>Confirm password</value>
+  </data>
+  <data name="Authorize_Current_Password" xml:space="preserve">
+    <value>Current password</value>
+  </data>
+  <data name="Authorize_ERR003" xml:space="preserve">
+    <value>User is not existed or has been locked by admin. Please try again!</value>
+  </data>
+  <data name="Authorize_ERR004" xml:space="preserve">
+    <value>Password and confirm password do not match!</value>
+  </data>
+  <data name="Authorize_ERR005" xml:space="preserve">
+    <value>Password is not correct!</value>
+  </data>
+  <data name="Authorize_ERR006" xml:space="preserve">
+    <value>Password fields can not be null!</value>
+  </data>
+  <data name="Authorize_ERR007" xml:space="preserve">
+    <value>Username can not be null!</value>
+  </data>
+  <data name="Authorize_ERR008" xml:space="preserve">
+    <value>Username is not correct!</value>
+  </data>
+  <data name="Authorize_ERR009" xml:space="preserve">
+    <value>User has been locked. Contact the admin to reactiveate</value>
+  </data>
+  <data name="Authorize_ERR010" xml:space="preserve">
+    <value>User is not existed</value>
+  </data>
+  <data name="Authorize_ERR011" xml:space="preserve">
+    <value>Email is not used for this user</value>
+  </data>
+  <data name="Authorize_ERR012" xml:space="preserve">
+    <value>Failed when sending verify mail to change password. Please try again!</value>
+  </data>
+  <data name="Authorize_ERR013" xml:space="preserve">
+    <value>Verify code is not correct. Please re-type correct code!</value>
+  </data>
+  <data name="Authorize_ERR014" xml:space="preserve">
+    <value>Have not received change password request. Please try again!</value>
+  </data>
+  <data name="Authorize_Forgot_Password" xml:space="preserve">
+    <value>Forgot password?</value>
+  </data>
+  <data name="Authorize_Forward_Password" xml:space="preserve">
+    <value>Password retrieval</value>
+  </data>
+  <data name="Authorize_Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="Authorize_Name" xml:space="preserve">
+    <value>Username</value>
+  </data>
+  <data name="Authorize_New_Password" xml:space="preserve">
+    <value>New password</value>
+  </data>
+  <data name="Authorize_Update_Info" xml:space="preserve">
+    <value>Update profile</value>
+  </data>
+  <data name="Authorzie_Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="ChangePass_Title" xml:space="preserve">
+    <value>Update password</value>
+  </data>
+  <data name="Chart_Title" xml:space="preserve">
+    <value>Number of cases</value>
+  </data>
+  <data name="Compare_Title" xml:space="preserve">
+    <value>same period</value>
+  </data>
+  <data name="Conclusion_Situation" xml:space="preserve">
+    <value>Conclusion about the situation of children</value>
+  </data>
+  <data name="Conclusion_Situation1" xml:space="preserve">
+    <value>If the risk of children continues to be harmed, there is a need to support and intervention plans for children.</value>
+  </data>
+  <data name="Conclusion_Situation2" xml:space="preserve">
+    <value>If the intervention results, help ensure that children are stable and the risk of harm are no longer available, follow-up for 3 months and ended.</value>
+  </data>
+  <data name="Content_Title" xml:space="preserve">
+    <value>Content</value>
+  </data>
+  <data name="Count_Title" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="DateForward_Title" xml:space="preserve">
+    <value>Forwarded date</value>
+  </data>
+  <data name="Day15Erros_Title" xml:space="preserve">
+    <value>Limited time is 15 days</value>
+  </data>
+  <data name="DayFrom_Title" xml:space="preserve">
+    <value>From date</value>
+  </data>
+  <data name="DayTo_Title" xml:space="preserve">
+    <value>To date</value>
+  </data>
+  <data name="Day_Title" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="Delete_Title" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Document" xml:space="preserve">
+    <value>document</value>
+  </data>
+  <data name="DocumentGroup_Deleted" xml:space="preserve">
+    <value>This document group has been deleted bys another user!</value>
+  </data>
+  <data name="Document_Add_Title" xml:space="preserve">
+    <value>Add new document</value>
+  </data>
+  <data name="Document_Delete" xml:space="preserve">
+    <value>Delete document</value>
+  </data>
+  <data name="Document_Deleted" xml:space="preserve">
+    <value>This document has been deleted</value>
+  </data>
+  <data name="Document_File_Deleted" xml:space="preserve">
+    <value>File has been deleted</value>
+  </data>
+  <data name="Document_Folder_Deleted" xml:space="preserve">
+    <value>Folder is not existed or has been deleted</value>
+  </data>
+  <data name="Document_Group" xml:space="preserve">
+    <value>Document group</value>
+  </data>
+  <data name="Document_Group_Add_Title" xml:space="preserve">
+    <value>Document group management</value>
+  </data>
+  <data name="Document_Group_Delete" xml:space="preserve">
+    <value>Delete document group</value>
+  </data>
+  <data name="Document_Group_Deleted" xml:space="preserve">
+    <value>Document group has been deleted by another user!</value>
+  </data>
+  <data name="Document_Group_Delete_Warning" xml:space="preserve">
+    <value>This document group can not be deleted!</value>
+  </data>
+  <data name="Document_Group_Duplicate" xml:space="preserve">
+    <value>Name of this document group is existed!</value>
+  </data>
+  <data name="Document_Group_Manage" xml:space="preserve">
+    <value>Document group management</value>
+  </data>
+  <data name="Document_Group_Name" xml:space="preserve">
+    <value>Name of document group</value>
+  </data>
+  <data name="Document_List" xml:space="preserve">
+    <value>List of document group</value>
+  </data>
+  <data name="Document_Name" xml:space="preserve">
+    <value>Document name</value>
+  </data>
+  <data name="Document_Title" xml:space="preserve">
+    <value>Document management</value>
+  </data>
+  <data name="Document_Update" xml:space="preserve">
+    <value>Update document</value>
+  </data>
+  <data name="Document_Upload_By" xml:space="preserve">
+    <value>Uploader</value>
+  </data>
+  <data name="Download_UserTemplate" xml:space="preserve">
+    <value>Download template</value>
+  </data>
+  <data name="Email_Used" xml:space="preserve">
+    <value>Email has been used for another user!</value>
+  </data>
+  <data name="English_Title" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="ErroNotFound_Title" xml:space="preserve">
+    <value>This record is not existed or has been deleted</value>
+  </data>
+  <data name="ErroProcess_Title" xml:space="preserve">
+    <value>Failed when processing. Please try again!</value>
+  </data>
+  <data name="Exit_Title" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="ExportPDF_Title" xml:space="preserve">
+    <value>Export PDF</value>
+  </data>
+  <data name="Export_Title" xml:space="preserve">
+    <value>Export Excel</value>
+  </data>
+  <data name="Funtion_Title" xml:space="preserve">
+    <value>Function</value>
+  </data>
+  <data name="GroupUser" xml:space="preserve">
+    <value>permissions</value>
+  </data>
+  <data name="GroupUser_Add_Title" xml:space="preserve">
+    <value>Create new group user</value>
+  </data>
+  <data name="GroupUser_Code" xml:space="preserve">
+    <value>Group user code</value>
+  </data>
+  <data name="GroupUser_Create_By" xml:space="preserve">
+    <value>Creator</value>
+  </data>
+  <data name="GroupUser_Deleted" xml:space="preserve">
+    <value>Group user has been deleted by another user</value>
+  </data>
+  <data name="GroupUser_Duplicate_Code" xml:space="preserve">
+    <value>Group user code is identical</value>
+  </data>
+  <data name="GroupUser_Duplicate_Name" xml:space="preserve">
+    <value>Name of group user is identical</value>
+  </data>
+  <data name="GroupUser_Group" xml:space="preserve">
+    <value>Group user</value>
+  </data>
+  <data name="GroupUser_List" xml:space="preserve">
+    <value>List of group user</value>
+  </data>
+  <data name="GroupUser_Lock" xml:space="preserve">
+    <value>Lock group user</value>
+  </data>
+  <data name="GroupUser_Locked" xml:space="preserve">
+    <value>Group user is not existed or has been locked</value>
+  </data>
+  <data name="GroupUser_Manager_Title" xml:space="preserve">
+    <value>Group user management</value>
+  </data>
+  <data name="GroupUser_Name" xml:space="preserve">
+    <value>Name of group user</value>
+  </data>
+  <data name="GroupUser_Permission_Acc" xml:space="preserve">
+    <value>Permission list</value>
+  </data>
+  <data name="GroupUser_Permission_Code" xml:space="preserve">
+    <value>Permission code</value>
+  </data>
+  <data name="GroupUser_Permission_Name" xml:space="preserve">
+    <value>Permission name</value>
+  </data>
+  <data name="GroupUser_Type" xml:space="preserve">
+    <value>Type of Group User</value>
+  </data>
+  <data name="GroupUser_Type_Admin" xml:space="preserve">
+    <value>Admin</value>
+  </data>
+  <data name="GroupUser_Type_District" xml:space="preserve">
+    <value>District</value>
+  </data>
+  <data name="GroupUser_Type_Province" xml:space="preserve">
+    <value>Province</value>
+  </data>
+  <data name="GroupUser_Type_Ward" xml:space="preserve">
+    <value>Ward</value>
+  </data>
+  <data name="GroupUser_UnCheck_Permission" xml:space="preserve">
+    <value>Permission can not be null</value>
+  </data>
+  <data name="GroupUser_Unlock" xml:space="preserve">
+    <value>Unlock group user</value>
+  </data>
+  <data name="GroupUser_Update_Title" xml:space="preserve">
+    <value>Update group user</value>
+  </data>
+  <data name="Harm_Still_Serious" xml:space="preserve">
+    <value>Is the level of harm to children still high?</value>
+  </data>
+  <data name="Import_Title" xml:space="preserve">
+    <value>Import from excel</value>
+  </data>
+  <data name="Index_Title" xml:space="preserve">
+    <value>Index</value>
+  </data>
+  <data name="InfoUser_Title" xml:space="preserve">
+    <value>User profile</value>
+  </data>
+  <data name="Label_Abuse" xml:space="preserve">
+    <value>Abuse</value>
+  </data>
+  <data name="Label_Add" xml:space="preserve">
+    <value>new</value>
+  </data>
+  <data name="Label_Age" xml:space="preserve">
+    <value>Age</value>
+  </data>
+  <data name="Label_Avatar" xml:space="preserve">
+    <value>Avatar</value>
+  </data>
+  <data name="Label_Birthday" xml:space="preserve">
+    <value>Date of birth</value>
+  </data>
+  <data name="Label_Career" xml:space="preserve">
+    <value>Job</value>
+  </data>
+  <data name="Label_Child" xml:space="preserve">
+    <value>child</value>
+  </data>
+  <data name="Label_Choose_File" xml:space="preserve">
+    <value>Choose file</value>
+  </data>
+  <data name="Label_Close" xml:space="preserve">
+    <value>close</value>
+  </data>
+  <data name="Label_Close_Date" xml:space="preserve">
+    <value>Closed date</value>
+  </data>
+  <data name="Label_Create_Date" xml:space="preserve">
+    <value>Created date</value>
+  </data>
+  <data name="Label_Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="Label_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Label_Display" xml:space="preserve">
+    <value>Display</value>
+  </data>
+  <data name="Label_District" xml:space="preserve">
+    <value>District</value>
+  </data>
+  <data name="Label_Done_Date" xml:space="preserve">
+    <value>Finish date</value>
+  </data>
+  <data name="Label_Download" xml:space="preserve">
+    <value>Download</value>
+  </data>
+  <data name="Label_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Label_Example" xml:space="preserve">
+    <value>Example</value>
+  </data>
+  <data name="Label_File_Attach" xml:space="preserve">
+    <value>Attach file</value>
+  </data>
+  <data name="Label_Foward" xml:space="preserve">
+    <value>forward</value>
+  </data>
+  <data name="Label_Home" xml:space="preserve">
+    <value>Home page</value>
+  </data>
+  <data name="Label_Id_Number" xml:space="preserve">
+    <value>ID number</value>
+  </data>
+  <data name="Label_Level" xml:space="preserve">
+    <value>Level</value>
+  </data>
+  <data name="Label_Locl" xml:space="preserve">
+    <value>Locked</value>
+  </data>
+  <data name="Label_Name" xml:space="preserve">
+    <value>Full name</value>
+  </data>
+  <data name="Label_Next" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="Label_Note" xml:space="preserve">
+    <value>Note</value>
+  </data>
+  <data name="Label_Not_Display" xml:space="preserve">
+    <value>Not display</value>
+  </data>
+  <data name="Label_Planning_Date" xml:space="preserve">
+    <value>Planning date</value>
+  </data>
+  <data name="Label_Result" xml:space="preserve">
+    <value>Result</value>
+  </data>
+  <data name="Label_Size" xml:space="preserve">
+    <value>Size</value>
+  </data>
+  <data name="Label_Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Label_Status_Active" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="Label_Status_All" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="Label_Status_DeActive" xml:space="preserve">
+    <value>Deactive</value>
+  </data>
+  <data name="Label_Task" xml:space="preserve">
+    <value>Task</value>
+  </data>
+  <data name="Label_Time_Sent" xml:space="preserve">
+    <value>Send time</value>
+  </data>
+  <data name="Label_Update" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="Label_Upload" xml:space="preserve">
+    <value>Upload</value>
+  </data>
+  <data name="Label_Upload_Date" xml:space="preserve">
+    <value>Upload date</value>
+  </data>
+  <data name="Label_Ward" xml:space="preserve">
+    <value>Ward</value>
+  </data>
+  <data name="Live_Title" xml:space="preserve">
+    <value>Directly</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Location</value>
+  </data>
+  <data name="Logout_Title" xml:space="preserve">
+    <value>Log out</value>
+  </data>
+  <data name="Month_Title" xml:space="preserve">
+    <value>Month</value>
+  </data>
+  <data name="NoteForward_Title" xml:space="preserve">
+    <value>Note for forward</value>
+  </data>
+  <data name="NotifyList_Title" xml:space="preserve">
+    <value>Notification list</value>
+  </data>
+  <data name="NotifyNew_Title" xml:space="preserve">
+    <value>New notification</value>
+  </data>
+  <data name="Notify_Title" xml:space="preserve">
+    <value>Notification</value>
+  </data>
+  <data name="NotNotifyNew_Title" xml:space="preserve">
+    <value>No new notification</value>
+  </data>
+  <data name="NumberPage_Title" xml:space="preserve">
+    <value>items/page</value>
+  </data>
+  <data name="Other_Title" xml:space="preserve">
+    <value>Others reported</value>
+  </data>
+  <data name="Percen_Title" xml:space="preserve">
+    <value>Rate</value>
+  </data>
+  <data name="Phone_Title" xml:space="preserve">
+    <value>Phone</value>
+  </data>
+  <data name="PlanSuccess_Title" xml:space="preserve">
+    <value>Complete the plan</value>
+  </data>
+  <data name="Project_Title" xml:space="preserve">
+    <value>Child protection</value>
+  </data>
+  <data name="Quatar_Title" xml:space="preserve">
+    <value>Quarter</value>
+  </data>
+  <data name="Readed_Title" xml:space="preserve">
+    <value>Mark as read</value>
+  </data>
+  <data name="ReportProfileHome_Title" xml:space="preserve">
+    <value>Year statistical</value>
+  </data>
+  <data name="ReportProfile_AbuseType" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="ReportProfile_AbuseType_Status" xml:space="preserve">
+    <value>Abuse type/Processing status</value>
+  </data>
+  <data name="ReportProfile_Address" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="ReportProfile_Age" xml:space="preserve">
+    <value>Age</value>
+  </data>
+  <data name="ReportProfile_Area_AbuseType" xml:space="preserve">
+    <value>Area/Abuse type</value>
+  </data>
+  <data name="ReportProfile_ByAbuse" xml:space="preserve">
+    <value>Statistic by abuse type</value>
+  </data>
+  <data name="ReportProfile_ByStatus" xml:space="preserve">
+    <value>Statistic by processing status</value>
+  </data>
+  <data name="ReportProfile_By_Area" xml:space="preserve">
+    <value>Statistic by area</value>
+  </data>
+  <data name="ReportProfile_ChartAbuse_Title" xml:space="preserve">
+    <value>Statistical chart according to abuse type</value>
+  </data>
+  <data name="ReportProfile_ChartStatus_Title" xml:space="preserve">
+    <value>Statistical chart according to processing status</value>
+  </data>
+  <data name="ReportProfile_ChildName" xml:space="preserve">
+    <value>Full Name</value>
+  </data>
+  <data name="ReportProfile_Close" xml:space="preserve">
+    <value>Close case</value>
+  </data>
+  <data name="ReportProfile_Create" xml:space="preserve">
+    <value>Create new</value>
+  </data>
+  <data name="ReportProfile_CurrentHealth" xml:space="preserve">
+    <value>Child's situation</value>
+  </data>
+  <data name="ReportProfile_DateClose" xml:space="preserve">
+    <value>Closed date</value>
+  </data>
+  <data name="ReportProfile_DateInbox" xml:space="preserve">
+    <value>Started time</value>
+  </data>
+  <data name="ReportProfile_DateTo" xml:space="preserve">
+    <value>To date</value>
+  </data>
+  <data name="ReportProfile_Detail" xml:space="preserve">
+    <value>Case details</value>
+  </data>
+  <data name="ReportProfile_Example_ReportAddress" xml:space="preserve">
+    <value>Enter the street address, hamlet, village</value>
+  </data>
+  <data name="ReportProfile_FeMale" xml:space="preserve">
+    <value>Female</value>
+  </data>
+  <data name="ReportProfile_Forward_List" xml:space="preserve">
+    <value>Case forward</value>
+  </data>
+  <data name="ReportProfile_Forward_ListView" xml:space="preserve">
+    <value>List of cases forwarded</value>
+  </data>
+  <data name="ReportProfile_Gender" xml:space="preserve">
+    <value>Sex</value>
+  </data>
+  <data name="ReportProfile_Hight" xml:space="preserve">
+    <value>High</value>
+  </data>
+  <data name="ReportProfile_HistoryProcess_Title" xml:space="preserve">
+    <value>History</value>
+  </data>
+  <data name="ReportProfile_InformationSources" xml:space="preserve">
+    <value>Information sources</value>
+  </data>
+  <data name="ReportProfile_IsExist" xml:space="preserve">
+    <value>Existed case can not be created as new</value>
+  </data>
+  <data name="ReportProfile_List" xml:space="preserve">
+    <value>Case management</value>
+  </data>
+  <data name="ReportProfile_ListView" xml:space="preserve">
+    <value>List of cases</value>
+  </data>
+  <data name="ReportProfile_Low" xml:space="preserve">
+    <value>Low</value>
+  </data>
+  <data name="ReportProfile_Male" xml:space="preserve">
+    <value>Male</value>
+  </data>
+  <data name="ReportProfile_MostAbuse" xml:space="preserve">
+    <value>Statistic by area with the most cases</value>
+  </data>
+  <data name="ReportProfile_MostArea_AbuseType" xml:space="preserve">
+    <value>Region/Type of abuse</value>
+  </data>
+  <data name="ReportProfile_Nomal" xml:space="preserve">
+    <value>Normal</value>
+  </data>
+  <data name="ReportProfile_NoteClose" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="ReportProfile_NumberChartStatus_Title" xml:space="preserve">
+    <value>Number of cases</value>
+  </data>
+  <data name="ReportProfile_Process" xml:space="preserve">
+    <value>Processing case</value>
+  </data>
+  <data name="ReportProfile_Reply" xml:space="preserve">
+    <value>Forward the case to superiors</value>
+  </data>
+  <data name="ReportProfile_ReportAddress" xml:space="preserve">
+    <value>Location</value>
+  </data>
+  <data name="ReportProfile_ReportBy" xml:space="preserve">
+    <value>Reporter</value>
+  </data>
+  <data name="ReportProfile_ReportList_Title" xml:space="preserve">
+    <value>List of cases</value>
+  </data>
+  <data name="ReportProfile_ReportProcess_Title" xml:space="preserve">
+    <value>processed case</value>
+  </data>
+  <data name="ReportProfile_ReportYearByStatus_Title" xml:space="preserve">
+    <value>Case reported by processing status each year</value>
+  </data>
+  <data name="ReportProfile_ReportYear_Title" xml:space="preserve">
+    <value>case in the year</value>
+  </data>
+  <data name="ReportProfile_Report_Title" xml:space="preserve">
+    <value>Case statistic</value>
+  </data>
+  <data name="ReportProfile_SeverityLevel" xml:space="preserve">
+    <value>Serious</value>
+  </data>
+  <data name="ReportProfile_Status" xml:space="preserve">
+    <value>Processing</value>
+  </data>
+  <data name="ReportProfile_Status1" xml:space="preserve">
+    <value>Receive information</value>
+  </data>
+  <data name="ReportProfile_Status2" xml:space="preserve">
+    <value>Initial risk assessment</value>
+  </data>
+  <data name="ReportProfile_Status3" xml:space="preserve">
+    <value>Information gathering, verify</value>
+  </data>
+  <data name="ReportProfile_Status4" xml:space="preserve">
+    <value>Support and intervention plan</value>
+  </data>
+  <data name="ReportProfile_Status5" xml:space="preserve">
+    <value>Review and evaluation</value>
+  </data>
+  <data name="ReportProfile_StepProcess_Title" xml:space="preserve">
+    <value>Processing step</value>
+  </data>
+  <data name="ReportProfile_Unknow" xml:space="preserve">
+    <value>Unknow</value>
+  </data>
+  <data name="ReportProfile_Update" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="ReportProfile_ViewDetail" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="ReportProfile_ViewProcess" xml:space="preserve">
+    <value>Update progress</value>
+  </data>
+  <data name="Report_Ability_Receive_Support" xml:space="preserve">
+    <value>Children's ability to receive support and protection</value>
+  </data>
+  <data name="Report_Accommodation" xml:space="preserve">
+    <value>Living conditions</value>
+  </data>
+  <data name="Report_Accommodation_Clothes" xml:space="preserve">
+    <value>Clothes</value>
+  </data>
+  <data name="Report_Accommodation_Food" xml:space="preserve">
+    <value>Food</value>
+  </data>
+  <data name="Report_Accommodation_Temporary" xml:space="preserve">
+    <value>Temporary care place</value>
+  </data>
+  <data name="Report_Activate" xml:space="preserve">
+    <value>Activities</value>
+  </data>
+  <data name="Report_Activate_By" xml:space="preserve">
+    <value>Officer / implementer</value>
+  </data>
+  <data name="Report_Activate_Name" xml:space="preserve">
+    <value>Activity name</value>
+  </data>
+  <data name="Report_Activate_Other_By" xml:space="preserve">
+    <value>Officer / coordinator</value>
+  </data>
+  <data name="Report_Activate_Time_Doing" xml:space="preserve">
+    <value>Execution time</value>
+  </data>
+  <data name="Report_AddNew_Title" xml:space="preserve">
+    <value>New cases</value>
+  </data>
+  <data name="Report_Answer" xml:space="preserve">
+    <value>Answer</value>
+  </data>
+  <data name="Report_Attack_Child_Future" xml:space="preserve">
+    <value>The ability of harmer to reach children (in the future)</value>
+  </data>
+  <data name="Report_Attack_Result" xml:space="preserve">
+    <value>The impact of behavior that harms the development of children (physical, psychological, emotional)</value>
+  </data>
+  <data name="Report_Bubget" xml:space="preserve">
+    <value>Budget</value>
+  </data>
+  <data name="Report_By_AbuseType" xml:space="preserve">
+    <value>Case statistic by abuse type</value>
+  </data>
+  <data name="Report_Care_Future" xml:space="preserve">
+    <value>Who will care for children in near future?</value>
+  </data>
+  <data name="Report_Care_Medical_Morale" xml:space="preserve">
+    <value>Medical care, psychotherapy</value>
+  </data>
+  <data name="Report_Child_Ask_Protecter" xml:space="preserve">
+    <value>Children's ability to ask for protector</value>
+  </data>
+  <data name="Report_Child_Create_Relationship" xml:space="preserve">
+    <value>Children's ability to establish relationships with who can protect them</value>
+  </data>
+  <data name="Report_Child_Know_Protecter" xml:space="preserve">
+    <value>The ability to know people who can protect them</value>
+  </data>
+  <data name="Report_Child_Need" xml:space="preserve">
+    <value>Determine the need for child service provision</value>
+  </data>
+  <data name="Report_Child_Need_Community" xml:space="preserve">
+    <value>Ensure the necessary conditions for children to integrate into the community</value>
+  </data>
+  <data name="Report_Child_Protect" xml:space="preserve">
+    <value>The ability of children to protect themselves against the harmer</value>
+  </data>
+  <data name="Report_Close" xml:space="preserve">
+    <value>Save and close case</value>
+  </data>
+  <data name="Report_Closed_Title" xml:space="preserve">
+    <value>Closed case</value>
+  </data>
+  <data name="Report_Collect_Information" xml:space="preserve">
+    <value>Collect information</value>
+  </data>
+  <data name="Report_Conclusion_Risk" xml:space="preserve">
+    <value>Conclusion of risks</value>
+  </data>
+  <data name="Report_ConditionLive_Child" xml:space="preserve">
+    <value>Living conditions of children</value>
+  </data>
+  <data name="Report_Cost_Estimate" xml:space="preserve">
+    <value>Budget estimate</value>
+  </data>
+  <data name="Report_Difficult_Care_Child" xml:space="preserve">
+    <value>Obstacles in the care environment for the safety of children</value>
+  </data>
+  <data name="Report_Document" xml:space="preserve">
+    <value>Related document</value>
+  </data>
+  <data name="Report_Document_Size" xml:space="preserve">
+    <value>(maximum 10MB/file)</value>
+  </data>
+  <data name="Report_Environment_Reset" xml:space="preserve">
+    <value>Unsafe factors in children's living environment need to be overcome</value>
+  </data>
+  <data name="Report_Evaluate_1" xml:space="preserve">
+    <value>Preliminary risk assessment</value>
+  </data>
+  <data name="Report_Evaluate_By" xml:space="preserve">
+    <value>Assessor</value>
+  </data>
+  <data name="Report_Evaluate_Date" xml:space="preserve">
+    <value>Date of assessment</value>
+  </data>
+  <data name="Report_Evaluate_Harm" xml:space="preserve">
+    <value>Assessing the level of harmed</value>
+  </data>
+  <data name="Report_Evaluate_Harm_Child" xml:space="preserve">
+    <value>Assess the level of children harmed</value>
+  </data>
+  <data name="Report_Evaluate_Harm_Child_Danger" xml:space="preserve">
+    <value>Children with serious harmed</value>
+  </data>
+  <data name="Report_Evaluate_Harm_Continue" xml:space="preserve">
+    <value>The risk of children continuing to be harmed if they are in their current state</value>
+  </data>
+  <data name="Report_Evaluate_Protect" xml:space="preserve">
+    <value>Assess the ability of self-protection and recovery of children</value>
+  </data>
+  <data name="Report_Evaluate_Result" xml:space="preserve">
+    <value>Conclusion about the situation of children</value>
+  </data>
+  <data name="Report_Evaluate_Result_Danger" xml:space="preserve">
+    <value>Children need urgent protection.</value>
+  </data>
+  <data name="Report_Evaluate_Result_Follow" xml:space="preserve">
+    <value>Children need to be followed up</value>
+  </data>
+  <data name="Report_Evaluate_Result_Warning" xml:space="preserve">
+    <value>Children need to apply an intervention plan</value>
+  </data>
+  <data name="Report_Example_Helped" xml:space="preserve">
+    <value>Activities that have supported for child</value>
+  </data>
+  <data name="Report_Example_Situation_Family" xml:space="preserve">
+    <value>The status of your child's current family situation</value>
+  </data>
+  <data name="Report_Example_TakeCare" xml:space="preserve">
+    <value>Who is live and care for child</value>
+  </data>
+  <data name="Report_Example_Time" xml:space="preserve">
+    <value>The time of case (10h:15)</value>
+  </data>
+  <data name="Report_Factor_Care" xml:space="preserve">
+    <value>Factors that may affect child care in the future?</value>
+  </data>
+  <data name="Report_Factor_Negative" xml:space="preserve">
+    <value>Negative factors</value>
+  </data>
+  <data name="Report_Factor_Positive" xml:space="preserve">
+    <value>Positive factors</value>
+  </data>
+  <data name="Report_First_Date_Evaluate" xml:space="preserve">
+    <value>Evaluation date</value>
+  </data>
+  <data name="Report_Harm_Reset" xml:space="preserve">
+    <value>Recovered harms</value>
+  </data>
+  <data name="Report_Helped" xml:space="preserve">
+    <value>Support has been made</value>
+  </data>
+  <data name="Report_Help_Education_Career" xml:space="preserve">
+    <value>Activities to support education, training and vocational education</value>
+  </data>
+  <data name="Report_Help_Law" xml:space="preserve">
+    <value>Legal aid activities (if necessary)</value>
+  </data>
+  <data name="Report_Help_Social" xml:space="preserve">
+    <value>Social assistance activities</value>
+  </data>
+  <data name="Report_Hight_Risk_Child" xml:space="preserve">
+    <value>Children have high risk</value>
+  </data>
+  <data name="Report_Hight_Risk_Child1" xml:space="preserve">
+    <value>continue to be abused or the level of harm is still very serious.</value>
+  </data>
+  <data name="Report_Idea_Carer" xml:space="preserve">
+    <value>Family ideas</value>
+  </data>
+  <data name="Report_Idea_Child" xml:space="preserve">
+    <value>Children ideas</value>
+  </data>
+  <data name="Report_Impact_Factors_Child" xml:space="preserve">
+    <value>Factors affect to the quality of child care?</value>
+  </data>
+  <data name="Report_Info" xml:space="preserve">
+    <value>Case overview</value>
+  </data>
+  <data name="Report_Info_Child" xml:space="preserve">
+    <value>Children have special circumstances</value>
+  </data>
+  <data name="Report_Info_Family" xml:space="preserve">
+    <value>Family profile</value>
+  </data>
+  <data name="Report_Info_Reporter" xml:space="preserve">
+    <value>Reporter profile</value>
+  </data>
+  <data name="Report_Level" xml:space="preserve">
+    <value>Level</value>
+  </data>
+  <data name="Report_Low_Risk_Child" xml:space="preserve">
+    <value>Children have no or low risk</value>
+  </data>
+  <data name="Report_Low_Risk_Child1" xml:space="preserve">
+    <value>continue to be harmed or the level of harm is less serious children.</value>
+  </data>
+  <data name="Report_More_Follow" xml:space="preserve">
+    <value>Add  review</value>
+  </data>
+  <data name="Report_Name_Dad" xml:space="preserve">
+    <value>Father's name</value>
+  </data>
+  <data name="Report_Name_Mom" xml:space="preserve">
+    <value>Mother's name</value>
+  </data>
+  <data name="Report_Next_NewProcess" xml:space="preserve">
+    <value>Next process</value>
+  </data>
+  <data name="Report_Now" xml:space="preserve">
+    <value>Current status</value>
+  </data>
+  <data name="Report_Organization_Doing" xml:space="preserve">
+    <value>Organization</value>
+  </data>
+  <data name="Report_Other_Care_Child" xml:space="preserve">
+    <value>Children get follow-up and willingness to help by others (not harmers)</value>
+  </data>
+  <data name="Report_Other_Service_Protect" xml:space="preserve">
+    <value>Other child protection services</value>
+  </data>
+  <data name="Report_Other_Task" xml:space="preserve">
+    <value>Other task</value>
+  </data>
+  <data name="Report_Physique" xml:space="preserve">
+    <value>Physical safety</value>
+  </data>
+  <data name="Report_Physique_Medical" xml:space="preserve">
+    <value>Healthcare</value>
+  </data>
+  <data name="Report_Physique_Morale" xml:space="preserve">
+    <value>Mental care</value>
+  </data>
+  <data name="Report_Predict_Result" xml:space="preserve">
+    <value>Result prediction</value>
+  </data>
+  <data name="Report_Problems_Child" xml:space="preserve">
+    <value>Determine child's problems</value>
+  </data>
+  <data name="Report_Process" xml:space="preserve">
+    <value>Progress of case's processing</value>
+  </data>
+  <data name="Report_Process_Specific" xml:space="preserve">
+    <value>Specific risk assessment</value>
+  </data>
+  <data name="Report_Process_Step1" xml:space="preserve">
+    <value>Step 1: Receive information</value>
+  </data>
+  <data name="Report_Process_Step2" xml:space="preserve">
+    <value>Step 2: On the verifying</value>
+  </data>
+  <data name="Report_Process_Step2_Orange" xml:space="preserve">
+    <value>Form No.2 - Initial risk assessment</value>
+  </data>
+  <data name="Report_Process_Step2_Red" xml:space="preserve">
+    <value>Form No.3 - Collect information</value>
+  </data>
+  <data name="Report_Process_Step2_Yellow" xml:space="preserve">
+    <value>Form No.4 - Intervention plan</value>
+  </data>
+  <data name="Report_Process_Step3" xml:space="preserve">
+    <value>Step 3: Processed</value>
+  </data>
+  <data name="Report_Process_Step4" xml:space="preserve">
+    <value>Step 4: Need more tracking</value>
+  </data>
+  <data name="Report_Process_Step5" xml:space="preserve">
+    <value>Step 5: Close</value>
+  </data>
+  <data name="Report_Protect" xml:space="preserve">
+    <value>Children's ability to protect themselves from harm</value>
+  </data>
+  <data name="Report_Question" xml:space="preserve">
+    <value>Question</value>
+  </data>
+  <data name="Report_Situation_Child" xml:space="preserve">
+    <value>Family situations, children's relationships and ability to protect children of parents, family members (especially those who directly care for children, quality of care) ?</value>
+  </data>
+  <data name="Report_Situation_Family" xml:space="preserve">
+    <value>Family situations</value>
+  </data>
+  <data name="Report_Solution_Protect" xml:space="preserve">
+    <value>Emergency interventions to ensure temporary safety for children</value>
+  </data>
+  <data name="Report_Solution_Protect_Need" xml:space="preserve">
+    <value>Children's safety needs</value>
+  </data>
+  <data name="Report_Solution_Protect_Provider" xml:space="preserve">
+    <value>Service provider</value>
+  </data>
+  <data name="Report_Solution_Protect_Service" xml:space="preserve">
+    <value>Services</value>
+  </data>
+  <data name="Report_Statistic_Area_Title" xml:space="preserve">
+    <value>Case statistic by area</value>
+  </data>
+  <data name="Report_Statistic_ChildFundArea_Title" xml:space="preserve">
+    <value>Case statistic by ChildFund's area</value>
+  </data>
+  <data name="Report_Statistic_Location_Title" xml:space="preserve">
+    <value>Case statistic by location</value>
+  </data>
+  <data name="Report_Statistic_Title" xml:space="preserve">
+    <value>Statistic</value>
+  </data>
+  <data name="Report_Status_Child" xml:space="preserve">
+    <value>Physical, mental, and emotional status of children (have children been abused or not)?</value>
+  </data>
+  <data name="Report_Take_Care" xml:space="preserve">
+    <value>Caregiver</value>
+  </data>
+  <data name="Report_Title" xml:space="preserve">
+    <value>case</value>
+  </data>
+  <data name="Report_Unable_Care_Child" xml:space="preserve">
+    <value>No one are willing or able to protect children</value>
+  </data>
+  <data name="Report_Used" xml:space="preserve">
+    <value>Accepted</value>
+  </data>
+  <data name="Reset_Title" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="Reviewer" xml:space="preserve">
+    <value>Reviewer</value>
+  </data>
+  <data name="Review_Date" xml:space="preserve">
+    <value>Review Date</value>
+  </data>
+  <data name="Review_Person" xml:space="preserve">
+    <value>Reviewer</value>
+  </data>
+  <data name="SaveAndContinue_Title" xml:space="preserve">
+    <value>Save &amp; continue</value>
+  </data>
+  <data name="Save_Title" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Search_Title" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="SelectDistrict_Title" xml:space="preserve">
+    <value>District</value>
+  </data>
+  <data name="SelectProvince_Title" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="SelectWard_Title" xml:space="preserve">
+    <value>Wards</value>
+  </data>
+  <data name="Statistic_About_AbuseType" xml:space="preserve">
+    <value>About type of abuse</value>
+  </data>
+  <data name="Statistic_About_Age" xml:space="preserve">
+    <value>About age</value>
+  </data>
+  <data name="Statistic_About_Area" xml:space="preserve">
+    <value>About area</value>
+  </data>
+  <data name="Statistic_About_Gender" xml:space="preserve">
+    <value>About gender</value>
+  </data>
+  <data name="Statistic_About_Location" xml:space="preserve">
+    <value>About location</value>
+  </data>
+  <data name="Statistic_About_Status_Process" xml:space="preserve">
+    <value>About status of process</value>
+  </data>
+  <data name="Statistic_About_Status_Type" xml:space="preserve">
+    <value>By type</value>
+  </data>
+  <data name="Statistic_About_Top_Number" xml:space="preserve">
+    <value>User has been removed</value>
+  </data>
+  <data name="Statistic_Age" xml:space="preserve">
+    <value>Age statistical</value>
+  </data>
+  <data name="Statistic_Age0_3" xml:space="preserve">
+    <value>0 - 3 years old</value>
+  </data>
+  <data name="Statistic_Age10" xml:space="preserve">
+    <value>10 years old</value>
+  </data>
+  <data name="Statistic_Age11_12" xml:space="preserve">
+    <value>11 - 12 years old</value>
+  </data>
+  <data name="Statistic_Age13_14" xml:space="preserve">
+    <value>13 - 14 years old</value>
+  </data>
+  <data name="Statistic_Age15_16" xml:space="preserve">
+    <value>15 - 16 years old</value>
+  </data>
+  <data name="Statistic_Age16_18" xml:space="preserve">
+    <value>16 - 18 years old</value>
+  </data>
+  <data name="Statistic_Age18" xml:space="preserve">
+    <value>&gt; 18 years old</value>
+  </data>
+  <data name="Statistic_Age4_6" xml:space="preserve">
+    <value>4 - 6 years old</value>
+  </data>
+  <data name="Statistic_Age7_9" xml:space="preserve">
+    <value>7 - 9 years old</value>
+  </data>
+  <data name="Statistic_Gender" xml:space="preserve">
+    <value>Gender statistical</value>
+  </data>
+  <data name="Statistic_Title" xml:space="preserve">
+    <value>Case statistical</value>
+  </data>
+  <data name="Time_Title" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="Title_Helo" xml:space="preserve">
+    <value>Hello</value>
+  </data>
+  <data name="Total_Title" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="Unknow_Gender" xml:space="preserve">
+    <value>Unknown</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="User_Acc" xml:space="preserve">
+    <value>Account</value>
+  </data>
+  <data name="User_Add_Title" xml:space="preserve">
+    <value>Add new user</value>
+  </data>
+  <data name="User_Deleted" xml:space="preserve">
+    <value>The user has been removed</value>
+  </data>
+  <data name="User_Info" xml:space="preserve">
+    <value>User information</value>
+  </data>
+  <data name="User_List" xml:space="preserve">
+    <value>User list</value>
+  </data>
+  <data name="User_Lock" xml:space="preserve">
+    <value>Lock user</value>
+  </data>
+  <data name="User_Locked" xml:space="preserve">
+    <value>User does not exist or has been locked</value>
+  </data>
+  <data name="User_Manager_Title" xml:space="preserve">
+    <value>User management</value>
+  </data>
+  <data name="User_Name" xml:space="preserve">
+    <value>Username</value>
+  </data>
+  <data name="User_Not_Exist" xml:space="preserve">
+    <value>The account does not exist!</value>
+  </data>
+  <data name="User_Reset_Password" xml:space="preserve">
+    <value>Password recovery</value>
+  </data>
+  <data name="User_Type" xml:space="preserve">
+    <value>Type of Account</value>
+  </data>
+  <data name="User_Uncheck_GroupPermission" xml:space="preserve">
+    <value>Permissions cannot be left blank!</value>
+  </data>
+  <data name="User_Unlock" xml:space="preserve">
+    <value>Unblock user</value>
+  </data>
+  <data name="User_Update_Title" xml:space="preserve">
+    <value>Update user</value>
+  </data>
+  <data name="User_Used" xml:space="preserve">
+    <value>Account name already exists</value>
+  </data>
+  <data name="Vietnamase_Title" xml:space="preserve">
+    <value>Vietnamese</value>
+  </data>
+  <data name="ViewNoteForward_Title" xml:space="preserve">
+    <value>View note forwarded content</value>
+  </data>
+  <data name="Warning_Title" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="Year_Title" xml:space="preserve">
+    <value>Year</value>
+  </data>
+  <data name="Yes_Title" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="Web_Title" xml:space="preserve">
+    <value>Case information management</value>
+  </data>
+  <data name="ProviderName_Title" xml:space="preserve">
+    <value>Provider mame</value>
+  </data>
+  <data name="Period_Title" xml:space="preserve">
+    <value>Period</value>
+  </data>
+  <data name="ChartAge_Title" xml:space="preserve">
+    <value>Statistical chart according to age</value>
+  </data>
+  <data name="ChartGender_Title" xml:space="preserve">
+    <value>Statistical chart according to gender</value>
+  </data>
+  <data name="ChartLocation_Title" xml:space="preserve">
+    <value>Statistical chart according to location</value>
+  </data>
+  <data name="ChartProcess_Title" xml:space="preserve">
+    <value>Statistical chart according to processing status</value>
+  </data>
+  <data name="Statistic_By" xml:space="preserve">
+    <value>Statistic by</value>
+  </data>
+  <data name="Statistic_By_Age" xml:space="preserve">
+    <value>Statistic by age</value>
+  </data>
+  <data name="Statistic_By_Gender" xml:space="preserve">
+    <value>Statistic by gender</value>
+  </data>
+  <data name="Statistic_By_Location" xml:space="preserve">
+    <value>Statistic by location</value>
+  </data>
+  <data name="Statistic_By_Process" xml:space="preserve">
+    <value>Statistic by processing status</value>
+  </data>
+  <data name="Table_By_Age" xml:space="preserve">
+    <value>Statistic table by age</value>
+  </data>
+  <data name="Table_By_Gender" xml:space="preserve">
+    <value>Statistic table by gender</value>
+  </data>
+  <data name="Table_By_Location" xml:space="preserve">
+    <value>Statistic table by location</value>
+  </data>
+  <data name="Table_By_Process" xml:space="preserve">
+    <value>Statistic table by processing status</value>
+  </data>
+  <data name="SourceNote_Title" xml:space="preserve">
+    <value>Note the source of information</value>
+  </data>
+  <data name="Word_Title" xml:space="preserve">
+    <value>Group of children with special circumstances</value>
+  </data>
+  <data name="Step01_Title" xml:space="preserve">
+    <value>Form 01 - Receive young information</value>
+  </data>
+  <data name="Step02_Title" xml:space="preserve">
+    <value>Form 02 - Initial risk assessment</value>
+  </data>
+  <data name="Step03_Title" xml:space="preserve">
+    <value>Form 03 - Information gathering, verify</value>
+  </data>
+  <data name="Step04_Title" xml:space="preserve">
+    <value>Form 04 - Support and intervention plan</value>
+  </data>
+  <data name="Step06_Title" xml:space="preserve">
+    <value>Form 06 - Review and evaluation</value>
+  </data>
+  <data name="ReportProfile_Status6" xml:space="preserve">
+    <value>Close the case</value>
+  </data>
+  <data name="Cost_Title" xml:space="preserve">
+    <value>Do not use funds</value>
+  </data>
+  <data name="PlantAfter_Title" xml:space="preserve">
+    <value>Child's full name</value>
+  </data>
+  <data name="Plant_Title" xml:space="preserve">
+    <value>Plan name</value>
+  </data>
+  <data name="Add_Plant" xml:space="preserve">
+    <value>Add plant</value>
+  </data>
+  <data name="List_Plant" xml:space="preserve">
+    <value>List of support plans</value>
+  </data>
+  <data name="List_Review" xml:space="preserve">
+    <value>List of reviews</value>
+  </data>
+  <data name="GoBack_Plant" xml:space="preserve">
+    <value>Back to step 4</value>
+  </data>
+  <data name="ExportDoc_Title" xml:space="preserve">
+    <value>Export word</value>
+  </data>
+  <data name="Report_Open" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="OutUser_Erros" xml:space="preserve">
+    <value>Account expired, please log out again</value>
+  </data>
+  <data name="YearDate_Title" xml:space="preserve">
+    <value>Year of Birth</value>
+  </data>
+  <data name="DateReview_Verify" xml:space="preserve">
+    <value>Review date, verify</value>
+  </data>
+  <data name="PersonReview_Verify" xml:space="preserve">
+    <value>Evaluator, verify </value>
+  </data>
+  <data name="Publish_Title" xml:space="preserve">
+    <value>Share information to superiors</value>
+  </data>
+  <data name="Lib_Title" xml:space="preserve">
+    <value>Document library</value>
+  </data>
+  <data name="ReportProfile_Level" xml:space="preserve">
+    <value>Statistics according to severity</value>
+  </data>
+  <data name="Number_Case" xml:space="preserve">
+    <value>Number of cases</value>
+  </data>
+  <data name="Place_Title" xml:space="preserve">
+    <value>Place</value>
+  </data>
+  <data name="SummaryCase_Title" xml:space="preserve">
+    <value>Summary of content</value>
+  </data>
+  <data name="Not_Finish" xml:space="preserve">
+    <value>Unfinished processing cannot close the case</value>
+  </data>
+  <data name="ReportProfile_AbuseType_Input" xml:space="preserve">
+    <value>Input type</value>
+  </data>
+  <data name="Other_Type" xml:space="preserve">
+    <value>Other</value>
+  </data>
+  <data name="M02_EvAbilityProtectYourselfH" xml:space="preserve">
+    <value>Children have the ability to overcome harm</value>
+  </data>
+  <data name="M02_EvAbilityProtectYourselfL" xml:space="preserve">
+    <value>Children cannot overcome the harm</value>
+  </data>
+  <data name="M02_EvAbilityProtectYourselfN" xml:space="preserve">
+    <value>Children have a little ability to recover from harm</value>
+  </data>
+  <data name="M02_EvAbilityReceiveSupportH" xml:space="preserve">
+    <value>Immediately find an adult with effective protection for children</value>
+  </data>
+  <data name="M02_EvAbilityReceiveSupportL" xml:space="preserve">
+    <value>Inability to find guardians</value>
+  </data>
+  <data name="M02_EvAbilityReceiveSupportN" xml:space="preserve">
+    <value>Only a few are able to find effective defenders</value>
+  </data>
+  <data name="M02_EvLevelHarmContinueH" xml:space="preserve">
+    <value>Abusive people have easy and regular access to children</value>
+  </data>
+  <data name="M02_EvLevelHarmContinueL" xml:space="preserve">
+    <value>Subjects who abuse little or no inaccessible children</value>
+  </data>
+  <data name="M02_EvLevelHarmContinueN" xml:space="preserve">
+    <value>Abusive people have the opportunity to reach children, but not often</value>
+  </data>
+  <data name="M02_EvLevelHarmH" xml:space="preserve">
+    <value>Children are seriously harmed and life-threatening</value>
+  </data>
+  <data name="M02_EvLevelHarmL" xml:space="preserve">
+    <value>Children little or no harm</value>
+  </data>
+  <data name="M02_EvLevelHarmN" xml:space="preserve">
+    <value>Children are harmed, but not serious</value>
+  </data>
+  <data name="M03_CaAbilityEstablishRelationshipH" xml:space="preserve">
+    <value>Children who are willing and able to talk to adults can protect themselves</value>
+  </data>
+  <data name="M03_CaAbilityEstablishRelationshipL" xml:space="preserve">
+    <value>Children do not have the ability to contact adults</value>
+  </data>
+  <data name="M03_CaAbilityEstablishRelationshipN" xml:space="preserve">
+    <value>Children have some ability to contact adults who can protect themselves</value>
+  </data>
+  <data name="M03_CaAbilityHelpOthersH" xml:space="preserve">
+    <value>The neighbors, teachers, teachers ... often observed children</value>
+  </data>
+  <data name="M03_CaAbilityHelpOthersL" xml:space="preserve">
+    <value>Children are rarely seen by people</value>
+  </data>
+  <data name="M03_CaAbilityHelpOthersN" xml:space="preserve">
+    <value>Observe children only at certain times</value>
+  </data>
+  <data name="M03_CaAbilityKnowGuardH" xml:space="preserve">
+    <value>Children know which adults can protect themselves</value>
+  </data>
+  <data name="M03_CaAbilityKnowGuardL" xml:space="preserve">
+    <value>Children do not know which adults can protect themselves</value>
+  </data>
+  <data name="M03_CaAbilityKnowGuardN" xml:space="preserve">
+    <value>Children know little about adults who can protect themselves</value>
+  </data>
+  <data name="M03_CaAbilityProtectYourselfH" xml:space="preserve">
+    <value>Children have the ability to protect themselves</value>
+  </data>
+  <data name="M03_CaAbilityProtectYourselfL" xml:space="preserve">
+    <value>Children cannot protect themselves</value>
+  </data>
+  <data name="M03_CaAbilityProtectYourselfN" xml:space="preserve">
+    <value>Children have some possibilities, but not high</value>
+  </data>
+  <data name="M03_CaAbilityRelyGuardH" xml:space="preserve">
+    <value>Children have the ability to contact adults and let adults know about their unsafe situation</value>
+  </data>
+  <data name="M03_CaAbilityRelyGuardL" xml:space="preserve">
+    <value>Children are not able to contact adults and tell adults about their unsafe situation</value>
+  </data>
+  <data name="M03_CaAbilityRelyGuardN" xml:space="preserve">
+    <value>Children have some ability to contact adults and let adults know about their unsafe situation</value>
+  </data>
+  <data name="M03_CaLevelApproachH" xml:space="preserve">
+    <value>Abusive people have easy and regular access to children</value>
+  </data>
+  <data name="M03_CaLevelApproachL" xml:space="preserve">
+    <value>Subjects who abuse little or no inaccessible children</value>
+  </data>
+  <data name="M03_CaLevelApproachN" xml:space="preserve">
+    <value>Abusive people have the opportunity to reach children, but not often</value>
+  </data>
+  <data name="M03_CaLevelCareObstacleH" xml:space="preserve">
+    <value>There are many obstacles to child safety</value>
+  </data>
+  <data name="M03_CaLevelCareObstacleL" xml:space="preserve">
+    <value>There are few or no obstacles to protecting children</value>
+  </data>
+  <data name="M03_CaLevelCareObstacleN" xml:space="preserve">
+    <value>There are a few obstacles, but children still have some protection</value>
+  </data>
+  <data name="M03_CaLevelDevelopmentEffectH" xml:space="preserve">
+    <value>Has a serious impact on children</value>
+  </data>
+  <data name="M03_CaLevelDevelopmentEffectL" xml:space="preserve">
+    <value>Has little or no impact on the development of children</value>
+  </data>
+  <data name="M03_CaLevelDevelopmentEffectN" xml:space="preserve">
+    <value>There are several effects on the development of children</value>
+  </data>
+  <data name="M03_CaLevelHarmH" xml:space="preserve">
+    <value>Children are seriously harmed</value>
+  </data>
+  <data name="M03_CaLevelHarmL" xml:space="preserve">
+    <value>Children are harmed little or no</value>
+  </data>
+  <data name="M03_CaLevelHarmN" xml:space="preserve">
+    <value>Children are harmed but not serious</value>
+  </data>
+  <data name="M03_CaLevelNoGuardianH" xml:space="preserve">
+    <value>No one can protect children or have guardians but not well</value>
+  </data>
+  <data name="M03_CaLevelNoGuardianL" xml:space="preserve">
+    <value>There are some people who can protect children</value>
+  </data>
+  <data name="M03_CaLevelNoGuardianN" xml:space="preserve">
+    <value>There are some people who can protect children, but the ability and reliability are not high</value>
+  </data>
+  <data name="M06_SupAfAbilityHelpOthersH" xml:space="preserve">
+    <value>Children have the ability to contact adults and tell adults about their unsafe situation</value>
+  </data>
+  <data name="M06_SupAfAbilityHelpOthersL" xml:space="preserve">
+    <value>Children do not have the ability to contact adults</value>
+  </data>
+  <data name="M06_SupAfAbilityHelpOthersN" xml:space="preserve">
+    <value>Children have some ability to contact adults</value>
+  </data>
+  <data name="M06_SupAfAbilityKnowGuardH" xml:space="preserve">
+    <value>The neighbors, teachers ... often observed children</value>
+  </data>
+  <data name="M06_SupAfAbilityKnowGuardL" xml:space="preserve">
+    <value>Children are rarely seen by people</value>
+  </data>
+  <data name="M06_SupAfAbilityKnowGuardN" xml:space="preserve">
+    <value>Observe children only at certain times</value>
+  </data>
+  <data name="M06_SupAfAbilityProtectYourselfH" xml:space="preserve">
+    <value>Children have the ability to protect themselves</value>
+  </data>
+  <data name="M06_SupAfAbilityProtectYourselfL" xml:space="preserve">
+    <value>Children cannot protect themselves</value>
+  </data>
+  <data name="M06_SupAfAbilityProtectYourselfN" xml:space="preserve">
+    <value>Children have some possibilities, but not high</value>
+  </data>
+  <data name="M06_SupAfLevelApproachH" xml:space="preserve">
+    <value>The abusive person is still able to reach children and often</value>
+  </data>
+  <data name="M06_SupAfLevelApproachL" xml:space="preserve">
+    <value>Subjects who abuse little or no inaccessible children</value>
+  </data>
+  <data name="M06_SupAfLevelApproachN" xml:space="preserve">
+    <value>Abusive people have the opportunity to reach children, but not often</value>
+  </data>
+  <data name="M06_SupAfLevelCareObstacleH" xml:space="preserve">
+    <value>The environment of care still has many obstacles told to ensure children's safety</value>
+  </data>
+  <data name="M06_SupAfLevelCareObstacleL" xml:space="preserve">
+    <value>There is little or no obstacle to security child protection</value>
+  </data>
+  <data name="M06_SupAfLevelCareObstacleN" xml:space="preserve">
+    <value>There are a few obstacles, but children still have them be given certain protection</value>
+  </data>
+  <data name="M06_SupAfLevelHarmH" xml:space="preserve">
+    <value>The harm of children is still very serious, affecting the development of children</value>
+  </data>
+  <data name="M06_SupAfLevelHarmL" xml:space="preserve">
+    <value>The harm of children is no longer serious</value>
+  </data>
+  <data name="M06_SupAfLevelHarmN" xml:space="preserve">
+    <value>The harm of children is less serious</value>
+  </data>
+  <data name="ReportByYear_Title" xml:space="preserve">
+    <value>Case statistics by year</value>
+  </data>
+  <data name="KeyByYear" xml:space="preserve">
+    <value>By year</value>
+  </data>
+  <data name="KeyCaExtend" xml:space="preserve">
+    <value>Additional information</value>
+  </data>
+  <data name="Code_Report" xml:space="preserve">
+    <value>Shift code</value>
+  </data>
+  <data name="Import_Account" xml:space="preserve">
+    <value>Import Account</value>
+  </data>
+  <data name="Import_Account_Excel" xml:space="preserve">
+    <value>Import account from excel(up to 200 accounts)</value>
+  </data>
+  <data name="Select_File" xml:space="preserve">
+    <value>Choose file</value>
+  </data>
+  <data name="ReOpen" xml:space="preserve">
+    <value>Re Open</value>
+  </data>
+</root>

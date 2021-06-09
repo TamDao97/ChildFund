@@ -1,0 +1,59 @@
+﻿@model IList<InformationHub.Model.Model.ReportProfile.OrganizationActivitiesModel>
+@if (Model != null && Model.Count > 0)
+{
+    string id = "";
+    foreach (var item in Model)
+    {
+        id = Guid.NewGuid().ToString();
+        <tr id="trItem_@id">
+            <td><button type="button" onclick="DeleteTable('@id')" class="btn btn-xs btn-danger ibtnDel"><i class="material-icons">delete</i></button></td>
+            <td>
+                <div class="controls margin-bottom-0">
+                    <textarea class="form-control" oninput="auto_grow(this)" name="ActionName_@id" rows="1">@item.Name</textarea>
+                </div>
+            </td>
+            <td>
+                <div class="controls margin-bottom-0">
+                    <textarea class="form-control" oninput="auto_grow(this)" name="UserNameAction_@id" rows="1">@item.UserName</textarea>
+                </div>
+            </td>
+            <td>
+                <div class="controls margin-bottom-0">
+                    <textarea class="form-control" oninput="auto_grow(this)" name="UserOtherAction_@id" rows="1">@item.UserOther</textarea>
+                </div>
+            </td>
+            <td>
+                <div class="controls margin-bottom-0">
+                    <textarea class="form-control" oninput="auto_grow(this)" name="DateActionAction_@id" rows="1">@item.DateAction</textarea>
+                </div>
+            </td>
+        </tr>
+    }
+}
+else
+{
+    string id = Guid.NewGuid().ToString();
+    <tr id="trItem_@id">
+        <td><button type="button" onclick="DeleteTable('@id')" class="btn btn-xs btn-danger ibtnDel"><i class="material-icons">delete</i></button></td>
+        <td>
+            <div class="controls margin-bottom-0">
+                <textarea class="form-control" oninput="auto_grow(this)" name="ActionName_@id" cols="40" rows="1"></textarea>
+            </div>
+        </td>
+        <td>
+            <div class="controls margin-bottom-0">
+                <textarea class="form-control" oninput="auto_grow(this)" name="UserNameAction_@id" cols="40" rows="1"></textarea>
+            </div>
+        </td>
+        <td>
+            <div class="controls margin-bottom-0">
+                <textarea class="form-control" oninput="auto_grow(this)" name="UserOtherAction_@id" cols="40" rows="1"></textarea>
+            </div>
+        </td>
+        <td>
+            <div class="controls margin-bottom-0">
+                <textarea class="form-control" oninput="auto_grow(this)" name="DateActionAction_@id" cols="40" rows="1"></textarea>
+            </div>
+        </td>
+    </tr>
+}

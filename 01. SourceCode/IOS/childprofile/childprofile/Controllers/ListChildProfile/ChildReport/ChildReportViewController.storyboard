@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Child Report View Controller-->
+        <scene sceneID="CT8-iz-NRR">
+            <objects>
+                <viewController storyboardIdentifier="ChildReportViewController" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="92W-dp-zcJ" customClass="ChildReportViewController" customModule="childprofile" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="poF-w8-qQ0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vti-0K-juo">
+                                <rect key="frame" x="16" y="110" width="343" height="327"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BÁO CÁO TÌNH TRẠNG TRẺ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="AXA-y5-pYa">
+                                        <rect key="frame" x="45" y="32" width="253.5" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                        <color key="textColor" red="0.0" green="0.47843137250000001" blue="0.27058823529999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="jtn-Hr-bZu">
+                                        <rect key="frame" x="16" y="267" width="311" height="44"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o0V-BR-3Rt">
+                                                <rect key="frame" x="0.0" y="0.0" width="153" height="44"/>
+                                                <color key="backgroundColor" red="0.93169371560000003" green="0.60308911659999997" blue="0.16964823809999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="Thoát">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="viewCornerRadius">
+                                                        <real key="value" value="22"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="closeButtonWasTouched:" destination="92W-dp-zcJ" eventType="touchUpInside" id="jFs-J1-DrF"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="75A-M6-50Z">
+                                                <rect key="frame" x="158" y="0.0" width="153" height="44"/>
+                                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="0.27058823529999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="Báo cáo">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="viewCornerRadius">
+                                                        <real key="value" value="22"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="reportButtonWasTouched:" destination="92W-dp-zcJ" eventType="touchUpInside" id="oWd-uG-brP"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="h3X-A1-lVu"/>
+                                        </constraints>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nội dung báo cáo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Klw-gY-Its">
+                                        <rect key="frame" x="24" y="96" width="113.5" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qiG-LI-TW3">
+                                        <rect key="frame" x="16" y="88" width="311" height="163"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="327" id="Dvz-VP-Efw"/>
+                                    <constraint firstItem="jtn-Hr-bZu" firstAttribute="trailing" secondItem="qiG-LI-TW3" secondAttribute="trailing" id="S6M-Rz-JVV"/>
+                                    <constraint firstAttribute="bottom" secondItem="jtn-Hr-bZu" secondAttribute="bottom" constant="16" id="SQy-YG-7ZK"/>
+                                    <constraint firstAttribute="trailing" secondItem="qiG-LI-TW3" secondAttribute="trailing" constant="16" id="ZpI-9Q-7Ir"/>
+                                    <constraint firstItem="qiG-LI-TW3" firstAttribute="leading" secondItem="Vti-0K-juo" secondAttribute="leading" constant="16" id="cwe-gO-Gp5"/>
+                                    <constraint firstItem="qiG-LI-TW3" firstAttribute="top" secondItem="AXA-y5-pYa" secondAttribute="bottom" constant="32" id="hhf-bV-C7H"/>
+                                    <constraint firstItem="Klw-gY-Its" firstAttribute="top" secondItem="qiG-LI-TW3" secondAttribute="top" constant="8" id="idU-ug-Az2"/>
+                                    <constraint firstItem="AXA-y5-pYa" firstAttribute="centerX" secondItem="Vti-0K-juo" secondAttribute="centerX" id="kRd-mi-YoD"/>
+                                    <constraint firstItem="AXA-y5-pYa" firstAttribute="top" secondItem="Vti-0K-juo" secondAttribute="top" constant="32" id="mFC-Lq-jza"/>
+                                    <constraint firstItem="jtn-Hr-bZu" firstAttribute="top" secondItem="qiG-LI-TW3" secondAttribute="bottom" constant="16" id="t7M-Ki-D2j"/>
+                                    <constraint firstItem="jtn-Hr-bZu" firstAttribute="leading" secondItem="qiG-LI-TW3" secondAttribute="leading" id="y2N-aR-Ruz"/>
+                                    <constraint firstItem="Klw-gY-Its" firstAttribute="leading" secondItem="qiG-LI-TW3" secondAttribute="leading" constant="8" id="zrC-SQ-YtY"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="viewCornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Vti-0K-juo" firstAttribute="centerX" secondItem="poF-w8-qQ0" secondAttribute="centerX" id="2cj-ZA-h7u"/>
+                            <constraint firstItem="MzZ-qH-5yB" firstAttribute="trailing" secondItem="Vti-0K-juo" secondAttribute="trailing" constant="16" id="gnD-39-d7n"/>
+                            <constraint firstItem="Vti-0K-juo" firstAttribute="centerY" secondItem="poF-w8-qQ0" secondAttribute="centerY" constant="-60" id="kSo-5N-gUd"/>
+                            <constraint firstItem="Vti-0K-juo" firstAttribute="leading" secondItem="MzZ-qH-5yB" secondAttribute="leading" constant="16" id="w4A-QN-ohK"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="MzZ-qH-5yB"/>
+                    </view>
+                    <connections>
+                        <outlet property="placeHolderLabel" destination="Klw-gY-Its" id="FUW-00-DEJ"/>
+                        <outlet property="reportContentTextView" destination="qiG-LI-TW3" id="Sao-Ro-RO1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J3Y-SI-8OO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-140" y="171"/>
+        </scene>
+    </scenes>
+</document>

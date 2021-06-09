@@ -1,0 +1,25 @@
+﻿@model IList<InformationHub.Model.ComboboxResult>
+@foreach (var item in Model)
+{
+    <option value="@item.Id">@item.Name</option>
+}
+@if (Model != null && Model.Count > 0)
+{
+    <script>
+        $(document).ready(function () {
+            
+            function SetValue() {
+                   $('#sDistrict').val('@Model[0].Exten');
+                $('#sProvince').val('@Model[0].PId');
+            };
+            function myFunction() {
+            setTimeout(function () {
+                SetValue();
+            }, 1000);
+        };
+            myFunction();
+
+        });
+
+    </script>
+}

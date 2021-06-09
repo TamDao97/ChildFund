@@ -1,0 +1,63 @@
+﻿@model IList<ChildProfiles.Model.Model.FliesLibrary.ShareImageModel> 
+<div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="margin-bottom-10">
+        <div style="overflow-x:auto">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th width="50px" class="text-center">No.</th>
+                        <th  width="120px" class="text-center">Function</th>
+                        <th width="200px">Created by</th>
+                        <th>Description</th>
+                        <th width="115px"  class="text-center">Number of photos</th>
+                        <th width="100px">Uploaded date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{int index = ViewBag.Index; }
+                    @foreach (var item in Model)
+                    {
+                        index++;
+                    <tr>
+                        <td class="text-center">@index</td>
+                        <td class="text-center">
+                            <button type="button" @(item.ImageNumber != 0 ? "" : "disabled") class="btn btn-xs btnfuntion" onclick="ShowViewImage('@item.Id')" title="Xem ảnh/View photo" ><i class="material-icons btnicon" style="color:aquamarine">remove_red_eye</i></button>
+                            <button type="button" @(item.ImageNumber != 0 ? "" : "disabled") class="btn btn-xs btnfuntion" onclick="DownLoadAllImage('@item.Id')" title="Tải ảnh/Download" ><i class="material-icons btnicon" style="color:orange">get_app</i></button>
+                            <button type="button" class="btn btn-xs btnfuntion" onclick="DeleteConfim('@item.Id')" title="Khóa mục ảnh/Lock" ><i class="material-icons btnicon" style="color:red">lock</i></button>
+                        </td>
+                        <td>@item.CreateBy</td>
+                        <td>@item.Content</td>
+                        <td class="text-center">@item.ImageNumber</td>
+                        <td>@item.UploadDate.ToString("dd/MM/yyyy")</td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="pagerbottom margin-top-10">
+            <div class="col-md-4 col-sm-4 col-xs-4">
+                <div class="form-group">
+                    <div class="controls">
+                        <select class="form-control combobox-padding" onchange="ChangeSize()" id="pageSize">
+                            <option value="10">10</option>
+                            <option value="20">20</option>
+                            <option value="30">30</option>
+                            <option value="40">40</option>
+                            <option value="50">50</option>
+                        </select>
+                        <span>record(s)/Page</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8 col-sm-8 col-xs-8">
+                @Html.Raw(ViewBag.pages)
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $('#count_data').html(@ViewBag.TotalItem);
+    $('#pageSize').val(@ViewBag.PageSize);
+</script>
+
+

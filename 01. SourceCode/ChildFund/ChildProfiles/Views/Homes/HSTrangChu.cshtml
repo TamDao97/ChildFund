@@ -1,0 +1,199 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="wrapper main-wrapper">
+    <div ui-view="" class="ng-scope">
+        <div class="content-wrapper">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <section class="box ">
+                    <header class="panel_header">
+                        <h2 class="title pull-left">Thống kê</h2>
+                        <div class="actions panel_actions pull-right">
+                            <i class="box_toggle material-icons">expand_more</i>
+                        </div>
+                    </header>
+                    <div class="content-body padding-bottom-10">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                <label class="form-label">Năm</label>
+                                <div class="controls">
+                                    <input type="text" class="form-control" name="infoDate" id="infoDate" required>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <label class="form-label">Tỉnh thành</label> 
+                                    <div class="controls">
+                                        <div class="form-group">
+                                            <div class="controls">
+                                                <select class="form-control" id="provinceId" name="provinceId" onchange="ChangeProvince()">
+                                                    <option value=""> </option>
+                                                    @Html.Action("ProvinceCBB", "Combobox")
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <label class="form-label">Huyện</label>
+                                    <div class="controls">
+                                        <div class="form-group">
+                                            <div class="controls">
+                                                <select class="form-control" id="districtId" name="districtId" onchange="ChangeDistrict()"></select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 text-right padding-top-20">
+                                <button class="btn btn-success right10">
+                                    <i class="fa fa-search"></i> &nbsp; <span>Thống kê</span>
+                                </button>
+                            </div>  
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <section class="box ">
+                    <header class="panel_header">
+                        <h2 class="title pull-left">Hồ sơ trẻ năm 2018</h2>
+                        <div class="actions panel_actions pull-right">
+                            <i class="box_toggle material-icons">expand_more</i>
+                        </div>
+                    </header>
+                    <div class="content-body padding-bottom-0">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                <div class="tile-counter bg-warning">
+                                    <div class="content">
+                                        <i class="fa fa-meh-o icon-lg"></i>
+                                        <h2 count-to="1001" value="0" duration="5" class="number_counter ng-scope">70</h2>
+                                        <div class="clearfix"></div>
+                                        <span>Hồ sơ trẻ tạo mới</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                <div class="tile-counter bg-info">
+                                    <div class="content">
+                                        <i class="fa fa-child icon-lg"></i>
+                                        <h2 count-to="1001" value="0" duration="5" class="number_counter ng-scope">50</h2>
+                                        <div class="clearfix"></div>
+                                        <span>Hồ sơ trẻ cập nhật</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                <div class="tile-counter bg-secondary">
+                                    <div class="content">
+                                        <i class="fa fa-user icon-lg"></i>
+                                        <h2 count-to="1601" value="100" duration="5" class="number_counter ng-scope">10</h2>
+                                        <div class="clearfix"></div>
+                                        <span>Hồ sơ trẻ đã được duyệt</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 no-padding">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <section class="box ">
+                        <header class="panel_header">
+                            <h2 class="title pull-left">Hồ sơ trẻ đi học</h2>
+                            <div class="actions panel_actions pull-right">
+                                <i class="box_toggle material-icons">expand_more</i>
+                            </div>
+                        </header>
+                        <div class="content-body padding-bottom-0">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div id="chart1" style="height: 300px; margin: 0 auto"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <section class="box ">
+                        <header class="panel_header">
+                            <h2 class="title pull-left">Hồ sơ dân tộc trẻ</h2>
+                            <div class="actions panel_actions pull-right">
+                                <i class="box_toggle material-icons">expand_more</i>
+                            </div>
+                        </header>
+                        <div class="content-body padding-bottom-0">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div id="chart2"  style="height: 300px; margin: 0 auto"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-6 col-sm-6 col-xs-6 no-padding">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <section class="box ">
+                        <header class="panel_header">
+                            <h2 class="title pull-left">Thống kê hồ sơ trẻ đã được duyệt năm 2018</h2>
+                            <div class="actions panel_actions pull-right">
+                                <i class="box_toggle material-icons">expand_more</i>
+                            </div>
+                        </header>
+                        <div class="content-body padding-bottom-0">
+                            <div class="row padding-bottom-20">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div id="thongkeHS" style="min-width: 310px; height: 530px; margin: 0 auto"></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <table class="table table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th  width="150px" rowspan="2" style="vertical-align:middle">Tiêu chí</th>
+                                                <th colspan="4" class="text-center">Giáo dục</th>
+                                                <th colspan="2" class="text-center">Giới tính</th>
+                                                <th colspan="2" class="text-center">Dân tộc</th>
+                                            </tr>
+                                            <tr>
+                                                <th width="130px" class="text-center">Không đi học</th>
+                                                <th width="130px" class="text-center">Trẻ mầm non</th>
+                                                <th width="130px" class="text-center">Học tiểu học</th>
+                                                <th width="130px" class="text-center">Học trung học</th>
+                                                <th width="120px" class="text-center">Nam</th>
+                                                <th width="120px" class="text-center">Nữ</th>
+                                                <th width="120px" class="text-center">Kinh</th>
+                                                <th width="120px" class="text-center">Tiểu số</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Số lượng (Hồ sơ)</td>
+                                                <td class="text-center">10</td>
+                                                <td class="text-center">5</td>
+                                                <td class="text-center">26</td>
+                                                <td class="text-center">10</td>
+                                                <td class="text-center">5</td>
+                                                <td class="text-center">2</td>
+                                                <td class="text-center">1</td>
+                                                <td class="text-center">18</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@Html.IncludeVersionedJs("/Scripts/JavaScript.js") 

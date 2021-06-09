@@ -1,0 +1,118 @@
+﻿@model IList<InformationHub.Model.ReportProfileSearchResult>
+@{string TypeUser = ViewBag.Type; string note = "";}
+<div style="overflow-x:auto">
+    <table class="table table-bordered table-hover" style="min-width:2480px">
+        <thead>
+            <tr>
+                <th width="60px" class="text-center">@InformationHub.Resource.Resource.Index_Title</th>
+                <th width="100px" class="text-center">@InformationHub.Resource.Resource.Funtion_Title</th>
+                <th width="160px" class="text-center">@InformationHub.Resource.Resource.ReportProfile_Status</th>
+                <th width="265px">@InformationHub.Resource.Resource.NoteForward_Title</th>
+                <th width="100px">@InformationHub.Resource.Resource.Code_Report</th>
+                @if (TypeUser == "3" || TypeUser == "2")
+                {
+                    <th width="160px">@InformationHub.Resource.Resource.ReportProfile_ChildName</th>
+                }
+                <th width="75px">@InformationHub.Resource.Resource.ReportProfile_Gender</th>
+                <th width="60px">@InformationHub.Resource.Resource.ReportProfile_Age</th>
+                <th width="145px">@InformationHub.Resource.Resource.ReportProfile_InformationSources</th>
+                <th width="200px">@InformationHub.Resource.Resource.ReportProfile_AbuseType</th>
+                <th width="140px">@InformationHub.Resource.Resource.ReportProfile_SeverityLevel</th>
+                <th width="250px">@InformationHub.Resource.Resource.ReportProfile_Address</th>
+                <th>@InformationHub.Resource.Resource.ReportProfile_ReportAddress</th>
+                <th width="120px">@InformationHub.Resource.Resource.ReportProfile_DateInbox</th>
+                <th width="130px">@InformationHub.Resource.Resource.DateForward_Title</th>
+                <th width="150px">@InformationHub.Resource.Resource.ReportProfile_ReportBy</th>
+                <th width="110px">@InformationHub.Resource.Resource.Phone_Title</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @{ int index = ViewBag.Index; string strCaseLocation = "";}
+            @foreach (var item in Model)
+            {
+                strCaseLocation = NTS.Common.Utils.Common.FormatContentNews(item.CaseLocation, 60);
+                note = NTS.Common.Utils.Common.FormatContentNews(item.ForwardNote, 65);
+                index++;
+                <tr>
+                    <td class="text-center">@index</td>
+                    <td align="center">
+                        <a href="/ReportProfile/ReportDetail/@item.ReportProfileId" type="button" class="btn btn-xs btnfuntion" title="@InformationHub.Resource.Resource.ReportProfile_ViewDetail"><i class="material-icons btnicon" style="color:#1656cb">assignment_ind</i></a>
+                        @if (TypeUser != "0" && TypeUser != "1")
+                        {
+                            if (InformationHub.Common.LoginCommon.CheckPermission("C0015"))
+                            {
+                                <button onclick="ForwardConfim('@item.ReportProfileId')" type="button" class="btn btn-xs btnfuntion" title="@InformationHub.Resource.Resource.ReportProfile_Reply"><i class="material-icons btnicon" style="color:#BDBDBD">reply_all</i></button>
+                            }
+                        }
+                        <button onclick="DetailForward('@item.Id')" type="button" class="btn btn-xs btnfuntion" title="@InformationHub.Resource.Resource.ViewNoteForward_Title"><i class="material-icons btnicon" style="color:#46be8a">speaker_notes</i></button>
+                    </td>
+                    <td class="text-center">
+                        <div type="checkbox" title="@InformationHub.Resource.Resource.ReportProfile_Status1" class="@(item.StatusStep1==true?"badgeColorOk":"badgeColor")"></div>
+                        <div type="checkbox" title="@InformationHub.Resource.Resource.ReportProfile_Status2" class="@(item.StatusStep2==true?"badgeColorOk":"badgeColor")"></div>
+                        <div type="checkbox" title="@InformationHub.Resource.Resource.ReportProfile_Status3" class="@(item.StatusStep3==true?"badgeColorOk":"badgeColor")"></div>
+                        <div type="checkbox" title="@InformationHub.Resource.Resource.ReportProfile_Status4" class="@(item.StatusStep4==true?"badgeColorOk":"badgeColor")"></div>
+                        <div type="checkbox" title="@InformationHub.Resource.Resource.ReportProfile_Status5" class="@(item.StatusStep5==true?"badgeColorOk":"badgeColor")"></div>
+                        <div type="checkbox" title="@InformationHub.Resource.Resource.ReportProfile_Status6" class="@(item.StatusStep6==true?"badgeColorOk":"badgeColor")"></div>
+                    </td>
+                    <td>
+                        <a href="javascript:void(0)" onclick="DetailForward('@item.Id')">@note</a>
+                    </td>
+                    <td>@item.Code</td>
+                    @if (TypeUser == "3" || TypeUser == "2")
+                    {
+                        <td>@item.ChildName</td>
+                    }
+                    <td>@item.GenderView</td>
+                    <td>@item.Age</td>
+                    <td>@item.InformationSourcesView</td>
+                    <td>
+                        @(
+                            string.Join(", ", item.ListAbuse.Where(u => !u.Id.Equals(NTS.Common.Constants.Abuse5)).Select(u => u.Name))
+                            +
+                            ((item.ListAbuse.Where(u => !u.Id.Equals(NTS.Common.Constants.Abuse5)).Count() > 0
+                            && item.ListAbuse.Where(u => u.Id.Contains(NTS.Common.Constants.Abuse5)).Count() > 0) ? ", " : "")
+                            + (item.ListAbuse.Where(u => u.Id.Contains(NTS.Common.Constants.Abuse5)).Count() > 0 ? item.TypeOther : "")
+                        )
+                    </td>
+
+                    <td class="text-center"><span class="@(item.SeverityLevel==0?"badge badge-secondary":(item.SeverityLevel==1?"badge badge-warning":"badge badge-danger"))">@item.SeverityLevelView</span></td>
+                    <td>@item.FullAddress</td>
+                    <td>@strCaseLocation</td>
+                    <td>@item.ReceptionDate.Value.ToString("dd/MM/yyyy")</td>
+                    <td>@item.CreateDate.Value.ToString("dd/MM/yyyy")</td>
+                    <td>@item.ProviderName</td>
+                    <td>@item.ProviderPhone</td>
+                </tr>
+            }
+    </table>
+</div>
+<div class="pagerbottom margin-top-10">
+    <div class="col-md-4 col-sm-4 col-xs-4">
+        <div class="form-group">
+            <div class="controls">
+                <select class="form-control combobox-padding" onchange="ChangeSize()" id="pageSize">
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="30">30</option>
+                    <option value="40">40</option>
+                    <option value="50">50</option>
+                </select>
+                <span>@InformationHub.Resource.Resource.NumberPage_Title</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8 col-sm-8 col-xs-8">
+        @Html.Raw(ViewBag.pages)
+    </div>
+</div>
+<script>
+    $('#count_data').html(@ViewBag.TotalItem);
+        $('#count_data1').html(@ViewBag.TotalItemStatus1);
+    $('#count_data6').html(@ViewBag.TotalItemStatus6);
+    $('#pageSize').val(@ViewBag.PageSize);
+    var link = document.getElementById('linkDowload');
+    link.href = '@ViewBag.PathFile';
+</script>
+
+

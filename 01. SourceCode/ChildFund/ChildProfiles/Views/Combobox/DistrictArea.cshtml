@@ -1,0 +1,17 @@
+﻿@model IList<ChildProfiles.Model.ComboboxResult>
+@{ int index = 0;
+    List<string> list = ViewBag.ListDistrict;
+    string strCheck = "";}
+@foreach (var item in Model)
+{
+    index++;
+    strCheck = "";
+    if (list.Contains(item.Id))
+    {
+        strCheck = "checked";
+    }
+    <tr>
+        <td class="view-item-check"><input @strCheck  class="itemp"  onchange="CheckDistrict('@item.Id')" value="@item.Id" name="@item.Name" type="checkbox" id="ck_District_@item.Id" /></td>
+        <td><a href="javascript:void(0)" onclick="GetWard('@item.Id')"> @index, @item.Name</a></td>
+    </tr>
+}

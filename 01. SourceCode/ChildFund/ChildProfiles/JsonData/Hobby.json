@@ -1,0 +1,96 @@
+﻿{
+  "OtherName": "Các trò chơi/ sở thích khác/ Other",
+  "OtherValue": "",
+  "ListObject": [
+    {
+      "Id": "01",
+      "Check": "false",
+      "Name": "Đá bóng/ Play football",
+      "NameEN": "playing soccer",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "02",
+      "Check": "false",
+      "Name": "Cầu lông/ Play badminton",
+      "NameEN": "playing badminton",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "03",
+      "Check": "false",
+      "Name": "Nhảy dây/ Jump rope",
+      "NameEN": "skipping rope",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "04",
+      "Check": "false",
+      "Name": "Bơi lội/ Swim",
+      "NameEN": "swimming",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "05",
+      "Check": "false",
+      "Name": "Hát/ Sing",
+      "NameEN": "Sing",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "06",
+      "Check": "false",
+      "Name": "Múa/ Dance",
+      "NameEN": "Dance",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "07",
+      "Check": "false",
+      "Name": "Đọc sách/ Read books",
+      "NameEN": "Read books",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "08",
+      "Check": "false",
+      "Name": "Trò chuyện cùng người thân/ Talk with beloved people",
+      "NameEN": "talk with beloved people",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "09",
+      "Check": "false",
+      "Name": "Chơi đồ chơi/ Play with toys",
+      "NameEN": "playing with toys",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "10",
+      "Check": "false",
+      "Name": "Chơi đất nặn/ Play kneading dough",
+      "NameEN": "play kneading dough",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    }
+  ]
+}

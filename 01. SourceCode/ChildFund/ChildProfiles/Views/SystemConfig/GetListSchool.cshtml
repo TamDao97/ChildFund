@@ -1,0 +1,56 @@
+﻿
+@model IList<ChildProfiles.Model.Model.SystemConfig.SchoolModel>
+<div style="overflow-x:auto">
+    <table class="table table-bordered table-hover" style="min-width:1200px">
+        <thead>
+            <tr>
+                <th width="60px" class="text-center">No.</th>
+                <th width="100px" class="text-center">Function</th>
+                <th>Province</th>
+                <th>District</th>
+                <th>Commune</th>
+                <th>School name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{ int index = 0;}
+            @foreach (var item in Model)
+            {
+                index++;
+                <tr>
+                    <td class="text-center">@index</td>
+                    <td align="center">
+                        <a onclick="ShowModalCreate('update','@item.Id')" class="btn btn-xs btnfuntion" title="Cập nhật trường học/Update"><i class="material-icons btnicon" style="color:orange">edit</i></a>
+                        <button onclick="DeleteConfim('@item.Id')" type="button" class="btn btn-xs btnfuntion" title="Xóa trường học/Delete"><i class="material-icons btnicon" style="color:red">delete</i></button>
+                    </td>
+                    <td>@item.ProvinceName</td>
+                    <td>@item.DistrictName</td>
+                    <td>@item.WardName</td>
+                    <td>@item.SchoolName</td>
+                </tr>
+            }
+    </table>
+</div>
+<div class="pagerbottom margin-top-10">
+    <div class="col-md-4 col-sm-4 col-xs-4">
+        <div class="form-group">
+            <div class="controls">
+                <select class="form-control combobox-padding" onchange="ChangeSize()" id="pageSize">
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="30">30</option>
+                    <option value="40">40</option>
+                    <option value="50">50</option>
+                </select>
+                <span>bản ghi/Trang</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8 col-sm-8 col-xs-8">
+        @Html.Raw(ViewBag.pages)
+    </div>
+</div>
+<script>
+    $('#count_data').html(@ViewBag.TotalItem);
+    $('#pageSize').val(@ViewBag.PageSize);
+</script>

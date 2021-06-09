@@ -1,0 +1,208 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="wrapper main-wrapper">
+    <div ui-view="" class="ng-scope">
+        <div class="content-wrapper">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <section class="box ">
+                    <header class="panel_header">
+                        <h2 class="title pull-left">Trường hợp mới từ ứng dụng Swipe Safe</h2>
+                        <div class="actions panel_actions pull-right">
+                            <i class="box_toggle material-icons">expand_more</i>
+                        </div>
+                    </header>
+                    <div class="content-body padding-bottom-0">
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="title  margin-top-10 margin-bottom-10">
+                                    <h4>
+                                        <span>Danh sách (<span class="text-danger">Rất khẩn cấp: <b>1</b></span> - <span class="text-warning">Khẩn cấp: <b>2</b></span> - <span class="text-secondary">Cần chú ý: <b>2</b></span>)</span>
+                                        <div class="pull-right">
+                                            <a href="/home/tiepnhan"> <button type="button" class="btn btn-primary" style="width:30px;height:30px;padding:0px"><i class="fa fa-list-ul"></i></button></a>
+                                        </div>
+                                    </h4>
+
+                                </div>
+                                <div wheel-propagation="true" suppress-scroll-x="true" min-scrollbar-length="20" class="ps-project-tasks ps-container ps-active-y margin-bottom-10" style="height:260px">
+                                    <div ng-transclude="">
+                                        <div class="task"><span class="label label-accent">09:30</span> &nbsp; Nguyễn Văn A - Bạo lực - xã Phú Trung</div>
+                                        <div class="task"><span class="label label-primary">11:30</span> &nbsp; Lê Thị B - Xâm hại tình dục - xã Phú Minh</div>
+                                        <div class="task"><span class="label label-accent">16:30</span> &nbsp; Trần Minh E - Bỏ đói - xã Phú Nam</div>
+                                        <div class="task"><span class="label label-accent">18:30</span> &nbsp; Nguyễn Văn A - Bạo lực - xã Phú Trung</div>
+                                        <div class="task"><span class="label label-primary">19:30</span> &nbsp; Lê Thị B - Xâm hại tình dục - xã Phú Minh</div>
+                                        <div class="task"><span class="label label-accent">20:00</span> &nbsp; Nguyễn Văn A - Bạo lực - xã Phú Trung</div>
+                                        <div class="task"><span class="label label-warning">21:00</span> &nbsp; Trần Minh E - Bỏ đói - xã Phú Nam</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div id="containerLevelNow" style="min-width: 310px; height: 250px; margin: 0 auto"></div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-top-10">
+                                <div id="containerNow" style="min-width: 310px; height: 250px; margin: 0 auto"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <section class="box ">
+                    <header class="panel_header">
+                        <h2 class="title pull-left">Trường hợp đang xư lý</h2>
+                        <div class="actions panel_actions pull-right">
+                            <i class="box_toggle material-icons">expand_more</i>
+                        </div>
+                    </header>
+                    <div class="content-body padding-bottom-0">
+                        <div class="row">
+                            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                <h4 class=" margin-top-10 margin-bottom-10">
+                                    Danh sách
+                                </h4>
+                                <table class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th width="50px">#</th>
+                                            <th>Họ tên trẻ</th>
+                                            <th>Giới tính</th>
+                                            <th>Tuổi</th>
+                                            <th>Loại hình xâm hại</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>Trần Thị Minh</td>
+                                            <td>Nam</td>
+                                            <td>15</td>
+                                            <td>Tinh thần</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">2</th>
+                                            <td>Nguyễn Công Ung</td>
+                                            <td>Nam</td>
+                                            <td>15</td>
+                                            <td>Thể chất</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">3</th>
+                                            <td>Phan Kim Liên</td>
+                                            <td>Nữ</td>
+                                            <td>10</td>
+                                            <td>Tình dục</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">4</th>
+                                            <td>Ngô Tấn</td>
+                                            <td>Nam</td>
+                                            <td>8</td>
+                                            <td>Tinh thần</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">5</th>
+                                            <td>Trần Viết Đan</td>
+                                            <td>Nam</td>
+                                            <td>6</td>
+                                            <td>Xao Nhãng</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div id="containerXLNow" style="min-width: 310px; height: 260px; margin: 0 auto"></div>
+                            </div>
+                            <div class="col-md-7 col-sm-7 col-xs-7" style="border-left: 1px solid #ddd;">
+                                <h4 class=" margin-top-10 margin-bottom-10 text-center">
+                                    Lịch sử xử lý
+                                </h4>
+                                <div class="row padding-5">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <!-- start -->
+                                        <ul class="timeline">
+                                            <li>
+                                                <div class="timeline-badge animated fadeIn"><i class="material-icons">autorenew</i></div>
+                                                <div class="timeline-panel animated fadeIn">
+                                                    <div class="timeline-time pull-right">
+                                                        17/12/2018
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                    <div class="timeline-heading margin-top-10">
+                                                        <a>Phạm Kim Liên - 10 tuổi</a>
+                                                    </div>
+                                                    <div class="timeline-body">
+                                                        <p class="date">Ngày tạo: 17/12/2018</p>
+                                                        <p style="font-size:12px;">Bước xử lý: Chưa xử lý</p>
+                                                        <p style="font-size:12px;">Loại xâm hại tình dục. Địa chỉ xã Phú Nam...</p>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="timeline-inverted ">
+                                                <div class="timeline-badge animated fadeIn"><i class="material-icons">autorenew</i></div>
+                                                <div class="timeline-panel animated fadeIn">
+                                                    <div class="timeline-time pull-left">
+                                                        17/12/2018
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                    <div class="timeline-heading margin-top-10">
+                                                        <a>Trần Thị Minh - 15 tuổi</a>
+                                                    </div>
+                                                    <div class="timeline-body">
+                                                        <p class="date">Ngày tạo: 17/12/2018</p>
+                                                        <p style="font-size:12px;">Bước xử lý: Chưa xử lý</p>
+                                                        <p style="font-size:12px;">Loại xâm hại thể chất. Địa chỉ xã Phú Minh...</p>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="timeline-badge animated fadeIn"><i class="material-icons">autorenew</i></div>
+                                                <div class="timeline-panel animated fadeIn">
+                                                    <div class="timeline-time pull-right">
+                                                        17/11/2018
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                    <div class="timeline-heading margin-top-10">
+                                                        <a>Nguyễn Công Ung - 15 tuổi</a>
+                                                    </div>
+                                                    <div class="timeline-body">
+                                                        <p class="date">Ngày tạo: 12/11/2018</p>
+                                                        <p style="font-size:12px;">Bước xử lý: Chưa xử lý</p>
+                                                        <p style="font-size:12px;">Loại xâm hại thể chất. Địa chỉ xã Phú Trung...</p>
+                                                    </div>
+                                                </div>
+                                            </li>
+
+                                            <li class="timeline-inverted ">
+                                                <div class="timeline-badge animated fadeIn"><i class="material-icons">autorenew</i></div>
+                                                <div class="timeline-panel animated fadeIn">
+                                                    <div class="timeline-time pull-left">
+                                                        17/12/2018
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                    <div class="timeline-heading margin-top-10">
+                                                        <a>Trần Viết Đan - 6 tuổi</a>
+                                                    </div>
+                                                    <div class="timeline-body">
+                                                        <p class="date">Ngày tạo: 17/12/2018</p>
+                                                        <p style="font-size:12px;">Bước xử lý: Chưa xử lý</p>
+                                                        <p style="font-size:12px;">Loại xâm hại xao nhãng. Địa chỉ xã Phú Nam...</p>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <!-- end -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+<style>
+    .timeline-body > p + p {
+        margin-top:0px;
+    }
+</style>

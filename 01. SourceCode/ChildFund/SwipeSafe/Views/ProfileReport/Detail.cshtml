@@ -1,0 +1,110 @@
+﻿@model SwipeSafe.Model.ProfileReport.ProfileChildSearchResult
+@{
+    ViewBag.Title = "Chi tiết ca sự vụ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var dateView = "";
+    var birthdayView = "";
+    if (Model.ReceptionDate != null)
+    {
+        dateView = Model.ReceptionDate.Value.ToString("dd/MM/yyyy");
+    }
+    if (Model.Birthday != null)
+    {
+        birthdayView = Model.Birthday.Value.ToString("dd/MM/yyyy");
+    }
+}
+<section class="wrapper main-wrapper">
+    <div ui-view="" class="ng-scope">
+        <div class="content-wrapper">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <section class="box ">
+                    <header class="panel_header">
+                        <h2 class="title pull-left">Chi tiết ca sự vụ</h2>
+                        <div class="actions panel_actions pull-right">
+                            <i class="box_toggle material-icons">expand_more</i>
+                        </div>
+                    </header>
+                    <div class="content-body padding-bottom-0">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                @*<h4 class=" margin-top-10 margin-bottom-10">
+                                        Danh sách
+                                    </h4>*@
+                                <table class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th colspan="2">Thông tin chi tiết</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Trạng thái</th>
+                                            <td>@Model.ProcessingName</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Tên trẻ</th>
+                                            <td>@Model.Name</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Ngày sinh</th>
+                                            <td>@birthdayView</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Giới tính</th>
+                                            <td>@Model.Gender</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Địa chỉ</th>
+                                            <td>@Model.FullAddress</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Loại hình xâm hại</th>
+                                            <td>@Model.FormAbuseName</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Người báo cáo</th>
+                                            <td>@Model.ProviderName</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Điện thoại</th>
+                                            <td>@Model.ProviderPhone</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Mô tả</th>
+                                            <td>@Model.ProviderNote</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="text-right" style="min-width: 310px;min-height: 260px; margin: 0 auto">
+                                    <textarea rows="3" class="form-control" id="contentValue"></textarea>
+                                    <button onclick="SendContent('@Model.Id')" id="btn-create" class="btn btn-success btn-icon margin-top-10">
+                                        <i class="fa fa-save "></i> &nbsp; <span>Gửi phản hồi</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-6" style="border-left: 1px solid #ddd;">
+                                <h4 class=" margin-top-10 margin-bottom-10 text-center">
+                                    Lịch sử phản hồi
+                                </h4>
+                                <div class="row padding-5">
+                                    <div class="col-md-12 col-sm-12 col-xs-12 padding-bottom-15" id="data_Content" style="max-height:590px; overflow:auto">
+                                        <!-- start -->
+                                     @Html.Action("GetContent", "ProfileReport", new { id=Model.Id})
+                                        <!-- end -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+<style>
+    .timeline-body > p + p {
+        margin-top: 0px;
+    }
+</style>
+<script src="~/Scripts/JsControllers/ProfileReportDetailControllers.js"></script>
+

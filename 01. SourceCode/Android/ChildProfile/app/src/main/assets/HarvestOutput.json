@@ -1,0 +1,78 @@
+﻿{
+  "OtherName": "",
+  "OtherValue": "",
+  "ListObject": [
+    {
+      "Id": "01",
+      "Check": "false",
+      "Name": "Thóc/Rice",
+      "NameEN": "rice",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "02",
+      "Check": "false",
+      "Name": "Ngô/Corn",
+      "NameEN": "corn",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "03",
+      "Check": "false",
+      "Name": "Khoai/Potatoes",
+      "NameEN": "potatoes",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "04",
+      "Check": "false",
+      "Name": "Sắn/Cassava",
+      "NameEN": "cassava",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "05",
+      "Check": "false",
+      "Name": "Mía/Sugarcane",
+      "NameEN": "sugarcane",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "06",
+      "Check": "false",
+      "Name": "Hoa quả/Fruit trees",
+      "NameEN": "fruit trees",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "07",
+      "Check": "false",
+      "Name": "Thạch/Grass jelly plants",
+      "NameEN": "grass jelly plants",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "08",
+      "Check": "false",
+      "Name": "Khác/Other",
+      "NameEN": "",
+      "Value": "",
+      "OtherName": "Chi tiết/Details",
+      "OtherValue": ""
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+﻿@model  IList<InformationHub.Model.StatisticByGenderModel>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th width="100px">Loại hình xâm hại</th>
+            <th width="100px" class="text-center">Nam</th>
+            <th width="100px" class="text-center">Nữ</th>
+            <th width="100px" class="text-center">Không xác định</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+            {
+            <tr>
+                <td>@item.Type</td>
+                <td class="text-center">@item.CountNam</td>
+                <td class="text-center">@item.CountNu</td>
+                <td class="text-center">@item.CountKhong</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<script>
+    var link = document.getElementById('linkDowload');
+    link.href = '@ViewBag.PathFile';
+</script>

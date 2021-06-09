@@ -1,0 +1,361 @@
+﻿@model IList<ChildProfiles.Model.UserModels.UserSearchResult>
+@{
+    ViewBag.Title = "Văn phòng Vùng/Regional Office";
+}
+
+<section class="wrapper main-wrapper">
+    <div class="ng-scope">
+        <div class="content-wrapper">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <section class="box ">
+                    <header class="panel_header">
+                        <h2 class="title pull-left">Tìm kiếm/Search</h2>
+                        <div class="actions panel_actions pull-right">
+                            <i class="box_toggle material-icons">expand_more</i>
+                        </div>
+                    </header>
+                    <div class="content-body padding-bottom-0">
+                        <div class="row">
+                            <div class="col-md-3 col-sm-4 col-xs-4">
+                                <div class="form-group">
+                                    <label class="form-label">Tên người dùng/User name</label>
+                                    <span class="desc"></span>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" id="fullNameSearch">
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-4">
+                                <div class="form-group">
+                                    <label class="form-label">Tên đăng nhập/Account</label>
+                                    <span class="desc"></span>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" id="userNameSearch">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-4">
+                                <div class="form-group">
+                                    <label>Khu vực/Area</label>
+                                    <span class="desc"></span>
+                                    <select class="form-control" id="areaUserIdSearch" onclick="GetAreaDistrictSearch()">
+                                        <option value="">Chọn/Pick</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-4">
+                                <div class="form-group">
+                                    <label>Huyện/District</label>
+                                    <span class="desc"></span>
+                                    <select class="form-control" id="areaDistrictIdSearch">
+                                        <option value="">Chọn/Pick</option>
+                                    </select>
+                                </div>
+                            </div>
+                            @*<div class="col-md-3 col-sm-4 col-xs-4">
+            <div class="form-group">
+                <label class="form-label">Trạng thái</label>
+                <span class="desc"></span>
+                <div class="controls">
+                    <select class="form-control" id="statusSearch">
+                        <option value="">Tất cả</option>
+                        <option value="1">Hiển thị</option>
+                        <option value="0">Không hiển thị</option>
+                    </select>
+                </div>
+            </div>
+        </div>*@
+                            <div class="col-md-6 col-sm-4 col-xs-4 text-right">
+                                <div class="form-group margin-top-20 margin-bottom-10">
+                                    <button class="btn btn-success btn-icon right10" onclick="Search()">
+                                        <i class="fa fa-search"></i> &nbsp; <span>Tìm kiếm/Search</span>
+                                    </button>
+                                    <button class="btn btn-default btn-icon right10" onclick="Refresh()">
+                                        <i class="fa fa-refresh"></i> &nbsp; <span>Làm mới/Refresh</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <section class="box">
+                    <header class="panel_header">
+                        <h2 class="title pull-left">Danh sách người dùng/User list</h2>
+                        <div class="actions panel_actions pull-right">
+                            <i class="box_toggle material-icons">expand_more</i>
+                        </div>
+                    </header>
+                    <div class="content-body padding-bottom-10">
+                        <div class="row margin-bottom-5">
+                            <div class="col-md-9 col-sm-9 col-xs-9 text-left">
+                                <h4>
+                                    Tổng số người dùng/Total number <b class="badge badge-primary" id="count_user"></b>
+                                </h4>
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-3 text-right">
+                                <button class="btn btn-success" type="button" onclick="AddUser()"><i class="fa fa-fw fa-plus"></i>Thêm mới/Add</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="margin-bottom-10" id="list_user">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 margin-bottom-10">
+                                <hr class="margin-bottom-10 margin-top-0" />
+                                <button type="button" class="btn btn-xs btn-link" title="Cập nhật người dùng/Update"><i class="material-icons" style="color:orange; font-size:20px !important">edit</i></button>&nbsp;<small class="padding-right-20">Cập nhật người dùng/Update</small>
+                                <button type="button" class="btn btn-xs btn-link" title="Reset mật khẩu"><i class="material-icons" style="font-size:20px !important">autorenew</i></button>&nbsp;<small class="padding-right-20">Reset mật khẩu/Reset password</small>
+                                <button class="btn btn-xs btn-link"><i class="material-icons" style="color:red; font-size:20px !important">delete</i></button>&nbsp;<small class="padding-right-20">Xóa người dùng/Delete</small>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="modamUser" class="modal fade" role="dialog" onscroll="scroll" data-backdrop="static" style="background-color: rgba(0,0,0,0.3)">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" onclick="CloseModel()">&times;</button>
+                <h4 class="h4Title" id="titleModal">Thêm mới cán bộ/Add staff</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-9 col-sm-9 col-xs-9 no-padding">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    <label>Tài khoản đăng nhập/Account</label>&nbsp;<span class="required">*</span>
+                                    <input type="text" class="form-control" id="userName">
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    <label>Họ tên/Full name</label>&nbsp;<span class="required">*</span>
+                                    <input type="text" class="form-control" id="fullName">
+                                </span>
+                            </div>
+                        </div>
+                        <div id="divPass">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <span class="input-icon icon-right">
+                                        <label>Mật khẩu/Password</label>&nbsp;<span class="required">*</span>
+                                        <input type="password" class="form-control" id="password">
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <span class="input-icon icon-right">
+                                        <label>Nhập lại mật khẩu/Re-enter password</label>&nbsp;<span class="required">*</span>
+                                        <input type="password" class="form-control" id="retypepassword">
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-xs-3">
+                            <div class="input-icon icon-right">
+                                <label>Ngày sinh/Date of birth</label>
+                                <div class="controls">
+                                    <input type="text" class="form-control datepicker" id="birthDate">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="input-icon icon-right">
+                                <label>Điện thoại/Phone</label>
+                                <div class="controls">
+                                    <input type="number" class="form-control" id="phone">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="input-icon icon-right">
+                                <label>Email</label>&nbsp;<span class="required">*</span>
+                                <div class="controls">
+                                    <input type="email" class="form-control" id="email">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="col-md-3 col-sm-3 col-xs-3">
+                            <div class="input-icon icon-right">
+                                <label>Khu vực/Area</label>&nbsp;<span class="required">*</span>
+                                @Html.Action("AreaUser", "Combobox")
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-xs-3">
+                            <div class="input-icon icon-right">
+                                <label>Huyện/District</label>
+                                <select class="form-control" id="areaDistrictId" name="areaDistrictId">
+                                    <option value="0">Chọn/Pick</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    <label>Địa chỉ/Address</label>
+                                    <input type="text" class="form-control" id="address" maxlength="500">
+                                </span>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="col-sm-6">
+                            <div class="input-icon icon-right">
+                                <label>Loại tài khoản/User type</label>&nbsp;<span class="required">*</span>
+                                <div class="controls">
+                                    <label class="icheck icheck-primary">
+                                        <input type="radio" value="2" name="typeUser" checked id="rdArea">
+                                        <i></i> Cấp Tỉnh/Province level
+                                    </label>&nbsp;
+                                    <label class="icheck icheck-accent">
+                                        <input type="radio" value="3" name="typeUser" id="rdDistrict">
+                                        <i></i> Cấp Huyện/District level
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="input-icon icon-right">
+                                <label>Giới tính/Gender</label>&nbsp;<span class="required">*</span>
+                                <div class="controls">
+                                    <label class="icheck icheck-primary">
+                                        <input type="radio" value="0" name="gender" id="male" checked>
+                                        <i></i> Nam/Male
+                                    </label>&nbsp;
+                                    <label class="icheck icheck-accent">
+                                        <input type="radio" value="1" name="gender" id="female">
+                                        <i></i> Nữ/Female
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-3 no-padding">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    <label>Ảnh đại diện/Avatar</label>
+                                </span>
+                                <div class="controls text-center">
+                                    <button type="button" class="btn btn-success btn-s" onclick="uploadImage()">
+                                        <span class="glyphicon glyphicon-upload"></span> Upload
+                                    </button>
+                                    <button type="button" class="btn btn-danger btn-s" onclick="clearImage()">
+                                        <span class="glyphicon glyphicon-trash"></span> Remove
+                                    </button>
+                                </div>
+                                <input type="file" accept="image/*" id="FileUpload" style="display:none" />
+                                <div class="controls text-center margin-top-10">
+                                    <img id="imgPreview" src="~/img/avatar.png" width="200">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" onclick="Update()" class="btn btn-primary" id="btn-update"><i class="glyphicon glyphicon-floppy-save"></i> Lưu lại/Save</button>
+                <button type="button" onclick="Create(false)" class="btn btn-primary" id="btn-create"><i class="glyphicon glyphicon-floppy-save"></i> Lưu lại/Save</button>
+                <button type="button" onclick="Create(true)" class="btn btn-primary" id="btn-createContinue"><i class="glyphicon glyphicon-floppy-save"></i> Lưu và tiếp tục/Save and continue</button>
+                <button type="button" class="btn btn-danger" onclick="CloseModel()"><i class="glyphicon glyphicon-minus-sign"></i> Thoát/Exit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modalResetPassword" class="modal fade" role="dialog" tabindex="-1" onscroll="scroll" data-backdrop="static" style="background-color: rgba(0,0,0,0.3)">
+    <div class="modal-dialog modal-sm">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" onclick="CloseModelRS()">&times;</button>
+                <h4 class="h4Title">Reset mật khẩu/Reset password</h4>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="rsUserId" />
+                <div class="row">
+                    <div class="col-md-9 col-sm-9 col-xs-9 no-padding">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    <label>Tài khoản đăng nhập/Account</label>&nbsp;<span class="required">*</span>
+                                    <input type="text" class="form-control" id="rsUserName">
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    <label>Họ tên/Full name</label>&nbsp;<span class="required">*</span>
+                                    <input type="text" class="form-control" id="rsFullName">
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    <label>Mật khẩu/Password</label>&nbsp;<span class="required">*</span>
+                                    <input type="password" class="form-control" id="rsPassword">
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <span class="input-icon icon-right">
+                                    <label>Nhập lại mật khẩu/Re-enter password</label>&nbsp;<span class="required">*</span>
+                                    <input type="password" class="form-control" id="rsRetypepassword">
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" onclick="Reset()" class="btn btn-primary" id="btn-reset"><i class="glyphicon glyphicon-floppy-save"></i> Lưu lại/Save</button>
+                <button type="button" class="btn btn-danger" onclick="CloseModelRS()"><i class="glyphicon glyphicon-minus-sign"></i> Thoát/Exit</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="modalChangeStatus" class="modal fade" role="dialog" tabindex="-1" onscroll="scroll" data-backdrop="static" style="background-color: rgba(0,0,0,0.3)">
+    <div class="modal-dialog modal-sm">
+        <!-- Modal content-->
+        <div class="modal-content" style="width:60%; margin:auto">
+            <div class="modal-header">
+                <button type="button" class="close" onclick="CloseModelCS()">&times;</button>
+                <h4 class="h4Title" id="titleChangeStatus"></h4>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="csUserId" />
+                <div id="content"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" onclick="ChangeStatus()" class="btn btn-primary" id="btn-reset"><i class="glyphicon glyphicon-floppy-save"></i> Lưu lại/Save</button>
+                <button type="button" class="btn btn-danger" onclick="CloseModelCS()"><i class="glyphicon glyphicon-minus-sign"></i> Thoát/Exit</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/ScriptControllers/UserLevel2Controllers.js"></script>
+<script>
+    window.onload = Search();
+</script>
+<style type="text/css">
+    .modal-dialog {
+        width: 1000px;
+    }
+</style>

@@ -1,0 +1,155 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="wrapper main-wrapper">
+    <div ui-view="" class="ng-scope">
+        <div class="content-wrapper">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <section class="box ">
+                    <header class="panel_header">
+                        <h2 class="title pull-left">Thống kê sự vụ</h2>
+                        <div class="actions panel_actions pull-right">
+                            <i class="box_toggle material-icons">expand_more</i>
+                        </div>
+                    </header>
+                    <div class="content-body padding-bottom-0">
+                        <div class="row">
+                            <div class="col-md-2 col-sm-2 col-xs-2">
+                                <div class="form-group">
+                                    <label class="form-label" for="field-1">Ngày báo cáo từ ngày</label>
+                                    <span class="desc"></span>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" id="field-1">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-sm-2 col-xs-2">
+                                <div class="form-group">
+                                    <label class="form-label" for="field-1">Đến ngày</label>
+                                    <span class="desc"></span>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" id="field-1">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                <div class="form-group">
+                                    <label class="form-label" for="field-1">Địa bàn xã</label>
+                                    <span class="desc"></span>
+                                    <div class="controls">
+                                        <select class="form-control ">
+                                            <option value="Default Select">Tất cả</option>
+                                            <option value="Option 1">Option 1</option>
+                                            <option value="Option 2">Option 2</option>
+                                            <option value="Option 3">Option 3</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-sm-2 col-xs-2">
+                                <div class="form-group">
+                                    <label class="form-label" for="field-1">Trạng thái xử lý</label>
+                                    <span class="desc"></span>
+                                    <div class="controls">
+                                        <select class="form-control ">
+                                            <option value="Default Select">Tất cả</option>
+                                            <option value="Option 1">Option 1</option>
+                                            <option value="Option 2">Option 2</option>
+                                            <option value="Option 3">Option 3</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-3 text-right margin-top-20">
+                                <button class="btn btn-success btn-icon right10">
+                                    <i class="fa fa-search"></i> &nbsp; <span>Tìm kiếm</span>
+                                </button>
+                                <button class="btn btn-default btn-icon">
+                                    <i class="fa fa-file-excel-o"></i> &nbsp; <span>Xuất Excel</span>
+                                </button>
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div id="thongkeCapTren" style="min-width: 310px; height: 430px; margin: 0 auto"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="margin-bottom-10">
+                                    <table class="table table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th width="50px">#</th>
+                                                <th>Địa bàn</th>
+                                                <th class="text-center">Xâm hại tình dục</th>
+                                                <th class="text-center">Bạo hành</th>
+                                                <th class="text-center">Bỏ đói</th>
+                                                <th class="text-center">Tổng</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>Xã Phú Minh</td>
+                                                <td class="text-center">10</td>
+                                                <td class="text-center">20</td>
+                                                <td class="text-center">2</td>
+                                                <td class="text-center">32</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">2</th>
+                                                <td>Xã Phú An</td>
+                                                <td class="text-center">1</td>
+                                                <td class="text-center">20</td>
+                                                <td class="text-center">2</td>
+                                                <td class="text-center">23</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">3</th>
+                                                <td>Xã Phú Hương</td>
+                                                <td class="text-center">5</td>
+                                                <td class="text-center">20</td>
+                                                <td class="text-center">2</td>
+                                                <td class="text-center">27</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">4</th>
+                                                <td>Xã Phú Liên</td>
+                                                <td class="text-center">5</td>
+                                                <td class="text-center">0</td>
+                                                <td class="text-center">2</td>
+                                                <td class="text-center">7</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">5</th>
+                                                <td>Xã Phú Triều</td>
+                                                <td class="text-center">5</td>
+                                                <td class="text-center">5</td>
+                                                <td class="text-center">2</td>
+                                                <td class="text-center">12</td>
+                                            </tr>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th colspan="2">Tổng</th>
+                                                <th class="text-center">26</th>
+                                                <th class="text-center">65</th>
+                                                <th class="text-center">10</th>
+                                                <th class="text-center">101</th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+

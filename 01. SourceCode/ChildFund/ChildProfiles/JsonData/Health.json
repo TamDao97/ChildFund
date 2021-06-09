@@ -1,0 +1,54 @@
+﻿{
+  "OtherName": "Mô tả quá trình chữa trị/ In treatment or not ",
+  "OtherValue": "",
+  "ListObject": [
+    {
+      "Id": "01",
+      "Check": "false",
+      "Name": "Khoẻ mạnh/ Good",
+      "NameEN": "good",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "02",
+      "Check": "false",
+      "Name": "Trung bình/ Normal",
+      "NameEN": "normal",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "03",
+      "Check": "false",
+      "Name": "Yếu/ Weak",
+      "NameEN": "weak",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "04",
+      "Check": "false",
+      "Name": "Khuyết tật/ Disability ",
+      "NameEN": "People with disability",
+      "Value": "",
+      "OtherName": "Mô tả rõ/In details",
+      "OtherValue": "",
+      "Question": "Trẻ có chứng nhận khuyết tật không?/Is the child's disability status certified?",
+      "YesValue": false,
+      "NoValue": false
+    },
+    {
+      "Id": "05",
+      "Check": "false",
+      "Name": "Bệnh mãn tính/ Chronic disease",
+      "NameEN": "Chronic disease",
+      "Value": "",
+      "OtherName": "Mô tả rõ tên bệnh/In details",
+      "OtherValue": ""
+    }
+  ]
+}

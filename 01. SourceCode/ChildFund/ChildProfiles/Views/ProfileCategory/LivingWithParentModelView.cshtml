@@ -1,0 +1,191 @@
+﻿@model ChildProfiles.Model.ObjectBaseModel
+@{
+    ChildProfiles.Model.ObjectInputModel objectInputModel = null;
+    var notLivingWithParentModel = (ChildProfiles.Model.ObjectBaseModel)ViewBag.notLivingWithParentModel;
+    var livingWithOtherModel = (ChildProfiles.Model.ObjectBaseModel)ViewBag.livingWithOtherModel;
+    var letterWriteModel = (ChildProfiles.Model.ObjectBaseModel)ViewBag.letterWriteModel;
+    int numberCenter = notLivingWithParentModel.ListObject.Count / 2;
+    if ((notLivingWithParentModel.ListObject.Count % 2) != 0)
+    {
+        numberCenter = numberCenter + 1;
+        objectInputModel = new ChildProfiles.Model.ObjectInputModel();
+    }
+    var dateRow0 = Model.ListObject;
+    var dateRow1 = notLivingWithParentModel.ListObject.Skip(0).Take(numberCenter).ToList();
+    var dateRow2 = notLivingWithParentModel.ListObject.Skip(numberCenter).Take(numberCenter).ToList();
+    if (objectInputModel != null)
+    {
+        dateRow2.Add(objectInputModel);
+    }
+    var dateRow3 = livingWithOtherModel.ListObject;
+    var dateRow4 = letterWriteModel.ListObject;
+    string check1, check2;
+}
+<div class="margin-bottom-10">
+    <textarea hidden id="hidlivingWithParentModel">@(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(Model))</textarea>
+    <textarea hidden id="hidnotLivingWithParentModel">@(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(notLivingWithParentModel))</textarea>
+    <textarea hidden id="hidlivingWithOtherModel">@(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(livingWithOtherModel))</textarea>
+    <textarea hidden id="hidletterWriteModel">@(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(letterWriteModel))</textarea>
+
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+        <div class="row">
+            <table class="table table-bordered table-hover" id="tblivingWithParentModel">
+                <thead>
+                    <tr>
+                        <th colspan="2">Trẻ có sống cùng bố mẹ đẻ không/Is child living with parents?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in dateRow0)
+                    {
+                        check1 = item.Check ? "checked" : "";
+                        <tr style="border-left:white">
+                            <td width="20">
+                                <label class="icheck icheck-primary">
+                                    <input type="checkbox" name="cklivingWithParent" @check1 value="@item.Id" onclick="ChangeCheckbox(@item.Id,'#tblivingWithParentModel','cklivingWithParent',this)">
+                                    <i></i>
+                                </label>
+                            </td>
+                            <td>
+                                @item.Id  @item.Name
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+        <div class="row">
+            <table class="table table-bordered table-hover" id="tblivingWithOtherModel">
+                <thead>
+                    <tr>
+                        <th colspan="2">Vậy trẻ đang sống với ai?/If so, who is the child living with?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in dateRow3)
+                    {
+                        check1 = item.Check ? "checked" : "";
+                        <tr style="border-left:white">
+                            <td width="20">
+                                <label class="icheck icheck-primary">
+                                    <input type="checkbox" name="cklivingWithOther" @check1 value="@item.Id" onclick="ChangeCheckbox(@item.Id,'#tblivingWithOtherModel','cklivingWithOther',this)">
+                                    <i></i>
+                                </label>
+                            </td>
+                            <td>
+                                @item.Id  @item.Name
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="2">
+                            <span>@livingWithOtherModel.OtherName</span> <input value="@livingWithOtherModel.OtherValue" type="text" id="livingWithOther" class="form-control">
+                        </td>
+
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+    @*<div class="col-lg-4 col-md-5 col-sm-5 col-xs-5">
+            <div class="row">
+                <table class="table table-bordered table-hover" id="tbletterWriteModel">
+                    <thead>
+                        <tr>
+                            <th colspan="2">
+                                Ai sẽ là người viết thư cho nhà tài trợ/Who will be writing to the sponsor?
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in dateRow4)
+                        {
+                            check1 = item.Check ? "checked" : "";
+                            <tr style="border-left:white">
+                                <td width="20">
+                                    <label class="icheck icheck-primary">
+                                        <input type="checkbox" name="ckletterWrite" @check1 value="@item.Id" onclick="ChangeCheckbox(@item.Id,'#tbletterWriteModel','ckletterWrite')">
+                                        <i></i>
+                                    </label>
+                                </td>
+                                <td>
+                                    @item.Id  @item.Name
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="2">
+                                <span>@letterWriteModel.OtherName</span> <input value="@letterWriteModel.OtherValue" type="text" id="letterWriteOther" class="form-control">
+                            </td>
+
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>*@
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <table class="table table-bordered table-hover" id="tbnotLivingWithParentModel">
+                <thead>
+                    <tr>
+                        <th colspan="4">Nếu không sống cùng bố/mẹ đẻ, giải thích lý do/If child don't live with child's parents, explain why?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < dateRow1.Count; i++)
+                    {
+                        check1 = dateRow1[i].Check ? "checked" : "";
+                        check2 = dateRow2[i].Check ? "checked" : "";
+                        <tr>
+                            <td width="20px">
+                                <label class="icheck icheck-primary">
+                                    <input type="checkbox" name="cknotLivingWithParent" @check1 value="@dateRow1[i].Id">
+                                    <i></i>
+                                </label>
+                            </td>
+                            <td>
+                                <span>@dateRow1[i].Name @dateRow1[i].OtherName</span>
+                                @if (!string.IsNullOrEmpty(dateRow1[i].OtherName))
+                                {
+                                    <input class="form-control" id="notLivingWithParent_@dateRow1[i].Id" value="@dateRow1[i].OtherValue" type="text">
+                                }
+                            </td>
+                            @if (!string.IsNullOrEmpty(dateRow2[i].Name))
+                            {
+                                <td width="20px">
+                                    <label class="icheck icheck-primary">
+                                        <input type="checkbox" name="cknotLivingWithParent" @check2 value="@dateRow2[i].Id">
+                                        <i></i>
+                                    </label>
+                                </td>
+                                <td>
+                                    <span>@dateRow2[i].Name</span>
+                                </td>
+                            }
+                            else
+                            {
+                                <td width="20px"></td>
+                                <td></td>
+                            }
+
+                        </tr>
+                    }
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4">
+                            <span>@notLivingWithParentModel.OtherName</span> <input value="@notLivingWithParentModel.OtherValue" type="text" id="notLivingWithParentOther" class="form-control">
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>

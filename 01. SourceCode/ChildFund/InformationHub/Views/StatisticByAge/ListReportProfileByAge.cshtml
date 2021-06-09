@@ -1,0 +1,36 @@
+﻿@model List<InformationHub.Model.StatisticByAgeModel>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th width="200px">Độ tuổi</th>
+            <th class="text-center">Thể chất</th>
+            <th class="text-center">Tình dục</th>
+            <th class="text-center">Tinh thần</th>
+            <th class="text-center">Xao nhãng</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+            {
+            <tr>
+                <td>@item.LableName</td>
+                <td class="text-center">@item.Count1</td>
+                <td class="text-center">@item.Count2</td>
+                <td class="text-center">@item.Count3</td>
+                <td class="text-center">@item.Count4</td>
+            </tr>
+        }
+    </tbody>
+</table>
+@*<div class="content-body padding-bottom-10">
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div id="ageChart" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto">
+            </div>
+        </div>
+    </div>
+</div>*@
+<script>
+    var link = document.getElementById('linkDowload');
+    link.href = '@ViewBag.PathFile';
+</script>

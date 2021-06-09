@@ -1,0 +1,162 @@
+﻿@{ string userLever = ViewBag.UserLever;}
+<ul class="wraplist wrapper-menu">
+    <li ui-sref-active="active">
+        <a class="nosub" href="/homes/index">
+            <i class="material-icons">dashboard</i>
+            <span class="title">Trang chủ/Home</span>
+        </a>
+    </li>
+    @if (userLever.Equals("2") || userLever.Equals("3"))
+    {
+        <li ui-sref-active="active">
+            <a class="nosub" href="/ProfileNew/FormProfileNew">
+                <i class="material-icons">note_add</i>
+                <span class="title">Thêm mới hồ sơ trẻ/ Enrol new children</span>
+            </a>
+        </li>
+    }
+    @if (userLever.Equals("2") || userLever.Equals("3"))
+    {
+        <li ui-sref-active="active">
+            <a class="nosub" href="/ProfileNew/ProfileWard">
+                <i class="material-icons">assignment_late</i>
+                <span class="title">Quản lý hồ sơ trẻ mới tuyển/ Manage new child profile</span>
+            </a>
+        </li>
+    }
+    @if (userLever.Equals("2"))
+    {
+        <li ui-sref-active="active">
+            <a class="nosub" href="/ProfilesUpdate/ProfileWard">
+                <i class="material-icons">assignment</i>
+                <span class="title">Quản lý hồ sơ trẻ cập nhật_RAM/ Manage RAMs</span>
+            </a>
+        </li>
+    }
+    @if (userLever.Equals("2"))
+    {
+        <li ui-sref-active="active">
+            <a class="nosub" href="/ReportProfile/ReportWard">
+                <i class="material-icons">assessment</i>
+                <span class="title">Báo cáo cập nhật thông tin trẻ/Child information report</span>
+            </a>
+        </li>
+    }
+    @*het cap vung*@
+
+
+    @if (userLever.Equals("0") || userLever.Equals("1"))
+    {
+        <li ui-sref-active="active">
+            <a class="nosub" href="/ProfileNew/ProfileProvince">
+                <i class="material-icons">assignment_late</i>
+                <span class="title">Quản lý hồ sơ trẻ mới tuyển/ Manage new child profile</span>
+            </a>
+        </li>
+    }
+    @if (userLever.Equals("0") || userLever.Equals("1"))
+    {
+        <li ui-sref-active="active">
+            <a class="nosub" href="/ProfilesUpdate/ProfileProvince">
+                <i class="material-icons">assignment</i>
+                <span class="title">Quản lý hồ sơ trẻ cập nhật_RAM/ Manage RAMs</span>
+            </a>
+        </li>
+    }
+    @if (userLever.Equals("0") || userLever.Equals("1"))
+    {
+        <li ui-sref-active="active">
+            <a class="nosub" href="/ProfileNew/ProfileConfim">
+                <i class="material-icons">assignment_turned_in</i>
+                <span class="title">Hồ sơ đã duyệt/ Approved profile</span>
+            </a>
+        </li>
+    }
+    <li ui-sref-active="active">
+        <a class="nosub" href="/ImageLibrary/ViewImageChild">
+            <i class="material-icons">photo</i>
+            <span class="title">CPR photos/Ảnh BCCB</span>
+        </a>
+    </li>
+    @if (userLever.Equals("0") || userLever.Equals("1"))
+    {
+        <li ui-sref-active="active">
+            <a class="nosub" href="/ReportProfile/ReportProvince">
+                <i class="material-icons">assessment</i>
+                <span class="title">Báo cáo cập nhật thông tin trẻ/Child information report</span>
+            </a>
+        </li>
+    }
+
+    @if (userLever.Equals("0") || userLever.Equals("1"))
+    {
+        <li ui-sref-active="active">
+            <a class="nosub" href="/StorySample/index">
+                <i class="material-icons">description</i>
+                <span class="title">Mẫu câu chuyện/ Narrative templates</span>
+            </a>
+        </li>
+    }
+
+    <li ui-sref-active="active">
+        <a class="nosub" href="/SystemConfig/ConfigSchool">
+            <i class="material-icons">settings_applications</i>
+            <span class="title">Quản lý trường học/School management</span>
+        </a>
+    </li>
+
+    @if (userLever.Equals("0") || userLever.Equals("1"))
+    {
+        <li ui-sref-active="active">
+            <a class="nosub" href="/AreaUser/Index">
+                <i class="material-icons">store</i>
+                <span class="title">Quản lý địa bàn/Area management </span>
+            </a>
+        </li>
+    }
+    @if (userLever.Equals("0") || userLever.Equals("1"))
+    {
+        <li ui-sref-active="active">
+            <a class="nosub" href="/ImageLibrary/index">
+                <i class="material-icons">photo</i>
+                <span class="title">Thư viện ảnh/ Photo library</span>
+            </a>
+        </li>
+    }
+    <li ui-sref-active="active">
+        <a class="nosub" href="/Document/Index">
+            <i class="material-icons">attach_file</i>
+            <span class="title">Thư viện tài liệu/Resources</span>
+        </a>
+    </li>
+
+    @if (userLever.Equals("0"))
+    {
+        <li href="" class="auto">
+            <a href="javascript:;">
+                <i class="material-icons">account_circle</i>
+                <span class="title">Quản lý tài khoản /Account management</span>
+                <span class="arrow material-icons open">keyboard_arrow_right</span>
+            </a>
+            <ul class="wraplist wraplist-sub sub-menu dk">
+                <li ui-sref-active="active" style="background-color:#007044">
+                    <a ui-sref="app.widgets" href="/NguoiDung/Index" style="color:white">Văn phòng Hà Nội/ Hanoi office</a>
+                </li>
+                <li ui-sref-active="active" style="background-color:#007044">
+                    <a ui-sref="app.widgets" href="/NguoiDung/IndexUserLevel2" style="color:white">Văn phòng Vùng/ADO</a>
+                </li>
+                <li ui-sref-active="active" style="background-color:#007044">
+                    <a ui-sref="app.widgets" href="/NguoiDung/IndexUserLevel3" style="color:white">Đối tác xã/Local partner</a>
+                </li>
+            </ul>
+        </li>
+
+    }
+
+    <li ui-sref-active="active">
+        <a class="nosub" href="/ChildDataByWard/Index">
+            <i class="material-icons">trending_up</i>
+            <span class="title">Thống kê dữ liệu Trẻ/ Child data statistic</span>
+        </a>
+    </li>
+</ul>

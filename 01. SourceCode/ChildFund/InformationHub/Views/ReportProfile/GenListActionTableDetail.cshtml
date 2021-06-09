@@ -1,0 +1,31 @@
+﻿@model IList<InformationHub.Model.Model.ReportProfile.OrganizationActivitiesModel>
+@if (Model != null && Model.Count > 0)
+{
+    string id = "";
+    foreach (var item in Model)
+    {
+        id = Guid.NewGuid().ToString();
+        <tr id="trItem_@id">
+            <td>
+                <div class="controls margin-bottom-0">
+                    <text>@item.Name</text>
+                </div>
+            </td>
+            <td>
+                <div class="controls margin-bottom-0">
+                    <text>@item.UserName</text>
+</div>
+            </td>
+            <td>
+                <div class="controls margin-bottom-0">
+                    <text>@item.UserOther</text>
+                </div>
+            </td>
+            <td>
+                <div class="controls margin-bottom-0">
+                    <text>@item.DateAction</text>
+</div>
+            </td>
+        </tr>
+    }
+}

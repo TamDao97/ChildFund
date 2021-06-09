@@ -1,0 +1,241 @@
+﻿@{
+    ViewBag.Title = "Trang chủ/Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var yearNow = DateTime.Now.Year;
+    int UserLever = int.Parse(ViewBag.UserLever);
+}
+<style>
+    tspan {
+        text-shadow: none !important
+    }
+
+    .highcharts-stack-labels text {
+    }
+</style>
+<section class="wrapper main-wrapper">
+    <div ui-view="" class="ng-scope">
+        <div class="content-wrapper">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <section class="box ">
+                    <header class="panel_header">
+                        <h2 class="title pull-left">Provincial data</h2>
+                        <div class="actions panel_actions pull-right">
+                            <i class="box_toggle material-icons">expand_more</i>
+                        </div>
+                    </header>
+                    <div class="content-body padding-bottom-10">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                <label class="form-label">Năm/Year</label>
+                                <div class="controls">
+                                    <select class="form-control" id="yearSearch">
+                                        @for (int i = 2015; i < 2040; i++)
+                                        {
+                                            <option value="@i">@i</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" style="@(UserLever<2==true?"":"display:none")">
+                                <div class="form-group">
+                                    <label class="form-label">Tỉnh thành/Province</label>
+                                    <div class="controls">
+                                        <div class="form-group">
+                                            <div class="controls">
+                                                @if (UserLever < 2)
+                                                {
+                                                    <select class="form-control" id="provinceIdSearch" onchange="ChangeProvince()">
+                                                        <option value="">Tất cả/All</option>
+                                                        @Html.Action("GetAllAreaHome", "Combobox")
+                                                    </select>
+                                                }
+                                                else
+                                                {
+                                                    <select class="form-control" id="provinceIdSearch" onchange="ChangeProvinceByUser()">
+                                                        @Html.Action("ProvinceByUser", "Combobox")
+                                                    </select>
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" style="@(UserLever<3==true?"":"display:none")">
+                                <div class="form-group">
+                                    <label class="form-label">Huyện/District</label>
+                                    <div class="controls">
+                                        <div class="form-group">
+                                            <div class="controls">
+                                                <select class="form-control" id="districtIdSearch">
+                                                    <option value="">Tất cả/All</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12  padding-top-20 text-right">
+                                <a id="linkDowload"></a>
+                                <button class="btn btn-success" onclick="Search(0)">
+                                    <i class="fa fa-search"></i> &nbsp; <span>Tìm kiếm/Search</span>
+                                </button>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12  padding-top-20 text-right">
+                                <button class="btn btn-warning " onclick="Search(1)">
+                                    <i class="fa fa-search"></i> &nbsp; <span>Xuất File/ Export</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <section class="box ">
+                    <header class="panel_header">
+                        <h2 class="title pull-left" id="titleProfiles"></h2>
+                        <div class="actions panel_actions pull-right">
+                            <i class="box_toggle material-icons">expand_more</i>
+                        </div>
+                    </header>
+                    <div class="content-body padding-bottom-0">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                                <div class="tile-counter bg-warning">
+                                    <div class="content">
+                                        <i class="fa fa-meh-o icon-lg"></i>
+                                        <h2 class="number_counter ng-scope" id="number_counter_new">0</h2>
+                                        <div class="clearfix"></div>
+                                        <span>Tổng số hồ sơ trẻ tạo mới<br />Total newly created profiles</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                <div class="tile-counter bg-info">
+                                    <div class="content">
+                                        <i class="fa fa-child icon-lg"></i>
+                                        <h2 class="number_counter ng-scope" id="number_counter_confim">0</h2>
+                                        <div class="clearfix"></div>
+                                        <span>Hồ sơ trẻ đã duyệt<br />Approved profiles</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                <div class="tile-counter bg-secondary">
+                                    <div class="content">
+                                        <i class="fa fa-user icon-lg"></i>
+                                        <h2 class="number_counter ng-scope" id="number_counter_unconfim">0</h2>
+                                        <div class="clearfix"></div>
+                                        <span>Hồ sơ trẻ chưa duyệt<br />Profiles waiting for approval</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 no-padding">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <section class="box ">
+                        <header class="panel_header">
+                            <h2 class="title pull-left">Hồ sơ trẻ đi học/By school status</h2>
+                            <div class="actions panel_actions pull-right">
+                                <i class="box_toggle material-icons">expand_more</i>
+                            </div>
+                        </header>
+                        <div class="content-body padding-bottom-0">
+                            <div id="chartLearning" style="height: 250px; margin: 0 auto"></div>
+                        </div>
+                    </section>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <section class="box ">
+                        <header class="panel_header">
+                            <h2 class="title pull-left">Hồ sơ trẻ theo xã/By commune</h2>
+                            <div class="actions panel_actions pull-right">
+                                <i class="box_toggle material-icons">expand_more</i>
+                            </div>
+                        </header>
+                        <div class="content-body padding-bottom-0">
+                            <div id="chartNation" style="height: 250px; margin: 0 auto"></div>
+                        </div>
+                    </section>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <section class="box ">
+                        <header class="panel_header">
+                            <h2 class="title pull-left">Hồ sơ trẻ theo giới tính/By gender</h2>
+                            <div class="actions panel_actions pull-right">
+                                <i class="box_toggle material-icons">expand_more</i>
+                            </div>
+                        </header>
+                        <div class="content-body padding-bottom-0">
+                            <div id="chartGender" style="height: 250px; margin: 0 auto"></div>
+                        </div>
+                    </section>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <section class="box ">
+                        <header class="panel_header">
+                            <h2 class="title pull-left">Hồ sơ trẻ theo tuổi/By age</h2>
+                            <div class="actions panel_actions pull-right">
+                                <i class="box_toggle material-icons">expand_more</i>
+                            </div>
+                        </header>
+                        <div class="content-body padding-bottom-0">
+                            <div id="chartAge" style="height: 250px; margin: 0 auto"></div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 no-padding">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <section class="box">
+                        <header class="panel_header">
+                            <h2 class="title pull-left" id="titleProfilesChart"></h2>
+                            <div class="actions panel_actions pull-right">
+                                <i class="box_toggle material-icons">expand_more</i>
+                            </div>
+                        </header>
+                        <div class="content-body padding-bottom-0">
+                            <div class="row padding-bottom-20">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div id="thongkeHS" style="min-width: 310px; height:615px; margin: 0 auto"></div>
+                                </div>
+                            </div>
+                            @*<div class="row">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <table class="table table-bordered table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th width="150px" rowspan="2" style="vertical-align:middle">Tiêu chí/Criteria</th>
+                                                    <th colspan="7" id="tr-giaoduc" class="text-center">Giáo dục/Education</th>
+                                                    <th colspan="2" class="text-center">Giới tính/Gender</th>
+                                                </tr>
+                                                <tr id="dataHeader">
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr id="dataRow">
+
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>*@
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="~/ScriptControllers/HomeControllers.js"></script>
+@if (UserLever < 2)
+{
+    <script> $('#yearSearch').val(@yearNow);window.onload = Search(0);</script>
+}
+else
+{
+    <script> $('#yearSearch').val(@yearNow); window.onload = SearchByUser();</script>
+}

@@ -1,0 +1,285 @@
+﻿@using InformationHub.Resource;
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>@InformationHub.Resource.Resource.Web_Title</title>
+    <link rel="shortcut icon" href="~/img/favicon.ico" type="image/x-icon" />
+    <!-- Favicon -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="~/Content/material-icons.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/toastr.min.css" rel="stylesheet" />
+    <link href="~/Content/theme.css" rel="stylesheet" />
+    <link href="~/Content/customsite.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <link href="~/Content/bootstrap-datepicker.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap-datepicker.js"></script>
+    <script src="~/Scripts/bootstrap-datepicker.vi.min.js"></script>
+    <script src="~/ScriptControllers/Setting/AppSetting.js"></script>
+    <script src="~/Content/toastr/toastr.js"></script>
+    <script src="~/Scripts/chart/highcharts.js"></script>
+    @Scripts.Render("~/Content/css")
+
+    <script>
+        var userName = @Html.Raw(Json.Encode(User.Identity.Name));
+        if (userName == null || userName == undefined || userName == "") {
+            window.location.href = "/authorize/login";
+        }
+    </script>
+    <style>
+        .title-header b {
+            font-weight: bold !important
+        }
+
+        .img-avata-notify {
+            width: 35px;
+            border-radius: 3px
+        }
+
+        .margin35 {
+            margin-left: 35px
+        }
+
+        .notice-icon {
+            float: left;
+            margin-right: 5px
+        }
+    </style>
+</head>
+<body onmousemove="myFunction()">
+    @{ string userName = InformationHub.Common.LoginCommon.GetUserName();}
+    <div id="loader_id"></div>
+    <div id="overlay" onclick="off()"></div>
+    <div class="ng-scope">
+        <!-- header -->
+        <div class="page-topbar">
+            <!-- START TOPBAR -->
+            <div class="logo-area">
+                <img src="~/img/InfomationHub.png" height="60" />
+            </div>
+            <div class="quick-area">
+                <div class="pull-left slantit">
+                    <ul class="info-menu left-links list-inline list-unstyled" style="background-color:white">
+                        <li class="sidebar-toggle-wrap">
+                            <a href="" data-toggle="sidebar" class="sidebar_toggle" ng-click="app.settings.menuFolded = !app.settings.menuFolded; menuChatToggle('menu',app.settings.menuFolded) ">
+                                <i class="material-icons" style="color:#6d7c85">menu</i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="pull-left pagetitle">
+                    <h2 class="ng-binding">@ViewBag.Title</h2>
+                </div>
+                <div class="pull-left quickleft">
+                    @*<ul class="info-menu right-links list-inline list-unstyled"></ul>*@
+                </div>
+                <div class="pull-right quickright">
+                    <ul class="info-menu right-links list-inline list-unstyled">
+                        <li class="dropdown tab" uib-dropdown="" id="data-notify">
+                            @Html.Action("GenNotify", "Shared")
+                        </li>
+                        <li class="chat-toggle-wrapper chat-slant">
+                            <a href="" class="dropdown-toggle toggle" id="language" data-toggle="dropdown">
+                                <i class="material-icons">language</i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-right profile" role="menu" aria-labelledby="language">
+                                <li>
+                                    <a ui-sref="app.dashboard" href="javascript:void(0)" onclick="SetLanguage('Vi')">
+                                        <i class="material-icons"><img src="~/img/vi.png" /></i> @Resource.Vietnamase_Title
+                                    </a>
+                                </li>
+                                <li>
+                                    <a ui-sref="app.ui.profile" href="javascript:void(0)" onclick="SetLanguage('en')">
+                                        <i class="material-icons"><img src="~/img/en.png" /></i> @Resource.English_Title
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown profile tab" uib-dropdown="" style="">
+                            <a href="" class="dropdown-toggle toggle" id="profile" data-toggle="dropdown">
+                                @{
+                                    var avatar = ((System.Security.Claims.ClaimsIdentity)System.Web.HttpContext.Current.User.Identity).Claims.Where(t => t.Type.Contains("uri")).FirstOrDefault();
+                                    if (avatar != null)
+                                    {
+                                        if (!string.IsNullOrEmpty(avatar.Value))
+                                        {
+                                            <img src="@avatar.Value" alt="user-image" class="img-circle img-inline ng-scope"><span class="bold">@userName</span>
+                                        }
+                                        else
+                                        {
+                                            <img src="~/img/avatar.png" alt="user-image" class="img-circle img-inline ng-scope"><span class="bold">@userName</span>
+                                        }
+                                    }
+                                }
+                                @*<span class="profile-status available"></span>*@
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-right profile" role="menu" aria-labelledby="profile">
+                                <li>
+                                    <a href="javascript:" id="profileUser">
+                                        <i class="material-icons">person</i>  @Resource.InfoUser_Title
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:" id="changePassword">
+                                        <i class="material-icons">vpn_key</i>  @Resource.ChangePass_Title
+                                    </a>
+                                </li>
+                                <li class="last">
+                                    <a href="/Authorize/Logout">
+                                        <i class="material-icons">lock</i> @Resource.Logout_Title
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        @*  <li class="bold"><span style="margin-top:-5px;color:white">@userName &nbsp;</span></li>*@
+
+
+                    </ul>
+                </div>
+            </div>
+            <!-- END TOPBAR -->
+        </div>
+        <!-- / header -->
+        <!-- START CONTAINER -->
+        <div class="page-container row-fluid ng-scope" ui-sectionbox="" ng-controller="ModalDemoCtrl">
+            <!-- leftbar -->
+            <div class="page-sidebar expandit" style="">
+                <!-- SIDEBAR - START -->
+                <!-- MAIN MENU - START -->
+                <div class="page-sidebar-wrapper ps-container ps-active-y" id="main-menu-wrapper" wheel-propagation="true" suppress-scroll-x="true" min-scrollbar-length="20" menuheight="" style="height: 729px;">
+                    <!-- list -->
+                    @Html.Action("MenuLeft", "Shared")
+                    <!-- / list -->
+                </div>
+                <!-- MAIN MENU - END -->
+                <!--  SIDEBAR - END -->
+            </div>
+            <!-- / leftbar -->
+            <!-- START CONTENT -->
+            <section id="main-content" class="" style="">
+                <div class="pull-left mobile-pagetitle">
+                    <h1 class="ng-binding">@ViewBag.Title</h1>
+                </div>
+                @RenderBody()
+            </section>
+            <!-- END CONTENT -->
+        </div>
+    </div>
+    <div id="modamDelete" class="modal fade" role="dialog" onscroll="scroll" data-backdrop="static" style="background-color: rgba(0,0,0,0.3)">
+        <div class="modal-dialog" style="width:500px">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="h4Title">@Resource.Warning_Title</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label id="labelDelete"></label>
+                                <input type="hidden" id="valueDelete" />
+                                <input type="hidden" id="typeDelete" />
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="modal-footer">
+                        <button type="button" onclick="Delete()" class="btn btn-primary" id="btn-createContinue"><i class="glyphicon glyphicon-floppy-save"></i> @Resource.Yes_Title</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="glyphicon glyphicon-minus-sign"></i> @Resource.Exit_Title</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    @Html.Partial("~/Views/Authorize/ModalChangePassword.cshtml")
+    @Html.Partial("~/Views/Authorize/ModalProfileUser.cshtml")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script src="~/Scripts/ui-nav.js"></script>
+    <script src="~/Content/ckeditor/ckeditor.js"></script>
+    <script src="~/Scripts/chart/exporting.js"></script>
+    <script src="~/Scripts/chart/canvg.min.js"></script>
+    <script src="~/Scripts/stepwizard.js"></script>
+    <link href="~/Content/style-layout.css" rel="stylesheet" />
+    <script src="~/Scripts/ntscommon.js"></script>
+    <script src="~/ScriptControllers/AuthorizeController.js"></script>
+
+    <script src="~/Scripts/format/moment.min.js"></script>
+    <script src="~/Scripts/format/jquery-dateformat.min.js"></script>
+    <script src="~/Scripts/format/jquery.number.min.js"></script>
+
+    <script src="~/Scripts/jquery.signalR-2.2.1.min.js"></script>
+    <script src="~/signalr/hubs"></script>
+    <script>
+        $(function () {
+            var chat = $.connection.notifyHub;
+            chat.client.GetNotify = function (name, message) {
+                $('#data-notify').load('/Shared/GenNotify');
+            };
+
+            $.connection.hub.start().done(function () {
+                chat.server.notify('s', 'g');
+            });
+        });
+        function SetLanguage(lang) {
+            $.ajax({
+                url: "/Shared/SetLanguage?lang=" + lang,
+                type: "POST",
+                success: function (data) {
+                    if (data.Ok === true) {
+                        window.location.reload();
+                    } else {
+                        toastr.error(data.mess, { timeOut: 5000 });
+                    }
+                },
+                error: function (response) {
+                    toastr.error("Đã xảy ra lỗi!", { timeOut: 5000 });
+                },
+            });
+
+        }
+    </script>
+    <script>
+        function ReadNotify(id, link) {
+            $.ajax({
+                url: "/Home/TickNotify?id=" + id,
+                type: "POST",
+                success: function (data) {
+                    if (data.ok === true) {
+                        window.location = link;
+                    } else {
+                        window.location = link;
+                        //toastr.error(data.mess, { timeOut: 5000 });
+                    }
+                },
+                error: function (response) {
+                    toastr.error("Đã xảy ra lỗi!", { timeOut: 5000 });
+                }
+            });
+        }
+    </script>
+    <script>
+        function myFunction() {
+            timeCalculator = 0;
+            console.log(timeCalculator + ' giay');
+        }
+        var timeOut = 300000;
+        var timeCalculator = 0;
+
+        function checkTimeOut() {
+            timeCalculator = timeCalculator + 10000;
+            if (timeCalculator > timeOut) {
+                window.location = '/Authorize/Login';
+            }
+        }
+        setInterval(function () { checkTimeOut(); }, 10000);
+    </script>
+</body>
+</html>

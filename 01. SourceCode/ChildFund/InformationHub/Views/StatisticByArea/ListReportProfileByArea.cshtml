@@ -1,0 +1,53 @@
+﻿@model List<InformationHub.Model.StatisticModels.StatisticByAreaModel>
+<div style="overflow-x:auto">
+    @if (ViewBag.type == "1")
+    {
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th class="text-left" width="100px;">Huyện/Thị trấn</th>
+                    <th class="text-center" width="50px;">Thể chất</th>
+                    <th class="text-center" width="50px;">Tình dục</th>
+                    <th class="text-center" width="50px;">Tinh thần</th>
+                    <th class="text-center" width="50px;">Xao nhãng</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var item in Model)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td class="text-center">@item.Count1</td>
+                        <td class="text-center">@item.Count2</td>
+                        <td class="text-center">@item.Count3</td>
+                        <td class="text-center">@item.Count4</td>
+                    </tr>
+                }
+        </table>
+    }
+    @if (ViewBag.type == "2")
+    {
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th class="text-left" width="100px;">Xã/Phường</th>
+                    <th class="text-center" width="50px;">Thể chất</th>
+                    <th class="text-center" width="50px;">Tình dục</th>
+                    <th class="text-center" width="50px;">Tinh thần</th>
+                    <th class="text-center" width="50px;">Xao nhãng</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td class="text-center">@item.Count1</td>
+                        <td class="text-center">@item.Count2</td>
+                        <td class="text-center">@item.Count3</td>
+                        <td class="text-center">@item.Count4</td>
+                    </tr>
+                }
+        </table>
+    }
+</div>

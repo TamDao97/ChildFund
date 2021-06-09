@@ -1,0 +1,36 @@
+﻿@{
+    string dateView = "";
+    List<InformationHub.Model.Repositories.ReportHistory> ListReportHistory = ViewBag.ListReportHistory;
+    Random rd = new Random();
+    string number = "";
+}
+
+<div class="col-md-12 col-sm-12 col-xs-12" style="max-height:693px; overflow-y:auto">
+    <!-- start -->
+    <ul class="timeline">
+        @for (int i = 0; i < ListReportHistory.Count; i++)
+        {
+            number = rd.Next(0, 360) + "deg";
+            ;            dateView = ListReportHistory[i].CreateDate.ToString("dd/MM/yyyy HH:mm");
+            <li class="@(i%2==0?"":"timeline-inverted")">
+                <div class="timeline-badge animated fadeIn"><i class="fa fa-spinner" style="transform: rotate(@number);" aria-hidden="true"></i></div>
+                <div class="timeline-panel animated fadeIn">
+                    <div class="timeline-time @(i%2==0?"pull-right":"pull-left") badge2">
+                        @dateView
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="timeline-heading margin-top-10">
+                        @Html.ActionLink(@ListReportHistory[i].Name + (string.IsNullOrEmpty(ListReportHistory[i].Code)?"":" ("+InformationHub.Resource.Resource.Code_Report+": "+ListReportHistory[i].Code+")"), "ReportProcess", "ReportProfile", new { id = ListReportHistory[i].ReportProfileId}, null)
+                    </div>
+                    <div class="timeline-body">
+                        <p style="font-size:12px;">@InformationHub.Resource.Resource.ReportProfile_StepProcess_Title: <span class="badge text_status_@ListReportHistory[i].StatusProcess"> @NTS.Common.Utils.Common.GenStatus(ListReportHistory[i].StatusProcess)</span></p>
+                        <p style="font-size:12px;">@InformationHub.Resource.Resource.ReportProfile_AbuseType: @ListReportHistory[i].Abuse</p>
+                        <p style="font-size:12px;">@InformationHub.Resource.Resource.ReportProfile_Address: @ListReportHistory[i].FullAddress</p>
+                        <p style="font-size:12px;">@InformationHub.Resource.Resource.ReportProfile_ReportAddress: @ListReportHistory[i].LocalAddress</p>
+                    </div>
+                </div>
+            </li>
+        }
+    </ul>
+    <!-- end -->
+</div>

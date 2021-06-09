@@ -1,0 +1,13 @@
+﻿@model IList<InformationHub.Model.ProfileAttachmentModel>
+@for (int i = 0; i < Model.Count; i++)
+{
+<tr>
+    <td><a target="_blank" href="@Model[i].Path" class="btn btn-xs btnfuntion" title="Download"><i class="material-icons btnicon" style="color:#1656cb">file_download</i></a></td>
+    <td>@NTS.Common.Utils.Common.FormatContentNews(Model[i].Name, 60)</td>
+    <td>@(Model[i].Size >= 1024 ? (Math.Round(((double)Model[i].Size / 1024), 1) + "MB") : (Model[i].Size + "KB"))</td>
+    <td>@Model[i].UploadDate</td>
+</tr>
+}
+
+
+

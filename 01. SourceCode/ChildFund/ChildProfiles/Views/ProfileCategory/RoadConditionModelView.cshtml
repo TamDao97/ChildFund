@@ -1,0 +1,208 @@
+﻿@model ChildProfiles.Model.ObjectBaseModel
+@{
+    var incomeOtherModel = (ChildProfiles.Model.ObjectBaseModel)ViewBag.incomeOtherModel;
+    var incomeFamilyModel = (ChildProfiles.Model.ObjectBaseModel)ViewBag.incomeFamilyModel;
+    var harvestOutputModel = (ChildProfiles.Model.ObjectBaseModel)ViewBag.harvestOutputModel;
+    var numberPetModel = (ChildProfiles.Model.ObjectBaseModel)ViewBag.numberPetModel;
+
+    var dateRow2 = incomeOtherModel.ListObject;
+    var dateRow3 = incomeFamilyModel.ListObject;
+    var dateRow4 = harvestOutputModel.ListObject;
+    var dateRow5 = numberPetModel.ListObject;
+    string check1;
+    string familyType = ViewBag.familyType;
+}
+<div class="margin-bottom-10">
+    <textarea hidden id="hidroadConditionModel">@(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(Model))</textarea>
+    <textarea hidden id="hidincomeOtherModel">@(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(incomeOtherModel))</textarea>
+    <textarea hidden id="hidincomeFamilyModel">@(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(incomeFamilyModel))</textarea>
+    <textarea hidden id="hidharvestOutputModel">@(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(harvestOutputModel))</textarea>
+    <textarea hidden id="hidnumberPetModel">@(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(numberPetModel))</textarea>
+
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        <div class="row">
+            <table class="table table-bordered table-hover" id="tbincomeOtherModel">
+                <thead>
+                    <tr>
+                        <th colspan="2">
+                            Gia đình có nguồn thu nhập nào nữa không? Nếu có thì từ đâu?/Other source of income? Detailed information
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in dateRow2)
+                    {
+                        check1 = item.Check ? "checked" : "";
+                        <tr>
+                            <td width="20">
+                                <label class="icheck icheck-primary">
+                                    <input type="checkbox" @check1 value="@item.Id" name="ckincomeOther" onclick="ChangeCheckbox(@item.Id,'#tbincomeOtherModel','ckincomeOther')">
+                                    <i></i>
+                                </label>
+                            </td>
+                            <td>@item.Name</td>
+                        </tr>
+                    }
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="2">
+                            <span>@incomeOtherModel.OtherName</span> <input value="@incomeOtherModel.OtherValue" type="text" id="incomeOtherDetail" class="form-control">
+                        </td>
+
+                    </tr>
+                </tfoot>
+
+            </table>
+        </div>
+        <div class="row">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th colspan="2">
+                            Thuộc loại hộ nào?/Household type?
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2">
+                            <span>Gia đình thuộc hộ/Household type?</span>
+                            <div class="controls">
+                                <select class="form-control" id="familyType" name="familyType">
+                                    <option value="Nghèo/ Poor">Nghèo/ Poor</option>
+                                    <option value="Cận nghèo/ Almost poor">Cận nghèo/ Almost poor</option>
+                                    <option value="Trung bình/ Average">Trung bình/ Average</option>
+                                    <option value="Khác/ Other">Khác/ Other</option>
+                                </select>
+
+                            </div>
+                            @*<input value="@ViewBag.familyType" type="text" id="familyType" class="form-control margin-bottom-10">*@
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" style="display:none;">
+        <div class="row">
+            <table class="table table-bordered table-hover" id="tbincomeFamilyModel">
+                <thead>
+                    <tr>
+                        <th colspan="2">
+                            Thu nhập bình quân của cả hộ là bao nhiêu?/Household average income
+                        </th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot>
+                    @foreach (var item in dateRow3)
+                    {
+                        <tr>
+                            <td colspan="2">
+                                <span>@item.Name</span> <input value="@item.Value" type="text" id="incomeFamilyModel_@item.Id" name="@item.Id" class="form-control">
+                            </td>
+                        </tr>
+                    }
+                </tfoot>
+            </table>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        <div class="row">
+            <table class="table table-bordered table-hover" id="tbharvestOutputModel">
+                <thead>
+                    <tr>
+                        <th colspan="2">
+                            Cây trồng/Name of the plants
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in dateRow4)
+                    {
+                        check1 = item.Check ? "checked" : "";
+                        <tr>
+                            <td width="20">
+                                <label class="icheck icheck-primary">
+                                    <input type="checkbox" @check1 value="@item.Id" name="ckharvestOutput" @*onclick="ChangeCheckbox(@item.Id,'#tbharvestOutputModel','ckharvestOutput')"*@>
+                                    <i></i>
+                                </label>
+                            </td>
+                            <td>@item.Name</td>
+                        </tr>
+                        if (!string.IsNullOrEmpty(item.OtherName))
+                        {
+                            <tr>
+                                <td colspan="2">
+                                    <span>@item.OtherName</span> <input value="@item.OtherValue" type="text" id="harvestOutputOther" class="form-control">
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+        <div class="row">
+            <table class="table table-bordered table-hover" id="tbnumberPetModel">
+                <thead>
+                    <tr>
+                        <th colspan="2">
+                            Vật nuôi/Name of animals
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in dateRow5)
+                    {
+                        check1 = item.Check ? "checked" : "";
+                        <tr>
+                            <td width="20">
+                                <label class="icheck icheck-primary">
+                                    <input type="checkbox" @check1 value="@item.Id" name="cknumberPet" @*onclick="ChangeCheckbox(@item.Id,'#tbnumberPetModel','cknumberPet')"*@>
+                                    <i></i>
+                                </label>
+                            </td>
+                            <td>@item.Name</td>
+                        </tr>
+
+                        if (!string.IsNullOrEmpty(item.OtherName))
+                        {
+                            <tr>
+                                <td colspan="2">
+                                    <span>@item.OtherName</span> <input value="@item.OtherValue" type="text" id="numberPetOther" class="form-control">
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" style="display:none;">
+        <div class="row">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th colspan="2">Thu nhập/ Phụ cấp/ Lương cả năm/Income</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="2">
+                            <span>Thu nhập cả năm/Income</span> <input value="@ViewBag.totalIncome" type="text" id="totalIncome" class="form-control">
+                        </td>
+                    </tr>
+                    <tr class="row-custom-footer62"> <td colspan="2">&nbsp;</td></tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $('#familyType').val('@Html.Raw(familyType)');
+</script>

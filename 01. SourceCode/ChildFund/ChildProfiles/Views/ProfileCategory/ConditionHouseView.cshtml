@@ -1,0 +1,163 @@
+﻿@model ChildProfiles.Model.ObjectBaseModel
+@{
+    var houseRoofModel = (ChildProfiles.Model.ObjectBaseModel)ViewBag.houseRoofModel;
+    var houseWallModel = (ChildProfiles.Model.ObjectBaseModel)ViewBag.houseWallModel;
+    var houseFloorModel = (ChildProfiles.Model.ObjectBaseModel)ViewBag.houseFloorModel;
+
+    var dateRow1 = Model.ListObject;
+    var dateRow2 = houseRoofModel.ListObject;
+    var dateRow3 = houseWallModel.ListObject;
+    var dateRow4 = houseFloorModel.ListObject;
+    string check1;
+}
+<div class="margin-bottom-10">
+    <textarea hidden id="hidhouseTypeModel">@(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(Model))</textarea>
+    <textarea hidden id="hidhouseRoofModel">@(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(houseRoofModel))</textarea>
+    <textarea hidden id="hidhouseWallModel">@(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(houseWallModel))</textarea>
+    <textarea hidden id="hidhouseFloorModel">@(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(houseFloorModel))</textarea>
+
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+        <div class="row">
+            <table class="table table-bordered table-hover" id="tbhouseTypeModel">
+                <thead>
+                    <tr>
+                        <th colspan="2">Loại nhà/Types of house</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in dateRow1)
+                    {
+                        check1 = item.Check ? "checked" : "";
+                        <tr>
+                            <td width="20">
+                                <label class="icheck icheck-primary">
+                                    <input type="checkbox" @check1 value="@item.Id" name="ckhouseType" onclick="ChangeCheckbox(@item.Id,'#tbhouseTypeModel','ckhouseType')">
+                                    <i></i>
+                                </label>
+                            </td>
+                            <td>@item.Name</td>
+                        </tr>
+                    }
+                    <tr class="row-custom-block">
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="2">
+                            <span>@Model.OtherName</span> <input value="@Model.OtherValue" type="text" id="houseTypeOther" class="form-control">
+                        </td>
+
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+        <div class="row">
+            <table class="table table-bordered table-hover" id="tbhouseRoofModel">
+                <thead>
+                    <tr>
+                        <th colspan="2">Mái nhà làm bằng gì?/Roof made from?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in dateRow2)
+                    {
+                        check1 = item.Check ? "checked" : "";
+                        <tr>
+                            <td width="20">
+                                <label class="icheck icheck-primary">
+                                    <input type="checkbox" @check1 value="@item.Id" name="ckhouseRoof" onclick="ChangeCheckbox(@item.Id,'#tbhouseRoofModel','ckhouseRoof')">
+                                    <i></i>
+                                </label>
+                            </td>
+                            <td>@item.Name</td>
+                        </tr>
+                    }
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="2">
+                            <span>@houseRoofModel.OtherName</span> <input value="@houseRoofModel.OtherValue" type="text" id="houseRoofOther" class="form-control">
+                        </td>
+
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+        <div class="row">
+            <table class="table table-bordered table-hover" id="tbhouseWallModel">
+                <thead>
+                    <tr>
+                        <th colspan="2">Tường nhà làm bằng gì?/Walls made from</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in dateRow3)
+                    {
+                        check1 = item.Check ? "checked" : "";
+                        <tr>
+                            <td width="20">
+                                <label class="icheck icheck-primary">
+                                    <input type="checkbox" name="ckhouseWall" @check1 value="@item.Id" onclick="ChangeCheckbox(@item.Id,'#tbhouseWallModel','ckhouseWall')">
+                                    <i></i>
+                                </label>
+                            </td>
+                            <td>@item.Name</td>
+                        </tr>
+                    }
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="2">
+                            <span>@houseWallModel.OtherName</span> <input value="@houseWallModel.OtherValue" type="text" id="houseWallOther" class="form-control">
+                        </td>
+
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+        <div class="row">
+            <table class="table table-bordered table-hover" id="tbhouseFloorModel">
+                <thead>
+                    <tr>
+                        <th colspan="2">Nền nhà bằng gì?/Floor made from</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in dateRow4)
+                    {
+                        check1 = item.Check ? "checked" : "";
+                        <tr>
+                            <td width="20">
+                                <label class="icheck icheck-primary">
+                                    <input type="checkbox" @check1 value="@item.Id" name="ckhouseFloor" onclick="ChangeCheckbox(@item.Id,'#tbhouseFloorModel','ckhouseFloor')">
+                                    <i></i>
+                                </label>
+                            </td>
+                            <td>@item.Name</td>
+                        </tr>
+                    }
+                    <tr class="row-custom-block">
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="2">
+                            <span>@houseFloorModel.OtherName</span> <input value="@houseFloorModel.OtherValue" type="text" id="houseFloorOther" class="form-control">
+                        </td>
+
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>

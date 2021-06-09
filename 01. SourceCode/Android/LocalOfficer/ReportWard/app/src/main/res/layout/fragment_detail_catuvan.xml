@@ -1,0 +1,582 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#DFDFDF"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingBottom="10dp">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#FF6D00">
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/border_shadow_white">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/border_shadow"
+                                android:gravity="center_vertical"
+                                android:orientation="vertical"
+                                android:paddingTop="10dp"
+                                android:paddingBottom="10dp"
+                                android:layout_marginLeft="1dp">
+
+                                <TextView
+                                    style="@style/TextSizeHeader"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:paddingTop="5dp"
+                                    android:text="Chi tiết ca tư vấn"
+                                    android:textAlignment="center"
+                                    android:textColor="#fff" />
+
+                            </LinearLayout>
+                        </FrameLayout>
+
+
+                    </FrameLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="vertical"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:paddingTop="10dp">
+
+                            <TextView
+                                style="@style/TextSize"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Mã hồ sơ"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/txtMaHoSo"
+                                android:textStyle="bold"
+                                style="@style/SubTitleLabel"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text=""
+                                android:textColor="#0078bd" />
+
+                            <TextView
+                                style="@style/TextSize"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Loại ca"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/txtLoaiHoSo"
+                                android:textStyle="bold"
+                                style="@style/SubTitleLabel"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text=""
+                                android:textColor="#0078bd" />
+
+                            <TextView
+                                style="@style/TextSize"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Các vấn đề"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/txtCacVanDe"
+                                android:textStyle="bold"
+                                style="@style/SubTitleLabel"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text=""
+                                android:textColor="#0078bd" />
+
+                            <TextView
+                                style="@style/TextSize"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Nguồn thông tin"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/txtNguonThongTin"
+                                android:textStyle="bold"
+                                style="@style/SubTitleLabel"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text=""
+                                android:textColor="#0078bd" />
+
+                            <TextView
+                                style="@style/TextSize"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Đối tượng báo cáo"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/txtDoiTuong"
+                                android:textStyle="bold"
+                                style="@style/SubTitleLabel"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text=""
+                                android:textColor="#0078bd" />
+
+                            <TextView
+                                style="@style/TextSize"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Họ tên người báo cáo"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/txtHoTen"
+                                android:textStyle="bold"
+                                style="@style/SubTitleLabel"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text=""
+                                android:textColor="#0078bd" />
+
+                            <TextView
+                                style="@style/TextSize"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Giới tính"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/txtGioiTinh"
+                                android:textStyle="bold"
+                                style="@style/SubTitleLabel"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text=""
+                                android:textColor="#0078bd" />
+
+                            <TextView
+                                style="@style/TextSize"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Ngày sinh"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/txtNamSinh"
+                                android:textStyle="bold"
+                                style="@style/SubTitleLabel"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text=""
+                                android:textColor="#0078bd" />
+
+                            <TextView
+                                style="@style/TextSize"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Dân tộc"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/txtDanToc"
+                                android:textStyle="bold"
+                                style="@style/SubTitleLabel"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text=""
+                                android:textColor="#0078bd" />
+
+                            <TextView
+                                style="@style/TextSize"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Địa chỉ"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/txtDiaChi"
+                                android:textStyle="bold"
+                                style="@style/SubTitleLabel"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text=""
+                                android:textColor="#0078bd" />
+
+                            <TextView
+                                style="@style/TextSize"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Điện thoại"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/txtSoDienThoai"
+                                android:textStyle="bold"
+                                style="@style/SubTitleLabel"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text=""
+                                android:textColor="#0078bd" />
+
+                            <TextView
+                                style="@style/TextSize"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Ngày tạo"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/txtNgayTao"
+                                android:textStyle="bold"
+                                style="@style/SubTitleLabel"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text=""
+                                android:textColor="#0078bd" />
+
+                            <TextView
+                                style="@style/TextSize"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Ngày cập nhật"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/txtNgayCapNhat"
+                                android:textStyle="bold"
+                                style="@style/SubTitleLabel"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text=""
+                                android:textColor="#0078bd" />
+
+                            <TextView
+                                style="@style/TextSize"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Phân loại ca"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/txtPhanLoaiCa"
+                                android:textStyle="bold"
+                                style="@style/SubTitleLabel"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text=""
+                                android:textColor="#0078bd" />
+
+                            <TextView
+                                style="@style/TextSize"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Trạng thái ca"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/txtTrangThaiCa"
+                                android:textStyle="bold"
+                                style="@style/SubTitleLabel"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text=""
+                                android:textColor="#0078bd" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+
+            </android.support.v7.widget.CardView>
+
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    android:orientation="vertical"
+                    android:paddingBottom="10dp">
+
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#FF6D00">
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/border_shadow_white">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:background="@drawable/border_shadow"
+                                android:orientation="vertical"
+                                android:padding="10dp"
+                                android:weightSum="10">
+
+                                <TextView
+                                    style="@style/TextHeadingDetail"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="left"
+                                    android:paddingLeft="15dp"
+                                    android:paddingTop="5dp"
+                                    android:text="Danh sách trẻ bị xâm hại"
+                                    android:textColor="#fff"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+                        </FrameLayout>
+                    </FrameLayout>
+
+
+                    <ScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/txtKhongCoTre"
+                                style="@style/TextSize"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="10dp"
+                                android:paddingBottom="10dp"
+                                android:text="Không có thông tin trẻ"
+                                android:textAlignment="center"
+                                android:textStyle="italic"
+                                android:visibility="gone" />
+
+                            <android.support.v7.widget.RecyclerView
+                                android:id="@+id/listTre"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent" />
+                        </LinearLayout>
+                    </ScrollView>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    android:orientation="vertical"
+                    android:paddingBottom="10dp">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#FF6D00">
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/border_shadow_white">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:background="@drawable/border_shadow"
+                                android:orientation="vertical"
+                                android:padding="10dp"
+                                android:weightSum="10">
+
+                                <TextView
+                                    style="@style/TextHeadingDetail"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="left"
+                                    android:paddingLeft="15dp"
+                                    android:paddingTop="5dp"
+                                    android:text="Danh sách nghi phạm"
+                                    android:textColor="#fff"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+                        </FrameLayout>
+                    </FrameLayout>
+
+
+                    <ScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/txtKhongCoNghiPham"
+                                style="@style/TextSize"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="10dp"
+                                android:paddingBottom="10dp"
+                                android:text="Không có thông tin nghi phạm"
+                                android:textAlignment="center"
+                                android:textStyle="italic"
+                                android:visibility="gone" />
+
+                            <android.support.v7.widget.RecyclerView
+                                android:id="@+id/listNghiPham"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent" />
+                        </LinearLayout>
+                    </ScrollView>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    android:orientation="vertical"
+                    android:paddingBottom="10dp">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#FF6D00">
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/border_shadow_white">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:background="@drawable/border_shadow"
+                                android:orientation="vertical"
+                                android:padding="10dp"
+                                android:weightSum="10">
+
+                                <TextView
+                                    style="@style/TextHeadingDetail"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="left"
+                                    android:paddingLeft="15dp"
+                                    android:paddingTop="5dp"
+                                    android:text="Danh sách lần liên hệ"
+                                    android:textColor="#fff"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+                        </FrameLayout>
+                    </FrameLayout>
+
+
+                    <ScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <android.support.v7.widget.RecyclerView
+                                android:id="@+id/listLanLienHe"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent" />
+                        </LinearLayout>
+                    </ScrollView>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
+
+    <include
+        android:id="@+id/progressDialog"
+        layout="@layout/progress_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+</RelativeLayout>

@@ -1,0 +1,1693 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Add_Title" xml:space="preserve">
+    <value>Thêm mới</value>
+  </data>
+  <data name="AllNotifyNew_Title" xml:space="preserve">
+    <value>Xem tất cả thông báo</value>
+  </data>
+  <data name="All_Title" xml:space="preserve">
+    <value>Tất cả</value>
+  </data>
+  <data name="Delete_Title" xml:space="preserve">
+    <value>Xóa</value>
+  </data>
+  <data name="ErroNotFound_Title" xml:space="preserve">
+    <value>Bản ghi này không tồn tại hoặc đã bị xóa bởi người dùng khác</value>
+  </data>
+  <data name="ErroProcess_Title" xml:space="preserve">
+    <value>Có lỗi xảy ra trong quá trình xử lý vui lòng thử lại</value>
+  </data>
+  <data name="Exit_Title" xml:space="preserve">
+    <value>Thoát</value>
+  </data>
+  <data name="Export_Title" xml:space="preserve">
+    <value>Xuất Excel</value>
+  </data>
+  <data name="Funtion_Title" xml:space="preserve">
+    <value>Chức năng</value>
+  </data>
+  <data name="Index_Title" xml:space="preserve">
+    <value>STT</value>
+  </data>
+  <data name="Live_Title" xml:space="preserve">
+    <value>Gặp trực tiếp</value>
+  </data>
+  <data name="NotifyList_Title" xml:space="preserve">
+    <value>Danh sách thông báo</value>
+  </data>
+  <data name="NotifyNew_Title" xml:space="preserve">
+    <value>thông báo mới</value>
+  </data>
+  <data name="Notify_Title" xml:space="preserve">
+    <value>Thông báo</value>
+  </data>
+  <data name="NotNotifyNew_Title" xml:space="preserve">
+    <value>Không có thông báo mới</value>
+  </data>
+  <data name="NumberPage_Title" xml:space="preserve">
+    <value>bản ghi/Trang</value>
+  </data>
+  <data name="Other_Title" xml:space="preserve">
+    <value>Người  khác báo</value>
+  </data>
+  <data name="Phone_Title" xml:space="preserve">
+    <value>Điện thoại</value>
+  </data>
+  <data name="Readed_Title" xml:space="preserve">
+    <value>Đánh dấu đã đọc</value>
+  </data>
+  <data name="ReportProfile_AbuseType" xml:space="preserve">
+    <value>Loại hình</value>
+  </data>
+  <data name="ReportProfile_Address" xml:space="preserve">
+    <value>Địa chỉ</value>
+  </data>
+  <data name="ReportProfile_Age" xml:space="preserve">
+    <value>Tuổi</value>
+  </data>
+  <data name="ReportProfile_ChildName" xml:space="preserve">
+    <value>Họ tên trẻ</value>
+  </data>
+  <data name="ReportProfile_Close" xml:space="preserve">
+    <value>Đóng trường hợp</value>
+  </data>
+  <data name="ReportProfile_Create" xml:space="preserve">
+    <value>Thêm mới trường hợp </value>
+  </data>
+  <data name="ReportProfile_CurrentHealth" xml:space="preserve">
+    <value>Tình trạng trẻ</value>
+  </data>
+  <data name="ReportProfile_DateClose" xml:space="preserve">
+    <value>Thời gian đóng</value>
+  </data>
+  <data name="ReportProfile_DateInbox" xml:space="preserve">
+    <value>Thời gian xảy ra</value>
+  </data>
+  <data name="ReportProfile_DateTo" xml:space="preserve">
+    <value>Đến ngày</value>
+  </data>
+  <data name="ReportProfile_Detail" xml:space="preserve">
+    <value>Chi tiết trường hợp</value>
+  </data>
+  <data name="ReportProfile_Gender" xml:space="preserve">
+    <value>Giới tính</value>
+  </data>
+  <data name="ReportProfile_Hight" xml:space="preserve">
+    <value>Cao</value>
+  </data>
+  <data name="ReportProfile_InformationSources" xml:space="preserve">
+    <value>Nguồn thông tin</value>
+  </data>
+  <data name="ReportProfile_List" xml:space="preserve">
+    <value>Quản lý trường hợp</value>
+  </data>
+  <data name="ReportProfile_ListView" xml:space="preserve">
+    <value>Danh sách trường hợp</value>
+  </data>
+  <data name="ReportProfile_Low" xml:space="preserve">
+    <value>Thấp</value>
+  </data>
+  <data name="ReportProfile_Nomal" xml:space="preserve">
+    <value>Trung bình</value>
+  </data>
+  <data name="ReportProfile_NoteClose" xml:space="preserve">
+    <value>Ghi chú kết quả đóng trường hợp</value>
+  </data>
+  <data name="ReportProfile_Process" xml:space="preserve">
+    <value>Xử lý trường hợp</value>
+  </data>
+  <data name="ReportProfile_Reply" xml:space="preserve">
+    <value>Chuyển trường hợp lên cấp trên</value>
+  </data>
+  <data name="ReportProfile_ReportAddress" xml:space="preserve">
+    <value>Địa điểm xảy ra</value>
+  </data>
+  <data name="ReportProfile_ReportBy" xml:space="preserve">
+    <value>Người báo cáo</value>
+  </data>
+  <data name="ReportProfile_SeverityLevel" xml:space="preserve">
+    <value>Mức nghiêm trọng</value>
+  </data>
+  <data name="ReportProfile_Status" xml:space="preserve">
+    <value>Tiến độ xử lý</value>
+  </data>
+  <data name="ReportProfile_Status1" xml:space="preserve">
+    <value>Tiếp nhận thông tin</value>
+  </data>
+  <data name="ReportProfile_Status2" xml:space="preserve">
+    <value>Đánh giá nguy cơ ban đầu</value>
+  </data>
+  <data name="ReportProfile_Status3" xml:space="preserve">
+    <value>Thu thập thông tin, xác minh</value>
+  </data>
+  <data name="ReportProfile_Status4" xml:space="preserve">
+    <value>Kế hoạch hỗ trợ, can thiệp</value>
+  </data>
+  <data name="ReportProfile_Status5" xml:space="preserve">
+    <value>Rà soát, đánh giá</value>
+  </data>
+  <data name="ReportProfile_Update" xml:space="preserve">
+    <value>Cập nhật trường hợp</value>
+  </data>
+  <data name="ReportProfile_ViewDetail" xml:space="preserve">
+    <value>Xem chi tiết</value>
+  </data>
+  <data name="ReportProfile_ViewProcess" xml:space="preserve">
+    <value>Cập nhật tiến độ xử lý</value>
+  </data>
+  <data name="Report_Title" xml:space="preserve">
+    <value>Trường hợp </value>
+  </data>
+  <data name="Reset_Title" xml:space="preserve">
+    <value>Làm mới</value>
+  </data>
+  <data name="SaveAndContinue_Title" xml:space="preserve">
+    <value>Lưu lại và tiếp tục</value>
+  </data>
+  <data name="Save_Title" xml:space="preserve">
+    <value>Lưu lại</value>
+  </data>
+  <data name="Search_Title" xml:space="preserve">
+    <value>Tìm kiếm</value>
+  </data>
+  <data name="Total_Title" xml:space="preserve">
+    <value>Tổng số</value>
+  </data>
+  <data name="ChangePass_Title" xml:space="preserve">
+    <value>Đổi mật khẩu</value>
+  </data>
+  <data name="English_Title" xml:space="preserve">
+    <value>Tiếng Anh</value>
+  </data>
+  <data name="InfoUser_Title" xml:space="preserve">
+    <value>Thông tin cá nhân</value>
+  </data>
+  <data name="Logout_Title" xml:space="preserve">
+    <value>Đăng xuất</value>
+  </data>
+  <data name="Project_Title" xml:space="preserve">
+    <value>Bảo vệ trẻ em</value>
+  </data>
+  <data name="Vietnamase_Title" xml:space="preserve">
+    <value>Tiếng Việt</value>
+  </data>
+  <data name="Warning_Title" xml:space="preserve">
+    <value>Cảnh báo</value>
+  </data>
+  <data name="Yes_Title" xml:space="preserve">
+    <value>Đồng ý</value>
+  </data>
+  <data name="ReportProfile_ChartAbuse_Title" xml:space="preserve">
+    <value>Biểu đồ thống kê theo loại hình</value>
+  </data>
+  <data name="ReportProfile_ChartStatus_Title" xml:space="preserve">
+    <value>Biểu đồ thống kê tỉ lệ theo tình trạng xử lý</value>
+  </data>
+  <data name="ReportProfile_FeMale" xml:space="preserve">
+    <value>Nữ</value>
+  </data>
+  <data name="ReportProfile_HistoryProcess_Title" xml:space="preserve">
+    <value>Lịch sử xử lý</value>
+  </data>
+  <data name="ReportProfile_Male" xml:space="preserve">
+    <value>Nam</value>
+  </data>
+  <data name="ReportProfile_NumberChartStatus_Title" xml:space="preserve">
+    <value>Số trường hợp</value>
+  </data>
+  <data name="ReportProfile_ReportList_Title" xml:space="preserve">
+    <value>Danh sách trường hợp</value>
+  </data>
+  <data name="ReportProfile_ReportProcess_Title" xml:space="preserve">
+    <value>trường hợp xử lý</value>
+  </data>
+  <data name="ReportProfile_ReportYearByStatus_Title" xml:space="preserve">
+    <value>Báo cáo trường hợp theo trạng thái xử lý năm</value>
+  </data>
+  <data name="ReportProfile_ReportYear_Title" xml:space="preserve">
+    <value>trường hợp năm</value>
+  </data>
+  <data name="ReportProfile_Report_Title" xml:space="preserve">
+    <value>Thống kê trường hợp</value>
+  </data>
+  <data name="ReportProfile_StepProcess_Title" xml:space="preserve">
+    <value>Bước xử lý</value>
+  </data>
+  <data name="ReportProfile_Unknow" xml:space="preserve">
+    <value>Không xác định</value>
+  </data>
+  <data name="Chart_Title" xml:space="preserve">
+    <value>Số trường hợp</value>
+  </data>
+  <data name="Count_Title" xml:space="preserve">
+    <value>Tổng</value>
+  </data>
+  <data name="ExportPDF_Title" xml:space="preserve">
+    <value>Xuất PDF</value>
+  </data>
+  <data name="Month_Title" xml:space="preserve">
+    <value>Tháng</value>
+  </data>
+  <data name="Percen_Title" xml:space="preserve">
+    <value>Tỉ lệ</value>
+  </data>
+  <data name="Quatar_Title" xml:space="preserve">
+    <value>Quý</value>
+  </data>
+  <data name="ReportProfile_ByAbuse" xml:space="preserve">
+    <value>Thống kê theo loại hình </value>
+  </data>
+  <data name="ReportProfile_ByStatus" xml:space="preserve">
+    <value>Thống kê theo trạng thái xử lý</value>
+  </data>
+  <data name="Time_Title" xml:space="preserve">
+    <value>Thời gian</value>
+  </data>
+  <data name="Year_Title" xml:space="preserve">
+    <value>Năm</value>
+  </data>
+  <data name="NoteForward_Title" xml:space="preserve">
+    <value>Ghi chú nội dung chuyển tiếp</value>
+  </data>
+  <data name="Day15Erros_Title" xml:space="preserve">
+    <value>Thời gian giới hạn chỉ 15 ngày</value>
+  </data>
+  <data name="DayFrom_Title" xml:space="preserve">
+    <value>Từ ngày</value>
+  </data>
+  <data name="DayTo_Title" xml:space="preserve">
+    <value>Đến ngày</value>
+  </data>
+  <data name="Day_Title" xml:space="preserve">
+    <value>Theo ngày</value>
+  </data>
+  <data name="Title_Helo" xml:space="preserve">
+    <value>Xin chào</value>
+  </data>
+  <data name="SelectDistrict_Title" xml:space="preserve">
+    <value>Quận Huyện</value>
+  </data>
+  <data name="SelectProvince_Title" xml:space="preserve">
+    <value>Tỉnh Thành</value>
+  </data>
+  <data name="SelectWard_Title" xml:space="preserve">
+    <value>Xã Phường</value>
+  </data>
+  <data name="ViewNoteForward_Title" xml:space="preserve">
+    <value>Xem ghi chú nội dung chuyển tiếp</value>
+  </data>
+  <data name="DateForward_Title" xml:space="preserve">
+    <value>Ngày chuyển tiếp</value>
+  </data>
+  <data name="ReportProfile_Forward_List" xml:space="preserve">
+    <value>Trường hợp chuyển tiếp</value>
+  </data>
+  <data name="ReportProfile_Forward_ListView" xml:space="preserve">
+    <value>Danh sách trường hợp chuyển tiếp</value>
+  </data>
+  <data name="ReportProfile_IsExist" xml:space="preserve">
+    <value>Trường hợp đã tồn tại không thể thêm mới</value>
+  </data>
+  <data name="AreaDelete_Deleted" xml:space="preserve">
+    <value>Địa bàn đã bị xóa bởi người dùng khác</value>
+  </data>
+  <data name="AreaDelete_Used" xml:space="preserve">
+    <value>Địa bàn đã được sử dụng không thể xóa</value>
+  </data>
+  <data name="Authorize_ERR003" xml:space="preserve">
+    <value>Tài khoản không tồn tại hoặc đã bị khóa bởi quản trị viên của phần mềm.Vui lòng kiểm tra lại!</value>
+  </data>
+  <data name="Authorize_ERR004" xml:space="preserve">
+    <value>Mật khẩu mới và xác nhận mật khẩu mới không khớp nhau!</value>
+  </data>
+  <data name="Authorize_ERR005" xml:space="preserve">
+    <value>Mật khẩu không đúng!</value>
+  </data>
+  <data name="Authorize_ERR006" xml:space="preserve">
+    <value>Các trường mật khẩu không được để trống!</value>
+  </data>
+  <data name="Authorize_ERR007" xml:space="preserve">
+    <value>Thông tin đăng nhập không được để trống</value>
+  </data>
+  <data name="Authorize_ERR008" xml:space="preserve">
+    <value>Tên đăng nhập không đúng!</value>
+  </data>
+  <data name="Authorize_ERR009" xml:space="preserve">
+    <value>Tài khoản đang bị khóa. Liên hệ quản trị để kích hoạt lại.</value>
+  </data>
+  <data name="Authorize_ERR010" xml:space="preserve">
+    <value>Tài khoản không tồn tại trong hệ thống.</value>
+  </data>
+  <data name="Authorize_ERR011" xml:space="preserve">
+    <value>Email xác nhận không đúng của tài khoản này.</value>
+  </data>
+  <data name="Authorize_ERR012" xml:space="preserve">
+    <value>Lỗi trong quá trình gửi email xác thực thay đổi mật khẩu. Vui lòng thử lại!</value>
+  </data>
+  <data name="Authorize_ERR013" xml:space="preserve">
+    <value>Mã xác thực thay đổi mật khẩu không đúng. Vui lòng kiểm tra lại email để nhập lại mã xác thực cho đúng!</value>
+  </data>
+  <data name="Authorize_ERR014" xml:space="preserve">
+    <value>Chưa nhận được yêu cầu thay đổi lại mật khẩu mới. Vui lòng thử lại.</value>
+  </data>
+  <data name="Document_Deleted" xml:space="preserve">
+    <value>Tài liệu này đã bị xóa bởi người dùng khác</value>
+  </data>
+  <data name="Document_File_Deleted" xml:space="preserve">
+    <value>File đã bị xóa bởi người dùng khác</value>
+  </data>
+  <data name="Document_Folder_Deleted" xml:space="preserve">
+    <value>Thư mục không tồn tại hoặc đã bị xóa</value>
+  </data>
+  <data name="GroupUser_Deleted" xml:space="preserve">
+    <value>Nhóm quyền đã bị xóa bởi người dùng khác</value>
+  </data>
+  <data name="GroupUser_Locked" xml:space="preserve">
+    <value>Nhóm quyền không tồn tại hoặc đã bị khóa</value>
+  </data>
+  <data name="GroupUser_UnCheck_Permission" xml:space="preserve">
+    <value>Chưa chọn quyền</value>
+  </data>
+  <data name="User_Deleted" xml:space="preserve">
+    <value>Người dùng đã được xóa khỏi hệ thống</value>
+  </data>
+  <data name="User_Locked" xml:space="preserve">
+    <value>"Người dùng không tồn tại hoặc đã bị khóa"</value>
+  </data>
+  <data name="User_Not_Exist" xml:space="preserve">
+    <value>Tài khoản không tồn tại!</value>
+  </data>
+  <data name="User_Uncheck_GroupPermission" xml:space="preserve">
+    <value>Nhóm quyền không được bỏ trống!</value>
+  </data>
+  <data name="User_Used" xml:space="preserve">
+    <value>Tên tài khoản đã tồn tại</value>
+  </data>
+  <data name="Area_AddArea" xml:space="preserve">
+    <value>Thêm mới địa bàn</value>
+  </data>
+  <data name="Area_Area" xml:space="preserve">
+    <value>địa bàn</value>
+  </data>
+  <data name="Area_Delete" xml:space="preserve">
+    <value>Xóa địa bàn</value>
+  </data>
+  <data name="Area_InfoArea" xml:space="preserve">
+    <value>Thông tin địa bàn</value>
+  </data>
+  <data name="Area_Info_District" xml:space="preserve">
+    <value>Thông tin quận/huyện</value>
+  </data>
+  <data name="Area_Info_Ward" xml:space="preserve">
+    <value>Thông tin phường/xã</value>
+  </data>
+  <data name="Area_List" xml:space="preserve">
+    <value>Danh sách địa bàn hoạt động</value>
+  </data>
+  <data name="Area_Manager" xml:space="preserve">
+    <value>Người quản lý</value>
+  </data>
+  <data name="Area_Name" xml:space="preserve">
+    <value>Tên địa bàn</value>
+  </data>
+  <data name="Area_Province" xml:space="preserve">
+    <value>Tỉnh/Thành</value>
+  </data>
+  <data name="Area_Total_District" xml:space="preserve">
+    <value>Số quận/huyện</value>
+  </data>
+  <data name="Area_Total_Ward" xml:space="preserve">
+    <value>Số phường/xã</value>
+  </data>
+  <data name="Area_Update" xml:space="preserve">
+    <value>Cập nhật địa bàn</value>
+  </data>
+  <data name="Label_Age" xml:space="preserve">
+    <value>Độ tuổi</value>
+  </data>
+  <data name="Label_Description" xml:space="preserve">
+    <value>Mô tả</value>
+  </data>
+  <data name="Label_Status" xml:space="preserve">
+    <value>Trạng thái</value>
+  </data>
+  <data name="Label_Status_Active" xml:space="preserve">
+    <value>Hoạt động</value>
+  </data>
+  <data name="Label_Status_All" xml:space="preserve">
+    <value>Tất cả</value>
+  </data>
+  <data name="Label_Status_DeActive" xml:space="preserve">
+    <value>Ngừng hoạt động</value>
+  </data>
+  <data name="Statistic_Age0_3" xml:space="preserve">
+    <value>0 tới 3 tuổi</value>
+  </data>
+  <data name="Statistic_Age10" xml:space="preserve">
+    <value>10 tuổi</value>
+  </data>
+  <data name="Statistic_Age11_12" xml:space="preserve">
+    <value>11 tới 12 tuổi</value>
+  </data>
+  <data name="Statistic_Age13_14" xml:space="preserve">
+    <value>13 tới 14 tuổi</value>
+  </data>
+  <data name="Statistic_Age15_16" xml:space="preserve">
+    <value>15 dưới 16 tuổi</value>
+  </data>
+  <data name="Statistic_Age16_18" xml:space="preserve">
+    <value>16 dưới 18 tuổi</value>
+  </data>
+  <data name="Statistic_Age18" xml:space="preserve">
+    <value>Trên 18 tuổi</value>
+  </data>
+  <data name="Statistic_Age4_6" xml:space="preserve">
+    <value>4 tới 6 tuổi</value>
+  </data>
+  <data name="Statistic_Age7_9" xml:space="preserve">
+    <value>7 tới 9 tuổi</value>
+  </data>
+  <data name="Unknow_Gender" xml:space="preserve">
+    <value>Không xác định</value>
+  </data>
+  <data name="Authorize_Change_Password" xml:space="preserve">
+    <value>ĐỔI MẬT KHẨU</value>
+  </data>
+  <data name="Authorize_Confirm_Change_Password" xml:space="preserve">
+    <value>Xác nhận và thay đổi mật khẩu</value>
+  </data>
+  <data name="Authorize_Confirm_Code" xml:space="preserve">
+    <value>Mã xác nhận</value>
+  </data>
+  <data name="Authorize_Confirm_Email" xml:space="preserve">
+    <value>Hòm thư xác nhận</value>
+  </data>
+  <data name="Authorize_Confirm_New_Password" xml:space="preserve">
+    <value>Xác nhận mật khẩu mới</value>
+  </data>
+  <data name="Authorize_Current_Password" xml:space="preserve">
+    <value>Mật khẩu hiện tại</value>
+  </data>
+  <data name="Authorize_Forgot_Password" xml:space="preserve">
+    <value>Quên mật khẩu?</value>
+  </data>
+  <data name="Authorize_Forward_Password" xml:space="preserve">
+    <value>Cấp lại mật khẩu</value>
+  </data>
+  <data name="Authorize_Login" xml:space="preserve">
+    <value>ĐĂNG NHẬP</value>
+  </data>
+  <data name="Authorize_Name" xml:space="preserve">
+    <value>Tên đăng nhập</value>
+  </data>
+  <data name="Authorize_New_Password" xml:space="preserve">
+    <value>Mật khẩu mới</value>
+  </data>
+  <data name="Authorize_Update_Info" xml:space="preserve">
+    <value>Cập nhật thông tin cá nhân</value>
+  </data>
+  <data name="Authorzie_Password" xml:space="preserve">
+    <value>Mật khẩu</value>
+  </data>
+  <data name="Label_Avatar" xml:space="preserve">
+    <value>Ảnh đại diện</value>
+  </data>
+  <data name="Label_Birthday" xml:space="preserve">
+    <value>Ngày sinh</value>
+  </data>
+  <data name="Label_Email" xml:space="preserve">
+    <value>Hòm thư</value>
+  </data>
+  <data name="Label_Id_Number" xml:space="preserve">
+    <value>Số CMTND</value>
+  </data>
+  <data name="Label_Name" xml:space="preserve">
+    <value>Họ và tên</value>
+  </data>
+  <data name="Label_Next" xml:space="preserve">
+    <value>TIẾP THEO</value>
+  </data>
+  <data name="Label_Upload" xml:space="preserve">
+    <value>Tải lên</value>
+  </data>
+  <data name="Area_Add_Title" xml:space="preserve">
+    <value>Thêm mới địa bàn</value>
+  </data>
+  <data name="Area_Title" xml:space="preserve">
+    <value>Quản lý địa bàn hoạt động</value>
+  </data>
+  <data name="Area_Update_Title" xml:space="preserve">
+    <value>Cập nhật địa bàn</value>
+  </data>
+  <data name="Document" xml:space="preserve">
+    <value>tài liệu</value>
+  </data>
+  <data name="Document_Add_Title" xml:space="preserve">
+    <value>Thêm mới tài liệu</value>
+  </data>
+  <data name="Document_Delete" xml:space="preserve">
+    <value>Xóa tài liệu</value>
+  </data>
+  <data name="Document_Group" xml:space="preserve">
+    <value>Nhóm tài liệu</value>
+  </data>
+  <data name="Document_List" xml:space="preserve">
+    <value>Danh sách tài liệu</value>
+  </data>
+  <data name="Document_Name" xml:space="preserve">
+    <value>Tên tài liệu</value>
+  </data>
+  <data name="Document_Title" xml:space="preserve">
+    <value>Quản lý tài liệu</value>
+  </data>
+  <data name="Document_Update" xml:space="preserve">
+    <value>Cập nhật tài liệu</value>
+  </data>
+  <data name="Document_Upload_By" xml:space="preserve">
+    <value>Người tải lên</value>
+  </data>
+  <data name="Label_Choose_File" xml:space="preserve">
+    <value>Chọn tệp</value>
+  </data>
+  <data name="Label_Display" xml:space="preserve">
+    <value>Hiển thị</value>
+  </data>
+  <data name="Label_Download" xml:space="preserve">
+    <value>Tải xuống</value>
+  </data>
+  <data name="Label_File_Attach" xml:space="preserve">
+    <value>Tệp đính kèm</value>
+  </data>
+  <data name="Label_Not_Display" xml:space="preserve">
+    <value>Không hiển thị</value>
+  </data>
+  <data name="Label_Upload_Date" xml:space="preserve">
+    <value>Ngày tải lên</value>
+  </data>
+  <data name="GroupUser" xml:space="preserve">
+    <value>quyền</value>
+  </data>
+  <data name="GroupUser_Add_Title" xml:space="preserve">
+    <value>Thêm mới nhóm quyền</value>
+  </data>
+  <data name="GroupUser_Create_By" xml:space="preserve">
+    <value>Người tạo</value>
+  </data>
+  <data name="GroupUser_Group" xml:space="preserve">
+    <value>Nhóm quyền</value>
+  </data>
+  <data name="GroupUser_List" xml:space="preserve">
+    <value>Danh sách nhóm quyền</value>
+  </data>
+  <data name="GroupUser_Lock" xml:space="preserve">
+    <value>Khóa nhóm quyền</value>
+  </data>
+  <data name="GroupUser_Name" xml:space="preserve">
+    <value>Tên nhóm quyền</value>
+  </data>
+  <data name="GroupUser_Permission_Acc" xml:space="preserve">
+    <value>Danh sách quyền</value>
+  </data>
+  <data name="GroupUser_Permission_Code" xml:space="preserve">
+    <value>Mã quyền</value>
+  </data>
+  <data name="GroupUser_Permission_Name" xml:space="preserve">
+    <value>Tên quyền</value>
+  </data>
+  <data name="GroupUser_Type" xml:space="preserve">
+    <value>Loại nhóm quyền</value>
+  </data>
+  <data name="GroupUser_Type_Admin" xml:space="preserve">
+    <value>Cấp quản lý</value>
+  </data>
+  <data name="GroupUser_Type_District" xml:space="preserve">
+    <value>Cấp Quận/Huyện</value>
+  </data>
+  <data name="GroupUser_Type_Province" xml:space="preserve">
+    <value>Cấp Tỉnh/Thành phố</value>
+  </data>
+  <data name="GroupUser_Type_Ward" xml:space="preserve">
+    <value>Cấp Phường/Xã</value>
+  </data>
+  <data name="GroupUser_Unlock" xml:space="preserve">
+    <value>Bỏ khóa nhóm quyền</value>
+  </data>
+  <data name="GroupUser_Update_Title" xml:space="preserve">
+    <value>Cập nhật nhóm quyền</value>
+  </data>
+  <data name="Label_Create_Date" xml:space="preserve">
+    <value>Ngày tạo</value>
+  </data>
+  <data name="Label_Example" xml:space="preserve">
+    <value>Ví dụ</value>
+  </data>
+  <data name="Authorize_Confirm_Password" xml:space="preserve">
+    <value>Xác nhận mật khẩu</value>
+  </data>
+  <data name="Label_Career" xml:space="preserve">
+    <value>Nghề nghiệp</value>
+  </data>
+  <data name="Label_Close_Date" xml:space="preserve">
+    <value>Ngày đóng trường hợp</value>
+  </data>
+  <data name="Label_Date" xml:space="preserve">
+    <value>Ngày</value>
+  </data>
+  <data name="Label_District" xml:space="preserve">
+    <value>Quận/Huyện</value>
+  </data>
+  <data name="Label_Done_Date" xml:space="preserve">
+    <value>Ngày hoàn thành</value>
+  </data>
+  <data name="Label_Level" xml:space="preserve">
+    <value>Mức độ</value>
+  </data>
+  <data name="Label_Note" xml:space="preserve">
+    <value>Ghi chú</value>
+  </data>
+  <data name="Label_Planning_Date" xml:space="preserve">
+    <value>Ngày lên kế hoạch</value>
+  </data>
+  <data name="Label_Result" xml:space="preserve">
+    <value>Kết quả</value>
+  </data>
+  <data name="Label_Size" xml:space="preserve">
+    <value>Dung lượng</value>
+  </data>
+  <data name="Label_Task" xml:space="preserve">
+    <value>Mục tiêu</value>
+  </data>
+  <data name="Label_Ward" xml:space="preserve">
+    <value>Xã/Phường</value>
+  </data>
+  <data name="ReportProfile_Example_ReportAddress" xml:space="preserve">
+    <value>Nhập địa chỉ đường, xóm, thôn</value>
+  </data>
+  <data name="Report_Ability_Receive_Support" xml:space="preserve">
+    <value>Khả năng của trẻ em trong việc tiếp nhận sự hỗ trợ, bảo vệ của người lớn</value>
+  </data>
+  <data name="Report_Accommodation" xml:space="preserve">
+    <value>Chỗ ở và các điều kiện sinh hoạt</value>
+  </data>
+  <data name="Report_Accommodation_Clothes" xml:space="preserve">
+    <value>Quần áo</value>
+  </data>
+  <data name="Report_Accommodation_Food" xml:space="preserve">
+    <value>Thức ăn</value>
+  </data>
+  <data name="Report_Accommodation_Temporary" xml:space="preserve">
+    <value>Nơi chăm sóc tạm thời</value>
+  </data>
+  <data name="Report_Activate" xml:space="preserve">
+    <value>Các hoạt động</value>
+  </data>
+  <data name="Report_Activate_By" xml:space="preserve">
+    <value>Cán bộ/người thực hiện</value>
+  </data>
+  <data name="Report_Activate_Name" xml:space="preserve">
+    <value>Tên hoạt động</value>
+  </data>
+  <data name="Report_Activate_Other_By" xml:space="preserve">
+    <value>Cán bộ/người phối hợp</value>
+  </data>
+  <data name="Report_Activate_Time_Doing" xml:space="preserve">
+    <value>Thời gian thực hiện</value>
+  </data>
+  <data name="Report_Answer" xml:space="preserve">
+    <value>Trả lời</value>
+  </data>
+  <data name="Report_Attack_Child_Future" xml:space="preserve">
+    <value>Khả năng tiếp cận trẻ em của đối tượng xâm hại (trong tương lai)</value>
+  </data>
+  <data name="Report_Attack_Result" xml:space="preserve">
+    <value>Tác động của hành vi xâm hại đến sự phát triển của trẻ em (thể chất, tâm lý, tình cảm)</value>
+  </data>
+  <data name="Report_Bubget" xml:space="preserve">
+    <value>Kinh phí</value>
+  </data>
+  <data name="Report_Care_Future" xml:space="preserve">
+    <value>Trong thời gian tới ai sẽ là người chăm sóc trẻ em?</value>
+  </data>
+  <data name="Report_Care_Medical_Morale" xml:space="preserve">
+    <value>Chăm sóc y tế, trị liệu tâm lý</value>
+  </data>
+  <data name="Report_Child_Ask_Protecter" xml:space="preserve">
+    <value>Khả năng của trẻ em trong việc nhờ người bảo vệ trẻ em</value>
+  </data>
+  <data name="Report_Child_Create_Relationship" xml:space="preserve">
+    <value>Khả năng của trẻ em trong việc thiết lập mối quan hệ với những người có thể bảo vệ mình</value>
+  </data>
+  <data name="Report_Child_Know_Protecter" xml:space="preserve">
+    <value>Khả năng biết được những người có khả năng bảo vệ mình</value>
+  </data>
+  <data name="Report_Child_Need" xml:space="preserve">
+    <value>Xác định nhu cầu cần cung cấp dịch vụ của trẻ em</value>
+  </data>
+  <data name="Report_Child_Need_Community" xml:space="preserve">
+    <value>Bảo đảm các điều kiện cần thiết để trẻ em hòa nhập cộng đồng</value>
+  </data>
+  <data name="Report_Child_Protect" xml:space="preserve">
+    <value>Khả năng tự bảo vệ của trẻ em trước những hành động của đối tượng xâm hại</value>
+  </data>
+  <data name="Report_Close" xml:space="preserve">
+    <value>Lưu và Đóng trường hợp</value>
+  </data>
+  <data name="Report_Collect_Information" xml:space="preserve">
+    <value>Thu thập thông tin</value>
+  </data>
+  <data name="Report_Conclusion_Risk" xml:space="preserve">
+    <value>Kết luận các nguy cơ</value>
+  </data>
+  <data name="Report_ConditionLive_Child" xml:space="preserve">
+    <value>Điều kiện sống của trẻ</value>
+  </data>
+  <data name="Report_Cost_Estimate" xml:space="preserve">
+    <value>Dự toán kinh phí</value>
+  </data>
+  <data name="Report_Difficult_Care_Child" xml:space="preserve">
+    <value>Những trở ngại trong môi trường chăm sóc trẻ em đối với việc bảo đảm an toàn cho trẻ em</value>
+  </data>
+  <data name="Report_Document" xml:space="preserve">
+    <value>Tài liệu liên quan</value>
+  </data>
+  <data name="Report_Document_Size" xml:space="preserve">
+    <value>(tối đa 10 MB/file)</value>
+  </data>
+  <data name="Report_Environment_Reset" xml:space="preserve">
+    <value>Các yếu tố không an toàn trong môi trường sống của trẻ em cần được khắc phục</value>
+  </data>
+  <data name="Report_Evaluate_1" xml:space="preserve">
+    <value>Đánh giá nguy cơ sơ bộ</value>
+  </data>
+  <data name="Report_Evaluate_By" xml:space="preserve">
+    <value>Người đánh giá</value>
+  </data>
+  <data name="Report_Evaluate_Date" xml:space="preserve">
+    <value>Ngày thực hiện bản đánh giá</value>
+  </data>
+  <data name="Report_Evaluate_Harm" xml:space="preserve">
+    <value>Đánh giá mức độ tổn hại</value>
+  </data>
+  <data name="Report_Evaluate_Harm_Child" xml:space="preserve">
+    <value>Đánh giá mức độ trẻ em bị tổn hại</value>
+  </data>
+  <data name="Report_Evaluate_Harm_Child_Danger" xml:space="preserve">
+    <value>Trẻ em bị tổn hại nghiêm trọng</value>
+  </data>
+  <data name="Report_Evaluate_Harm_Continue" xml:space="preserve">
+    <value>Nguy cơ trẻ em tiếp tục bị tổn hại nếu ở trong tình trạng hiện tại</value>
+  </data>
+  <data name="Report_Evaluate_Protect" xml:space="preserve">
+    <value>Đánh giá khả năng tự bảo vệ, phục hồi của trẻ em</value>
+  </data>
+  <data name="Report_Evaluate_Result" xml:space="preserve">
+    <value>Kết luận về tình trạng của trẻ em</value>
+  </data>
+  <data name="Report_Evaluate_Result_Danger" xml:space="preserve">
+    <value>Trẻ em cần được bảo vệ khẩn cấp.</value>
+  </data>
+  <data name="Report_Evaluate_Result_Follow" xml:space="preserve">
+    <value>Trẻ em cần được tiếp tục theo dõi</value>
+  </data>
+  <data name="Report_Evaluate_Result_Warning" xml:space="preserve">
+    <value>Trẻ em cần được áp dụng kế hoạch hỗ trợ, can thiệp</value>
+  </data>
+  <data name="Report_Example_Helped" xml:space="preserve">
+    <value>Các hoạt động đã thực hiện hỗ trợ trẻ</value>
+  </data>
+  <data name="Report_Example_Situation_Family" xml:space="preserve">
+    <value>Nhập tình trạng hoàn cảnh gia đình của trẻ hiện nay</value>
+  </data>
+  <data name="Report_Example_TakeCare" xml:space="preserve">
+    <value>Trẻ đang ở cùng ai, được ai chăm sóc</value>
+  </data>
+  <data name="Report_Example_Time" xml:space="preserve">
+    <value>Nhập thời gian xảy ra trường hợp(10h:15)</value>
+  </data>
+  <data name="Report_Factor_Care" xml:space="preserve">
+    <value>Các yếu tố có thể sẽ tác động đến việc chăm sóc trẻ em trong thời gian tới?</value>
+  </data>
+  <data name="Report_Factor_Negative" xml:space="preserve">
+    <value>Yếu tố tiêu cực</value>
+  </data>
+  <data name="Report_Factor_Positive" xml:space="preserve">
+    <value>Yếu tố tích cực</value>
+  </data>
+  <data name="Report_First_Date_Evaluate" xml:space="preserve">
+    <value>Ngày đánh giá</value>
+  </data>
+  <data name="Report_Harm_Reset" xml:space="preserve">
+    <value>Các tổn hại của trẻ em được phục hồi</value>
+  </data>
+  <data name="Report_Helped" xml:space="preserve">
+    <value>Hỗ trợ đã thực hiện</value>
+  </data>
+  <data name="Report_Help_Education_Career" xml:space="preserve">
+    <value>Các hoạt động hỗ trợ giáo dục, đào tạo, giáo dục nghề nghiệp</value>
+  </data>
+  <data name="Report_Help_Law" xml:space="preserve">
+    <value>Các hoạt động trợ giúp pháp lý (nếu cần)</value>
+  </data>
+  <data name="Report_Help_Social" xml:space="preserve">
+    <value>Các hoạt động trợ giúp xã hội</value>
+  </data>
+  <data name="Report_Hight_Risk_Child" xml:space="preserve">
+    <value>Trẻ em có nguy cơ cao</value>
+  </data>
+  <data name="Report_Hight_Risk_Child1" xml:space="preserve">
+    <value>tiếp tục bị xâm hại hoặc mức độ trẻ em bị tổn hại vẫn rất nghiêm trọng.</value>
+  </data>
+  <data name="Report_Idea_Carer" xml:space="preserve">
+    <value>Ý kiến, nguyện vọng của cha, mẹ, người chăm sóc trẻ em</value>
+  </data>
+  <data name="Report_Idea_Child" xml:space="preserve">
+    <value>Ý kiến, nguyện vọng của trẻ em</value>
+  </data>
+  <data name="Report_Impact_Factors_Child" xml:space="preserve">
+    <value>Các yếu tố tác động đến chất lượng của sự chăm sóc trẻ em?</value>
+  </data>
+  <data name="Report_Info" xml:space="preserve">
+    <value>Tổng quan trường hợp</value>
+  </data>
+  <data name="Report_Info_Child" xml:space="preserve">
+    <value>Trẻ có hoàn cảnh đặc biệt</value>
+  </data>
+  <data name="Report_Info_Family" xml:space="preserve">
+    <value>Thông tin về gia đình trẻ</value>
+  </data>
+  <data name="Report_Info_Reporter" xml:space="preserve">
+    <value>Thông tin người báo cáo</value>
+  </data>
+  <data name="Report_Level" xml:space="preserve">
+    <value>Mức độ</value>
+  </data>
+  <data name="Report_Low_Risk_Child" xml:space="preserve">
+    <value>Trẻ em không có hoặc ít có nguy cơ</value>
+  </data>
+  <data name="Report_Low_Risk_Child1" xml:space="preserve">
+    <value>tiếp tục bị xâm hại hoặc mức độ tổn hại của trẻ em ít nghiêm trọng.</value>
+  </data>
+  <data name="Report_More_Follow" xml:space="preserve">
+    <value>Thêm đánh giá</value>
+  </data>
+  <data name="Report_Name_Dad" xml:space="preserve">
+    <value>Họ tên cha</value>
+  </data>
+  <data name="Report_Name_Mom" xml:space="preserve">
+    <value>Họ tên mẹ</value>
+  </data>
+  <data name="Report_Next_NewProcess" xml:space="preserve">
+    <value>Sang xử lý mới</value>
+  </data>
+  <data name="Report_Now" xml:space="preserve">
+    <value>Tình trạng hiện tại</value>
+  </data>
+  <data name="Report_Organization_Doing" xml:space="preserve">
+    <value>Tổ chức thực hiện</value>
+  </data>
+  <data name="Report_Other_Care_Child" xml:space="preserve">
+    <value>Trẻ em có được sự theo dõi và sẵn sàng giúp đỡ của những người khác (không phải là đối tượng xâm hại)</value>
+  </data>
+  <data name="Report_Other_Service_Protect" xml:space="preserve">
+    <value>Các dich vụ bảo vệ trẻ em khác.</value>
+  </data>
+  <data name="Report_Other_Task" xml:space="preserve">
+    <value>Mục tiêu khác.</value>
+  </data>
+  <data name="Report_Physique" xml:space="preserve">
+    <value>An toàn thể chất</value>
+  </data>
+  <data name="Report_Physique_Medical" xml:space="preserve">
+    <value>Chăm sóc y tế</value>
+  </data>
+  <data name="Report_Physique_Morale" xml:space="preserve">
+    <value>Chăm sóc tinh thần</value>
+  </data>
+  <data name="Report_Predict_Result" xml:space="preserve">
+    <value>Phỏng đoán hậu quả</value>
+  </data>
+  <data name="Report_Problems_Child" xml:space="preserve">
+    <value>Xác định các vấn đề của trẻ em</value>
+  </data>
+  <data name="Report_Process" xml:space="preserve">
+    <value>Tiến độ xử lý trường hợp</value>
+  </data>
+  <data name="Report_Process_Specific" xml:space="preserve">
+    <value>Đánh giá nguy cơ cụ thể</value>
+  </data>
+  <data name="Report_Process_Step2" xml:space="preserve">
+    <value>Bước 2: Đang điều tra xác minh</value>
+  </data>
+  <data name="Report_Process_Step2_Orange" xml:space="preserve">
+    <value>Mẫu số 02 -Đánh giá nguy cơ ban đầu</value>
+  </data>
+  <data name="Report_Process_Step2_Red" xml:space="preserve">
+    <value>Mẫu số 03 - Thu thập thông tin</value>
+  </data>
+  <data name="Report_Process_Step2_Yellow" xml:space="preserve">
+    <value>Mẫu số 04 - Kế hoạch hỗ trợ, can thiệp</value>
+  </data>
+  <data name="Report_Process_Step3" xml:space="preserve">
+    <value>Bước 3: Đã xử lý</value>
+  </data>
+  <data name="Report_Process_Step4" xml:space="preserve">
+    <value>Bước 4: Cần theo dõi thêm</value>
+  </data>
+  <data name="Report_Process_Step5" xml:space="preserve">
+    <value>Bước 5: Đóng trường hợp</value>
+  </data>
+  <data name="Report_Protect" xml:space="preserve">
+    <value>Khả năng tự bảo vệ của trẻ em trước các tổn hại</value>
+  </data>
+  <data name="Report_Question" xml:space="preserve">
+    <value>Câu hỏi</value>
+  </data>
+  <data name="Report_Situation_Child" xml:space="preserve">
+    <value>Hoàn cảnh gia đình, mối quan hệ của trẻ em và năng lực bảo vệ trẻ em của cha, mẹ, các thành viên trong gia đình (đặc biệt là những người trực tiếp chăm sóc trẻ em, chất lượng chăm sóc như thế nào)?</value>
+  </data>
+  <data name="Report_Situation_Family" xml:space="preserve">
+    <value>Hoàn cảnh gia đình</value>
+  </data>
+  <data name="Report_Solution_Protect" xml:space="preserve">
+    <value>Các biện pháp can thiệp khẩn cấp nhằm đảm bảo nhu cầu an toàn tạm thời cho trẻ em</value>
+  </data>
+  <data name="Report_Solution_Protect_Need" xml:space="preserve">
+    <value>Nhu cầu về an toàn của trẻ em</value>
+  </data>
+  <data name="Report_Solution_Protect_Provider" xml:space="preserve">
+    <value>Đơn vị cung cấp dịch vụ</value>
+  </data>
+  <data name="Report_Solution_Protect_Service" xml:space="preserve">
+    <value>Dịch vụ cung cấp</value>
+  </data>
+  <data name="Report_Status_Child" xml:space="preserve">
+    <value>Tình trạng thể chất, tâm lý, tình cảm của trẻ em (trẻ em đã bị xâm hại hay chưa)?</value>
+  </data>
+  <data name="Report_Take_Care" xml:space="preserve">
+    <value>Người chăm sóc</value>
+  </data>
+  <data name="Report_Unable_Care_Child" xml:space="preserve">
+    <value>Không có người sẵn sàng hoặc có khả năng bảo vệ trẻ em</value>
+  </data>
+  <data name="Report_Used" xml:space="preserve">
+    <value>Thông qua</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>Người dùng</value>
+  </data>
+  <data name="User_Acc" xml:space="preserve">
+    <value>Tài khoản đăng nhập</value>
+  </data>
+  <data name="User_Add_Title" xml:space="preserve">
+    <value>Thêm mới người dùng</value>
+  </data>
+  <data name="User_Info" xml:space="preserve">
+    <value>Thông tin người dùng</value>
+  </data>
+  <data name="User_List" xml:space="preserve">
+    <value>Danh sách người dùng</value>
+  </data>
+  <data name="User_Name" xml:space="preserve">
+    <value>Tên người dùng</value>
+  </data>
+  <data name="User_Reset_Password" xml:space="preserve">
+    <value>Khôi phục mật khẩu</value>
+  </data>
+  <data name="User_Type" xml:space="preserve">
+    <value>Loại tài khoản</value>
+  </data>
+  <data name="User_Unlock" xml:space="preserve">
+    <value>Bỏ khóa người dùng</value>
+  </data>
+  <data name="User_Update_Title" xml:space="preserve">
+    <value>Cập nhật người dùng</value>
+  </data>
+  <data name="Review_Date" xml:space="preserve">
+    <value>Ngày đánh giá</value>
+  </data>
+  <data name="Review_Person" xml:space="preserve">
+    <value>Người đánh giá</value>
+  </data>
+  <data name="Assessment_Closing" xml:space="preserve">
+    <value>Mẫu số 06- Đánh giá nguy cơ tại giai đoạn kết thúc</value>
+  </data>
+  <data name="Conclusion_Situation" xml:space="preserve">
+    <value>Kết luận về tình trạng của trẻ em</value>
+  </data>
+  <data name="Conclusion_Situation1" xml:space="preserve">
+    <value>Nếu nguy cơ trẻ em vẫn tiếp tục bị xâm hại/tổn hại, cần có kế hoạch hỗ trợ, can thiệp tiếp theo đối với trẻ em.</value>
+  </data>
+  <data name="Conclusion_Situation2" xml:space="preserve">
+    <value>Nếu kết quả can thiệp, trợ giúp đảm bảo trẻ em ổn định và nguy cơ xâm hại không còn, theo dõi trong thời gian 3 tháng và kết thúc.</value>
+  </data>
+  <data name="Harm_Still_Serious" xml:space="preserve">
+    <value>Mức độ tổn hại của trẻ em có còn nghiêm trọng không?</value>
+  </data>
+  <data name="Reviewer" xml:space="preserve">
+    <value>Người đánh giá</value>
+  </data>
+  <data name="Email_Used" xml:space="preserve">
+    <value>Email đã được dùng cho tài khoản khác!</value>
+  </data>
+  <data name="Compare_Title" xml:space="preserve">
+    <value>so với cùng kỳ</value>
+  </data>
+  <data name="ReportProfileHome_Title" xml:space="preserve">
+    <value>Thống kê trường hợp năm</value>
+  </data>
+  <data name="Statistic_Title" xml:space="preserve">
+    <value>Thống kê trường hợp</value>
+  </data>
+  <data name="Report_Statistic_Area_Title" xml:space="preserve">
+    <value>Thống kê trường hợp trên địa bàn</value>
+  </data>
+  <data name="Report_Statistic_ChildFundArea_Title" xml:space="preserve">
+    <value>Thống kê trường hợp trên địa bàn ChildFund</value>
+  </data>
+  <data name="Report_Statistic_Location_Title" xml:space="preserve">
+    <value>Thống kê theo vị trí địa lý</value>
+  </data>
+  <data name="Report_Statistic_Title" xml:space="preserve">
+    <value>Biểu đồ thống kê</value>
+  </data>
+  <data name="Statistic_Age" xml:space="preserve">
+    <value>Thống kê trường hợp theo độ tuổi</value>
+  </data>
+  <data name="Statistic_Gender" xml:space="preserve">
+    <value>Thống kê trường hợp theo giới tính</value>
+  </data>
+  <data name="Document_Group_Manage" xml:space="preserve">
+    <value>Quản lý nhóm tài liệu</value>
+  </data>
+  <data name="Document_Group_Name" xml:space="preserve">
+    <value>Tên nhóm tài liệu</value>
+  </data>
+  <data name="Document_Group_Deleted" xml:space="preserve">
+    <value>Nhóm tài liệu đã bị xóa bởi người dùng khác</value>
+  </data>
+  <data name="Document_Group_Delete_Warning" xml:space="preserve">
+    <value>Không được xóa nhóm tài liệu này!</value>
+  </data>
+  <data name="Document_Group_Delete" xml:space="preserve">
+    <value>Xóa nhóm tài liệu</value>
+  </data>
+  <data name="Document_Group_Duplicate" xml:space="preserve">
+    <value>Tên nhóm tài liệu này đã tồn tại!</value>
+  </data>
+  <data name="Abuse_Type_01" xml:space="preserve">
+    <value>Thể chất/bạo lực</value>
+  </data>
+  <data name="Abuse_Type_02" xml:space="preserve">
+    <value>Tình dục</value>
+  </data>
+  <data name="Abuse_Type_03" xml:space="preserve">
+    <value>Tinh thần</value>
+  </data>
+  <data name="Abuse_Type_04" xml:space="preserve">
+    <value>Xao nhãng</value>
+  </data>
+  <data name="Area_Table_Header" xml:space="preserve">
+    <value>Địa bàn quản lý</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Vị trí</value>
+  </data>
+  <data name="ReportProfile_AbuseType_Status" xml:space="preserve">
+    <value>Loại hình/Trạng thái</value>
+  </data>
+  <data name="ReportProfile_Area_AbuseType" xml:space="preserve">
+    <value>Địa bàn/Loại hình </value>
+  </data>
+  <data name="ReportProfile_By_Area" xml:space="preserve">
+    <value>Thống kê theo địa bàn</value>
+  </data>
+  <data name="ReportProfile_MostAbuse" xml:space="preserve">
+    <value>Thống kê địa phương xảy ra nhiều trường hợp nhất</value>
+  </data>
+  <data name="ReportProfile_MostArea_AbuseType" xml:space="preserve">
+    <value>Địa phương/Loại hình </value>
+  </data>
+  <data name="Report_By_AbuseType" xml:space="preserve">
+    <value>Thống kê trường hợp theo loại hình </value>
+  </data>
+  <data name="Content_Title" xml:space="preserve">
+    <value>Nội dung</value>
+  </data>
+  <data name="Document_Group_Add_Title" xml:space="preserve">
+    <value>Quản lý nhóm tài liệu</value>
+  </data>
+  <data name="Label_Update" xml:space="preserve">
+    <value>Cập nhật</value>
+  </data>
+  <data name="DocumentGroup_Deleted" xml:space="preserve">
+    <value>Nhóm tài liệu này đã bị xóa bởi người dùng khác!</value>
+  </data>
+  <data name="Report_AddNew_Title" xml:space="preserve">
+    <value>Trường hợp tạo mới</value>
+  </data>
+  <data name="Report_Closed_Title" xml:space="preserve">
+    <value>Trường hợp đóng</value>
+  </data>
+  <data name="GroupUser_Code" xml:space="preserve">
+    <value>Mã nhóm quyền</value>
+  </data>
+  <data name="GroupUser_Duplicate_Code" xml:space="preserve">
+    <value>Trùng mã nhóm quyền</value>
+  </data>
+  <data name="GroupUser_Duplicate_Name" xml:space="preserve">
+    <value>Trùng tên nhóm quyền</value>
+  </data>
+  <data name="Label_Locl" xml:space="preserve">
+    <value>Đã khóa</value>
+  </data>
+  <data name="PlanSuccess_Title" xml:space="preserve">
+    <value>Hoàn thành kế hoạch</value>
+  </data>
+  <data name="Area_Manager_Title" xml:space="preserve">
+    <value>Quản lý địa bàn</value>
+  </data>
+  <data name="GroupUser_Manager_Title" xml:space="preserve">
+    <value>Quản lý nhóm quyền</value>
+  </data>
+  <data name="Label_Home" xml:space="preserve">
+    <value>Trang chủ</value>
+  </data>
+  <data name="Report_Process_Step1" xml:space="preserve">
+    <value>Bươc 1: Tiếp nhận thông tin</value>
+  </data>
+  <data name="Statistic_About_AbuseType" xml:space="preserve">
+    <value>Theo loại hình </value>
+  </data>
+  <data name="Statistic_About_Age" xml:space="preserve">
+    <value>Theo độ tuổi</value>
+  </data>
+  <data name="Statistic_About_Area" xml:space="preserve">
+    <value>Theo địa bàn</value>
+  </data>
+  <data name="Statistic_About_Gender" xml:space="preserve">
+    <value>Theo giới tính</value>
+  </data>
+  <data name="Statistic_About_Location" xml:space="preserve">
+    <value>Theo vị trí</value>
+  </data>
+  <data name="Statistic_About_Status_Process" xml:space="preserve">
+    <value>Theo trạng thái xử lý</value>
+  </data>
+  <data name="Statistic_About_Status_Type" xml:space="preserve">
+    <value>Theo loại hình</value>
+  </data>
+  <data name="Statistic_About_Top_Number" xml:space="preserve">
+    <value>Theo số lượng nhiều nhất</value>
+  </data>
+  <data name="User_Manager_Title" xml:space="preserve">
+    <value>Quản lý người dùng</value>
+  </data>
+  <data name="Download_UserTemplate" xml:space="preserve">
+    <value>Tải mẫu</value>
+  </data>
+  <data name="Import_Title" xml:space="preserve">
+    <value>Nhập từ Excel</value>
+  </data>
+  <data name="User_Lock" xml:space="preserve">
+    <value>Khóa người dùng</value>
+  </data>
+  <data name="Label_Abuse" xml:space="preserve">
+    <value>Loại hình</value>
+  </data>
+  <data name="Label_Child" xml:space="preserve">
+    <value> trẻ</value>
+  </data>
+  <data name="Label_Time_Sent" xml:space="preserve">
+    <value>Thời gian gửi</value>
+  </data>
+  <data name="Label_Add" xml:space="preserve">
+    <value>thêm mới</value>
+  </data>
+  <data name="Label_Close" xml:space="preserve">
+    <value>đóng lại</value>
+  </data>
+  <data name="Label_Forward" xml:space="preserve">
+    <value>chuyển tiếp</value>
+  </data>
+  <data name="Web_Title" xml:space="preserve">
+    <value>Phần mềm quản lý thông tin trường hợp tại cơ sở</value>
+  </data>
+  <data name="ProviderName_Title" xml:space="preserve">
+    <value>Tên người báo</value>
+  </data>
+  <data name="Period_Title" xml:space="preserve">
+    <value>Cùng kỳ</value>
+  </data>
+  <data name="ChartAge_Title" xml:space="preserve">
+    <value>Biểu đồ thống kê theo độ tuổi</value>
+  </data>
+  <data name="ChartGender_Title" xml:space="preserve">
+    <value>Biểu đồ thống kê theo giới tính</value>
+  </data>
+  <data name="ChartLocation_Title" xml:space="preserve">
+    <value>Biểu đồ thống kê theo vị trí địa lý</value>
+  </data>
+  <data name="ChartProcess_Title" xml:space="preserve">
+    <value>Biểu đồ thống kê theo trạng thái xử lý</value>
+  </data>
+  <data name="Statistic_By" xml:space="preserve">
+    <value>Thống kê theo</value>
+  </data>
+  <data name="Statistic_By_Age" xml:space="preserve">
+    <value>Thống kê theo độ tuổi</value>
+  </data>
+  <data name="Statistic_By_Gender" xml:space="preserve">
+    <value>Thống kê theo giới tính</value>
+  </data>
+  <data name="Statistic_By_Location" xml:space="preserve">
+    <value>Thống kê theo vị trí địa lý</value>
+  </data>
+  <data name="Statistic_By_Process" xml:space="preserve">
+    <value>Thống kê theo trạng thái xử lý</value>
+  </data>
+  <data name="Table_By_Age" xml:space="preserve">
+    <value>Bảng thống kê theo độ tuổi</value>
+  </data>
+  <data name="Table_By_Gender" xml:space="preserve">
+    <value>Bảng thống kê theo giới tính</value>
+  </data>
+  <data name="Table_By_Location" xml:space="preserve">
+    <value>Bảng thống kê theo vị trí địa lý</value>
+  </data>
+  <data name="Table_By_Process" xml:space="preserve">
+    <value>Bảng thống kê theo trạng thái xử lý</value>
+  </data>
+  <data name="SourceNote_Title" xml:space="preserve">
+    <value>Ghi chú nguồn thông tin</value>
+  </data>
+  <data name="Word_Title" xml:space="preserve">
+    <value>Nhóm trẻ có hoàn cảnh đặc biệt</value>
+  </data>
+  <data name="Step01_Title" xml:space="preserve">
+    <value>Mẫu 01 - Tiếp nhận thông tin trẻ</value>
+  </data>
+  <data name="Step02_Title" xml:space="preserve">
+    <value>Mẫu 02 - Đánh giá nguy cơ ban đầu</value>
+  </data>
+  <data name="Step03_Title" xml:space="preserve">
+    <value>Mẫu 03 -Thu thập thông tin, xác minh</value>
+  </data>
+  <data name="Step04_Title" xml:space="preserve">
+    <value>Mẫu 04 - Kế hoạch hỗ trợ, can thiệp</value>
+  </data>
+  <data name="Step06_Title" xml:space="preserve">
+    <value>Mẫu 06 - Rà soát, đánh giá</value>
+  </data>
+  <data name="ReportProfile_Status6" xml:space="preserve">
+    <value>Đóng trường hợp</value>
+  </data>
+  <data name="Cost_Title" xml:space="preserve">
+    <value>Không sử dụng kinh phí</value>
+  </data>
+  <data name="PlantAfter_Title" xml:space="preserve">
+    <value>Họ và tên trẻ em</value>
+  </data>
+  <data name="Plant_Title" xml:space="preserve">
+    <value>Tên kế hoạch</value>
+  </data>
+  <data name="Add_Plant" xml:space="preserve">
+    <value>Thêm kế hoạch</value>
+  </data>
+  <data name="List_Plant" xml:space="preserve">
+    <value>Danh sách kế hoạch hỗ trợ</value>
+  </data>
+  <data name="List_Review" xml:space="preserve">
+    <value>Danh sách đánh giá</value>
+  </data>
+  <data name="GoBack_Plant" xml:space="preserve">
+    <value>Trở về lập kế hoạch</value>
+  </data>
+  <data name="ExportDoc_Title" xml:space="preserve">
+    <value>Xuất word</value>
+  </data>
+  <data name="Report_Open" xml:space="preserve">
+    <value>Đang mở</value>
+  </data>
+  <data name="OutUser_Erros" xml:space="preserve">
+    <value>Tài khoản hết phiên làm việc vui lòng thoát ra đăng nhập lại</value>
+  </data>
+  <data name="YearDate_Title" xml:space="preserve">
+    <value>Năm sinh</value>
+  </data>
+  <data name="DateReview_Verify" xml:space="preserve">
+    <value>Ngày đánh giá, xác minh</value>
+  </data>
+  <data name="PersonReview_Verify" xml:space="preserve">
+    <value>Người đánh giá, xác minh</value>
+  </data>
+  <data name="Publish_Title" xml:space="preserve">
+    <value>Chia sẻ thông tin lên cấp trên</value>
+  </data>
+  <data name="Lib_Title" xml:space="preserve">
+    <value>Thư viện tài liệu</value>
+  </data>
+  <data name="ReportProfile_Level" xml:space="preserve">
+    <value>Thống kê theo mức độ nghiêm trọng</value>
+  </data>
+  <data name="Number_Case" xml:space="preserve">
+    <value>Số trường  hợp</value>
+  </data>
+  <data name="Place_Title" xml:space="preserve">
+    <value>Địa điểm</value>
+  </data>
+  <data name="SummaryCase_Title" xml:space="preserve">
+    <value>Tóm tắt nội dung</value>
+  </data>
+  <data name="Not_Finish" xml:space="preserve">
+    <value>Chưa hoàn thành các xử lý không thể đóng trường hợp</value>
+  </data>
+  <data name="ReportProfile_AbuseType_Input" xml:space="preserve">
+    <value>Nhập loại hình</value>
+  </data>
+  <data name="Other_Type" xml:space="preserve">
+    <value>Khác</value>
+  </data>
+  <data name="M02_EvAbilityProtectYourselfH" xml:space="preserve">
+    <value>Trẻ em có khả năng khắc phục được những tổn hại</value>
+  </data>
+  <data name="M02_EvAbilityProtectYourselfL" xml:space="preserve">
+    <value>Trẻ em không thể khắc phục được những tổn hại</value>
+  </data>
+  <data name="M02_EvAbilityProtectYourselfN" xml:space="preserve">
+    <value>Trẻ em có một ít khả năng khắc phục được những tổn hại</value>
+  </data>
+  <data name="M02_EvAbilityReceiveSupportH" xml:space="preserve">
+    <value>Ngay lập tức tìm được người lớn có khả năng bảo vệ hữu hiệu cho trẻ em</value>
+  </data>
+  <data name="M02_EvAbilityReceiveSupportL" xml:space="preserve">
+    <value>Không có khả năng tìm người bảo vệ</value>
+  </data>
+  <data name="M02_EvAbilityReceiveSupportN" xml:space="preserve">
+    <value>Chỉ có một số khả năng tìm được người bảo vệ hữu hiệu</value>
+  </data>
+  <data name="M02_EvLevelHarmContinueH" xml:space="preserve">
+    <value>Đối tượng xâm hại có khả năng tiếp cận trẻ em dễ dàng và thường xuyên</value>
+  </data>
+  <data name="M02_EvLevelHarmContinueL" xml:space="preserve">
+    <value>Đối  tượng xâm hại ít hoặc không có khả năng tiếp cận trẻ em</value>
+  </data>
+  <data name="M02_EvLevelHarmContinueN" xml:space="preserve">
+    <value>Đối  tượng xâm hại có cơ hội tiếp cận trẻ em, nhưng không thường xuyên</value>
+  </data>
+  <data name="M02_EvLevelHarmH" xml:space="preserve">
+    <value>Trẻ em bị tổn hại nghiêm trọng, đe dọa tính mạng</value>
+  </data>
+  <data name="M02_EvLevelHarmL" xml:space="preserve">
+    <value>Trẻ  em ít hoặc không bị tổn hại</value>
+  </data>
+  <data name="M02_EvLevelHarmN" xml:space="preserve">
+    <value>Trẻ em bị tổn hại, nhưng không nghiêm trọng</value>
+  </data>
+  <data name="M03_CaAbilityEstablishRelationshipH" xml:space="preserve">
+    <value>Trẻ em sẵn sàng và có khả năng nói chuyện với người lớn có thể bảo vệ mình</value>
+  </data>
+  <data name="M03_CaAbilityEstablishRelationshipL" xml:space="preserve">
+    <value>Trẻ em không có khả năng liên hệ với người lớn</value>
+  </data>
+  <data name="M03_CaAbilityEstablishRelationshipN" xml:space="preserve">
+    <value>Trẻ em có một số khả năng liên hệ với người lớn nào có thể bảo vệ mình</value>
+  </data>
+  <data name="M03_CaAbilityHelpOthersH" xml:space="preserve">
+    <value>Những người hàng xóm, thầy giáo, cô giáo... thường xuyên quan sát được trẻ em</value>
+  </data>
+  <data name="M03_CaAbilityHelpOthersL" xml:space="preserve">
+    <value>Trẻ em ít được mọi người trông thấy</value>
+  </data>
+  <data name="M03_CaAbilityHelpOthersN" xml:space="preserve">
+    <value>Chỉ quan sát trẻ em ở một số thời điểm nhất định</value>
+  </data>
+  <data name="M03_CaAbilityKnowGuardH" xml:space="preserve">
+    <value>Trẻ em biết được người lớn nào có thể bảo vệ mình</value>
+  </data>
+  <data name="M03_CaAbilityKnowGuardL" xml:space="preserve">
+    <value>Trẻ em không biết người lớn nào có thể bảo vệ mình</value>
+  </data>
+  <data name="M03_CaAbilityKnowGuardN" xml:space="preserve">
+    <value>Trẻ em biết ít về người lớn nào có thể bảo vệ mình</value>
+  </data>
+  <data name="M03_CaAbilityProtectYourselfH" xml:space="preserve">
+    <value>Trẻ em có khả năng tự bảo vệ mình</value>
+  </data>
+  <data name="M03_CaAbilityProtectYourselfL" xml:space="preserve">
+    <value>Trẻ em không tự bảo vệ được</value>
+  </data>
+  <data name="M03_CaAbilityProtectYourselfN" xml:space="preserve">
+    <value>Trẻ em có một số khả năng, nhưng không cao</value>
+  </data>
+  <data name="M03_CaAbilityRelyGuardH" xml:space="preserve">
+    <value>Trẻ em có khả năng liên hệ với người lớn và cho người lớn biết về tình trạng không an toàn của mình</value>
+  </data>
+  <data name="M03_CaAbilityRelyGuardL" xml:space="preserve">
+    <value>Trẻ em không có khả năng liên hệ với người lớn và cho người lớn biết về tình trạng không an toàn của mình</value>
+  </data>
+  <data name="M03_CaAbilityRelyGuardN" xml:space="preserve">
+    <value>Trẻ em có một số khả năng liên hệ với người lớn và cho người lớn biết về tình trạng không an toàn của mình</value>
+  </data>
+  <data name="M03_CaLevelApproachH" xml:space="preserve">
+    <value>Đối tượng xâm hại có khả năng tiếp cận trẻ em dễ dàng và thường xuyên</value>
+  </data>
+  <data name="M03_CaLevelApproachL" xml:space="preserve">
+    <value>Đối tượng xâm hại ít hoặc không có khả năng tiếp cận trẻ em</value>
+  </data>
+  <data name="M03_CaLevelApproachN" xml:space="preserve">
+    <value>Đối tượng xâm hại có cơ hội tiếp cận trẻ em, nhưng không thường xuyên</value>
+  </data>
+  <data name="M03_CaLevelCareObstacleH" xml:space="preserve">
+    <value>Có nhiều trở ngại để đảm bảo an toàn cho trẻ em</value>
+  </data>
+  <data name="M03_CaLevelCareObstacleL" xml:space="preserve">
+    <value>Có ít hoặc không có trở ngại nào cho việc bảo vệ trẻ em</value>
+  </data>
+  <data name="M03_CaLevelCareObstacleN" xml:space="preserve">
+    <value>Có một vài trở ngại, nhưng trẻ em vẫn có được sự bảo vệ nhất định</value>
+  </data>
+  <data name="M03_CaLevelDevelopmentEffectH" xml:space="preserve">
+    <value>Có tác động nghiêm trọng đến trẻ em</value>
+  </data>
+  <data name="M03_CaLevelDevelopmentEffectL" xml:space="preserve">
+    <value>Có ít hoặc không có tác động đến sự phát triển của trẻ em</value>
+  </data>
+  <data name="M03_CaLevelDevelopmentEffectN" xml:space="preserve">
+    <value>Có một vài tác động đến sự phát triển của trẻ em</value>
+  </data>
+  <data name="M03_CaLevelHarmH" xml:space="preserve">
+    <value>Trẻ em bị tổn hại nghiêm trọng</value>
+  </data>
+  <data name="M03_CaLevelHarmL" xml:space="preserve">
+    <value>Trẻ em bị tổn hại ít hoặc không bị tổn hại</value>
+  </data>
+  <data name="M03_CaLevelHarmN" xml:space="preserve">
+    <value>Trẻ em bị tổn hại nhưng không nghiêm trọng</value>
+  </data>
+  <data name="M03_CaLevelNoGuardianH" xml:space="preserve">
+    <value>Không có người nào có thể bảo vệ trẻ em hoặc có người bảo vệ nhưng không được tốt</value>
+  </data>
+  <data name="M03_CaLevelNoGuardianL" xml:space="preserve">
+    <value>Có một số người có thể bảo vệ trẻ em</value>
+  </data>
+  <data name="M03_CaLevelNoGuardianN" xml:space="preserve">
+    <value>Có một số người có thể bảo vệ trẻ em, nhưng khả năng và độ tin cậy chưa cao</value>
+  </data>
+  <data name="M06_SupAfAbilityHelpOthersH" xml:space="preserve">
+    <value>Trẻ em có khả năng liên hệ với người lớn và cho biết người lớn biết về tình trạng không an toàn của mình</value>
+  </data>
+  <data name="M06_SupAfAbilityHelpOthersL" xml:space="preserve">
+    <value>Trẻ em không có khả năng liên hệ với người lớn</value>
+  </data>
+  <data name="M06_SupAfAbilityHelpOthersN" xml:space="preserve">
+    <value>Trẻ em có một số khả năng liên hệ với người lớn</value>
+  </data>
+  <data name="M06_SupAfAbilityKnowGuardH" xml:space="preserve">
+    <value>Những người hàng xóm, thầy cô... thường xuyên quan sát được trẻ em</value>
+  </data>
+  <data name="M06_SupAfAbilityKnowGuardL" xml:space="preserve">
+    <value>Trẻ em ít được mọi người trông thấy</value>
+  </data>
+  <data name="M06_SupAfAbilityKnowGuardN" xml:space="preserve">
+    <value>Chỉ quan sát trẻ em ở một số thời điểm nhất định</value>
+  </data>
+  <data name="M06_SupAfAbilityProtectYourselfH" xml:space="preserve">
+    <value>Trẻ em có khả năng tự bảo vệ mình</value>
+  </data>
+  <data name="M06_SupAfAbilityProtectYourselfL" xml:space="preserve">
+    <value>Trẻ em không tự bảo vệ được</value>
+  </data>
+  <data name="M06_SupAfAbilityProtectYourselfN" xml:space="preserve">
+    <value>Trẻ em có một số khả năng, nhưng không cao</value>
+  </data>
+  <data name="M06_SupAfLevelApproachH" xml:space="preserve">
+    <value>Đối tượng xâm hại vẫn có khả năng tiếp cận trẻ em và thường xuyên</value>
+  </data>
+  <data name="M06_SupAfLevelApproachL" xml:space="preserve">
+    <value>Đối tượng xâm hại ít hoặc không có khả năng tiếp cận trẻ em</value>
+  </data>
+  <data name="M06_SupAfLevelApproachN" xml:space="preserve">
+    <value>Đối tượng xâm hại có cơ hội tiếp cận trẻ em, nhưng không thường xuyên</value>
+  </data>
+  <data name="M06_SupAfLevelCareObstacleH" xml:space="preserve">
+    <value>Môi trường chăm sóc vẫn có nhiều trở ngại đáng kể để bảo đảm an toàn cho trẻ em</value>
+  </data>
+  <data name="M06_SupAfLevelCareObstacleL" xml:space="preserve">
+    <value>Có ít hoặc không có trở ngại nào cho việc bảo
+vệ trẻ em</value>
+  </data>
+  <data name="M06_SupAfLevelCareObstacleN" xml:space="preserve">
+    <value>Có một vài trở ngại, nhưng trẻ em vẫn có được sự bảo vệ nhất định</value>
+  </data>
+  <data name="M06_SupAfLevelHarmH" xml:space="preserve">
+    <value>Tổn hại của trẻ em vẫn còn rất nghiêm trọng, ảnh hưởng đến sự phát triển của trẻ em</value>
+  </data>
+  <data name="M06_SupAfLevelHarmL" xml:space="preserve">
+    <value>Tổn hại của trẻ em không còn nghiêm trọng</value>
+  </data>
+  <data name="M06_SupAfLevelHarmN" xml:space="preserve">
+    <value>Tổn  hại của trẻ em còn ít nghiêm trọng</value>
+  </data>
+  <data name="ReportByYear_Title" xml:space="preserve">
+    <value>Thống kê trường hợp theo năm</value>
+  </data>
+  <data name="KeyByYear" xml:space="preserve">
+    <value>Theo năm</value>
+  </data>
+  <data name="KeyCaExtend" xml:space="preserve">
+    <value>Thông tin bổ sung</value>
+  </data>
+  <data name="Code_Report" xml:space="preserve">
+    <value>Mã số ca</value>
+  </data>
+  <data name="Import_Account" xml:space="preserve">
+    <value>Nhập tài khoản</value>
+  </data>
+  <data name="Import_Account_Excel" xml:space="preserve">
+    <value>Nhập tài khoản từ excel(tối đa 200 tài khoản)</value>
+  </data>
+  <data name="Select_File" xml:space="preserve">
+    <value>Chọn file</value>
+  </data>
+  <data name="ReOpen" xml:space="preserve">
+    <value>Mở Ca</value>
+  </data>
+</root>

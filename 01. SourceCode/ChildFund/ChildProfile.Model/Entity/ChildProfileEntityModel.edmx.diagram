@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8c9d580eccbc42a99df691b47507bfcb" Name="Diagram1" ZoomLevel="70">
+        <EntityTypeShape EntityType="ChildProfileEntityModel.ActivityLog" Width="1.5" PointX="3" PointY="6.25" />
+        <EntityTypeShape EntityType="ChildProfileEntityModel.AreaDistrict" Width="1.5" PointX="15.75" PointY="1" />
+        <EntityTypeShape EntityType="ChildProfileEntityModel.AreaUser" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ChildProfileEntityModel.AreaWard" Width="1.5" PointX="18" PointY="1" />
+        <EntityTypeShape EntityType="ChildProfileEntityModel.AttachFileReport" Width="1.5" PointX="8" PointY="10.75" />
+        <EntityTypeShape EntityType="ChildProfileEntityModel.AttachmentImage" Width="1.5" PointX="8" PointY="5" />
+        <EntityTypeShape EntityType="ChildProfileEntityModel.ChildProfile" Width="1.5" PointX="10.75" PointY="6.625" />
+        <EntityTypeShape EntityType="ChildProfileEntityModel.ChildProfileUpdate" Width="1.5" PointX="13" PointY="7.25" />
+        <EntityTypeShape EntityType="ChildProfileEntityModel.District" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="ChildProfileEntityModel.DocumentLibrary" Width="1.5" PointX="13" PointY="1" />
+        <EntityTypeShape EntityType="ChildProfileEntityModel.DocumentTye" Width="1.5" PointX="10.75" PointY="1.5" />
+        <EntityTypeShape EntityType="ChildProfileEntityModel.Ethnic" Width="1.5" PointX="2.75" PointY="10.75" />
+        <EntityTypeShape EntityType="ChildProfileEntityModel.ImageChildByYear" Width="1.5" PointX="0.75" PointY="13.75" />
+        <EntityTypeShape EntityType="ChildProfileEntityModel.ImageChildHistory" Width="1.5" PointX="2.75" PointY="13.75" />
+        <EntityTypeShape EntityType="ChildProfileEntityModel.Job" Width="1.5" PointX="7.75" PointY="14.75" />
+        <EntityTypeShape EntityType="ChildProfileEntityModel.Province" Width="1.5" PointX="0.75" PointY="1.25" />
+        <EntityTypeShape EntityType="ChildProfileEntityModel.Relationship" Width="1.5" PointX="15.75" PointY="4.75" />
+        <EntityTypeShape EntityType="ChildProfileEntityModel.Religion" Width="1.5" PointX="4.75" PointY="15.75" />
+        <EntityTypeShape EntityType="ChildProfileEntityModel.ReportContent" Width="1.5" PointX="15.75" PointY="7.75" />
+        <EntityTypeShape EntityType="ChildProfileEntityModel.ReportProfile" Width="1.5" PointX="5.75" PointY="10" />
+        <EntityTypeShape EntityType="ChildProfileEntityModel.School" Width="1.5" PointX="15.75" PointY="10.75" />
+        <EntityTypeShape EntityType="ChildProfileEntityModel.ShareImage" Width="1.5" PointX="5.75" PointY="5.125" />
+        <EntityTypeShape EntityType="ChildProfileEntityModel.StoryTemplate" Width="1.5" PointX="15.75" PointY="13.75" />
+        <EntityTypeShape EntityType="ChildProfileEntityModel.Survey" Width="1.5" PointX="0.75" PointY="17.75" />
+        <EntityTypeShape EntityType="ChildProfileEntityModel.SurveyResult" Width="1.5" PointX="17.75" PointY="4.75" />
+        <EntityTypeShape EntityType="ChildProfileEntityModel.User" Width="1.5" PointX="0.75" PointY="5.125" />
+        <EntityTypeShape EntityType="ChildProfileEntityModel.Village" Width="1.5" PointX="6.75" PointY="17.75" />
+        <EntityTypeShape EntityType="ChildProfileEntityModel.Ward" Width="1.5" PointX="5.25" PointY="1" />
+        <AssociationConnector Association="ChildProfileEntityModel.FK__ActivityL__UserI__4F7CD00D" />
+        <AssociationConnector Association="ChildProfileEntityModel.FK__AreaWard__AreaDi__5070F446" />
+        <AssociationConnector Association="ChildProfileEntityModel.FK__AttachFil__Repor__5165187F" />
+        <AssociationConnector Association="ChildProfileEntityModel.FK__Attachmen__Share__52593CB8" />
+        <AssociationConnector Association="ChildProfileEntityModel.FK__ChildProf__Child__398D8EEE" />
+        <AssociationConnector Association="ChildProfileEntityModel.FK__District__Provin__5441852A" />
+        <AssociationConnector Association="ChildProfileEntityModel.FK__Ward__DistrictId__5535A963" />
+        <AssociationConnector Association="ChildProfileEntityModel.FK__DocumentL__Docum__412EB0B6" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

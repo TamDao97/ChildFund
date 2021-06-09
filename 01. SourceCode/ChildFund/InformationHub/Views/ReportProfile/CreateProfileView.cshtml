@@ -1,0 +1,1251 @@
+﻿@model InformationHub.Model.ReportProfileModel
+@{
+    var dateNow = DateTime.Now;
+    InformationHub.Model.Model.ReportProfile.EvaluationFirstModel evaluationFirstModel = ViewBag.evaluationFirstModel;
+    InformationHub.Model.Model.ReportProfile.CaseVerificationModel caseVerificationModel = ViewBag.caseVerificationModel;
+}
+
+
+<section class="wrapper main-wrapper">
+    <div ui-view="" class="ng-scope">
+        <div class="content-wrapper">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <section class="box ">
+                    <header class="panel_header">
+                        <h2 class="title pull-left">@InformationHub.Resource.Resource.Report_Process</h2>
+                        <div class="actions panel_actions pull-right">
+                            <i class="box_toggle material-icons">expand_more</i>
+                        </div>
+                    </header>
+                    <div class="content-body padding-bottom-10">
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="stepwizard margin-bottom-30 margin-top-10">
+                                    <div class="stepwizard-row setup-panel" id="divStep">
+                                        <div class="stepwizard-step" style="text-align:left;">
+                                            <a href="#step-1" id="stepFirst" type="button" class="btn btn-success">1</a>
+                                            <p>@InformationHub.Resource.Resource.ReportProfile_Status1</p>
+                                        </div>
+                                        <div class="stepwizard-step" style="width:25%">
+                                            <a href="#step-2" type="button" class="btn btn-default ">2</a>
+                                            <p>@InformationHub.Resource.Resource.ReportProfile_Status2</p>
+                                        </div>
+                                        <div class="stepwizard-step" style="width:25%">
+                                            <a href="#step-3" type="button" class="btn btn-default ">3</a>
+                                            <p>@InformationHub.Resource.Resource.ReportProfile_Status3</p>
+                                        </div>
+                                        <div class="stepwizard-step" style="width:25%">
+                                            <a href="#step-4" type="button" class="btn btn-default ">4</a>
+                                            <p>@InformationHub.Resource.Resource.ReportProfile_Status4</p>
+                                        </div>
+                                        <div class="stepwizard-step" style="text-align:right;">
+                                            <a href="#step-5" type="button" class="btn btn-default ">5</a>
+                                            <p>@InformationHub.Resource.Resource.ReportProfile_Status5</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <form role="form" id="form">
+                                    <div class="row setup-content" id="step-1">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <h3> @InformationHub.Resource.Resource.Step01_Title</h3>
+                                            <section class="box">
+                                                <div class="content-body form-validate padding-bottom-10">
+                                                    <div class="row">
+                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                            <div class="card card458">
+                                                                <div class="col-md-12">
+                                                                    <h4 class="card-header">@InformationHub.Resource.Resource.Report_Info</h4>
+                                                                </div>
+                                                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                                                                    <div class="form-group">
+                                                                        <label class="form-label">
+                                                                            @InformationHub.Resource.Resource.Time_Title&nbsp;
+                                                                            <a href="javascript:void(0)" data-toggle="tooltip" data-placement="bottom" title="@InformationHub.Resource.Resource.Report_Example_Time"><span class="badge badge-help">?</span></a>
+                                                                        </label>
+                                                                        <div class="controls">
+                                                                            <input type="text" class="form-control" id="ReceptionTime" maxlength="15" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                                                    <div class="form-group">
+                                                                        <label class="form-label">@InformationHub.Resource.Resource.Label_Date</label><span class="required">*</span>
+                                                                        <div class="controls">
+                                                                            <input type="text" class="form-control datepicker" value="@dateNow.ToString("dd/MM/yyyy")" id="ReceptionDate" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                                                                    <div class="form-group">
+                                                                        <label class="form-label" for="field-1">@InformationHub.Resource.Resource.Report_Level<span class="required">*</span></label>
+                                                                        <select name="SeverityLevel" id="SeverityLevel" class="form-control">
+                                                                            <option value="2">@InformationHub.Resource.Resource.ReportProfile_Hight</option>
+                                                                            <option value="1">@InformationHub.Resource.Resource.ReportProfile_Nomal</option>
+                                                                            <option value="0">@InformationHub.Resource.Resource.ReportProfile_Low</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                                                    <div class="form-group">
+                                                                        <label class="form-label">@InformationHub.Resource.Resource.Report_Used<span class="required">*</span></label>
+                                                                        <select name="InformationSources" id="InformationSources" class="form-control">
+                                                                            <option value="0">@InformationHub.Resource.Resource.Phone_Title</option>
+                                                                            <option value="1">@InformationHub.Resource.Resource.Live_Title</option>
+                                                                            <option value="2">@InformationHub.Resource.Resource.Other_Title</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                                    <div class="form-group">
+                                                                        <label class="form-label">@InformationHub.Resource.Resource.SourceNote_Title</label>
+                                                                        <div class="controls">
+                                                                            <textarea type="text" class="form-control" id="SourceNote">@Model.SourceNote</textarea>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-top-15">
+                                                                    <div class="form-group">
+                                                                        <label class="form-label">@InformationHub.Resource.Resource.ReportProfile_AbuseType<span class="required">*</span></label>
+                                                                        <div class="controls">
+                                                                            <div class="controls">
+                                                                                <div class="checkbox" id="ListAbuseType_Div">
+                                                                                    @Html.Action("GetAllAbuseType", "Combobox", new { type = "1" })
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="divTypeOther" style="display:none">
+                                                                    <div class="form-group">
+                                                                        <label class="form-label">@InformationHub.Resource.Resource.ReportProfile_AbuseType_Input</label><span class="required">*</span>
+                                                                        <div class="controls">
+                                                                            <input type="text" class="form-control" maxlength="500" id="TypeOther" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                                    <div class="form-group">
+                                                                        <label class="form-label">@InformationHub.Resource.Resource.Word_Title</label>
+                                                                        <div class="controls">
+                                                                            <input type="text" class="form-control" id="WordTitle" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="clearfix"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                            <div class="card card458">
+                                                                <div class="col-md-12">
+                                                                    <h4 class="card-header">@InformationHub.Resource.Resource.Report_Info_Child</h4>
+                                                                </div>
+                                                                <div class="clearfix"></div>
+                                                                <div class="col-lg-8 col col-md-8 col-sm-8 col-xs-8">
+                                                                    <div class="form-group">
+                                                                        <label class="form-label">@InformationHub.Resource.Resource.ReportProfile_ChildName<span class="required">*</span></label>
+                                                                        <div class="controls">
+                                                                            <input type="text" class="form-control" id="ChildName" maxlength="300" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                                    <div class="form-group">
+                                                                        <label class="form-label">@InformationHub.Resource.Resource.ReportProfile_Gender<span class="required">*</span></label>
+                                                                        <select name="Gender" id="Gender" class="form-control">
+                                                                            <option value="1">@InformationHub.Resource.Resource.ReportProfile_Male</option>
+                                                                            <option value="2">@InformationHub.Resource.Resource.ReportProfile_FeMale</option>
+                                                                            <option value="0">@InformationHub.Resource.Resource.Unknow_Gender</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-8 col col-md-8 col-sm-8 col-xs-8">
+                                                                    <div class="form-group">
+                                                                        <label class="form-label">@InformationHub.Resource.Resource.Label_Birthday</label>
+                                                                        <div class="controls">
+                                                                            <input type="text" class="form-control datepicker" id="ChildBirthdate" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                                                    <div class="form-group">
+                                                                        <label class="form-label">@InformationHub.Resource.Resource.Label_Age</label>
+                                                                        <div class="controls">
+                                                                            <input type="text" class="form-control" id="Age" maxlength="2" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="clearfix"></div>
+                                                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                                                    <div class="form-group">
+                                                                        <label class="form-label">@InformationHub.Resource.Resource.Area_Province<span class="required">*</span></label>
+                                                                        <div class="controls">
+                                                                            <select class="form-control" id="ProvinceId"></select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                                                    <div class="form-group">
+                                                                        <label class="form-label">@InformationHub.Resource.Resource.Label_District<span class="required">*</span></label>
+                                                                        <select class="form-control" id="DistrictId"></select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                                                    <div class="form-group">
+                                                                        <label class="form-label">@InformationHub.Resource.Resource.Label_Ward<span class="required">*</span></label>
+                                                                        <div class="controls">
+                                                                            <select class="form-control" id="WardId">
+                                                                                @Html.Action("WardByUserId", "Combobox")
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                                    <div class="form-group">
+                                                                        <label class="form-label">
+                                                                            @InformationHub.Resource.Resource.ReportProfile_ReportAddress
+                                                                            <a href="javascript:void(0)" data-toggle="tooltip" data-placement="bottom" title="@InformationHub.Resource.Resource.ReportProfile_Example_ReportAddress"><span class="badge badge-help">?</span></a>
+                                                                        </label>
+                                                                        <div class="controls">
+                                                                            <textarea type="text" class="form-control" id="CaseLocation"></textarea>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                                    <div class="form-group">
+                                                                        <label class="form-label">
+                                                                            @InformationHub.Resource.Resource.SummaryCase_Title
+                                                                        </label>
+                                                                        <div class="controls">
+                                                                            <textarea type="text" rows="5" class="form-control textrelative" readonly id="SummaryCase"></textarea>
+                                                                            <i class="material-icons btnicon icon-absolute" onclick="GetPopupContent('SummaryCase')" style="color:orange">edit</i>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="clearfix"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                            <div class="card card350">
+                                                                <div class="col-md-12">
+                                                                    <h4 class="card-header">@InformationHub.Resource.Resource.Report_Info_Family</h4>
+                                                                </div>
+                                                                <div class="col-lg-5 col-md-4 col-sm-7 col-xs-7">
+                                                                    <div class="form-group">
+                                                                        <label class="form-label">@InformationHub.Resource.Resource.Report_Name_Dad</label>
+                                                                        <div class="controls">
+                                                                            <input type="text" class="form-control " id="FatherName" maxlength="150" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-3 col-md-4 col-sm-5 col-xs-5">
+                                                                    <div class="form-group">
+                                                                        <label class="form-label">@InformationHub.Resource.Resource.YearDate_Title</label>
+                                                                        <div class="controls">
+                                                                            <input type="text" class="form-control " id="FatherAge" maxlength="4" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-4 col-md-4 col-sm-7 col-xs-7">
+                                                                    <div class="form-group">
+                                                                        <label class="form-label">@InformationHub.Resource.Resource.Label_Career</label>
+                                                                        <div class="controls">
+                                                                            <input type="text" class="form-control " id="FatherJob" maxlength="250" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-5 col-md-4 col-sm-5 col-xs-5">
+                                                                    <div class="form-group">
+                                                                        <label class="form-label">@InformationHub.Resource.Resource.Report_Name_Mom</label>
+                                                                        <div class="controls">
+                                                                            <input type="text" class="form-control " id="MotherName" maxlength="150" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-3 col-md-4 col-sm-7 col-xs-7">
+                                                                    <div class="form-group">
+                                                                        <label class="form-label">@InformationHub.Resource.Resource.YearDate_Title</label>
+                                                                        <div class="controls">
+                                                                            <input type="text" class="form-control " id="MotherAge" maxlength="4" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-4 col-md-4 col-sm-5 col-xs-5">
+                                                                    <div class="form-group">
+                                                                        <label class="form-label">@InformationHub.Resource.Resource.Label_Career</label>
+                                                                        <div class="controls">
+                                                                            <input type="text" class="form-control " id="MotherJob" maxlength="250" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                                    <div class="form-group">
+                                                                        <label class="form-label">
+                                                                            @InformationHub.Resource.Resource.Report_Situation_Family
+                                                                            <a href="javascript:void(0)" data-toggle="tooltip" data-placement="bottom" title="@InformationHub.Resource.Resource.Report_Example_Situation_Family"><span class="badge badge-help">?</span></a>
+                                                                        </label>
+                                                                        <div class="controls">
+                                                                            <textarea type="text" class="form-control textrelative" rows="5" readonly id="FamilySituation"></textarea>
+                                                                            <i class="material-icons btnicon icon-absolute" onclick="GetPopupContent('FamilySituation')" style="color:orange">edit</i>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                                    <div class="form-group">
+                                                                        <label class="form-label">
+                                                                            @InformationHub.Resource.Resource.Report_Take_Care
+                                                                            <a href="javascript:void(0)" data-toggle="tooltip" data-placement="bottom" title="@InformationHub.Resource.Resource.Report_Example_TakeCare"><span class="badge badge-help">?</span></a>
+                                                                        </label>
+                                                                        <div class="controls">
+                                                                            <textarea type="text" class="form-control " id="PeopleCare"></textarea>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="clearfix"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                                            <div class="card card350">
+                                                                <div class="col-md-12">
+                                                                    <h4 class="card-header">@InformationHub.Resource.Resource.Report_ConditionLive_Child</h4>
+                                                                </div>
+                                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                                    <div class="form-group">
+                                                                        <label class="form-label">
+                                                                            @InformationHub.Resource.Resource.Report_Now
+                                                                        </label>
+                                                                        <div class="controls">
+                                                                            <textarea type="text" class="form-control textrelative" rows="5" readonly id="CurrentHealth"></textarea>
+                                                                            <i class="material-icons btnicon icon-absolute" onclick="GetPopupContent('CurrentHealth')" style="color:orange">edit</i>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+
+
+                                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                                    <div class="form-group">
+                                                                        <label class="form-label">
+                                                                            @InformationHub.Resource.Resource.Report_Helped
+                                                                            <a href="javascript:void(0)" data-toggle="tooltip" data-placement="bottom" title="@InformationHub.Resource.Resource.Report_Example_Helped"><span class="badge badge-help">?</span></a>
+                                                                        </label>
+                                                                        <div class="controls">
+                                                                            <textarea type="text" rows="5" class="form-control textrelative" readonly id="Support"></textarea>
+                                                                            <i class="material-icons btnicon icon-absolute" onclick="GetPopupContent('Support')" style="color:orange">edit</i>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                                    <div class="form-group">
+                                                                        <label class="form-label">@InformationHub.Resource.Resource.Report_Predict_Result</label>
+                                                                        <div class="controls">
+                                                                            <textarea type="text" rows="5" class="form-control textrelative" readonly id="SequelGuess"></textarea>
+                                                                            <i class="material-icons btnicon icon-absolute" onclick="GetPopupContent('SequelGuess')" style="color:orange">edit</i>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="clearfix"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                                                            <div class="card card275">
+                                                                <div class="col-md-12">
+                                                                    <h4 class="card-header">@InformationHub.Resource.Resource.Report_Info_Reporter</h4>
+                                                                </div>
+                                                                <div class="col-lg-8 col-md-6 col-sm-6 col-xs-6">
+                                                                    <div class="form-group">
+                                                                        <label class="form-label">@InformationHub.Resource.Resource.Label_Name</label>
+                                                                        <div class="controls">
+                                                                            <input type="text" class="form-control " id="ProviderName" maxlength="150" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6">
+                                                                    <div class="form-group">
+                                                                        <label class="form-label">@InformationHub.Resource.Resource.Phone_Title</label>
+                                                                        <div class="controls">
+                                                                            <input type="text" class="form-control " id="ProviderPhone" maxlength="50" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                                    <div class="form-group">
+                                                                        <label class="form-label">@InformationHub.Resource.Resource.ReportProfile_Address</label>
+                                                                        <div class="controls">
+                                                                            <input type="text" class="form-control " id="ProviderAddress" maxlength="500" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                                    <div class="form-group">
+                                                                        <label class="form-label">@InformationHub.Resource.Resource.Label_Note</label>
+                                                                        <div class="controls">
+                                                                            <textarea type="text" class="form-control " id="ProviderNote"></textarea>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="clearfix"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                                                            <div class="card card275">
+                                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                                    <h4 class="card-header">@InformationHub.Resource.Resource.Report_Document &nbsp;<span class="required" style="font-size:15px; text-transform:none;"> @InformationHub.Resource.Resource.Report_Document_Size</span></h4>
+                                                                </div>
+                                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-bottom: 20px">
+                                                                    <table class="table" style="width:100%;">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th width="100px">@InformationHub.Resource.Resource.Funtion_Title</th>
+                                                                                <th>@InformationHub.Resource.Resource.Document_Name</th>
+                                                                                <th width="120px">@InformationHub.Resource.Resource.Label_Size</th>
+                                                                                <th width="120px">@InformationHub.Resource.Resource.Label_Upload_Date</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody id="bodyAttachment"></tbody>
+                                                                    </table>
+                                                                    <div>
+                                                                        <input type="file" id="uploadFileProfile" uploader="uploader" multiple="" style="display:none;">
+                                                                        <button type="button" class="btn btn-success btn-s" onclick="$('#uploadFileProfile').click()">
+                                                                            <span class="glyphicon glyphicon-upload"></span> @InformationHub.Resource.Resource.Label_Choose_File
+                                                                        </button>
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="clearfix"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-md-12 col-sm-12 col-xs-12 text-right">
+                                                            <div class="form-group margin-top-20">
+                                                                <button onclick="Create(false)" type="button" class="btn btn-success btn-icon right10">
+                                                                    <i class="fa fa-save "></i> &nbsp; <span>@InformationHub.Resource.Resource.Save_Title</span>
+                                                                </button>
+                                                                <button onclick="Create(true)" type="button" class="btn btn-accent btn-icon right10">
+                                                                    <i class="fa fa-save "></i> &nbsp; <span>@InformationHub.Resource.Resource.SaveAndContinue_Title</span>
+                                                                </button>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                        </div>
+                                    </div>
+                                    <div class="row setup-content" id="step-2">
+                                        <div class="col-md-12">
+                                            <h3> @InformationHub.Resource.Resource.Step02_Title</h3>
+                                            <div class="row">
+                                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                                    <div class="form-group">
+                                                        <label class="form-label" for="field-1">@InformationHub.Resource.Resource.Report_First_Date_Evaluate</label>
+                                                        <div class="controls">
+                                                            <input type="hidden" class="form-control" />
+                                                            <input type="text" class="form-control datepicker" id="EvPerformingDate" value="@(evaluationFirstModel.PerformingDate != null ? evaluationFirstModel.PerformingDate.Value.ToString("dd/MM/yyyy") : dateNow.ToString("dd/MM/yyyy"))" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                    <label class="control-label">1. @InformationHub.Resource.Resource.Report_Evaluate_1</label>
+                                                </div>
+                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                    <label class="control-label">a) @InformationHub.Resource.Resource.Report_Evaluate_Harm</label>
+                                                    <table class="table table-bordered table-hover" id="table1_tab1">
+                                                        <thead>
+                                                            <tr>
+                                                                <th rowspan="2" width="25%" style="vertical-align:middle;">@InformationHub.Resource.Resource.Report_Evaluate_Harm</th>
+                                                                <th colspan="4" class="text-center">@InformationHub.Resource.Resource.Label_Level</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <th width="10%" class="text-center">@InformationHub.Resource.Resource.ReportProfile_Hight</th>
+                                                                <th width="10%" class="text-center">@InformationHub.Resource.Resource.ReportProfile_Nomal</th>
+                                                                <th width="10%" class="text-center">@InformationHub.Resource.Resource.ReportProfile_Low</th>
+                                                                <th class="text-center">@InformationHub.Resource.Resource.Label_Note</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>1. @InformationHub.Resource.Resource.Report_Evaluate_Harm </td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-danger tooltip">
+                                                                        <span class="tooltiptext2">@InformationHub.Resource.Resource.M02_EvLevelHarmH</span>
+                                                                        <input type="radio" name="EvLevelHarm" value="2">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-primary tooltip">
+                                                                        <span class="tooltiptext2">@InformationHub.Resource.Resource.M02_EvLevelHarmN</span>
+                                                                        <input type="radio" name="EvLevelHarm" value="1">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-info tooltip">
+                                                                        <span class="tooltiptext2">@InformationHub.Resource.Resource.M02_EvLevelHarmL</span>
+                                                                        <input type="radio" name="EvLevelHarm" value="0">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                                <td>
+                                                                    <textarea class="form-control" id="EvLevelHarmNote"></textarea>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>2. @InformationHub.Resource.Resource.Report_Evaluate_Harm_Continue </td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-danger tooltip">
+                                                                        <span class="tooltiptext2">@InformationHub.Resource.Resource.M02_EvLevelHarmContinueH</span>
+                                                                        <input type="radio" name="EvLevelHarmContinue" value="2">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-primary tooltip">
+                                                                        <span class="tooltiptext2">@InformationHub.Resource.Resource.M02_EvLevelHarmContinueN</span>
+                                                                        <input type="radio" name="EvLevelHarmContinue" value="1">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-info tooltip">
+                                                                        <span class="tooltiptext2">@InformationHub.Resource.Resource.M02_EvLevelHarmContinueL</span>
+                                                                        <input type="radio" name="EvLevelHarmContinue" value="0">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                                <td>
+                                                                    <textarea class="form-control" id="EvLevelHarmContinueNote"></textarea>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><b>@InformationHub.Resource.Resource.Total_Title</b></td>
+                                                                <td class="text-center">
+                                                                    <b class="badge badge-danger" id="EvTotalLevelHigh"></b>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <b class="badge badge-primary" id="EvTotalLevelAverage"></b>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <b class="badge badge-info" id="EvTotalLevelLow"></b>
+                                                                </td>
+                                                                <td></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                    <label class="control-label">b) @InformationHub.Resource.Resource.Report_Evaluate_Protect</label>
+                                                    <table class="table table-bordered table-hover" id="table2_tab1">
+                                                        <thead>
+                                                            <tr>
+                                                                <th rowspan="2" width="25%" style="vertical-align:middle;">@InformationHub.Resource.Resource.Report_Evaluate_Protect</th>
+                                                                <th colspan="4" class="text-center">@InformationHub.Resource.Resource.Label_Level</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <th width="10%" class="text-center">@InformationHub.Resource.Resource.ReportProfile_Hight</th>
+                                                                <th width="10%" class="text-center">@InformationHub.Resource.Resource.ReportProfile_Nomal</th>
+                                                                <th width="10%" class="text-center">@InformationHub.Resource.Resource.ReportProfile_Low</th>
+                                                                <th class="text-center">@InformationHub.Resource.Resource.Label_Note</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>1. @InformationHub.Resource.Resource.Report_Protect</td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-danger tooltip">
+                                                                        <span class="tooltiptext2">@InformationHub.Resource.Resource.M02_EvAbilityProtectYourselfH</span>
+                                                                        <input type="radio" name="EvAbilityProtectYourself" value="2">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-primary tooltip">
+                                                                        <span class="tooltiptext2">@InformationHub.Resource.Resource.M02_EvAbilityProtectYourselfN</span>
+                                                                        <input type="radio" name="EvAbilityProtectYourself" value="1">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-info tooltip">
+                                                                        <span class="tooltiptext2">@InformationHub.Resource.Resource.M02_EvAbilityProtectYourselfL</span>
+                                                                        <input type="radio" name="EvAbilityProtectYourself" value="0">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                                <td>
+                                                                    <textarea class="form-control" id="EvAbilityProtectYourselfNote"></textarea>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>2. @InformationHub.Resource.Resource.Report_Ability_Receive_Support </td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-danger tooltip">
+                                                                        <span class="tooltiptext2">@InformationHub.Resource.Resource.M02_EvAbilityReceiveSupportH</span>
+                                                                        <input type="radio" name="EvAbilityReceiveSupport" value="2">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-primary tooltip">
+                                                                        <span class="tooltiptext2">@InformationHub.Resource.Resource.M02_EvAbilityReceiveSupportN</span>
+                                                                        <input type="radio" name="EvAbilityReceiveSupport" value="1">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-info tooltip">
+                                                                        <span class="tooltiptext2">@InformationHub.Resource.Resource.M02_EvAbilityReceiveSupportL</span>
+                                                                        <input type="radio" name="EvAbilityReceiveSupport" value="0">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                                <td>
+                                                                    <textarea class="form-control" id="EvAbilityReceiveSupportNote"></textarea>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><b>@InformationHub.Resource.Resource.Total_Title</b></td>
+                                                                <td class="text-center">
+                                                                    <b class="badge badge-danger" id="EvTotalAbilityHigh"></b>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <b class="badge badge-primary" id="EvTotalAbilityAverage"></b>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <b class="badge badge-info" id="EvTotalAbilityLow"></b>
+                                                                </td>
+                                                                <td></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <label class="control-label">@InformationHub.Resource.Resource.Report_Evaluate_Result </label>
+                                            <textarea class="form-control" id="EvResult" rows="6"></textarea>
+
+                                            <div class="row">
+                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                    <label class="control-label">2. @InformationHub.Resource.Resource.Report_Solution_Protect</label>
+                                                </div>
+                                                <table class="table table-bordered table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>@InformationHub.Resource.Resource.Report_Solution_Protect_Need</th>
+                                                            <th width="37%">@InformationHub.Resource.Resource.Report_Solution_Protect_Service</th>
+                                                            <th width="37%">@InformationHub.Resource.Resource.Report_Solution_Protect_Provider</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>1. @InformationHub.Resource.Resource.Report_Accommodation</td>
+                                                            <td>
+                                                                <textarea class="form-control" id="EvServiceProvideLiving" cols="5">@evaluationFirstModel.ServiceProvideLiving</textarea>
+                                                            </td>
+                                                            <td>
+                                                                <div class="controls margin-bottom-0">
+                                                                    <textarea class="form-control" id="EvUnitProvideLiving" cols="5">@evaluationFirstModel.UnitProvideLiving</textarea>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2. @InformationHub.Resource.Resource.Report_Physique </td>
+                                                            <td>
+                                                                <textarea class="form-control" id="EvServiceProvideCare" cols="5">@evaluationFirstModel.ServiceProvideCare</textarea>
+                                                            </td>
+                                                            <td>
+                                                                <div class="controls margin-bottom-0">
+                                                                    <textarea class="form-control" id="EvUnitProvideCare" cols="5">@evaluationFirstModel.UnitProvideCare</textarea>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-12 text-right margin-top-15">
+                                                    <button class="btn btn-success btn-icon margin-right-10" type="button" onclick="UpdateTab2(false)">
+                                                        <i class="fa fa-save "></i> &nbsp; <span>@InformationHub.Resource.Resource.Save_Title</span>
+                                                    </button>
+
+                                                    <button class="btn btn-accent " type="button" onclick="UpdateTab2(true)">
+                                                        <i class="fa fa-arrow-circle-right"></i> &nbsp; <span>@InformationHub.Resource.Resource.Report_Next_NewProcess</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row setup-content" id="step-3">
+                                        <div class="col-md-12">
+                                            <h3> @InformationHub.Resource.Resource.Step03_Title</h3>
+                                            <div class="row">
+                                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                                    <div class="form-group">
+                                                        <label class="form-label" for="field-1">@InformationHub.Resource.Resource.DateReview_Verify</label>
+                                                        <div class="controls">
+                                                            <input type="hidden" class="form-control" />
+                                                            <input type="text" class="form-control datepicker" id="CaPerformingDate" value="@(caseVerificationModel.PerformingDate != null ? caseVerificationModel.PerformingDate.Value.ToString("dd/MM/yyyy") :dateNow.ToString("dd/MM/yyyy"))" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                                    <div class="form-group">
+                                                        <label class="form-label" for="field-1">@InformationHub.Resource.Resource.PersonReview_Verify</label>
+                                                        <div class="controls">
+                                                            <input type="text" class="form-control" id="CaPerformingBy" value="@(string.IsNullOrEmpty(caseVerificationModel.PerformingBy)? ViewBag.reviewName :caseVerificationModel.PerformingBy)" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <label class="control-label">1. @InformationHub.Resource.Resource.Report_Collect_Information</label>
+                                            <table class="table table-bordered table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th width="50%">@InformationHub.Resource.Resource.Report_Question</th>
+                                                        <th>@InformationHub.Resource.Resource.Report_Answer</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>@InformationHub.Resource.Resource.Report_Status_Child</td>
+                                                        <td>
+                                                            <div class="controls margin-bottom-0">
+                                                                <textarea class="form-control" cols="5" id="CaCondition">@caseVerificationModel.Condition</textarea>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>@InformationHub.Resource.Resource.Report_Situation_Child </td>
+                                                        <td>
+                                                            <div class="controls margin-bottom-0">
+                                                                <textarea class="form-control" cols="5" id="CaFamilySituation">@caseVerificationModel.FamilySituation</textarea>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>@InformationHub.Resource.Resource.Report_Impact_Factors_Child</td>
+                                                        <td>
+                                                            <div class="col-md-6 col-sm-6 col-xs-6 form-group">
+                                                                <label class="form-label" for="field-6">@InformationHub.Resource.Resource.Report_Factor_Positive</label>
+                                                                <div class="controls margin-bottom-0">
+                                                                    <textarea class="form-control" cols="5" id="CaCurrentQualityCareOK">@caseVerificationModel.CurrentQualityCareOK</textarea>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 col-sm-6 col-xs-6 form-group">
+                                                                <label class="form-label" for="field-6">@InformationHub.Resource.Resource.Report_Factor_Negative</label>
+                                                                <div class="controls margin-bottom-0">
+                                                                    <textarea class="form-control" cols="5" id="CaCurrentQualityCareNG">@caseVerificationModel.CurrentQualityCareNG</textarea>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>@InformationHub.Resource.Resource.Report_Care_Future</td>
+                                                        <td>
+                                                            <div class="controls">
+                                                                <textarea class="form-control margin-bottom-0" id="CaPeopleCareFuture" cols="5">@caseVerificationModel.PeopleCareFuture</textarea>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>@InformationHub.Resource.Resource.Report_Factor_Care  </td>
+                                                        <td>
+                                                            <div class="col-md-6 col-sm-6 col-xs-6 form-group">
+                                                                <label class="form-label" for="field-6">@InformationHub.Resource.Resource.Report_Factor_Positive</label>
+                                                                <div class="controls margin-bottom-0">
+                                                                    <textarea class="form-control" cols="5" id="CaFutureQualityCareOK">@caseVerificationModel.FutureQualityCareOK</textarea>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 col-sm-6 col-xs-6 form-group no">
+                                                                <label class="form-label" for="field-6">@InformationHub.Resource.Resource.Report_Factor_Negative</label>
+                                                                <div class="controls margin-bottom-0">
+                                                                    <textarea class="form-control" cols="5" id="CaFutureQualityCareNG">@caseVerificationModel.FutureQualityCareNG</textarea>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+
+                                            <div class="row">
+                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                    <label class="control-label">2. @InformationHub.Resource.Resource.Report_Process_Specific</label>
+                                                </div>
+                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                    <label class="control-label">a) @InformationHub.Resource.Resource.Report_Evaluate_Harm</label>
+                                                    <table class="table table-bordered table-hover" id="table1_tab2">
+                                                        <thead>
+                                                            <tr>
+                                                                <th rowspan="2" width="25%" style="vertical-align:middle;">@InformationHub.Resource.Resource.Report_Evaluate_Harm</th>
+                                                                <th colspan="4" class="text-center">@InformationHub.Resource.Resource.Label_Level</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <th width="10%" class="text-center">@InformationHub.Resource.Resource.ReportProfile_Hight</th>
+                                                                <th width="10%" class="text-center">@InformationHub.Resource.Resource.ReportProfile_Nomal</th>
+                                                                <th width="10%" class="text-center">@InformationHub.Resource.Resource.ReportProfile_Low</th>
+                                                                <th>@InformationHub.Resource.Resource.Label_Note</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>1. @InformationHub.Resource.Resource.Report_Evaluate_Harm_Child </td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-danger tooltip">
+                                                                        <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaLevelHarmH</span>
+                                                                        <input type="radio" value="2" name="CaLevelHarm">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-primary tooltip">
+                                                                        <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaLevelHarmN</span>
+                                                                        <input type="radio" value="1" name="CaLevelHarm">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-info tooltip">
+                                                                        <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaLevelHarmL</span>
+                                                                        <input type="radio" value="0" name="CaLevelHarm">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                                <td>
+                                                                    <textarea class="form-control" id="CaLevelHarmNote"></textarea>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>2. @InformationHub.Resource.Resource.Report_Attack_Child_Future</td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-danger tooltip">
+                                                                        <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaLevelApproachH</span>
+                                                                        <input type="radio" value="2" name="CaLevelApproach">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-primary tooltip">
+                                                                        <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaLevelApproachN</span>
+                                                                        <input type="radio" value="1" name="CaLevelApproach">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-info tooltip">
+                                                                        <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaLevelApproachL</span>
+                                                                        <input type="radio" value="0" name="CaLevelApproach">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                                <td>
+                                                                    <textarea class="form-control" id="CaLevelApproachNote"></textarea>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>3. @InformationHub.Resource.Resource.Report_Attack_Result </td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-danger tooltip">
+                                                                        <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaLevelDevelopmentEffectH</span>
+                                                                        <input type="radio" value="2" name="CaLevelDevelopmentEffect">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-primary tooltip">
+                                                                        <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaLevelDevelopmentEffectN</span>
+                                                                        <input type="radio" value="1" name="CaLevelDevelopmentEffect">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-info tooltip">
+                                                                        <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaLevelDevelopmentEffectL</span>
+                                                                        <input type="radio" value="0" name="CaLevelDevelopmentEffect">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                                <td>
+                                                                    <textarea class="form-control" id="CaLevelDevelopmentEffectNote"></textarea>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>4. @InformationHub.Resource.Resource.Report_Difficult_Care_Child </td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-danger tooltip">
+                                                                        <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaLevelCareObstacleH</span>
+                                                                        <input type="radio" value="2" name="CaLevelCareObstacle">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-primary tooltip">
+                                                                        <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaLevelCareObstacleN</span>
+                                                                        <input type="radio" value="1" name="CaLevelCareObstacle">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-info tooltip">
+                                                                        <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaLevelCareObstacleL</span>
+                                                                        <input type="radio" value="0" name="CaLevelCareObstacle">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                                <td>
+                                                                    <textarea class="form-control" id="CaLevelCareObstacleNote"></textarea>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    5. @InformationHub.Resource.Resource.Report_Unable_Care_Child
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-danger tooltip">
+                                                                        <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaLevelNoGuardianH</span>
+                                                                        <input type="radio" value="2" name="CaLevelNoGuardian">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-primary tooltip">
+                                                                        <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaLevelNoGuardianN</span>
+                                                                        <input type="radio" value="1" name="CaLevelNoGuardian">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-info tooltip">
+                                                                        <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaLevelNoGuardianL</span>
+                                                                        <input type="radio" value="0" name="CaLevelNoGuardian">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                                <td>
+                                                                    <textarea class="form-control" id="CaLevelNoGuardianNote"></textarea>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><b>@InformationHub.Resource.Resource.Total_Title</b></td>
+                                                                <td class="text-center">
+                                                                    <b class="badge badge-danger" id="CaTotalLevelHigh"></b>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <b class="badge badge-primary" id="CaTotalLevelAverage"></b>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <b class="badge badge-info" id="CaTotalLevelLow"></b>
+                                                                </td>
+                                                                <td></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                    <label class="control-label">b) @InformationHub.Resource.Resource.Report_Evaluate_Protect</label>
+                                                    <table class="table table-bordered table-hover" id="table2_tab2">
+                                                        <thead>
+                                                            <tr>
+                                                                <th rowspan="2" width="25%" style="vertical-align:middle;">@InformationHub.Resource.Resource.Report_Evaluate_Protect</th>
+                                                                <th colspan="4" class="text-center">@InformationHub.Resource.Resource.Label_Level</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <th width="10%" class="text-center">@InformationHub.Resource.Resource.ReportProfile_Hight</th>
+                                                                <th width="10%" class="text-center">@InformationHub.Resource.Resource.ReportProfile_Nomal</th>
+                                                                <th width="10%" class="text-center">@InformationHub.Resource.Resource.ReportProfile_Low</th>
+                                                                <th>@InformationHub.Resource.Resource.Label_Note</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>1. @InformationHub.Resource.Resource.Report_Child_Protect  </td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-danger tooltip">
+                                                                        <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaAbilityProtectYourselfH</span>
+                                                                        <input type="radio" value="2" name="CaAbilityProtectYourself">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-primary tooltip">
+                                                                        <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaAbilityProtectYourselfN</span>
+                                                                        <input type="radio" value="1" name="CaAbilityProtectYourself">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-info tooltip">
+                                                                        <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaAbilityProtectYourselfL</span>
+                                                                        <input type="radio" value="0" name="CaAbilityProtectYourself">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                                <td>
+                                                                    <textarea class="form-control" id="CaAbilityProtectYourselfNote"></textarea>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    2. @InformationHub.Resource.Resource.Report_Child_Know_Protecter
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-danger tooltip">
+                                                                        <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaAbilityKnowGuardH</span>
+                                                                        <input type="radio" value="2" name="CaAbilityKnowGuard">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-primary tooltip">
+                                                                        <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaAbilityKnowGuardN</span>
+                                                                        <input type="radio" value="1" name="CaAbilityKnowGuard">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-info tooltip">
+                                                                        <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaAbilityKnowGuardL</span>
+                                                                        <input type="radio" value="0" name="CaAbilityKnowGuard">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                                <td>
+                                                                    <textarea class="form-control" id="CaAbilityKnowGuardNote"></textarea>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    3. @InformationHub.Resource.Resource.Report_Child_Create_Relationship
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-danger tooltip">
+                                                                        <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaAbilityEstablishRelationshipH</span>
+                                                                        <input type="radio" value="2" name="CaAbilityEstablishRelationship">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-primary tooltip">
+                                                                        <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaAbilityEstablishRelationshipN</span>
+                                                                        <input type="radio" value="1" name="CaAbilityEstablishRelationship">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-info tooltip">
+                                                                        <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaAbilityEstablishRelationshipL</span>
+                                                                        <input type="radio" value="0" name="CaAbilityEstablishRelationship">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                                <td>
+                                                                    <textarea class="form-control" id="CaAbilityEstablishRelationshipNote"></textarea>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>4. @InformationHub.Resource.Resource.Report_Child_Ask_Protecter  </td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-danger tooltip">
+                                                                        <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaAbilityRelyGuardH</span>
+                                                                        <input type="radio" value="2" name="CaAbilityRelyGuard">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-primary tooltip">
+                                                                        <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaAbilityRelyGuardN</span>
+                                                                        <input type="radio" value="1" name="CaAbilityRelyGuard">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-info tooltip">
+                                                                        <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaAbilityRelyGuardL</span>
+                                                                        <input type="radio" value="0" name="CaAbilityRelyGuard">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                                <td>
+                                                                    <textarea class="form-control" id="CaAbilityRelyGuardNote"></textarea>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>5. @InformationHub.Resource.Resource.Report_Other_Care_Child </td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-danger tooltip">
+                                                                        <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaAbilityHelpOthersH</span>
+                                                                        <input type="radio" value="2" name="CaAbilityHelpOthers">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-primary tooltip">
+                                                                        <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaAbilityHelpOthersN</span>
+                                                                        <input type="radio" value="1" name="CaAbilityHelpOthers">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-info tooltip">
+                                                                        <span class="tooltiptext2">@InformationHub.Resource.Resource.M03_CaAbilityHelpOthersL</span>
+                                                                        <input type="radio" value="0" name="CaAbilityHelpOthers">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                                <td>
+                                                                    <textarea class="form-control" id="CaAbilityHelpOthersNote"></textarea>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><b>@InformationHub.Resource.Resource.Total_Title</b></td>
+                                                                <td class="text-center">
+                                                                    <b class="badge badge-danger" id="CaTotalAbilityHigh"></b>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <b class="badge badge-primary" id="CaTotalAbilityAverage"></b>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <b class="badge badge-info" id="CaTotalAbilityLow"></b>
+                                                                </td>
+                                                                <td></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <label class="control-label">3. @InformationHub.Resource.Resource.Report_Conclusion_Risk</label>
+                                            <textarea class="form-control" id="CaResult" rows="6"></textarea>
+                                            <div class="row">
+                                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                                    <div class="form-group">
+                                                        <label class="form-label" for="field-1">4. @InformationHub.Resource.Resource.Report_Problems_Child</label>
+                                                        <div class="controls">
+                                                            <textarea class="form-control" cols="5" id="CaProblemIdentify">@caseVerificationModel.ProblemIdentify</textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                                    <div class="form-group">
+                                                        <label class="form-label" for="field-1">5. @InformationHub.Resource.Resource.Report_Idea_Child</label>
+                                                        <div class="controls">
+                                                            <textarea class="form-control" cols="5" id="CaChildAspiration">@caseVerificationModel.ChildAspiration</textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                                    <div class="form-group">
+                                                        <label class="form-label" for="field-1">6. @InformationHub.Resource.Resource.Report_Idea_Carer</label>
+                                                        <div class="controls">
+                                                            <textarea class="form-control" cols="5" id="CaFamilyAspiration">@caseVerificationModel.FamilyAspiration</textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                                    <div class="form-group">
+                                                        <label class="form-label" for="field-1">7. @InformationHub.Resource.Resource.Report_Child_Need</label>
+                                                        <div class="controls">
+                                                            <textarea class="form-control" cols="5" id="CaServiceNeeds">@caseVerificationModel.ServiceNeeds</textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <label class="control-label">8. @InformationHub.Resource.Resource.KeyCaExtend</label>
+                                            <textarea class="form-control" id="CaExtend" rows="6"></textarea>
+                                            <div class="row">
+                                                <div class="col-lg-12 text-right margin-top-15">
+                                                    <button class="btn btn-success btn-icon margin-right-10" type="button" onclick="UpdateTab3(false)">
+                                                        <i class="fa fa-save "></i> &nbsp; <span>@InformationHub.Resource.Resource.Save_Title</span>
+                                                    </button>
+
+                                                    <button class="btn btn-accent " type="button" onclick="UpdateTab3(true)">
+                                                        <i class="fa fa-arrow-circle-right"></i> &nbsp; <span>@InformationHub.Resource.Resource.Report_Next_NewProcess</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row setup-content" id="step-4">
+                                        <div class="col-md-12">
+                                            <h3> @InformationHub.Resource.Resource.Step04_Title</h3>
+                                            <div class="row">
+                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                    <a href="javascript:void(0)" class="text-danger bold" onclick="GenStep4View('-1')"><i class="material-icons">add_to_photos</i> @InformationHub.Resource.Resource.Add_Plant</a>
+                                                </div>
+                                            </div>
+                                            <div class="row" id="title-data-step4">
+                                                @Html.Action("GenTitleStep4View", "ReportProfile", new { reportProfileId = Model.Id })
+                                            </div>
+                                            <div id="data-step4">
+                                                @Html.Action("GenStep4View", "ReportProfile", new { id = "", reportProfileId = Model.Id })
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-lg-12 text-right margin-top-15">
+                                                    <button class="btn btn-success btn-icon margin-right-10" type="button" onclick="UpdateTab4(false)">
+                                                        <i class="fa fa-save "></i> &nbsp; <span>@InformationHub.Resource.Resource.Save_Title</span>
+                                                    </button>
+
+                                                    <button class="btn btn-accent " type="button" onclick="UpdateTab4(true)">
+                                                        <i class="fa fa-arrow-circle-right"></i> &nbsp; <span>@InformationHub.Resource.Resource.Report_Next_NewProcess</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row setup-content" id="step-5">
+                                        <div class="col-md-12">
+                                            <h3> @InformationHub.Resource.Resource.Step06_Title</h3>
+                                            <div class="row">
+                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                    <a href="javascript:void(0)" class="text-danger bold" onclick="GenStep5View('-1')"><i class="material-icons">add_to_photos</i> @InformationHub.Resource.Resource.Report_More_Follow</a>
+                                                </div>
+                                            </div>
+                                            <div class="row" id="title-data-step5">
+                                                @Html.Action("GenTitleStep5View", "ReportProfile", new { reportProfileId = Model.Id })
+                                            </div>
+
+                                            <div id="data-step5">
+                                                @Html.Action("GenStep5View", "ReportProfile", new { id = "", reportProfileId = Model.Id })
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12 col-sm-12 col-xs-12 text-right">
+                                                    <div class="form-group margin-top-20">
+                                                        <button class="btn btn-success btn-icon margin-right-10" type="button" onclick=" UpdateTab5()">
+                                                            <i class="fa fa-save "></i> &nbsp; <span>@InformationHub.Resource.Resource.Save_Title</span>
+                                                        </button>
+                                                        <button class="btn btn-warning " type="button" onclick=" GoBackTab4()">
+                                                            <i class="material-icons btnicon">reply_all</i> &nbsp; <span>@InformationHub.Resource.Resource.GoBack_Plant</span>
+                                                        </button>
+                                                        <button class="btn btn-danger " type="button" onclick="FinishReport()">
+                                                            <i class="fa fa-check-circle" aria-hidden="true"></i> &nbsp; <span>@InformationHub.Resource.Resource.ReportProfile_Close</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+<div id="contentView"></div>
+<textarea hidden id="idlistFile"></textarea>
+<textarea hidden id="idlistFileSup"></textarea>
+<script src="~/ScriptControllers/CreateProfileControllers.js"></script>
+<script src="~/ScriptControllers/EvaluationFirstProcessControllers.js"></script>

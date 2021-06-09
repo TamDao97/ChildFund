@@ -1,0 +1,1509 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="wrapper main-wrapper">
+    <div ui-view="" class="ng-scope">
+        <div class="content-wrapper">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <section class="box ">
+                    <header class="panel_header">
+                        <h2 class="title pull-left">Tiến độ xử lý trường hợp</h2>
+                        <div class="actions panel_actions pull-right">
+                            <i class="box_toggle material-icons">expand_more</i>
+                        </div>
+                    </header>
+                    <div class="content-body padding-bottom-10">
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="stepwizard margin-bottom-30 margin-top-10">
+                                    <div class="stepwizard-row setup-panel">
+                                        <div class="stepwizard-step" style="text-align:left;">
+                                            <a href="#step-1" type="button" class="btn btn-success">1</a>
+                                            <p>Chưa xử lý</p>
+                                        </div>
+                                        <div class="stepwizard-step" style="width:25%">
+                                            <a href="#step-2" type="button" class="btn btn-default disabled">2</a>
+                                            <p>Đang điều tra xác minh</p>
+                                        </div>
+                                        <div class="stepwizard-step" style="width:25%">
+                                            <a href="#step-3" type="button" class="btn btn-default disabled">3</a>
+                                            <p>Đã xử lý</p>
+                                        </div>
+                                        <div class="stepwizard-step" style="width:25%">
+                                            <a href="#step-4" type="button" class="btn btn-default disabled">4</a>
+                                            <p>Cần theo dõi thêm</p>
+                                        </div>
+                                        <div class="stepwizard-step" style="text-align:right;">
+                                            <a href="#step-5" type="button" class="btn btn-default disabled">5</a>
+                                            <p>Đóng trường hợp</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <form role="form" id="form">
+                                    <div class="row setup-content" id="step-1">
+                                        <div class="col-md-12">
+                                            <h3> Bươc 1: Hồ sơ chưa xử lý</h3>
+                                            <div class="row margin-top-15">
+                                                <div class="col-md-12">
+                                                    <h4 class="margin-bottom-5 bold text-success">1. Nguồn nhận thông tin</h4>
+                                                </div>
+                                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                                    <div class="form-group">
+                                                        <label class="form-label" for="field-1">Thông qua</label>
+                                                        <div class="controls">
+                                                            <label class="icheck icheck-primary">
+                                                                <input type="radio" value="">
+                                                                <i></i> Điện thoại
+                                                            </label>&nbsp;
+                                                            <label class="icheck icheck-accent">
+                                                                <input type="radio" value="">
+                                                                <i></i> Gặp trực tiếp
+                                                            </label>&nbsp;
+                                                            <label class="icheck icheck-danger">
+                                                                <input type="radio" value="">
+                                                                <i></i> Người khác báo
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2 col-sm-2 col-xs-2">
+                                                    <div class="form-group">
+                                                        <label class="form-label" for="field-1">Thời gian</label>
+                                                        <div class="controls">
+                                                            <input type="text" class="form-control" id="field-1">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2 col-sm-2 col-xs-2">
+                                                    <div class="form-group">
+                                                        <label class="form-label" for="field-1">Ngày</label>
+                                                        <div class="controls">
+                                                            <div class="input-group" inputgroup="">
+                                                                <input type="date" class="form-control datepicker ng-pristine ng-valid ng-isolate-scope ng-valid-required ng-touched" uib-datepicker-popup="" ng-model="dt" is-open="dtpick.opened2" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" required="required"><!-- ngIf: isOpen -->
+                                                                <span class="input-group-addon" ng-click="open($event,'opened2')"><i class="fa fa-calendar" style="color: #999;"></i></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <h4 class="margin-bottom-5 bold text-success">2. Thông tin trẻ em bị xâm hại</h4>
+                                                </div>
+                                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                                    <div class="form-group">
+                                                        <label class="form-label" for="field-1">Loại hình xâm hại</label>
+
+                                                        <div class="controls">
+                                                            <select class="form-control ">
+                                                                <option value="Default Select">-----Chọn-----</option>
+                                                                <option value="Option 1">Option 1</option>
+                                                                <option value="Option 2">Option 2</option>
+                                                                <option value="Option 3">Option 3</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                                    <div class="form-group">
+                                                        <label class="form-label" for="field-1">Họ tên trẻ em</label>
+
+                                                        <div class="controls">
+                                                            <input type="text" class="form-control" id="field-1">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2 col-sm-2 col-xs-2">
+                                                    <div class="form-group">
+                                                        <label class="form-label" for="field-1">Ngày tháng năm sinh</label>
+
+                                                        <div class="controls">
+                                                            <input type="text" class="form-control" id="field-1">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2 col-sm-2 col-xs-2">
+                                                    <div class="form-group">
+                                                        <label class="form-label" for="field-1">Tuổi uớc lượng</label>
+
+                                                        <div class="controls">
+                                                            <input type="text" class="form-control" id="field-1">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                                    <div class="form-group">
+                                                        <label class="form-label" for="field-1">Giới tính</label>
+
+                                                        <div class="controls">
+                                                            <label class="icheck icheck-primary">
+                                                                <input type="radio" value="">
+                                                                <i></i> Nam
+                                                            </label>&nbsp;
+                                                            <label class="icheck icheck-accent">
+                                                                <input type="radio" value="">
+                                                                <i></i> Nữ
+                                                            </label>&nbsp;
+                                                            <label class="icheck icheck-danger">
+                                                                <input type="radio" value="">
+                                                                <i></i> Không biết
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2 col-sm-2 col-xs-2">
+                                                    <div class="form-group">
+                                                        <label class="form-label" for="field-1">Tỉnh/Huyện</label>
+
+                                                        <div class="controls">
+                                                            <select class="form-control ">
+                                                                <option value="Default Select">-----Chọn-----</option>
+                                                                <option value="Option 1">Option 1</option>
+                                                                <option value="Option 2">Option 2</option>
+                                                                <option value="Option 3">Option 3</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-2 col-sm-2 col-xs-2">
+                                                    <div class="form-group">
+                                                        <label class="form-label" for="field-1">Quận/Huyện</label>
+
+                                                        <div class="controls">
+                                                            <select class="form-control ">
+                                                                <option value="Default Select">-----Chọn-----</option>
+                                                                <option value="Option 1">Option 1</option>
+                                                                <option value="Option 2">Option 2</option>
+                                                                <option value="Option 3">Option 3</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-2 col-sm-2 col-xs-2">
+                                                    <div class="form-group">
+                                                        <label class="form-label" for="field-1">Xã/Phường</label>
+
+                                                        <div class="controls">
+                                                            <select class="form-control ">
+                                                                <option value="Default Select">-----Chọn-----</option>
+                                                                <option value="Option 1">Option 1</option>
+                                                                <option value="Option 2">Option 2</option>
+                                                                <option value="Option 3">Option 3</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2 col-sm-2 col-xs-2">
+                                                    <div class="form-group">
+                                                        <label class="form-label" for="field-1">Địa điểm xảy ra vụ việc</label>
+
+                                                        <div class="controls">
+                                                            <input type="text" class="form-control" id="field-1">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                                    <div class="form-group">
+                                                        <label class="form-label" for="field-1">Tình trạng hiện tại của trẻ</label>
+
+                                                        <div class="controls">
+                                                            <input type="text" class="form-control" id="field-1">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-8 col-sm-8 col-xs-8">
+                                                    <div class="form-group">
+                                                        <label class="form-label" for="field-1">Phỏng đoán hậu quả của trẻ khi không có sự can thiệp</label>
+
+                                                        <div class="controls">
+                                                            <input type="text" class="form-control" id="field-1">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                                    <div class="form-group">
+                                                        <label class="form-label" for="field-1">Họ tên cha</label>
+                                                        <div class="controls">
+                                                            <input type="text" class="form-control" id="field-1">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-1 col-sm-1 col-xs-1">
+                                                    <div class="form-group">
+                                                        <label class="form-label" for="field-1">Tuổi</label>
+                                                        <div class="controls">
+                                                            <input type="text" class="form-control" id="field-1">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2 col-sm-2 col-xs-2">
+                                                    <div class="form-group">
+                                                        <label class="form-label" for="field-1">Nghề nghiệp</label>
+                                                        <div class="controls">
+                                                            <select class="form-control ">
+                                                                <option value="Default Select">-----Chọn-----</option>
+                                                                <option value="Option 1">Option 1</option>
+                                                                <option value="Option 2">Option 2</option>
+                                                                <option value="Option 3">Option 3</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                                    <div class="form-group">
+                                                        <label class="form-label" for="field-1">Họ tên mẹ</label>
+                                                        <div class="controls">
+                                                            <input type="text" class="form-control" id="field-1">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-1 col-sm-1 col-xs-1">
+                                                    <div class="form-group">
+                                                        <label class="form-label" for="field-1">Tuổi</label>
+                                                        <div class="controls">
+                                                            <input type="text" class="form-control" id="field-1">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2 col-sm-2 col-xs-2">
+                                                    <div class="form-group">
+                                                        <label class="form-label" for="field-1">Nghề nghiệp</label>
+                                                        <div class="controls">
+                                                            <select class="form-control ">
+                                                                <option value="Default Select">-----Chọn-----</option>
+                                                                <option value="Option 1">Option 1</option>
+                                                                <option value="Option 2">Option 2</option>
+                                                                <option value="Option 3">Option 3</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                                    <div class="form-group">
+                                                        <label class="form-label" for="field-1">Hoàn cảnh gia đình</label>
+                                                        <div class="controls">
+                                                            <input type="text" class="form-control" id="field-1">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                                    <div class="form-group">
+                                                        <label class="form-label" for="field-1">Hiện tại ai là người chăm sóc trẻ em</label>
+                                                        <div class="controls">
+                                                            <input type="text" class="form-control" id="field-1">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                                    <div class="form-group">
+                                                        <label class="form-label" for="field-1">Hỗ trợ, can thiệp đã được thực hiện trước khi nhận được thông báo</label>
+                                                        <div class="controls">
+                                                            <input type="text" class="form-control" id="field-1">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row margin-top-15">
+                                                <div class="col-md-12">
+                                                    <h4 class="margin-bottom-5 bold text-success">3. Thông tin về người báo cáo trường hợp</h4>
+                                                </div>
+                                                <div class="col-md-2 col-sm-2 col-xs-2">
+                                                    <div class="form-group">
+                                                        <label class="form-label" for="field-1">Họ và tên</label>
+                                                        <div class="controls">
+                                                            <input type="text" class="form-control" id="field-1">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2 col-sm-2 col-xs-2">
+                                                    <div class="form-group">
+                                                        <label class="form-label" for="field-1">Số điện thoại</label>
+                                                        <div class="controls">
+                                                            <input type="text" class="form-control" id="field-1">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                                    <div class="form-group">
+                                                        <label class="form-label" for="field-1">Địa chỉ</label>
+                                                        <div class="controls">
+                                                            <input type="text" class="form-control" id="field-1">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                                    <div class="form-group">
+                                                        <label class="form-label" for="field-1">Ghi chú thêm</label>
+                                                        <div class="controls">
+                                                            <input type="text" class="form-control" id="field-1">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row margin-top-15">
+                                                <div class="col-md-12">
+                                                    <h4 class="margin-bottom-5 bold text-success">4. Tài liệu liên quan</h4>
+                                                </div>
+                                                <div class="col-md-12" style="margin-bottom: 20px">
+                                                    <table class="table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th></th>
+                                                                <th width="50%">Tên tài liệu</th>
+                                                                <th ng-show="uploader.isHTML5" class="">Size</th>
+                                                                <th ng-show="uploader.isHTML5" class="">Ngày upload</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td width="40px">
+                                                                    <label class="icheck icheck-accent">
+                                                                        <input type="checkbox" value="" checked="">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                                <td width="50%">Ảnh_xâm_hại_trẻ_2018-11-12.jpg</td>
+                                                                <td ng-show="uploader.isHTML5" class="">20okb</td>
+                                                                <td ng-show="uploader.isHTML5" class="">12/11/2018</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                    <div>
+                                                        <button type="button" class="btn btn-success btn-s" ng-click="uploader.uploadAll()">
+                                                            <span class="glyphicon glyphicon-upload"></span> Upload
+                                                        </button>
+                                                        <button type="button" class="btn btn-danger btn-s" ng-click="uploader.clearQueue()">
+                                                            <span class="glyphicon glyphicon-trash"></span> Remove
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12 col-sm-12 col-xs-12 text-right">
+                                                    <div class="form-group margin-top-20">
+                                                        <button class="btn btn-success btn-icon margin-right-10">
+                                                            <i class="fa fa-save "></i> &nbsp; <span>Lưu</span>
+                                                        </button>
+                                                        <button class="btn btn-info nextBtn" type="button">
+                                                            <i class="fa fa-arrow-circle-right"></i> &nbsp; <span>Sang xử lý mới</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="row setup-content" id="step-2">
+                                        <div class="col-md-12">
+                                            <h3> Bước 2: Đang điều tra xác minh</h3>
+                                            <div class="row">
+                                                <div id="content">
+                                                    <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+                                                        <li class="active"><a href="#orange" data-toggle="tab">Đánh giá nguy cơ ban đầu, thực hiện biện pháp an toàn tạm thời</a></li>
+                                                        <li><a href="#red" data-toggle="tab">Thu thập thông tin, xác minh, đánh giá nguy cơ cụ thể</a></li>
+                                                        <li><a href="#yellow" data-toggle="tab">Kế hoạch hỗ trợ, can thiệp</a></li>
+                                                    </ul>
+                                                    <div id="my-tab-content" class="tab-content">
+                                                        <div class="tab-pane active" id="orange">
+                                                            <div class="row">
+                                                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                                                    <div class="form-group">
+                                                                        <label class="form-label" for="field-1">Ngày tiến hành đánh giá</label>
+                                                                        <div class="controls">
+                                                                            <div class="input-group" inputgroup="">
+                                                                                <input type="date" class="form-control datepicker ng-pristine ng-valid ng-isolate-scope ng-valid-required ng-touched" uib-datepicker-popup="" ng-model="dt" is-open="dtpick.opened2" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" required="required"><!-- ngIf: isOpen -->
+                                                                                <span class="input-group-addon" ng-click="open($event,'opened2')"><i class="fa fa-calendar" style="color: #999;"></i></span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                                    <label class="control-label">1. Đánh giá nguy cơ sơ bộ</label>
+                                                                </div>
+                                                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                                                    <label class="control-label">a) Đánh giá mức độ tổn hại</label>
+                                                                    <table class="table table-bordered table-hover">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th rowspan="2" style="vertical-align:middle;">Đánh giá mức độ tổn hại</th>
+                                                                                <th colspan="3" class="text-center">Mức độ</th>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <th width="15%" class="text-center">Cao</th>
+                                                                                <th width="15%" class="text-center">Trung bình</th>
+                                                                                <th width="15%" class="text-center">Thấp</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td>1. Mức độ tổn hại của trẻ </td>
+                                                                                <td class="text-center">
+                                                                                    <label class="icheck icheck-danger">
+                                                                                        <input type="radio" value="">
+                                                                                        <i></i>
+                                                                                    </label>
+                                                                                </td>
+                                                                                <td class="text-center">
+                                                                                    <label class="icheck icheck-primary">
+                                                                                        <input type="radio" value="">
+                                                                                        <i></i>
+                                                                                    </label>
+                                                                                </td>
+                                                                                <td class="text-center">
+                                                                                    <label class="icheck icheck-info">
+                                                                                        <input type="radio" value="">
+                                                                                        <i></i>
+                                                                                    </label>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>2. Nguy cơ trẻ em tiếp tục bị tổn hại nếu ở trong tình trạng hiện tại </td>
+                                                                                <td class="text-center">
+                                                                                    <label class="icheck icheck-danger">
+                                                                                        <input type="radio" value="">
+                                                                                        <i></i>
+                                                                                    </label>
+                                                                                </td>
+                                                                                <td class="text-center">
+                                                                                    <label class="icheck icheck-primary">
+                                                                                        <input type="radio" value="">
+                                                                                        <i></i>
+                                                                                    </label>
+                                                                                </td>
+                                                                                <td class="text-center">
+                                                                                    <label class="icheck icheck-info">
+                                                                                        <input type="radio" value="">
+                                                                                        <i></i>
+                                                                                    </label>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td><b>Tổng số</b></td>
+                                                                                <td class="text-center">
+                                                                                    <b class="badge badge-danger">1</b>
+                                                                                </td>
+                                                                                <td class="text-center">
+                                                                                    <b class="badge badge-primary">2</b>
+                                                                                </td>
+                                                                                <td class="text-center">
+                                                                                    <b class="badge badge-info">1</b>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                                                    <label class="control-label">b) Đánh giá khả năng tự bảo vệ, phục hồi của trẻ em</label>
+                                                                    <table class="table table-bordered table-hover">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th rowspan="2" style="vertical-align:middle;">Đánh giá khả năng tự bảo vệ, phục hồi của trẻ em</th>
+                                                                                <th colspan="3" class="text-center">Mức độ</th>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <th width="15%" class="text-center">Cao</th>
+                                                                                <th width="15%" class="text-center">Trung bình</th>
+                                                                                <th width="15%" class="text-center">Thấp</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td>1. Khả năng tự bảo vệ của trẻ em trước các tổn hại</td>
+                                                                                <td class="text-center">
+                                                                                    <label class="icheck icheck-danger">
+                                                                                        <input type="radio" value="">
+                                                                                        <i></i>
+                                                                                    </label>
+                                                                                </td>
+                                                                                <td class="text-center">
+                                                                                    <label class="icheck icheck-primary">
+                                                                                        <input type="radio" value="">
+                                                                                        <i></i>
+                                                                                    </label>
+                                                                                </td>
+                                                                                <td class="text-center">
+                                                                                    <label class="icheck icheck-info">
+                                                                                        <input type="radio" value="">
+                                                                                        <i></i>
+                                                                                    </label>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>2. Khả năng của trẻ em trong việc tiếp nhận sự hỗ trợ, bảo vệ của người lớn </td>
+                                                                                <td class="text-center">
+                                                                                    <label class="icheck icheck-danger">
+                                                                                        <input type="radio" value="">
+                                                                                        <i></i>
+                                                                                    </label>
+                                                                                </td>
+                                                                                <td class="text-center">
+                                                                                    <label class="icheck icheck-primary">
+                                                                                        <input type="radio" value="">
+                                                                                        <i></i>
+                                                                                    </label>
+                                                                                </td>
+                                                                                <td class="text-center">
+                                                                                    <label class="icheck icheck-info">
+                                                                                        <input type="radio" value="">
+                                                                                        <i></i>
+                                                                                    </label>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td><b>Tổng số</b></td>
+                                                                                <td class="text-center">
+                                                                                    <b class="badge badge-danger">1</b>
+                                                                                </td>
+                                                                                <td class="text-center">
+                                                                                    <b class="badge badge-primary">2</b>
+                                                                                </td>
+                                                                                <td class="text-center">
+                                                                                    <b class="badge badge-info">1</b>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                            <label class="control-label">Kết luận về tình trạng của trẻ em </label>
+                                                            <div class="radio">
+                                                                <label class="icheck icheck-danger">
+                                                                    <input type="radio" value="">
+                                                                    <i></i> Trẻ em cần được bảo vệ khẩn cấp.
+                                                                </label>
+                                                            </div>
+                                                            <div class="radio">
+                                                                <label class="icheck icheck-warning">
+                                                                    <input type="radio" value="">
+                                                                    <i></i> Trẻ em cần được áp dụng kế hoạch hỗ trợ, can thiệp
+                                                                </label>
+                                                            </div>
+                                                            <div class="radio">
+                                                                <label class="icheck icheck-success">
+                                                                    <input type="radio" value="">
+                                                                    <i></i> Trẻ em cần được tiếp tục theo dõi
+                                                                </label>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                                    <label class="control-label">2. Các biện pháp can thiệp khẩn cấp nhằm đảm bảo nhu cầu an toàn tạm thời cho trẻ em</label>
+                                                                </div>
+                                                                <table class="table table-bordered table-hover">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th width="25%">Nhu cầu về an toàn của trẻ em</th>
+                                                                            <th width="25%">Dịch vụ cung cấp</th>
+                                                                            <th>Đơn vị cung cấp dịch vụ </th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>1. Chỗ ở và các điều kiện sinh hoạt</td>
+                                                                            <td>
+                                                                                <p>- Nơi chăm sóc tạm thời</p>
+                                                                                <p>- Thức ăn </p>
+                                                                                <p>- Quần áo </p>
+                                                                            </td>
+                                                                            <td>
+                                                                                <div class="controls margin-bottom-0">
+                                                                                    <textarea class="form-control" cols="5"></textarea>
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td>2. An toàn thể chất </td>
+                                                                            <td>
+                                                                                <p>- Chăm sóc y tế</p>
+                                                                                <p>- Chăm sóc tinh thần</p>
+                                                                            </td>
+                                                                            <td>
+                                                                                <div class="controls margin-bottom-0">
+                                                                                    <textarea class="form-control" cols="5"></textarea>
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                        <div class="tab-pane" id="red">
+                                                            <div class="row">
+                                                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                                                    <div class="form-group">
+                                                                        <label class="form-label" for="field-1">Ngày thực hiện bản đánh giá</label>
+                                                                        <div class="controls">
+                                                                            <div class="input-group" inputgroup="">
+                                                                                <input type="date" class="form-control datepicker ng-pristine ng-valid ng-isolate-scope ng-valid-required ng-touched" uib-datepicker-popup="" ng-model="dt" is-open="dtpick.opened2" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" required="required"><!-- ngIf: isOpen -->
+                                                                                <span class="input-group-addon" ng-click="open($event,'opened2')"><i class="fa fa-calendar" style="color: #999;"></i></span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <label class="control-label">1.Thu thập thông tin</label>
+                                                            <table class="table table-bordered table-hover">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th width="50%">Câu hỏi</th>
+                                                                        <th>Trả lời</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>Tình trạng thể chất, tâm lý, tình cảm của trẻ em (trẻ em đã bị xâm hại hay chưa)?</td>
+                                                                        <td>
+                                                                            <div class="controls margin-bottom-0">
+                                                                                <textarea class="form-control" cols="5"></textarea>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Hoàn cảnh gia đình, mối quan hệ của trẻ em và năng lực bảo vệ trẻ em của cha, mẹ, các thành viên trong gia đình (đặc biệt là những người trực tiếp chăm sóc trẻ em, chất lượng chăm sóc như thế nào)? </td>
+                                                                        <td>
+                                                                            <div class="controls margin-bottom-0">
+                                                                                <textarea class="form-control" cols="5"></textarea>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Các yếu tố tác động đến chấ lượng của sự cham sóc trẻ em?</td>
+                                                                        <td>
+                                                                            <div class="col-md-6 col-sm-6 col-xs-6 form-group">
+                                                                                <label class="form-label" for="field-6">Yếu tố tích cực</label>
+                                                                                <div class="controls margin-bottom-0">
+                                                                                    <textarea class="form-control" cols="5"></textarea>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-6 col-sm-6 col-xs-6 form-group">
+                                                                                <label class="form-label" for="field-6">Yếu tố tiêu cực</label>
+                                                                                <div class="controls margin-bottom-0">
+                                                                                    <textarea class="form-control" cols="5"></textarea>
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Trong thời gian tới ai sẽ là người chăm sóc trẻ em? </td>
+                                                                        <td>
+                                                                            <div class="controls">
+                                                                                <textarea class="form-control margin-bottom-0" cols="5"></textarea>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Các yếu tố có thể sẽ tác động đến việc chăm sóc trẻ em trong thời gian tới?  </td>
+                                                                        <td>
+                                                                            <div class="col-md-6 col-sm-6 col-xs-6 form-group">
+                                                                                <label class="form-label" for="field-6">Yếu tố tích cực</label>
+                                                                                <div class="controls margin-bottom-0">
+                                                                                    <textarea class="form-control" cols="5"></textarea>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-6 col-sm-6 col-xs-6 form-group no">
+                                                                                <label class="form-label" for="field-6">Yếu tố tiêu cực</label>
+                                                                                <div class="controls margin-bottom-0">
+                                                                                    <textarea class="form-control" cols="5"></textarea>
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+
+                                                            <div class="row">
+                                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                                    <label class="control-label">2. Đánh giá nguy cơ cụ thể</label>
+                                                                </div>
+                                                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                                                    <label class="control-label">a) Đánh giá mức độ tổn hại</label>
+                                                                    <table class="table table-bordered table-hover">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th rowspan="2" style="vertical-align:middle;">Đánh giá mức độ tổn hại</th>
+                                                                                <th colspan="3" class="text-center">Mức độ</th>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <th width="15%" class="text-center">Cao</th>
+                                                                                <th width="15%" class="text-center">Trung bình</th>
+                                                                                <th width="15%" class="text-center">Thấp</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td>1. Đánh giá mức độ trẻ em bị tổn hại </td>
+                                                                                <td class="text-center">
+                                                                                    <label class="icheck icheck-danger" title="Trẻ em bị tổn hại nghiêm trong">
+                                                                                        <input type="radio" value="">
+                                                                                        <i></i>
+                                                                                    </label>
+                                                                                </td>
+                                                                                <td class="text-center">
+                                                                                    <label class="icheck icheck-primary">
+                                                                                        <input type="radio" value="">
+                                                                                        <i></i>
+                                                                                    </label>
+                                                                                </td>
+                                                                                <td class="text-center">
+                                                                                    <label class="icheck icheck-info">
+                                                                                        <input type="radio" value="">
+                                                                                        <i></i>
+                                                                                    </label>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>2. Khả năng tiếp cận trẻ em của đối tượng xâm hại (trong tương lai)</td>
+                                                                                <td class="text-center">
+                                                                                    <label class="icheck icheck-danger">
+                                                                                        <input type="radio" value="">
+                                                                                        <i></i>
+                                                                                    </label>
+                                                                                </td>
+                                                                                <td class="text-center">
+                                                                                    <label class="icheck icheck-primary">
+                                                                                        <input type="radio" value="">
+                                                                                        <i></i>
+                                                                                    </label>
+                                                                                </td>
+                                                                                <td class="text-center">
+                                                                                    <label class="icheck icheck-info">
+                                                                                        <input type="radio" value="">
+                                                                                        <i></i>
+                                                                                    </label>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>3. Tác động của hành vi xâm hại đến sự phát triển của trẻ em (thể chất, tâm lý, tình cảm) </td>
+                                                                                <td class="text-center">
+                                                                                    <label class="icheck icheck-danger">
+                                                                                        <input type="radio" value="">
+                                                                                        <i></i>
+                                                                                    </label>
+                                                                                </td>
+                                                                                <td class="text-center">
+                                                                                    <label class="icheck icheck-primary">
+                                                                                        <input type="radio" value="">
+                                                                                        <i></i>
+                                                                                    </label>
+                                                                                </td>
+                                                                                <td class="text-center">
+                                                                                    <label class="icheck icheck-info">
+                                                                                        <input type="radio" value="">
+                                                                                        <i></i>
+                                                                                    </label>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>4. Những trở ngại trong môi trường chăm sóc trẻ em đối với việc bảo đảm an toàn cho trẻ em </td>
+                                                                                <td class="text-center">
+                                                                                    <label class="icheck icheck-danger">
+                                                                                        <input type="radio" value="">
+                                                                                        <i></i>
+                                                                                    </label>
+                                                                                </td>
+                                                                                <td class="text-center">
+                                                                                    <label class="icheck icheck-primary">
+                                                                                        <input type="radio" value="">
+                                                                                        <i></i>
+                                                                                    </label>
+                                                                                </td>
+                                                                                <td class="text-center">
+                                                                                    <label class="icheck icheck-info">
+                                                                                        <input type="radio" value="">
+                                                                                        <i></i>
+                                                                                    </label>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td><b>Tổng số</b></td>
+                                                                                <td class="text-center">
+                                                                                    <b class="badge badge-danger">1</b>
+                                                                                </td>
+                                                                                <td class="text-center">
+                                                                                    <b class="badge badge-primary">2</b>
+                                                                                </td>
+                                                                                <td class="text-center">
+                                                                                    <b class="badge badge-info">1</b>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                                                    <label class="control-label">b) Đánh giá khả năng tự bảo vệ, phục hồi của trẻ em</label>
+                                                                    <table class="table table-bordered table-hover">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th rowspan="2" style="vertical-align:middle;">Đánh giá khả năng tự bảo vệ, phục hồi của trẻ em</th>
+                                                                                <th colspan="3" class="text-center">Mức độ</th>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <th width="15%" class="text-center">Cao</th>
+                                                                                <th width="15%" class="text-center">Trung bình</th>
+                                                                                <th width="15%" class="text-center">Thấp</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td>1. Đánh giá mức độ trẻ em bị tổn hại </td>
+                                                                                <td class="text-center">
+                                                                                    <label class="icheck icheck-danger">
+                                                                                        <input type="radio" value="">
+                                                                                        <i></i>
+                                                                                    </label>
+                                                                                </td>
+                                                                                <td class="text-center">
+                                                                                    <label class="icheck icheck-primary">
+                                                                                        <input type="radio" value="">
+                                                                                        <i></i>
+                                                                                    </label>
+                                                                                </td>
+                                                                                <td class="text-center">
+                                                                                    <label class="icheck icheck-info">
+                                                                                        <input type="radio" value="">
+                                                                                        <i></i>
+                                                                                    </label>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>2. Khả năng tiếp cận trẻ em của đối tượng xâm hại (trong tương lai)</td>
+                                                                                <td class="text-center">
+                                                                                    <label class="icheck icheck-danger">
+                                                                                        <input type="radio" value="">
+                                                                                        <i></i>
+                                                                                    </label>
+                                                                                </td>
+                                                                                <td class="text-center">
+                                                                                    <label class="icheck icheck-primary">
+                                                                                        <input type="radio" value="">
+                                                                                        <i></i>
+                                                                                    </label>
+                                                                                </td>
+                                                                                <td class="text-center">
+                                                                                    <label class="icheck icheck-info">
+                                                                                        <input type="radio" value="">
+                                                                                        <i></i>
+                                                                                    </label>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>3. Tác động của hành vi xâm hại đến sự phát triển của trẻ em (thể chất, tâm lý, tình cảm) </td>
+                                                                                <td class="text-center">
+                                                                                    <label class="icheck icheck-danger">
+                                                                                        <input type="radio" value="">
+                                                                                        <i></i>
+                                                                                    </label>
+                                                                                </td>
+                                                                                <td class="text-center">
+                                                                                    <label class="icheck icheck-primary">
+                                                                                        <input type="radio" value="">
+                                                                                        <i></i>
+                                                                                    </label>
+                                                                                </td>
+                                                                                <td class="text-center">
+                                                                                    <label class="icheck icheck-info">
+                                                                                        <input type="radio" value="">
+                                                                                        <i></i>
+                                                                                    </label>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>4. Những trở ngại trong môi trường chăm sóc trẻ em đối với việc bảo đảm an toàn cho trẻ em </td>
+                                                                                <td class="text-center">
+                                                                                    <label class="icheck icheck-danger">
+                                                                                        <input type="radio" value="">
+                                                                                        <i></i>
+                                                                                    </label>
+                                                                                </td>
+                                                                                <td class="text-center">
+                                                                                    <label class="icheck icheck-primary">
+                                                                                        <input type="radio" value="">
+                                                                                        <i></i>
+                                                                                    </label>
+                                                                                </td>
+                                                                                <td class="text-center">
+                                                                                    <label class="icheck icheck-info">
+                                                                                        <input type="radio" value="">
+                                                                                        <i></i>
+                                                                                    </label>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td><b>Tổng số</b></td>
+                                                                                <td class="text-center">
+                                                                                    <b class="badge badge-danger">1</b>
+                                                                                </td>
+                                                                                <td class="text-center">
+                                                                                    <b class="badge badge-primary">2</b>
+                                                                                </td>
+                                                                                <td class="text-center">
+                                                                                    <b class="badge badge-info">1</b>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                            <label class="control-label">3. Kết luận các nguy cơ</label>
+                                                            <div class="radio">
+                                                                <label class="icheck icheck-danger">
+                                                                    <input type="radio" value="">
+                                                                    <i></i> <b>Trẻ em có nguy cơ cao</b> tiếp tục bị xâm hại hoặc mức độ trẻ em bị tổn hại vẫn rất nghiêm trọng.
+                                                                </label>
+                                                            </div>
+                                                            <div class="radio">
+                                                                <label class="icheck icheck-primary">
+                                                                    <input type="radio" value="">
+                                                                    <i></i> <b>Trẻ em không có hoặc ít có nguy cơ</b> tiếp tục bị xâm hại hoặc mức độ tổn hại của trẻ em ít nghiêm trọng.
+                                                                </label>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                                                    <div class="form-group">
+                                                                        <label class="form-label" for="field-1">4. Xác định các vấn đề của trẻ em</label>
+                                                                        <div class="controls">
+                                                                            <textarea class="form-control" cols="5"></textarea>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                                                    <div class="form-group">
+                                                                        <label class="form-label" for="field-1">5. Ý kiến, nguyện vọng của trẻ em</label>
+                                                                        <div class="controls">
+                                                                            <textarea class="form-control" cols="5"></textarea>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                                                    <div class="form-group">
+                                                                        <label class="form-label" for="field-1">6. Ý kiến, nguyện vọng của cha, mẹ, người chăm sóc trẻ em</label>
+                                                                        <div class="controls">
+                                                                            <textarea class="form-control" cols="5"></textarea>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                                                    <div class="form-group">
+                                                                        <label class="form-label" for="field-1">7. Xác định nhu cầu cần cung cấp dịch vụ của trẻ em</label>
+                                                                        <div class="controls">
+                                                                            <textarea class="form-control" cols="5"></textarea>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="tab-pane" id="yellow">
+                                                            <div class="row">
+                                                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                                                    <div class="form-group">
+                                                                        <label class="form-label" for="field-1">Ngày lên kế hoạch</label>
+                                                                        <div class="controls">
+                                                                            <div class="input-group" inputgroup="">
+                                                                                <input type="date" class="form-control datepicker ng-pristine ng-valid ng-isolate-scope ng-valid-required ng-touched" uib-datepicker-popup="" ng-model="dt" is-open="dtpick.opened2" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" required="required"><!-- ngIf: isOpen -->
+                                                                                <span class="input-group-addon" ng-click="open($event,'opened2')"><i class="fa fa-calendar" style="color: #999;"></i></span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <label class="control-label">1. Mục tiêu</label>
+                                                            <div class="radio">
+                                                                <label class="icheck icheck-primary">
+                                                                    <input type="radio" value="">
+                                                                    <i></i> Các tổn hại của trẻ em được phục hồi
+                                                                </label>
+                                                            </div>
+                                                            <div class="radio">
+                                                                <label class="icheck icheck-primary">
+                                                                    <input type="radio" value="">
+                                                                    <i></i> Các yếu tố không an toàn trong môi trường sống của trẻ em cần được khắc phục
+                                                                </label>
+                                                            </div>
+                                                            <div class="radio">
+                                                                <label class="icheck icheck-primary">
+                                                                    <input type="radio" value="">
+                                                                    <i></i> Bảo đảm các điều kiện cần thiết để trẻ em hòa nhập cộng đồng
+                                                                </label>
+                                                            </div>
+                                                            <div class="radio">
+                                                                <label class="icheck icheck-primary">
+                                                                    <input type="radio" value="">
+                                                                    <i></i> Mục tiêu khác.
+                                                                </label>
+                                                                <div class="controls">
+                                                                    <input type="text" class="form-control">
+                                                                </div>
+                                                            </div>
+
+                                                            <label class="control-label">2. Các hoạt động</label>
+                                                            <div class="radio">
+                                                                <label class="icheck icheck-primary">
+                                                                    <input type="radio" value="">
+                                                                    <i></i> Chăm sóc y tế, trị liệu tâm lý
+                                                                </label>
+                                                            </div>
+                                                            <div class="radio">
+                                                                <label class="icheck icheck-primary">
+                                                                    <input type="radio" value="">
+                                                                    <i></i> Các hoạt động trợ giúp xã hội
+                                                                </label>
+                                                            </div>
+                                                            <div class="radio">
+                                                                <label class="icheck icheck-primary">
+                                                                    <input type="radio" value="">
+                                                                    <i></i> Các hoạt động hỗ trợ giáo dục, đào tạo, giáo dục nghề nghiệp
+                                                                </label>
+                                                            </div>
+                                                            <div class="radio">
+                                                                <label class="icheck icheck-primary">
+                                                                    <input type="radio" value="">
+                                                                    <i></i> Các hoạt động trợ giúp pháp lý (nếu cần)
+                                                                </label>
+                                                            </div>
+                                                            <div class="radio">
+                                                                <label class="icheck icheck-primary">
+                                                                    <input type="radio" value="">
+                                                                    <i></i> Các dich vụ bảo vệ trẻ em khác.
+                                                                </label>
+                                                                <div class="controls">
+                                                                    <input type="text" class="form-control">
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-lg-6 text-left no-padding">
+                                                                <label class="control-label">3.Tổ chức thực hiện</label>
+                                                            </div>
+                                                            <div class="col-lg-6 text-right no-padding">
+                                                                <button class="btn btn-s btn-success btn-icon margin-bottom-5" id="addrow">
+                                                                    <i class="fa fa-plus"></i> &nbsp; <span>Thêm mới</span>
+                                                                </button>
+                                                            </div>
+                                                            <table class="table table-bordered table-hover" id="tableActivity">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th width="30px">STT</th>
+                                                                        <th>Tên hoạt động</th>
+                                                                        <th width="20%">Cán bộ thực hiện</th>
+                                                                        <th width="20%">Cán bộ phối hợp</th>
+                                                                        <th width="200px">Thời gian thực hiện</th>
+                                                                        <th width="60px"></th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>1</td>
+                                                                        <td>
+                                                                            <div class="controls margin-bottom-0">
+                                                                                <input type="text" class="form-control" />
+                                                                            </div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="controls margin-bottom-0">
+                                                                                <input type="text" class="form-control" />
+                                                                            </div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="controls margin-bottom-0">
+                                                                                <input type="text" class="form-control" />
+                                                                            </div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="controls margin-bottom-0">
+                                                                                <input type="text" class="form-control" />
+                                                                            </div>
+                                                                        </td>
+                                                                        <td><button type="button" class="btn btn-xs btn-danger ibtnDel"><i class="material-icons">delete</i></button></td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+
+                                                            <label class="control-label">4.Kinh phí</label>
+                                                            <div class="row">
+                                                                <div class="col-md-12" style="margin-bottom: 20px">
+                                                                    <table class="table">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th width="50px"></th>
+                                                                                <th>Dự toán kinh phí chi tiết kèm theo</th>
+                                                                                <th width="10%">Ngày upload</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td width="40px">
+                                                                                    <label class="icheck icheck-accent">
+                                                                                        <input type="checkbox" value="" checked="">
+                                                                                        <i></i>
+                                                                                    </label>
+                                                                                </td>
+                                                                                <td>Dự_toán_kinh_khắc_phục_hậu_quả_bạo_hành.xlsx</td>
+                                                                                <td ng-show="uploader.isHTML5" class="">12/11/2018</td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                    <div>
+                                                                        <button type="button" class="btn btn-success btn-s" ng-click="uploader.uploadAll()">
+                                                                            <span class="glyphicon glyphicon-upload"></span> Upload
+                                                                        </button>
+                                                                        <button type="button" class="btn btn-danger btn-s" ng-click="uploader.clearQueue()">
+                                                                            <span class="glyphicon glyphicon-trash"></span> Remove
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 text-right margin-top-15">
+                                            <button class="btn btn-success btn-icon margin-right-10">
+                                                <i class="fa fa-save "></i> &nbsp; <span>Lưu</span>
+                                            </button>
+                                            <button class="btn btn-warning backBtn margin-right-10" type="button">
+                                                <i class="fa fa-arrow-circle-left"></i> &nbsp; <span>Quay lại xử lý trước</span>
+                                            </button>
+                                            <button class="btn btn-info nextBtn" type="button">
+                                                <i class="fa fa-arrow-circle-right"></i> &nbsp; <span>Sang xử lý mới</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="row setup-content" id="step-3">
+                                        <div class="col-md-12">
+                                            <h3> Bước 3: Đã xử lý</h3>
+                                            <div class="row">
+                                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                                    <div class="form-group">
+                                                        <label class="form-label" for="field-1">Ngày hoàn thành</label>
+                                                        <div class="controls">
+                                                            <div class="input-group" inputgroup="">
+                                                                <input type="date" class="form-control datepicker ng-pristine ng-valid ng-isolate-scope ng-valid-required ng-touched" uib-datepicker-popup="" ng-model="dt" is-open="dtpick.opened2" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" required="required"><!-- ngIf: isOpen -->
+                                                                <span class="input-group-addon" ng-click="open($event,'opened2')"><i class="fa fa-calendar" style="color: #999;"></i></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                    <div class="form-group">
+                                                        <label class="form-label" for="field-1">Kết quả đạt được</label>
+
+                                                        <div class="controls">
+                                                            <textarea class="form-control" rows="10"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12 col-sm-12 col-xs-12 text-right">
+                                                    <div class="form-group margin-top-20">
+                                                        <button class="btn btn-success btn-icon margin-right-10">
+                                                            <i class="fa fa-save "></i> &nbsp; <span>Lưu</span>
+                                                        </button>
+                                                        <button class="btn btn-warning backBtn margin-right-10" type="button">
+                                                            <i class="fa fa-arrow-circle-left"></i> &nbsp; <span>Quay lại xử lý trước</span>
+                                                        </button>
+                                                        <button class="btn btn-info nextBtn" type="button">
+                                                            <i class="fa fa-arrow-circle-right"></i> &nbsp; <span>Sang xử lý mới</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row setup-content" id="step-4">
+                                        <div class="col-md-12">
+                                            <h3> Bước 4: Cần theo dõi thêm</h3>
+                                            <div class="row">
+                                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                                    <div class="form-group">
+                                                        <label class="form-label" for="field-1">Ngày thực hiện rà soát đánh giá</label>
+                                                        <div class="controls">
+                                                            <div class="input-group" inputgroup="">
+                                                                <input type="date" class="form-control datepicker ng-pristine ng-valid ng-isolate-scope ng-valid-required ng-touched" uib-datepicker-popup="" ng-model="dt" is-open="dtpick.opened2" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" required="required"><!-- ngIf: isOpen -->
+                                                                <span class="input-group-addon" ng-click="open($event,'opened2')"><i class="fa fa-calendar" style="color: #999;"></i></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                    <label class="control-label">2. Đánh giá nguy cơ tại giai đoạn kết thúc</label>
+                                                </div>
+                                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                                    <label class="control-label">a) Đánh giá mức độ tổn hại của trẻ em</label>
+                                                    <table class="table table-bordered table-hover">
+                                                        <thead>
+                                                            <tr>
+                                                                <th rowspan="2" style="vertical-align:middle;">Đánh giá mức độ tổn hại của trẻ em </th>
+                                                                <th colspan="3" class="text-center">Mức độ</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <th width="15%" class="text-center">Cao</th>
+                                                                <th width="15%" class="text-center">Trung bình</th>
+                                                                <th width="15%" class="text-center">Thấp</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>1. Mức độ tổn hại của trẻ em có còn nghiêm trọng không </td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-danger" title="Trẻ em bị tổn hại nghiêm trong">
+                                                                        <input type="radio" value="">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-primary">
+                                                                        <input type="radio" value="">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-info">
+                                                                        <input type="radio" value="">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>2. Khả năng tiếp cận trẻ em của đối tượng xâm hại </td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-danger">
+                                                                        <input type="radio" value="">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-primary">
+                                                                        <input type="radio" value="">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-info">
+                                                                        <input type="radio" value="">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>3. Những trở ngại trong môi trường chăm sóc trẻ em đối với việc bảo đảm an toàn cho trẻ em </td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-danger">
+                                                                        <input type="radio" value="">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-primary">
+                                                                        <input type="radio" value="">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-info">
+                                                                        <input type="radio" value="">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><b>Tổng số</b></td>
+                                                                <td class="text-center">
+                                                                    <b class="badge badge-danger">1</b>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <b class="badge badge-primary">2</b>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <b class="badge badge-info">1</b>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                                    <label class="control-label">b) Đánh giá khả năng tự bảo vệ, phục hồi của trẻ em </label>
+                                                    <table class="table table-bordered table-hover">
+                                                        <thead>
+                                                            <tr>
+                                                                <th rowspan="2" style="vertical-align:middle;">Đánh giá khả năng tự bảo vệ, phục hồi của trẻ em </th>
+                                                                <th colspan="3" class="text-center">Mức độ</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <th width="15%" class="text-center">Cao</th>
+                                                                <th width="15%" class="text-center">Trung bình</th>
+                                                                <th width="15%" class="text-center">Thấp</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>1. Khả năng tự bảo vệ của trẻ em trước những hành động của đối tượng xâm hại </td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-danger">
+                                                                        <input type="radio" value="">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-primary">
+                                                                        <input type="radio" value="">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-info">
+                                                                        <input type="radio" value="">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>2.  Trẻ em có được sự theo dõi và sẵn sàng giúp đỡ của những người khác (không phải là đối tượng xâm hại) </td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-danger">
+                                                                        <input type="radio" value="">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-primary">
+                                                                        <input type="radio" value="">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-info">
+                                                                        <input type="radio" value="">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>3. Khả năng của trẻ em trong việc nhờ người bảo vệ trẻ em </td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-danger">
+                                                                        <input type="radio" value="">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-primary">
+                                                                        <input type="radio" value="">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <label class="icheck icheck-info">
+                                                                        <input type="radio" value="">
+                                                                        <i></i>
+                                                                    </label>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><b>Tổng số</b></td>
+                                                                <td class="text-center">
+                                                                    <b class="badge badge-danger">1</b>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <b class="badge badge-primary">2</b>
+                                                                </td>
+                                                                <td class="text-center">
+                                                                    <b class="badge badge-info">1</b>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <label class="control-label">3. Kết luận về tình trạng của trẻ em</label>
+                                            <div class="radio">
+                                                <label class="icheck icheck-danger">
+                                                    <input type="radio" value="">
+                                                    <i></i> Nếu nguy cơ trẻ em vẫn tiếp tục bị xâm hại/tổn hại, cần có kế hoạch hỗ trợ, can thiệp tiếp theo đối với trẻ em.
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label class="icheck icheck-primary">
+                                                    <input type="radio" value="">
+                                                    <i></i> Nếu kết quả can thiệp, trợ giúp đảm bảo trẻ em ổn định và nguy cơ xâm hại không còn, theo dõi trong thời gian 3 tháng và kết thúc.
+                                                </label>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12 col-sm-12 col-xs-12 text-right">
+                                                    <div class="form-group margin-top-20">
+                                                        <button class="btn btn-success btn-icon margin-right-10">
+                                                            <i class="fa fa-save "></i> &nbsp; <span>Lưu</span>
+                                                        </button>
+                                                        <button class="btn btn-warning backBtn margin-right-10" type="button">
+                                                            <i class="fa fa-arrow-circle-left"></i> &nbsp; <span>Quay lại xử lý trước</span>
+                                                        </button>
+                                                        <button class="btn btn-info nextBtn" type="button">
+                                                            <i class="fa fa-arrow-circle-right"></i> &nbsp; <span>Sang xử lý mới</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row setup-content" id="step-5">
+                                        <div class="col-md-12">
+                                            <h3> Bước 5: Đóng trường hợp</h3>
+                                            <div class="row">
+                                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                                    <div class="form-group">
+                                                        <label class="form-label" for="field-1">Ngày đóng trường hợp</label>
+                                                        <div class="controls">
+                                                            <div class="input-group" inputgroup="">
+                                                                <input type="date" class="form-control datepicker ng-pristine ng-valid ng-isolate-scope ng-valid-required ng-touched" uib-datepicker-popup="" ng-model="dt" is-open="dtpick.opened2" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" required="required"><!-- ngIf: isOpen -->
+                                                                <span class="input-group-addon" ng-click="open($event,'opened2')"><i class="fa fa-calendar" style="color: #999;"></i></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                    <div class="form-group">
+                                                        <label class="form-label" for="field-1">Kết quả đạt được</label>
+                                                        <div class="controls">
+                                                            <textarea class="form-control" rows="10"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12 col-sm-12 col-xs-12 text-right">
+                                                    <div class="form-group margin-top-20">
+                                                        <button class="btn btn-warning backBtn margin-right-10" type="button">
+                                                            <i class="fa fa-arrow-circle-left"></i> &nbsp; <span>Quay lại xử lý trước</span>
+                                                        </button>
+                                                        <button class="btn btn-success btn-icon" type="button">
+                                                            <i class="fa fa-power-off"></i> &nbsp; <span>Lưu và Đóng trường hợp</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+

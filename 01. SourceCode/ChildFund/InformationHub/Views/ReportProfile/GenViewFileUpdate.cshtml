@@ -1,0 +1,12 @@
+﻿@model IList<InformationHub.Model.ProfileAttachmentModel>
+@for (int i = 0; i < Model.Count; i++)
+{
+    <tr>
+        <td class="text-center"><button onclick="DeleteFileUpdate(@i)" type="button" class="btn btn-xs btnfuntion" title="Xóa "><i class="material-icons btnicon" style="color:red">delete</i></button></td>
+        <td title="@Model[i].Name">@NTS.Common.Utils.Common.FormatContentNews(Model[i].Name, 20)</td>
+        <td>@(Model[i].Size >= 1024 ? (Math.Round(((double)Model[i].Size / 1024), 1) + "MB") : (Model[i].Size + "KB"))</td>
+        <td>@Model[i].UploadDate</td>
+    </tr>
+}
+
+

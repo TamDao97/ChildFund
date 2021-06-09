@@ -1,0 +1,190 @@
+﻿@model IList<InformationHub.Model.ReportProfileSearchResult>
+@{
+    var dateNow = DateTime.Now;
+    var dateBefore = "01/01/" + dateNow.Year;
+    ViewBag.Title = InformationHub.Resource.Resource.ReportProfile_Report_Title;
+    double countAll = Model.Count;
+    var percen0 = Math.Round((double)(Model.Where(u => u.SeverityLevel == 0).Count() * 100) / countAll);
+    var percen1 = Math.Round((double)(Model.Where(u => u.SeverityLevel == 1).Count() * 100) / countAll);
+    var percen2 = 100- percen1- percen0;
+}
+
+<section class="wrapper main-wrapper">
+    <div ui-view="" class="ng-scope">
+        <div class="content-wrapper">
+          
+            <div >
+                <div class="col-lg-5 col-md-12 col-sm-12 col-xs-12">
+                    <section class="box ">
+                        <header class="panel_header">
+                            <h2 class="title pull-left">@InformationHub.Resource.Resource.ReportProfile_Level</h2>
+                            <div class="actions panel_actions pull-right">
+                                <i class="box_toggle material-icons">expand_more</i>
+                            </div>
+                        </header>
+                        <div class="content-body padding-bottom-0">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div id="containerXLNow" style=" margin: 0 auto"></div>
+                                    <div style="overflow-y:auto;overflow-x:auto;height:401px">
+                                        <table class="table table-bordered table-hover" style="min-width:500px">
+                                            <thead>
+                                                <tr>
+                                                    <th width="180px">@InformationHub.Resource.Resource.ReportProfile_ChildName</th>
+                                                    <th width="72px">@InformationHub.Resource.Resource.ReportProfile_Gender</th>
+                                                    <th width="52px">@InformationHub.Resource.Resource.ReportProfile_Age</th>
+                                                    <th width="100px">@InformationHub.Resource.Resource.Report_Level</th>
+                                                    <th>@InformationHub.Resource.Resource.ReportProfile_AbuseType</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @for (int i = 0; i < Model.Count; i++)
+                                                {
+                                                <tr>
+                                                    <td>@Model[i].ChildName</td>
+                                                    <td>@Model[i].GenderView</td>
+                                                    <td>@Model[i].Age</td>
+                                                    <td class="text-center"><span class="@(Model[i].SeverityLevel==0?"badge badge-secondary":(Model[i].SeverityLevel==1?"badge badge-warning":"badge badge-danger"))">@Model[i].SeverityLevelView</span></td>
+                                                    <td>@(string.Join(", ", Model[i].ListAbuse.Select(u => u.Name)))</td>
+                                                </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
+                    <section class="box ">
+                        <header class="panel_header">
+                            <h2 class="title pull-left">@InformationHub.Resource.Resource.ReportProfile_HistoryProcess_Title</h2>
+                            <div class="actions panel_actions pull-right">
+                                <i class="box_toggle material-icons">expand_more</i>
+                            </div>
+                        </header>
+                        <div class="content-body padding-bottom-0">
+                            <div class="content-body">
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                        <div class="form-group">
+                                            <label class="form-label" for="field-1">@InformationHub.Resource.Resource.DayFrom_Title</label>
+                                            <div class="controls">
+                                                <input type="hidden" id="sDateFrom_hid" value="@dateBefore" />
+                                                <input class="form-control datepicker" id="sDateFrom" value="@dateBefore" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                        <div class="form-group">
+                                            <label class="form-label" for="field-1">@InformationHub.Resource.Resource.DayTo_Title</label>
+                                            <div class="controls">
+                                                <input type="hidden" id="sDateTo_hid" value="@dateNow.ToString("dd/MM/yyyy")" />
+                                                <input class="form-control datepicker" id="sDateTo" value="@dateNow.ToString("dd/MM/yyyy")" />
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right margin-top-10">
+                                        <button class="btn btn-success btn-icon right10" type="button" onclick="Search()">
+                                            <i class="fa fa-search"></i> &nbsp; <span>@InformationHub.Resource.Resource.Search_Title</span>
+                                        </button>
+                                        <button class="btn btn-default btn-icon right10" type="button" onclick="ResetModel()">
+                                            <i class="fa fa-refresh"></i> &nbsp; <span>@InformationHub.Resource.Resource.Reset_Title</span>
+                                        </button>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="row padding-5" id="data_Ward">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<style>
+    .timeline-body > p + p {
+        margin-top: 0px;
+    }
+</style>
+
+<script>
+    $('.datepicker').datepicker({
+        format: 'dd/mm/yyyy'
+    });
+    var modelSearch =
+    {
+        sDateTo: '',
+        sDateFrom: '',
+    }
+    function ResetModel() {
+        $('#sDateTo').val($('#sDateTo_hid').val());
+        $('#sDateFrom').val($('#sDateFrom_hid').val());
+        Search();
+    }
+    function GetModelSearch() {
+        modelSearch.sDateFrom = $('#sDateFrom').val();
+        modelSearch.sDateTo = $('#sDateTo').val();
+    }
+    function Search() {
+        GetModelSearch();
+        $.post("/StatisticHome/GetHomeWard", modelSearch, function (result) {
+            $("#data_Ward").html(result);
+        });
+    }
+    Search();
+</script>
+<script>
+    var colors = ['#26C6DA', 'orange', '#a09e9e', '#00797c', '#84bd00', '#26C6DA'];
+
+    // Build the chart
+    Highcharts.chart('containerXLNow', {
+
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie'
+        },
+        title: {
+            text: ''
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: false
+                },
+                showInLegend: true
+            }
+        },
+        series: [{
+            name:  '@Html.Raw(InformationHub.Resource.Resource.Percen_Title)',
+            data: [
+                { name: '@Html.Raw(InformationHub.Resource.Resource.ReportProfile_Low)', y: @percen0 },
+                { name: '@Html.Raw(InformationHub.Resource.Resource.ReportProfile_Nomal)', y: @percen1 },
+                { name: '@Html.Raw(InformationHub.Resource.Resource.ReportProfile_Hight)', y: @percen2},
+
+            ]
+        }]
+    });
+
+</script>
+
+
+

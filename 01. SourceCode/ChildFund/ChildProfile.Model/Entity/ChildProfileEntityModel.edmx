@@ -1,0 +1,1838 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ChildProfileEntityModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ActivityLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="UserId" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="LogDate" Type="datetime" Nullable="false" />
+          <Property Name="LogContent" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="OldValue" Type="nvarchar" MaxLength="100" />
+          <Property Name="NewValue" Type="nvarchar" MaxLength="100" />
+          <Property Name="TableName" Type="varchar" MaxLength="100" />
+          <Property Name="ObjectId" Type="varchar" MaxLength="36" />
+          <Property Name="LogType" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AreaDistrict">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="DistrictId" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ProvinceId" Type="varchar" MaxLength="36" />
+          <Property Name="AreaUserId" Type="varchar" MaxLength="36" />
+          <Property Name="IsActivate" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AreaUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" />
+          <Property Name="Manager" Type="nvarchar" MaxLength="200" />
+          <Property Name="ProvinceId" Type="varchar" MaxLength="36" />
+          <Property Name="ProvinceName" Type="nvarchar" MaxLength="150" />
+          <Property Name="IsActivate" Type="bit" Nullable="false" />
+          <Property Name="CreateBy" Type="varchar" MaxLength="36" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="UpdateBy" Type="varchar" MaxLength="36" />
+          <Property Name="UpdateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="AreaWard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="AreaDistrictId" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="DistrictId" Type="varchar" MaxLength="36" />
+          <Property Name="WardId" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="IsActivate" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AttachFileReport">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="ReportProfileId" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" />
+          <Property Name="Path" Type="nvarchar" MaxLength="256" />
+          <Property Name="UploadBy" Type="varchar" MaxLength="36" />
+          <Property Name="UploadDate" Type="datetime" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AttachmentImage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="ShareImageId" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="300" />
+          <Property Name="FileType" Type="int" />
+          <Property Name="ImagePath" Type="nvarchar" MaxLength="256" />
+          <Property Name="ImageThumbnailPath" Type="nvarchar" MaxLength="256" />
+          <Property Name="SizeBase" Type="int" />
+          <Property Name="UploadBy" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="UploadDate" Type="datetime" Nullable="false" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ChildProfile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="InfoDate" Type="datetime" Nullable="false" />
+          <Property Name="EmployeeName" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ProgramCode" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ProvinceId" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="DistrictId" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="WardId" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="250" />
+          <Property Name="FullAddress" Type="nvarchar" MaxLength="500" />
+          <Property Name="ChildCode" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="SchoolId" Type="nvarchar" MaxLength="100" />
+          <Property Name="SchoolOtherName" Type="nvarchar" MaxLength="500" />
+          <Property Name="EthnicId" Type="nvarchar" MaxLength="36" Nullable="false" />
+          <Property Name="ReligionId" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="NickName" Type="nvarchar" MaxLength="150" />
+          <Property Name="Gender" Type="int" Nullable="false" />
+          <Property Name="DateOfBirth" Type="datetime" Nullable="false" />
+          <Property Name="LeaningStatus" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="ClassInfo" Type="nvarchar" MaxLength="100" />
+          <Property Name="FavouriteSubject" Type="nvarchar(max)" />
+          <Property Name="LearningCapacity" Type="nvarchar(max)" />
+          <Property Name="Housework" Type="nvarchar(max)" />
+          <Property Name="Health" Type="nvarchar(max)" />
+          <Property Name="Personality" Type="nvarchar(max)" />
+          <Property Name="Hobby" Type="nvarchar(max)" />
+          <Property Name="Dream" Type="nvarchar(max)" />
+          <Property Name="FamilyMember" Type="nvarchar(max)" />
+          <Property Name="LivingWithParent" Type="nvarchar(max)" />
+          <Property Name="NotLivingWithParent" Type="nvarchar(max)" />
+          <Property Name="LivingWithOther" Type="nvarchar(max)" />
+          <Property Name="LetterWrite" Type="nvarchar(max)" />
+          <Property Name="HouseType" Type="nvarchar(max)" />
+          <Property Name="HouseRoof" Type="nvarchar(max)" />
+          <Property Name="HouseWall" Type="nvarchar(max)" />
+          <Property Name="HouseFloor" Type="nvarchar(max)" />
+          <Property Name="UseElectricity" Type="nvarchar(max)" />
+          <Property Name="SchoolDistance" Type="nvarchar(max)" />
+          <Property Name="ClinicDistance" Type="nvarchar(max)" />
+          <Property Name="WaterSourceDistance" Type="nvarchar(max)" />
+          <Property Name="WaterSourceUse" Type="nvarchar(max)" />
+          <Property Name="RoadCondition" Type="nvarchar(max)" />
+          <Property Name="IncomeFamily" Type="nvarchar(max)" />
+          <Property Name="HarvestOutput" Type="nvarchar(max)" />
+          <Property Name="NumberPet" Type="nvarchar(max)" />
+          <Property Name="FamilyType" Type="nvarchar" MaxLength="150" />
+          <Property Name="TotalIncome" Type="nvarchar" MaxLength="150" />
+          <Property Name="IncomeSources" Type="nvarchar" MaxLength="300" />
+          <Property Name="IncomeOther" Type="nvarchar(max)" />
+          <Property Name="StoryContent" Type="nvarchar(max)" />
+          <Property Name="ImagePath" Type="nvarchar" MaxLength="256" />
+          <Property Name="ImageThumbnailPath" Type="nvarchar" MaxLength="256" />
+          <Property Name="AreaApproverId" Type="varchar" MaxLength="36" />
+          <Property Name="AreaApproverDate" Type="datetime" />
+          <Property Name="OfficeApproveBy" Type="varchar" MaxLength="36" />
+          <Property Name="OfficeApproveDate" Type="datetime" />
+          <Property Name="ProcessStatus" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+          <Property Name="CreateBy" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdateBy" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+          <Property Name="ConsentName" Type="nvarchar" MaxLength="150" />
+          <Property Name="ConsentRelationship" Type="nvarchar" MaxLength="150" />
+          <Property Name="ConsentVillage" Type="nvarchar" MaxLength="150" />
+          <Property Name="ConsentWard" Type="nvarchar" MaxLength="150" />
+          <Property Name="SiblingsJoiningChildFund" Type="nvarchar(max)" />
+          <Property Name="Malformation" Type="nvarchar(max)" />
+          <Property Name="Orphan" Type="nvarchar(max)" />
+          <Property Name="EmployeeTitle" Type="int" />
+          <Property Name="ImageSignaturePath" Type="nvarchar" MaxLength="256" />
+          <Property Name="ImageSignatureThumbnailPath" Type="nvarchar" MaxLength="256" />
+          <Property Name="SaleforceId" Type="nvarchar" MaxLength="50" />
+          <Property Name="Handicap" Type="bit" />
+          <Property Name="ImageSize" Type="int" />
+        </EntityType>
+        <EntityType Name="ChildProfileUpdate">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="ChildProfileId" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="InfoDate" Type="datetime" Nullable="false" />
+          <Property Name="EmployeeName" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ProgramCode" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ProvinceId" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="DistrictId" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="WardId" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="250" />
+          <Property Name="FullAddress" Type="nvarchar" MaxLength="500" />
+          <Property Name="ChildCode" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="SchoolId" Type="nvarchar" MaxLength="250" />
+          <Property Name="SchoolOtherName" Type="nvarchar" MaxLength="500" />
+          <Property Name="EthnicId" Type="nvarchar" MaxLength="36" Nullable="false" />
+          <Property Name="ReligionId" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="NickName" Type="nvarchar" MaxLength="150" />
+          <Property Name="Gender" Type="int" Nullable="false" />
+          <Property Name="DateOfBirth" Type="datetime" Nullable="false" />
+          <Property Name="LeaningStatus" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="ClassInfo" Type="varchar" MaxLength="100" />
+          <Property Name="FavouriteSubject" Type="nvarchar(max)" />
+          <Property Name="LearningCapacity" Type="nvarchar(max)" />
+          <Property Name="Housework" Type="nvarchar(max)" />
+          <Property Name="Health" Type="nvarchar(max)" />
+          <Property Name="Personality" Type="nvarchar(max)" />
+          <Property Name="Hobby" Type="nvarchar(max)" />
+          <Property Name="Dream" Type="nvarchar(max)" />
+          <Property Name="FamilyMember" Type="nvarchar(max)" />
+          <Property Name="LivingWithParent" Type="nvarchar(max)" />
+          <Property Name="NotLivingWithParent" Type="nvarchar(max)" />
+          <Property Name="LivingWithOther" Type="nvarchar(max)" />
+          <Property Name="LetterWrite" Type="nvarchar(max)" />
+          <Property Name="HouseType" Type="nvarchar(max)" />
+          <Property Name="HouseRoof" Type="nvarchar(max)" />
+          <Property Name="HouseWall" Type="nvarchar(max)" />
+          <Property Name="HouseFloor" Type="nvarchar(max)" />
+          <Property Name="UseElectricity" Type="nvarchar(max)" />
+          <Property Name="SchoolDistance" Type="nvarchar(max)" />
+          <Property Name="ClinicDistance" Type="nvarchar(max)" />
+          <Property Name="WaterSourceDistance" Type="nvarchar(max)" />
+          <Property Name="WaterSourceUse" Type="nvarchar(max)" />
+          <Property Name="RoadCondition" Type="nvarchar(max)" />
+          <Property Name="IncomeFamily" Type="nvarchar(max)" />
+          <Property Name="HarvestOutput" Type="nvarchar(max)" />
+          <Property Name="NumberPet" Type="nvarchar(max)" />
+          <Property Name="FamilyType" Type="nvarchar" MaxLength="150" />
+          <Property Name="TotalIncome" Type="nvarchar" MaxLength="150" />
+          <Property Name="IncomeSources" Type="nvarchar" MaxLength="300" />
+          <Property Name="IncomeOther" Type="nvarchar(max)" />
+          <Property Name="ImagePath" Type="nvarchar" MaxLength="256" />
+          <Property Name="ImageThumbnailPath" Type="nvarchar" MaxLength="256" />
+          <Property Name="ProcessStatus" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="UpdateBy" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+          <Property Name="ConsentName" Type="nvarchar" MaxLength="150" />
+          <Property Name="ConsentRelationship" Type="nvarchar" MaxLength="150" />
+          <Property Name="ConsentVillage" Type="nvarchar" MaxLength="150" />
+          <Property Name="ConsentWard" Type="nvarchar" MaxLength="150" />
+          <Property Name="SiblingsJoiningChildFund" Type="nvarchar(max)" />
+          <Property Name="Malformation" Type="nvarchar(max)" />
+          <Property Name="Orphan" Type="nvarchar(max)" />
+          <Property Name="EmployeeTitle" Type="int" />
+          <Property Name="ImageSignaturePath" Type="nvarchar" MaxLength="256" />
+          <Property Name="ImageSignatureThumbnailPath" Type="nvarchar" MaxLength="256" />
+          <Property Name="SaleforceId" Type="nvarchar" MaxLength="50" />
+          <Property Name="Handicap" Type="bit" />
+          <Property Name="ImageSize" Type="int" />
+          <Property Name="AreaApproverDate" Type="datetime" />
+          <Property Name="AreaApproverId" Type="varchar" MaxLength="36" />
+        </EntityType>
+        <EntityType Name="District">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="ProvinceId" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="Location" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="DocumentLibrary">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="DocumentTyeId" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="FileName" Type="nvarchar" MaxLength="300" />
+          <Property Name="Name" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Path" Type="nvarchar" MaxLength="256" />
+          <Property Name="Size" Type="int" />
+          <Property Name="Extension" Type="varchar" MaxLength="30" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" />
+          <Property Name="IsDisplay" Type="bit" Nullable="false" />
+          <Property Name="UploadBy" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="UploadDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdateBy" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DocumentTye">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="300" />
+          <Property Name="IsDisplay" Type="bit" Nullable="false" />
+          <Property Name="CreateBy" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdateBy" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ethnic">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="OrderNumber" Type="int" />
+        </EntityType>
+        <EntityType Name="ImageChildByYear">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ChildProfileId" Type="varchar" MaxLength="50" />
+          <Property Name="ImageUrl" Type="nvarchar" MaxLength="550" />
+          <Property Name="ImageThumbnail" Type="nvarchar" MaxLength="550" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="Year" Type="int" />
+          <Property Name="ProvinceId" Type="varchar" MaxLength="36" />
+          <Property Name="DistrictId" Type="varchar" MaxLength="36" />
+          <Property Name="WardId" Type="varchar" MaxLength="36" />
+        </EntityType>
+        <EntityType Name="ImageChildHistory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="ChildProfileId" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="ImagePath" Type="nvarchar" MaxLength="256" />
+          <Property Name="ImageThumbnailPath" Type="nvarchar" MaxLength="256" />
+          <Property Name="UploadBy" Type="varchar" MaxLength="36" />
+          <Property Name="UploadDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Job">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="NameEn" Type="nvarchar" MaxLength="100" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="OrderNumber" Type="int" />
+        </EntityType>
+        <EntityType Name="Province">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Relationship">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Gender" Type="int" />
+          <Property Name="OrderNumber" Type="int" />
+        </EntityType>
+        <EntityType Name="Religion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="OrderNumber" Type="int" />
+        </EntityType>
+        <EntityType Name="ReportContent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="35" Nullable="false" />
+          <Property Name="Content" Type="nvarchar(max)" />
+          <Property Name="Index" Type="int" />
+        </EntityType>
+        <EntityType Name="ReportProfile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="Content" Type="nvarchar" MaxLength="500" />
+          <Property Name="ChildProfileId" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="ProcessStatus" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="AreaApproverBy" Type="varchar" MaxLength="36" />
+          <Property Name="AreaApproveDate" Type="datetime" />
+          <Property Name="OfficeApproveBy" Type="varchar" MaxLength="36" />
+          <Property Name="OfficeApproveDate" Type="datetime" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+          <Property Name="CreateBy" Type="varchar" MaxLength="36" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="UpdateBy" Type="varchar" MaxLength="36" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="AreaApproverNotes" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="School">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="WardId" Type="varchar" MaxLength="36" />
+          <Property Name="SchoolName" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="ShareImage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="Content" Type="nvarchar" MaxLength="500" />
+          <Property Name="UploadDate" Type="datetime" Nullable="false" />
+          <Property Name="UserId" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+          <Property Name="CreateBy" Type="varchar" MaxLength="50" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="UpdateBy" Type="varchar" MaxLength="36" />
+          <Property Name="UpdateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="StoryTemplate">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="Type" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="StoryContent" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CreateBy" Type="varchar" MaxLength="36" />
+          <Property Name="UerStatus" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="UpdateBy" Type="varchar" MaxLength="36" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Survey">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="OrderNumber" Type="int" />
+          <Property Name="StartDate" Type="datetime" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="CreateBy" Type="varchar" MaxLength="36" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="UpdateBy" Type="varchar" MaxLength="36" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="IsPublish" Type="char" MaxLength="1" />
+          <Property Name="ContentResult" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="SurveyResult">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="SurveyId" Type="varchar" MaxLength="36" />
+          <Property Name="UserId" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="ContentResult" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="32" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="DateOfBirth" Type="datetime" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="300" />
+          <Property Name="ImagePath" Type="nvarchar" MaxLength="256" />
+          <Property Name="Gender" Type="int" Nullable="false" />
+          <Property Name="UserLever" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="IdentifyNumber" Type="varchar" MaxLength="15" />
+          <Property Name="Address" Type="nvarchar" MaxLength="500" />
+          <Property Name="AreaUserId" Type="varchar" MaxLength="36" />
+          <Property Name="AreaDistrictId" Type="varchar" MaxLength="36" />
+          <Property Name="AreaWardId" Type="varchar" MaxLength="36" />
+          <Property Name="CreateBy" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdateBy" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+          <Property Name="IsDisable" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Village">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="WardId" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="NameEN" Type="nvarchar" MaxLength="150" />
+          <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Ward">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="DistrictId" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="Location" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK__ActivityL__UserI__4F7CD00D">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="ActivityLog" Type="Self.ActivityLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ActivityLog">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AreaWard__AreaDi__5EBF139D">
+          <End Role="AreaDistrict" Type="Self.AreaDistrict" Multiplicity="1" />
+          <End Role="AreaWard" Type="Self.AreaWard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AreaDistrict">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AreaWard">
+              <PropertyRef Name="AreaDistrictId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AttachFil__Repor__5FB337D6">
+          <End Role="ReportProfile" Type="Self.ReportProfile" Multiplicity="1" />
+          <End Role="AttachFileReport" Type="Self.AttachFileReport" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReportProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AttachFileReport">
+              <PropertyRef Name="ReportProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Attachmen__Share__60A75C0F">
+          <End Role="ShareImage" Type="Self.ShareImage" Multiplicity="1" />
+          <End Role="AttachmentImage" Type="Self.AttachmentImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ShareImage">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AttachmentImage">
+              <PropertyRef Name="ShareImageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ChildProf__Child__398D8EEE">
+          <End Role="ChildProfile" Type="Self.ChildProfile" Multiplicity="1" />
+          <End Role="ChildProfileUpdate" Type="Self.ChildProfileUpdate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChildProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ChildProfileUpdate">
+              <PropertyRef Name="ChildProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__District__Provin__628FA481">
+          <End Role="Province" Type="Self.Province" Multiplicity="1" />
+          <End Role="District" Type="Self.District" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Province">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="District">
+              <PropertyRef Name="ProvinceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DocumentL__Docum__412EB0B6">
+          <End Role="DocumentTye" Type="Self.DocumentTye" Multiplicity="1" />
+          <End Role="DocumentLibrary" Type="Self.DocumentLibrary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DocumentTye">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DocumentLibrary">
+              <PropertyRef Name="DocumentTyeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ward__DistrictId__6477ECF3">
+          <End Role="District" Type="Self.District" Multiplicity="1" />
+          <End Role="Ward" Type="Self.Ward" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="District">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ward">
+              <PropertyRef Name="DistrictId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ChildProfileEntityModelStoreContainer">
+          <EntitySet Name="ActivityLog" EntityType="Self.ActivityLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AreaDistrict" EntityType="Self.AreaDistrict" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AreaUser" EntityType="Self.AreaUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AreaWard" EntityType="Self.AreaWard" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AttachFileReport" EntityType="Self.AttachFileReport" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AttachmentImage" EntityType="Self.AttachmentImage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ChildProfile" EntityType="Self.ChildProfile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ChildProfileUpdate" EntityType="Self.ChildProfileUpdate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="District" EntityType="Self.District" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DocumentLibrary" EntityType="Self.DocumentLibrary" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DocumentTye" EntityType="Self.DocumentTye" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ethnic" EntityType="Self.Ethnic" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ImageChildByYear" EntityType="Self.ImageChildByYear" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ImageChildHistory" EntityType="Self.ImageChildHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Job" EntityType="Self.Job" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Province" EntityType="Self.Province" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Relationship" EntityType="Self.Relationship" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Religion" EntityType="Self.Religion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReportContent" EntityType="Self.ReportContent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReportProfile" EntityType="Self.ReportProfile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="School" EntityType="Self.School" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ShareImage" EntityType="Self.ShareImage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StoryTemplate" EntityType="Self.StoryTemplate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Survey" EntityType="Self.Survey" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SurveyResult" EntityType="Self.SurveyResult" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Village" EntityType="Self.Village" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ward" EntityType="Self.Ward" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__ActivityL__UserI__4F7CD00D" Association="Self.FK__ActivityL__UserI__4F7CD00D">
+            <End Role="User" EntitySet="User" />
+            <End Role="ActivityLog" EntitySet="ActivityLog" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AreaWard__AreaDi__5EBF139D" Association="Self.FK__AreaWard__AreaDi__5EBF139D">
+            <End Role="AreaDistrict" EntitySet="AreaDistrict" />
+            <End Role="AreaWard" EntitySet="AreaWard" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AttachFil__Repor__5FB337D6" Association="Self.FK__AttachFil__Repor__5FB337D6">
+            <End Role="ReportProfile" EntitySet="ReportProfile" />
+            <End Role="AttachFileReport" EntitySet="AttachFileReport" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Attachmen__Share__60A75C0F" Association="Self.FK__Attachmen__Share__60A75C0F">
+            <End Role="ShareImage" EntitySet="ShareImage" />
+            <End Role="AttachmentImage" EntitySet="AttachmentImage" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ChildProf__Child__398D8EEE" Association="Self.FK__ChildProf__Child__398D8EEE">
+            <End Role="ChildProfile" EntitySet="ChildProfile" />
+            <End Role="ChildProfileUpdate" EntitySet="ChildProfileUpdate" />
+          </AssociationSet>
+          <AssociationSet Name="FK__District__Provin__628FA481" Association="Self.FK__District__Provin__628FA481">
+            <End Role="Province" EntitySet="Province" />
+            <End Role="District" EntitySet="District" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DocumentL__Docum__412EB0B6" Association="Self.FK__DocumentL__Docum__412EB0B6">
+            <End Role="DocumentTye" EntitySet="DocumentTye" />
+            <End Role="DocumentLibrary" EntitySet="DocumentLibrary" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ward__DistrictId__6477ECF3" Association="Self.FK__Ward__DistrictId__6477ECF3">
+            <End Role="District" EntitySet="District" />
+            <End Role="Ward" EntitySet="Ward" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ChildProfileEntityModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ChildProfileEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ActivityLogs" EntityType="ChildProfileEntityModel.ActivityLog" />
+          <EntitySet Name="AreaDistricts" EntityType="ChildProfileEntityModel.AreaDistrict" />
+          <EntitySet Name="AreaUsers" EntityType="ChildProfileEntityModel.AreaUser" />
+          <EntitySet Name="AreaWards" EntityType="ChildProfileEntityModel.AreaWard" />
+          <EntitySet Name="AttachFileReports" EntityType="ChildProfileEntityModel.AttachFileReport" />
+          <EntitySet Name="AttachmentImages" EntityType="ChildProfileEntityModel.AttachmentImage" />
+          <EntitySet Name="ChildProfiles" EntityType="ChildProfileEntityModel.ChildProfile" />
+          <EntitySet Name="ChildProfileUpdates" EntityType="ChildProfileEntityModel.ChildProfileUpdate" />
+          <EntitySet Name="Districts" EntityType="ChildProfileEntityModel.District" />
+          <EntitySet Name="DocumentLibraries" EntityType="ChildProfileEntityModel.DocumentLibrary" />
+          <EntitySet Name="DocumentTyes" EntityType="ChildProfileEntityModel.DocumentTye" />
+          <EntitySet Name="Ethnics" EntityType="ChildProfileEntityModel.Ethnic" />
+          <EntitySet Name="ImageChildByYears" EntityType="ChildProfileEntityModel.ImageChildByYear" />
+          <EntitySet Name="ImageChildHistories" EntityType="ChildProfileEntityModel.ImageChildHistory" />
+          <EntitySet Name="Jobs" EntityType="ChildProfileEntityModel.Job" />
+          <EntitySet Name="Provinces" EntityType="ChildProfileEntityModel.Province" />
+          <EntitySet Name="Relationships" EntityType="ChildProfileEntityModel.Relationship" />
+          <EntitySet Name="Religions" EntityType="ChildProfileEntityModel.Religion" />
+          <EntitySet Name="ReportContents" EntityType="ChildProfileEntityModel.ReportContent" />
+          <EntitySet Name="ReportProfiles" EntityType="ChildProfileEntityModel.ReportProfile" />
+          <EntitySet Name="Schools" EntityType="ChildProfileEntityModel.School" />
+          <EntitySet Name="ShareImages" EntityType="ChildProfileEntityModel.ShareImage" />
+          <EntitySet Name="StoryTemplates" EntityType="ChildProfileEntityModel.StoryTemplate" />
+          <EntitySet Name="Surveys" EntityType="ChildProfileEntityModel.Survey" />
+          <EntitySet Name="SurveyResults" EntityType="ChildProfileEntityModel.SurveyResult" />
+          <EntitySet Name="Users" EntityType="ChildProfileEntityModel.User" />
+          <EntitySet Name="Villages" EntityType="ChildProfileEntityModel.Village" />
+          <EntitySet Name="Wards" EntityType="ChildProfileEntityModel.Ward" />
+          <AssociationSet Name="FK__ActivityL__UserI__4F7CD00D" Association="ChildProfileEntityModel.FK__ActivityL__UserI__4F7CD00D">
+            <End Role="User" EntitySet="Users" />
+            <End Role="ActivityLog" EntitySet="ActivityLogs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AreaWard__AreaDi__5070F446" Association="ChildProfileEntityModel.FK__AreaWard__AreaDi__5070F446">
+            <End Role="AreaDistrict" EntitySet="AreaDistricts" />
+            <End Role="AreaWard" EntitySet="AreaWards" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AttachFil__Repor__5165187F" Association="ChildProfileEntityModel.FK__AttachFil__Repor__5165187F">
+            <End Role="ReportProfile" EntitySet="ReportProfiles" />
+            <End Role="AttachFileReport" EntitySet="AttachFileReports" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Attachmen__Share__52593CB8" Association="ChildProfileEntityModel.FK__Attachmen__Share__52593CB8">
+            <End Role="ShareImage" EntitySet="ShareImages" />
+            <End Role="AttachmentImage" EntitySet="AttachmentImages" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ChildProf__Child__398D8EEE" Association="ChildProfileEntityModel.FK__ChildProf__Child__398D8EEE">
+            <End Role="ChildProfile" EntitySet="ChildProfiles" />
+            <End Role="ChildProfileUpdate" EntitySet="ChildProfileUpdates" />
+          </AssociationSet>
+          <AssociationSet Name="FK__District__Provin__5441852A" Association="ChildProfileEntityModel.FK__District__Provin__5441852A">
+            <End Role="Province" EntitySet="Provinces" />
+            <End Role="District" EntitySet="Districts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ward__DistrictId__5535A963" Association="ChildProfileEntityModel.FK__Ward__DistrictId__5535A963">
+            <End Role="District" EntitySet="Districts" />
+            <End Role="Ward" EntitySet="Wards" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DocumentL__Docum__412EB0B6" Association="ChildProfileEntityModel.FK__DocumentL__Docum__412EB0B6">
+            <End Role="DocumentTye" EntitySet="DocumentTyes" />
+            <End Role="DocumentLibrary" EntitySet="DocumentLibraries" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ActivityLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="LogDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LogContent" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OldValue" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NewValue" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TableName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ObjectId" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="LogType" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="ChildProfileEntityModel.FK__ActivityL__UserI__4F7CD00D" FromRole="ActivityLog" ToRole="User" />
+        </EntityType>
+        <EntityType Name="AreaDistrict">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="DistrictId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ProvinceId" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="AreaUserId" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="IsActivate" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="AreaWards" Relationship="ChildProfileEntityModel.FK__AreaWard__AreaDi__5070F446" FromRole="AreaDistrict" ToRole="AreaWard" />
+        </EntityType>
+        <EntityType Name="AreaUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Manager" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ProvinceId" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="ProvinceName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="IsActivate" Type="Boolean" Nullable="false" />
+          <Property Name="CreateBy" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="AreaWard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="AreaDistrictId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="DistrictId" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="WardId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="IsActivate" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="AreaDistrict" Relationship="ChildProfileEntityModel.FK__AreaWard__AreaDi__5070F446" FromRole="AreaWard" ToRole="AreaDistrict" />
+        </EntityType>
+        <EntityType Name="AttachFileReport">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="ReportProfileId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Path" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="UploadBy" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="UploadDate" Type="DateTime" Precision="3" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="ReportProfile" Relationship="ChildProfileEntityModel.FK__AttachFil__Repor__5165187F" FromRole="AttachFileReport" ToRole="ReportProfile" />
+        </EntityType>
+        <EntityType Name="AttachmentImage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="ShareImageId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="FileType" Type="Int32" />
+          <Property Name="ImagePath" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="ImageThumbnailPath" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="SizeBase" Type="Int32" />
+          <Property Name="UploadBy" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="UploadDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="ShareImage" Relationship="ChildProfileEntityModel.FK__Attachmen__Share__52593CB8" FromRole="AttachmentImage" ToRole="ShareImage" />
+        </EntityType>
+        <EntityType Name="ChildProfile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="InfoDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EmployeeName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ProgramCode" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ProvinceId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="DistrictId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="WardId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="FullAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ChildCode" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SchoolId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SchoolOtherName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="EthnicId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="true" />
+          <Property Name="ReligionId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="NickName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="Int32" Nullable="false" />
+          <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LeaningStatus" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="ClassInfo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="FavouriteSubject" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LearningCapacity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Housework" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Health" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Personality" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Hobby" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Dream" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FamilyMember" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LivingWithParent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NotLivingWithParent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LivingWithOther" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LetterWrite" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HouseType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HouseRoof" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HouseWall" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HouseFloor" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UseElectricity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SchoolDistance" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClinicDistance" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="WaterSourceDistance" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="WaterSourceUse" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RoadCondition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IncomeFamily" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HarvestOutput" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NumberPet" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FamilyType" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="TotalIncome" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="IncomeSources" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="IncomeOther" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StoryContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ImagePath" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="ImageThumbnailPath" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="AreaApproverId" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="AreaApproverDate" Type="DateTime" Precision="3" />
+          <Property Name="OfficeApproveBy" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="OfficeApproveDate" Type="DateTime" Precision="3" />
+          <Property Name="ProcessStatus" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+          <Property Name="CreateBy" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdateBy" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ConsentName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ConsentRelationship" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ConsentVillage" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ConsentWard" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="SiblingsJoiningChildFund" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Malformation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Orphan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeTitle" Type="Int32" />
+          <Property Name="ImageSignaturePath" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="ImageSignatureThumbnailPath" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="SaleforceId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Handicap" Type="Boolean" />
+          <NavigationProperty Name="ChildProfileUpdates" Relationship="ChildProfileEntityModel.FK__ChildProf__Child__398D8EEE" FromRole="ChildProfile" ToRole="ChildProfileUpdate" />
+          <Property Name="ImageSize" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ChildProfileUpdate">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="ChildProfileId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="InfoDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EmployeeName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ProgramCode" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ProvinceId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="DistrictId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="WardId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="FullAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ChildCode" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SchoolId" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="SchoolOtherName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="EthnicId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="true" />
+          <Property Name="ReligionId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="NickName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="Int32" Nullable="false" />
+          <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LeaningStatus" Type="String" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="ClassInfo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FavouriteSubject" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LearningCapacity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Housework" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Health" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Personality" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Hobby" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Dream" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FamilyMember" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LivingWithParent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NotLivingWithParent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LivingWithOther" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LetterWrite" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HouseType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HouseRoof" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HouseWall" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HouseFloor" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UseElectricity" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SchoolDistance" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClinicDistance" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="WaterSourceDistance" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="WaterSourceUse" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RoadCondition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IncomeFamily" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HarvestOutput" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NumberPet" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FamilyType" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="TotalIncome" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="IncomeSources" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="IncomeOther" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ImagePath" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="ImageThumbnailPath" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="ProcessStatus" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="UpdateBy" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ConsentName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ConsentRelationship" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ConsentVillage" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ConsentWard" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="SiblingsJoiningChildFund" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Malformation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Orphan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeTitle" Type="Int32" />
+          <Property Name="ImageSignaturePath" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="ImageSignatureThumbnailPath" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="SaleforceId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Handicap" Type="Boolean" />
+          <NavigationProperty Name="ChildProfile" Relationship="ChildProfileEntityModel.FK__ChildProf__Child__398D8EEE" FromRole="ChildProfileUpdate" ToRole="ChildProfile" />
+          <Property Name="ImageSize" Type="Int32" />
+          <Property Name="AreaApproverDate" Type="DateTime" Precision="3" />
+          <Property Name="AreaApproverId" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="District">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="ProvinceId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Province" Relationship="ChildProfileEntityModel.FK__District__Provin__5441852A" FromRole="District" ToRole="Province" />
+          <NavigationProperty Name="Wards" Relationship="ChildProfileEntityModel.FK__Ward__DistrictId__5535A963" FromRole="District" ToRole="Ward" />
+        </EntityType>
+        <EntityType Name="DocumentLibrary">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="DocumentTyeId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="FileName" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Path" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Size" Type="Int32" />
+          <Property Name="Extension" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="IsDisplay" Type="Boolean" Nullable="false" />
+          <Property Name="UploadBy" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="UploadDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdateBy" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="DocumentTye" Relationship="ChildProfileEntityModel.FK__DocumentL__Docum__412EB0B6" FromRole="DocumentLibrary" ToRole="DocumentTye" />
+        </EntityType>
+        <EntityType Name="DocumentTye">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="IsDisplay" Type="Boolean" Nullable="false" />
+          <Property Name="CreateBy" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdateBy" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="DocumentLibraries" Relationship="ChildProfileEntityModel.FK__DocumentL__Docum__412EB0B6" FromRole="DocumentTye" ToRole="DocumentLibrary" />
+        </EntityType>
+        <EntityType Name="Ethnic">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="OrderNumber" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ImageChildByYear">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ChildProfileId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ImageUrl" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+          <Property Name="ImageThumbnail" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="Year" Type="Int32" />
+          <Property Name="ProvinceId" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="DistrictId" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="WardId" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ImageChildHistory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="ChildProfileId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="ImagePath" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="ImageThumbnailPath" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="UploadBy" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="UploadDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Job">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="NameEn" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="OrderNumber" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Province">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Districts" Relationship="ChildProfileEntityModel.FK__District__Provin__5441852A" FromRole="Province" ToRole="District" />
+        </EntityType>
+        <EntityType Name="Relationship">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="Int32" />
+          <Property Name="OrderNumber" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Religion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="OrderNumber" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ReportContent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Index" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ReportProfile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="Content" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ChildProfileId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="ProcessStatus" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="AreaApproverBy" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="AreaApproveDate" Type="DateTime" Precision="3" />
+          <Property Name="OfficeApproveBy" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="OfficeApproveDate" Type="DateTime" Precision="3" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+          <Property Name="CreateBy" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AreaApproverNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AttachFileReports" Relationship="ChildProfileEntityModel.FK__AttachFil__Repor__5165187F" FromRole="ReportProfile" ToRole="AttachFileReport" />
+        </EntityType>
+        <EntityType Name="School">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="WardId" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="SchoolName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ShareImage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="Content" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="UploadDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+          <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="AttachmentImages" Relationship="ChildProfileEntityModel.FK__Attachmen__Share__52593CB8" FromRole="ShareImage" ToRole="AttachmentImage" />
+        </EntityType>
+        <EntityType Name="StoryTemplate">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="StoryContent" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreateBy" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="UerStatus" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Survey">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="OrderNumber" Type="Int32" />
+          <Property Name="StartDate" Type="DateTime" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <Property Name="CreateBy" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="IsPublish" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ContentResult" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SurveyResult">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="SurveyId" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="ContentResult" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordHash" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="DateOfBirth" Type="DateTime" Precision="3" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="ImagePath" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="Int32" Nullable="false" />
+          <Property Name="UserLever" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="IdentifyNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="AreaUserId" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="AreaDistrictId" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="AreaWardId" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="CreateBy" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdateBy" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsDisable" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="ActivityLogs" Relationship="ChildProfileEntityModel.FK__ActivityL__UserI__4F7CD00D" FromRole="User" ToRole="ActivityLog" />
+        </EntityType>
+        <EntityType Name="Village">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="WardId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="NameEN" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Ward">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="DistrictId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="District" Relationship="ChildProfileEntityModel.FK__Ward__DistrictId__5535A963" FromRole="Ward" ToRole="District" />
+        </EntityType>
+        <Association Name="FK__ActivityL__UserI__4F7CD00D">
+          <End Type="ChildProfileEntityModel.User" Role="User" Multiplicity="1" />
+          <End Type="ChildProfileEntityModel.ActivityLog" Role="ActivityLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ActivityLog">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AreaWard__AreaDi__5070F446">
+          <End Type="ChildProfileEntityModel.AreaDistrict" Role="AreaDistrict" Multiplicity="1" />
+          <End Type="ChildProfileEntityModel.AreaWard" Role="AreaWard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AreaDistrict">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AreaWard">
+              <PropertyRef Name="AreaDistrictId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AttachFil__Repor__5165187F">
+          <End Type="ChildProfileEntityModel.ReportProfile" Role="ReportProfile" Multiplicity="1" />
+          <End Type="ChildProfileEntityModel.AttachFileReport" Role="AttachFileReport" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReportProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AttachFileReport">
+              <PropertyRef Name="ReportProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Attachmen__Share__52593CB8">
+          <End Type="ChildProfileEntityModel.ShareImage" Role="ShareImage" Multiplicity="1" />
+          <End Type="ChildProfileEntityModel.AttachmentImage" Role="AttachmentImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ShareImage">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AttachmentImage">
+              <PropertyRef Name="ShareImageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ChildProf__Child__398D8EEE">
+          <End Type="ChildProfileEntityModel.ChildProfile" Role="ChildProfile" Multiplicity="1" />
+          <End Type="ChildProfileEntityModel.ChildProfileUpdate" Role="ChildProfileUpdate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChildProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ChildProfileUpdate">
+              <PropertyRef Name="ChildProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__District__Provin__5441852A">
+          <End Type="ChildProfileEntityModel.Province" Role="Province" Multiplicity="1" />
+          <End Type="ChildProfileEntityModel.District" Role="District" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Province">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="District">
+              <PropertyRef Name="ProvinceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ward__DistrictId__5535A963">
+          <End Type="ChildProfileEntityModel.District" Role="District" Multiplicity="1" />
+          <End Type="ChildProfileEntityModel.Ward" Role="Ward" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="District">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ward">
+              <PropertyRef Name="DistrictId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DocumentL__Docum__412EB0B6">
+          <End Type="ChildProfileEntityModel.DocumentTye" Role="DocumentTye" Multiplicity="1" />
+          <End Type="ChildProfileEntityModel.DocumentLibrary" Role="DocumentLibrary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DocumentTye">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DocumentLibrary">
+              <PropertyRef Name="DocumentTyeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ChildProfileEntityModelStoreContainer" CdmEntityContainer="ChildProfileEntities">
+          <EntitySetMapping Name="ActivityLogs">
+            <EntityTypeMapping TypeName="ChildProfileEntityModel.ActivityLog">
+              <MappingFragment StoreEntitySet="ActivityLog">
+                <ScalarProperty Name="LogType" ColumnName="LogType" />
+                <ScalarProperty Name="ObjectId" ColumnName="ObjectId" />
+                <ScalarProperty Name="TableName" ColumnName="TableName" />
+                <ScalarProperty Name="NewValue" ColumnName="NewValue" />
+                <ScalarProperty Name="OldValue" ColumnName="OldValue" />
+                <ScalarProperty Name="LogContent" ColumnName="LogContent" />
+                <ScalarProperty Name="LogDate" ColumnName="LogDate" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AreaDistricts">
+            <EntityTypeMapping TypeName="ChildProfileEntityModel.AreaDistrict">
+              <MappingFragment StoreEntitySet="AreaDistrict">
+                <ScalarProperty Name="IsActivate" ColumnName="IsActivate" />
+                <ScalarProperty Name="AreaUserId" ColumnName="AreaUserId" />
+                <ScalarProperty Name="ProvinceId" ColumnName="ProvinceId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AreaUsers">
+            <EntityTypeMapping TypeName="ChildProfileEntityModel.AreaUser">
+              <MappingFragment StoreEntitySet="AreaUser">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="IsActivate" ColumnName="IsActivate" />
+                <ScalarProperty Name="ProvinceName" ColumnName="ProvinceName" />
+                <ScalarProperty Name="ProvinceId" ColumnName="ProvinceId" />
+                <ScalarProperty Name="Manager" ColumnName="Manager" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AreaWards">
+            <EntityTypeMapping TypeName="ChildProfileEntityModel.AreaWard">
+              <MappingFragment StoreEntitySet="AreaWard">
+                <ScalarProperty Name="IsActivate" ColumnName="IsActivate" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="WardId" ColumnName="WardId" />
+                <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
+                <ScalarProperty Name="AreaDistrictId" ColumnName="AreaDistrictId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AttachFileReports">
+            <EntityTypeMapping TypeName="ChildProfileEntityModel.AttachFileReport">
+              <MappingFragment StoreEntitySet="AttachFileReport">
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="UploadDate" ColumnName="UploadDate" />
+                <ScalarProperty Name="UploadBy" ColumnName="UploadBy" />
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ReportProfileId" ColumnName="ReportProfileId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AttachmentImages">
+            <EntityTypeMapping TypeName="ChildProfileEntityModel.AttachmentImage">
+              <MappingFragment StoreEntitySet="AttachmentImage">
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="UploadDate" ColumnName="UploadDate" />
+                <ScalarProperty Name="UploadBy" ColumnName="UploadBy" />
+                <ScalarProperty Name="SizeBase" ColumnName="SizeBase" />
+                <ScalarProperty Name="ImageThumbnailPath" ColumnName="ImageThumbnailPath" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="FileType" ColumnName="FileType" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ShareImageId" ColumnName="ShareImageId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ChildProfiles">
+            <EntityTypeMapping TypeName="ChildProfileEntityModel.ChildProfile">
+              <MappingFragment StoreEntitySet="ChildProfile">
+                <ScalarProperty Name="ImageSize" ColumnName="ImageSize" />
+                <ScalarProperty Name="Handicap" ColumnName="Handicap" />
+                <ScalarProperty Name="SaleforceId" ColumnName="SaleforceId" />
+                <ScalarProperty Name="ImageSignatureThumbnailPath" ColumnName="ImageSignatureThumbnailPath" />
+                <ScalarProperty Name="ImageSignaturePath" ColumnName="ImageSignaturePath" />
+                <ScalarProperty Name="EmployeeTitle" ColumnName="EmployeeTitle" />
+                <ScalarProperty Name="Orphan" ColumnName="Orphan" />
+                <ScalarProperty Name="Malformation" ColumnName="Malformation" />
+                <ScalarProperty Name="SiblingsJoiningChildFund" ColumnName="SiblingsJoiningChildFund" />
+                <ScalarProperty Name="ConsentWard" ColumnName="ConsentWard" />
+                <ScalarProperty Name="ConsentVillage" ColumnName="ConsentVillage" />
+                <ScalarProperty Name="ConsentRelationship" ColumnName="ConsentRelationship" />
+                <ScalarProperty Name="ConsentName" ColumnName="ConsentName" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="ProcessStatus" ColumnName="ProcessStatus" />
+                <ScalarProperty Name="OfficeApproveDate" ColumnName="OfficeApproveDate" />
+                <ScalarProperty Name="OfficeApproveBy" ColumnName="OfficeApproveBy" />
+                <ScalarProperty Name="AreaApproverDate" ColumnName="AreaApproverDate" />
+                <ScalarProperty Name="AreaApproverId" ColumnName="AreaApproverId" />
+                <ScalarProperty Name="ImageThumbnailPath" ColumnName="ImageThumbnailPath" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="StoryContent" ColumnName="StoryContent" />
+                <ScalarProperty Name="IncomeOther" ColumnName="IncomeOther" />
+                <ScalarProperty Name="IncomeSources" ColumnName="IncomeSources" />
+                <ScalarProperty Name="TotalIncome" ColumnName="TotalIncome" />
+                <ScalarProperty Name="FamilyType" ColumnName="FamilyType" />
+                <ScalarProperty Name="NumberPet" ColumnName="NumberPet" />
+                <ScalarProperty Name="HarvestOutput" ColumnName="HarvestOutput" />
+                <ScalarProperty Name="IncomeFamily" ColumnName="IncomeFamily" />
+                <ScalarProperty Name="RoadCondition" ColumnName="RoadCondition" />
+                <ScalarProperty Name="WaterSourceUse" ColumnName="WaterSourceUse" />
+                <ScalarProperty Name="WaterSourceDistance" ColumnName="WaterSourceDistance" />
+                <ScalarProperty Name="ClinicDistance" ColumnName="ClinicDistance" />
+                <ScalarProperty Name="SchoolDistance" ColumnName="SchoolDistance" />
+                <ScalarProperty Name="UseElectricity" ColumnName="UseElectricity" />
+                <ScalarProperty Name="HouseFloor" ColumnName="HouseFloor" />
+                <ScalarProperty Name="HouseWall" ColumnName="HouseWall" />
+                <ScalarProperty Name="HouseRoof" ColumnName="HouseRoof" />
+                <ScalarProperty Name="HouseType" ColumnName="HouseType" />
+                <ScalarProperty Name="LetterWrite" ColumnName="LetterWrite" />
+                <ScalarProperty Name="LivingWithOther" ColumnName="LivingWithOther" />
+                <ScalarProperty Name="NotLivingWithParent" ColumnName="NotLivingWithParent" />
+                <ScalarProperty Name="LivingWithParent" ColumnName="LivingWithParent" />
+                <ScalarProperty Name="FamilyMember" ColumnName="FamilyMember" />
+                <ScalarProperty Name="Dream" ColumnName="Dream" />
+                <ScalarProperty Name="Hobby" ColumnName="Hobby" />
+                <ScalarProperty Name="Personality" ColumnName="Personality" />
+                <ScalarProperty Name="Health" ColumnName="Health" />
+                <ScalarProperty Name="Housework" ColumnName="Housework" />
+                <ScalarProperty Name="LearningCapacity" ColumnName="LearningCapacity" />
+                <ScalarProperty Name="FavouriteSubject" ColumnName="FavouriteSubject" />
+                <ScalarProperty Name="ClassInfo" ColumnName="ClassInfo" />
+                <ScalarProperty Name="LeaningStatus" ColumnName="LeaningStatus" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="NickName" ColumnName="NickName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ReligionId" ColumnName="ReligionId" />
+                <ScalarProperty Name="EthnicId" ColumnName="EthnicId" />
+                <ScalarProperty Name="SchoolOtherName" ColumnName="SchoolOtherName" />
+                <ScalarProperty Name="SchoolId" ColumnName="SchoolId" />
+                <ScalarProperty Name="ChildCode" ColumnName="ChildCode" />
+                <ScalarProperty Name="FullAddress" ColumnName="FullAddress" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="WardId" ColumnName="WardId" />
+                <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
+                <ScalarProperty Name="ProvinceId" ColumnName="ProvinceId" />
+                <ScalarProperty Name="ProgramCode" ColumnName="ProgramCode" />
+                <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+                <ScalarProperty Name="InfoDate" ColumnName="InfoDate" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ChildProfileUpdates">
+            <EntityTypeMapping TypeName="ChildProfileEntityModel.ChildProfileUpdate">
+              <MappingFragment StoreEntitySet="ChildProfileUpdate">
+                <ScalarProperty Name="AreaApproverId" ColumnName="AreaApproverId" />
+                <ScalarProperty Name="AreaApproverDate" ColumnName="AreaApproverDate" />
+                <ScalarProperty Name="ImageSize" ColumnName="ImageSize" />
+                <ScalarProperty Name="Handicap" ColumnName="Handicap" />
+                <ScalarProperty Name="SaleforceId" ColumnName="SaleforceId" />
+                <ScalarProperty Name="ImageSignatureThumbnailPath" ColumnName="ImageSignatureThumbnailPath" />
+                <ScalarProperty Name="ImageSignaturePath" ColumnName="ImageSignaturePath" />
+                <ScalarProperty Name="EmployeeTitle" ColumnName="EmployeeTitle" />
+                <ScalarProperty Name="Orphan" ColumnName="Orphan" />
+                <ScalarProperty Name="Malformation" ColumnName="Malformation" />
+                <ScalarProperty Name="SiblingsJoiningChildFund" ColumnName="SiblingsJoiningChildFund" />
+                <ScalarProperty Name="ConsentWard" ColumnName="ConsentWard" />
+                <ScalarProperty Name="ConsentVillage" ColumnName="ConsentVillage" />
+                <ScalarProperty Name="ConsentRelationship" ColumnName="ConsentRelationship" />
+                <ScalarProperty Name="ConsentName" ColumnName="ConsentName" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="ProcessStatus" ColumnName="ProcessStatus" />
+                <ScalarProperty Name="ImageThumbnailPath" ColumnName="ImageThumbnailPath" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="IncomeOther" ColumnName="IncomeOther" />
+                <ScalarProperty Name="IncomeSources" ColumnName="IncomeSources" />
+                <ScalarProperty Name="TotalIncome" ColumnName="TotalIncome" />
+                <ScalarProperty Name="FamilyType" ColumnName="FamilyType" />
+                <ScalarProperty Name="NumberPet" ColumnName="NumberPet" />
+                <ScalarProperty Name="HarvestOutput" ColumnName="HarvestOutput" />
+                <ScalarProperty Name="IncomeFamily" ColumnName="IncomeFamily" />
+                <ScalarProperty Name="RoadCondition" ColumnName="RoadCondition" />
+                <ScalarProperty Name="WaterSourceUse" ColumnName="WaterSourceUse" />
+                <ScalarProperty Name="WaterSourceDistance" ColumnName="WaterSourceDistance" />
+                <ScalarProperty Name="ClinicDistance" ColumnName="ClinicDistance" />
+                <ScalarProperty Name="SchoolDistance" ColumnName="SchoolDistance" />
+                <ScalarProperty Name="UseElectricity" ColumnName="UseElectricity" />
+                <ScalarProperty Name="HouseFloor" ColumnName="HouseFloor" />
+                <ScalarProperty Name="HouseWall" ColumnName="HouseWall" />
+                <ScalarProperty Name="HouseRoof" ColumnName="HouseRoof" />
+                <ScalarProperty Name="HouseType" ColumnName="HouseType" />
+                <ScalarProperty Name="LetterWrite" ColumnName="LetterWrite" />
+                <ScalarProperty Name="LivingWithOther" ColumnName="LivingWithOther" />
+                <ScalarProperty Name="NotLivingWithParent" ColumnName="NotLivingWithParent" />
+                <ScalarProperty Name="LivingWithParent" ColumnName="LivingWithParent" />
+                <ScalarProperty Name="FamilyMember" ColumnName="FamilyMember" />
+                <ScalarProperty Name="Dream" ColumnName="Dream" />
+                <ScalarProperty Name="Hobby" ColumnName="Hobby" />
+                <ScalarProperty Name="Personality" ColumnName="Personality" />
+                <ScalarProperty Name="Health" ColumnName="Health" />
+                <ScalarProperty Name="Housework" ColumnName="Housework" />
+                <ScalarProperty Name="LearningCapacity" ColumnName="LearningCapacity" />
+                <ScalarProperty Name="FavouriteSubject" ColumnName="FavouriteSubject" />
+                <ScalarProperty Name="ClassInfo" ColumnName="ClassInfo" />
+                <ScalarProperty Name="LeaningStatus" ColumnName="LeaningStatus" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="NickName" ColumnName="NickName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ReligionId" ColumnName="ReligionId" />
+                <ScalarProperty Name="EthnicId" ColumnName="EthnicId" />
+                <ScalarProperty Name="SchoolOtherName" ColumnName="SchoolOtherName" />
+                <ScalarProperty Name="SchoolId" ColumnName="SchoolId" />
+                <ScalarProperty Name="ChildCode" ColumnName="ChildCode" />
+                <ScalarProperty Name="FullAddress" ColumnName="FullAddress" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="WardId" ColumnName="WardId" />
+                <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
+                <ScalarProperty Name="ProvinceId" ColumnName="ProvinceId" />
+                <ScalarProperty Name="ProgramCode" ColumnName="ProgramCode" />
+                <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+                <ScalarProperty Name="InfoDate" ColumnName="InfoDate" />
+                <ScalarProperty Name="ChildProfileId" ColumnName="ChildProfileId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Districts">
+            <EntityTypeMapping TypeName="ChildProfileEntityModel.District">
+              <MappingFragment StoreEntitySet="District">
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ProvinceId" ColumnName="ProvinceId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DocumentLibraries">
+            <EntityTypeMapping TypeName="ChildProfileEntityModel.DocumentLibrary">
+              <MappingFragment StoreEntitySet="DocumentLibrary">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="UploadDate" ColumnName="UploadDate" />
+                <ScalarProperty Name="UploadBy" ColumnName="UploadBy" />
+                <ScalarProperty Name="IsDisplay" ColumnName="IsDisplay" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Extension" ColumnName="Extension" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="DocumentTyeId" ColumnName="DocumentTyeId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DocumentTyes">
+            <EntityTypeMapping TypeName="ChildProfileEntityModel.DocumentTye">
+              <MappingFragment StoreEntitySet="DocumentTye">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="IsDisplay" ColumnName="IsDisplay" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ethnics">
+            <EntityTypeMapping TypeName="ChildProfileEntityModel.Ethnic">
+              <MappingFragment StoreEntitySet="Ethnic">
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ImageChildByYears">
+            <EntityTypeMapping TypeName="ChildProfileEntityModel.ImageChildByYear">
+              <MappingFragment StoreEntitySet="ImageChildByYear">
+                <ScalarProperty Name="WardId" ColumnName="WardId" />
+                <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
+                <ScalarProperty Name="ProvinceId" ColumnName="ProvinceId" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ImageThumbnail" ColumnName="ImageThumbnail" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+                <ScalarProperty Name="ChildProfileId" ColumnName="ChildProfileId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ImageChildHistories">
+            <EntityTypeMapping TypeName="ChildProfileEntityModel.ImageChildHistory">
+              <MappingFragment StoreEntitySet="ImageChildHistory">
+                <ScalarProperty Name="UploadDate" ColumnName="UploadDate" />
+                <ScalarProperty Name="UploadBy" ColumnName="UploadBy" />
+                <ScalarProperty Name="ImageThumbnailPath" ColumnName="ImageThumbnailPath" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="ChildProfileId" ColumnName="ChildProfileId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Jobs">
+            <EntityTypeMapping TypeName="ChildProfileEntityModel.Job">
+              <MappingFragment StoreEntitySet="Job">
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="NameEn" ColumnName="NameEn" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Provinces">
+            <EntityTypeMapping TypeName="ChildProfileEntityModel.Province">
+              <MappingFragment StoreEntitySet="Province">
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Relationships">
+            <EntityTypeMapping TypeName="ChildProfileEntityModel.Relationship">
+              <MappingFragment StoreEntitySet="Relationship">
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Religions">
+            <EntityTypeMapping TypeName="ChildProfileEntityModel.Religion">
+              <MappingFragment StoreEntitySet="Religion">
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReportContents">
+            <EntityTypeMapping TypeName="ChildProfileEntityModel.ReportContent">
+              <MappingFragment StoreEntitySet="ReportContent">
+                <ScalarProperty Name="Index" ColumnName="Index" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReportProfiles">
+            <EntityTypeMapping TypeName="ChildProfileEntityModel.ReportProfile">
+              <MappingFragment StoreEntitySet="ReportProfile">
+                <ScalarProperty Name="AreaApproverNotes" ColumnName="AreaApproverNotes" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="OfficeApproveDate" ColumnName="OfficeApproveDate" />
+                <ScalarProperty Name="OfficeApproveBy" ColumnName="OfficeApproveBy" />
+                <ScalarProperty Name="AreaApproveDate" ColumnName="AreaApproveDate" />
+                <ScalarProperty Name="AreaApproverBy" ColumnName="AreaApproverBy" />
+                <ScalarProperty Name="ProcessStatus" ColumnName="ProcessStatus" />
+                <ScalarProperty Name="ChildProfileId" ColumnName="ChildProfileId" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Schools">
+            <EntityTypeMapping TypeName="ChildProfileEntityModel.School">
+              <MappingFragment StoreEntitySet="School">
+                <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
+                <ScalarProperty Name="WardId" ColumnName="WardId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShareImages">
+            <EntityTypeMapping TypeName="ChildProfileEntityModel.ShareImage">
+              <MappingFragment StoreEntitySet="ShareImage">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UploadDate" ColumnName="UploadDate" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StoryTemplates">
+            <EntityTypeMapping TypeName="ChildProfileEntityModel.StoryTemplate">
+              <MappingFragment StoreEntitySet="StoryTemplate">
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="UerStatus" ColumnName="UerStatus" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="StoryContent" ColumnName="StoryContent" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Surveys">
+            <EntityTypeMapping TypeName="ChildProfileEntityModel.Survey">
+              <MappingFragment StoreEntitySet="Survey">
+                <ScalarProperty Name="ContentResult" ColumnName="ContentResult" />
+                <ScalarProperty Name="IsPublish" ColumnName="IsPublish" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SurveyResults">
+            <EntityTypeMapping TypeName="ChildProfileEntityModel.SurveyResult">
+              <MappingFragment StoreEntitySet="SurveyResult">
+                <ScalarProperty Name="ContentResult" ColumnName="ContentResult" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="SurveyId" ColumnName="SurveyId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="ChildProfileEntityModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="IsDisable" ColumnName="IsDisable" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="AreaWardId" ColumnName="AreaWardId" />
+                <ScalarProperty Name="AreaDistrictId" ColumnName="AreaDistrictId" />
+                <ScalarProperty Name="AreaUserId" ColumnName="AreaUserId" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="IdentifyNumber" ColumnName="IdentifyNumber" />
+                <ScalarProperty Name="UserLever" ColumnName="UserLever" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Villages">
+            <EntityTypeMapping TypeName="ChildProfileEntityModel.Village">
+              <MappingFragment StoreEntitySet="Village">
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="NameEN" ColumnName="NameEN" />
+                <ScalarProperty Name="WardId" ColumnName="WardId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wards">
+            <EntityTypeMapping TypeName="ChildProfileEntityModel.Ward">
+              <MappingFragment StoreEntitySet="Ward">
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

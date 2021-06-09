@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/step5"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/grey_bg"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="15dp">
+
+        <TextView
+            style="@style/TitleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5. Phần cam kết của hộ gia đình/ Consent form" />
+
+        <View
+            android:layout_width="@dimen/spacing_large"
+            android:layout_height="0dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorPrimaryDark" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:background="#fff"
+            android:orientation="vertical"
+            android:padding="15dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/LabelStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Người cam kết/ Guardian" />
+
+                <EditText
+                    android:id="@+id/txtConsentName"
+                    style="@style/EditTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textCapCharacters" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/spacing_middle"
+                    android:layout_weight="1" />
+
+                <TextView
+                    style="@style/LabelStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Mối quan hệ/ Relationship" />
+
+                <EditText
+                    android:id="@+id/spnConsentRelationship"
+                    style="@style/SpinnerStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/spacing_middle"
+                    android:layout_weight="1" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="bottom"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="0.5"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/LabelStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Sống tại thôn/ xóm/ Village" />
+
+                        <EditText
+                            android:id="@+id/txtConsentVillage"
+                            style="@style/EditTextStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="text" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/tilProgramCode"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="0.5"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/LabelStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Xã/ Commune" />
+
+                        <EditText
+                            android:id="@+id/txtConsentWard"
+                            style="@style/EditTextStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="text" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp" />
+
+            <TextView
+                style="@style/LabelRegularStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Đồng ý xác nhận những nội dung thông tin trong Bản kê khai trên do Giáo viên/ Điều phối viên QHTT xã tiến hành thu thập là chính xác."
+                android:textColor="@color/grey_1000" />
+
+            <TextView
+                style="@style/LabelRegularStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Confirms that the information collected in this paper by the School teacher/Community Facilitator is accurate." />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5dp" />
+
+            <TextView
+                style="@style/LabelRegularStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sau khi được truyền đạt những thông tin cơ bản về Tổ chức ChildFund tại Việt Nam và chương trình hoạt động của Tổ chức, chúng tôi nhất trí tự nguyện cho con em mình tham gia vào các hoạt động chương trình Quan hệ tài trợ trên tinh thần hợp tác tích cực vì lợi ích chung của toàn cộng đồng."
+                android:textColor="@color/grey_1000" />
+
+            <TextView
+                style="@style/LabelRegularStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Learning the basic information on ChildFund in Vietnam and its programs, we are willing to let our child take part in the Child Sponsorship Program for the sake of the whole community." />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+
+            <TextView
+                style="@style/LabelRegularStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Chúng tôi hiểu rằng khi tham gia chương trình này/We understand that joining this program means:"
+                android:textColor="@color/grey_1000" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:src="@drawable/ic_dot_black" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/LabelRegularStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Con của chúng tôi sẽ thay mặt trẻ em toàn xã tham gia vào chương trình kêu gọi tài trợ cho toàn bộ trẻ em và người dân trong cộng đồng cùng hưởng lợi"
+                        android:textColor="@color/grey_1000" />
+
+                    <TextView
+                        style="@style/LabelRegularStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Our child will be one representative of the commune to get connected to the sponsor who will contribute to funding the program that the whole community benefits" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:src="@drawable/ic_dot_black" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/LabelRegularStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Hoạt động của chương trình Quan hệ tài trợ của ChildFund tại Việt Nam bao gồm các hoạt động giao lưu thư từ thường xuyên với các nhà tài trợ và tham gia vào các hoạt động mà trẻ em toàn cộng đồng sẽ được hưởng lợi trực tiếp"
+                        android:textColor="@color/grey_1000" />
+
+                    <TextView
+                        style="@style/LabelRegularStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="ChildFund in Vietnam’s Child Sponsorship Program include letter exchanging activities with sponsors and activities that the children directly benefit" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:src="@drawable/ic_dot_black" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/LabelRegularStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Chúng tôi đồng ý với việc tất cả thư từ giao lưu với nhà tài trợ được thực hiện qua tổ chức ChildFund; được mở, dịch và xem xét về tính phù hợp và bảo mật "
+                        android:textColor="@color/grey_1000" />
+
+                    <TextView
+                        style="@style/LabelRegularStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="We agree that the letter exchange activities with sponsors are processed by ChildFund: to be unpacked, translated and considered its appropriateness and confidentiality" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:src="@drawable/ic_dot_black" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/LabelRegularStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Con chúng tôi khi tham gia vào chương trình của ChildFund tại Việt Nam sẽ có trách nhiệm tuân thủ những nguyên tắc của chương trình và tích cực tham gia vì lợi ích chung và vì tương lai phát triển chung của cộng đồng"
+                        android:textColor="@color/grey_1000" />
+
+                    <TextView
+                        style="@style/LabelRegularStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Our child has the responsibility for complying with the principles of the program and for being active in his/her participation for the sake of the whole community’s development" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:src="@drawable/ic_dot_black" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/LabelRegularStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Sự đóng góp công sức của các giáo viên/ điều phối viên cộng đồng phụ trách QHTT và của con chúng tôi cùng với các trẻ em khác cộng đồng là trên tinh thần tự nguyện và tình nguyện, không có thù lao và quyền lợi đặc biệt nào ngoài quyền lợi chung mà toàn cộng đồng được hưởng"
+                        android:textColor="@color/grey_1000" />
+
+                    <TextView
+                        style="@style/LabelRegularStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="We understand that the participation of our child and the contribution of the teachers/community facilitator is completely voluntary and without any payment. The only benefit goes to the whole community" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:src="@drawable/ic_dot_black" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/LabelRegularStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Chúng tôi đồng ý cho Tổ chức ChildFund sử dụng các thông tin và ảnh chụp của con chúng tôi vào mục đích quảng cáo, tìm nhà tài trợ và gây quỹ."
+                        android:textColor="@color/grey_1000" />
+
+                    <TextView
+                        style="@style/LabelRegularStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="We give permission for our child’s information and photograph to be used by ChildFund for advertising media to raise fund." />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:src="@drawable/ic_dot_black" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/LabelRegularStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Trong trường hợp tôi thay đổi ý định, không đồng ý cho ChildFund sử dụng các hạng mục thông tin, tôi sẽ thông báo cho ChildFund Việt Nam qua tổng đài 1900 6706. ChildFund cam kết sẽ xóa toàn bộ dữ liệu của tôi và gia đình tôi trên tất cả các nền tảng lưu trữ thông tin của tổ chức và thông báo về việc xóa dữ liệu này tới tôi bằng văn bản."
+                        android:textColor="@color/grey_1000" />
+
+                    <TextView
+                        style="@style/LabelRegularStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="If I wish to revoke permission, I’ll contact ChildFund, so that it can erase all the data from its storage platforms and confirm this deletion in written." />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/LabelTitleStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Trẻ có anh/ chị/ em ruột cùng tham gia Chương trình ChildFund tại Việt Nam không?/ Does the child have any siblings joining ChildFund’s program?" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recyclerSiblingsJoiningChildFund"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentTop="true"
+                        android:cacheColorHint="#0000"
+                        android:scrollbars="vertical"
+                        android:scrollingCache="true" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/lyt_parent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/LabelStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Ảnh chụp chữ ký đồng thuận/The guardian's consent" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/imageSignature"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/no_image" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="bottom"
+                    android:padding="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="right"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/imageSignatureChoose"
+                                style="@style/ButtonIconStyle"
+                                android:layout_marginRight="10dp"
+                                android:background="@null"
+                                android:src="@mipmap/ic_add_image" />
+
+                            <ImageView
+                                android:id="@+id/imageSignatureCapture"
+                                style="@style/ButtonIconStyle"
+                                android:background="@null"
+                                android:src="@mipmap/ic_take_photo_circle" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <TextView
+                style="@style/LabelTitleStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Xin chân thành cảm ơn gia đình đã trả lời phỏng vấn!"
+                android:textAlignment="center" />
+
+            <TextView
+                style="@style/LabelTitleStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Thank you for taking your time in the interview!"
+                android:textAlignment="center" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

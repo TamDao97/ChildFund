@@ -1,0 +1,19 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutAuthorize.cshtml";
+}
+<div class="content">
+    <h2>@InformationHub.Resource.Resource.Web_Title</h2>
+    <form id="login">
+        <div class="controls">
+            <input type="text" id="UserName" placeholder="@InformationHub.Resource.Resource.Authorize_Name" ntsvalidate="required">
+        </div>
+        <div class="controls">
+            <input type="password" id="Password" placeholder="@InformationHub.Resource.Resource.Authorzie_Password" ntsvalidate="required">
+        </div>
+        <div class="aitssend">
+            <input type="button" id="btnLogin" value="@InformationHub.Resource.Resource.Authorize_Login">
+            <p id="forwardPassword" style="cursor:pointer;">@InformationHub.Resource.Resource.Authorize_Forgot_Password</p>
+            <div class="clear"></div>
+        </div>
+    </form>
+</div>

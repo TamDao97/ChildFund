@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7EB65F7D-119E-4F4F-9D09-D4C73E13614F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ChildProfiles.Model</RootNamespace>
+    <AssemblyName>ChildProfiles.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entity\ActivityLog.cs">
+      <DependentUpon>ChildProfileEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\AreaDistrict.cs">
+      <DependentUpon>ChildProfileEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\AreaUser.cs">
+      <DependentUpon>ChildProfileEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\AreaWard.cs">
+      <DependentUpon>ChildProfileEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\AttachFileReport.cs">
+      <DependentUpon>ChildProfileEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\AttachmentImage.cs">
+      <DependentUpon>ChildProfileEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\ChildProfile.cs">
+      <DependentUpon>ChildProfileEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\ChildProfileEntityModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ChildProfileEntityModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\ChildProfileEntityModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ChildProfileEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\ChildProfileEntityModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ChildProfileEntityModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\ChildProfileUpdate.cs">
+      <DependentUpon>ChildProfileEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\District.cs">
+      <DependentUpon>ChildProfileEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\DocumentLibrary.cs">
+      <DependentUpon>ChildProfileEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\DocumentTye.cs">
+      <DependentUpon>ChildProfileEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Ethnic.cs">
+      <DependentUpon>ChildProfileEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\ImageChildByYear.cs">
+      <DependentUpon>ChildProfileEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\ImageChildHistory.cs">
+      <DependentUpon>ChildProfileEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Job.cs">
+      <DependentUpon>ChildProfileEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Province.cs">
+      <DependentUpon>ChildProfileEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Relationship.cs">
+      <DependentUpon>ChildProfileEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Religion.cs">
+      <DependentUpon>ChildProfileEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\ReportContent.cs">
+      <DependentUpon>ChildProfileEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\ReportProfile.cs">
+      <DependentUpon>ChildProfileEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\School.cs">
+      <DependentUpon>ChildProfileEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\ShareImage.cs">
+      <DependentUpon>ChildProfileEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\StoryTemplate.cs">
+      <DependentUpon>ChildProfileEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Survey.cs">
+      <DependentUpon>ChildProfileEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\SurveyResult.cs">
+      <DependentUpon>ChildProfileEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\User.cs">
+      <DependentUpon>ChildProfileEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Village.cs">
+      <DependentUpon>ChildProfileEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Ward.cs">
+      <DependentUpon>ChildProfileEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Api\ApiResultModel.cs" />
+    <Compile Include="Model\CacheModel\NotifyModel.cs" />
+    <Compile Include="Model\ChangePasswordUserModel.cs" />
+    <Compile Include="Model\AreaUser\AreaUserSearchCondition.cs" />
+    <Compile Include="Model\AreaUser\AreaUserModel.cs" />
+    <Compile Include="Model\AreaUser\AreaUserSearchResult.cs" />
+    <Compile Include="Model\BaseModel.cs" />
+    <Compile Include="Model\BaseSearch.cs" />
+    <Compile Include="Model\ChildProfileModels\ChildProfileDownloadSearch.cs" />
+    <Compile Include="Model\ChildProfileModels\ChildProfileMobileSearchResult.cs" />
+    <Compile Include="Model\ChildProfileModels\ChildProfileSearchCondition.cs" />
+    <Compile Include="Model\ChildProfileModels\ChildProfileSearchResult.cs" />
+    <Compile Include="Model\ChildProfileModels\ChildProfileModel.cs" />
+    <Compile Include="Model\ChildStory\CategoryModel.cs" />
+    <Compile Include="Model\ChildStory\ChildStoryModel.cs" />
+    <Compile Include="Model\ChildStory\SampleStoryModel.cs" />
+    <Compile Include="Model\ChildStory\SampleStorySearchModel.cs" />
+    <Compile Include="Model\ComboboxResult.cs" />
+    <Compile Include="Model\ChildProfileCategory\CheckBoxModel.cs" />
+    <Compile Include="Model\ChildProfileCategory\FamilyQuestionModel.cs" />
+    <Compile Include="Model\ChildProfileCategory\FamilyWorkHealthModel.cs" />
+    <Compile Include="Model\ChildProfileCategory\HouseConditionModel.cs" />
+    <Compile Include="Model\ChildProfileCategory\OtherConditionModel.cs" />
+    <Compile Include="Model\ChildProfileCategory\PersonalsModel.cs" />
+    <Compile Include="Model\ChildProfileCategory\QuestionModel.cs" />
+    <Compile Include="Model\ChildProfileCategory\SubjectCapacityModel.cs" />
+    <Compile Include="Model\DocumentType\DocumentTypeModel.cs" />
+    <Compile Include="Model\DocumentType\DocumentTypeSearchCondition.cs" />
+    <Compile Include="Model\DocumentType\DocumentTypeSearchResult.cs" />
+    <Compile Include="Model\Document\DocumentLibraryModel.cs" />
+    <Compile Include="Model\Document\DocumentLibrarySearchCondition.cs" />
+    <Compile Include="Model\Document\DocumentLibrarySearchResult.cs" />
+    <Compile Include="Model\FliesLibrary\ImageActionModel.cs" />
+    <Compile Include="Model\FliesLibrary\AttachmentImageModel.cs" />
+    <Compile Include="Model\FliesLibrary\ImageChilByYear.cs" />
+    <Compile Include="Model\FliesLibrary\ShareImageModel.cs" />
+    <Compile Include="Model\FliesLibrary\UploadImageSearchModel.cs" />
+    <Compile Include="Model\ForwardPasswordModel.cs" />
+    <Compile Include="Model\Homes\HomesResultModel.cs" />
+    <Compile Include="Model\Homes\HomesModel.cs" />
+    <Compile Include="Model\LoginProfileModel.cs" />
+    <Compile Include="Model\LoginModel.cs" />
+    <Compile Include="Model\ObjectInputModel\FamilyMemberModel.cs" />
+    <Compile Include="Model\ObjectInputModel\ObjectBaseModel.cs" />
+    <Compile Include="Model\ObjectInputModel\ObjectInputModel.cs" />
+    <Compile Include="Model\ProfileUserModel.cs" />
+    <Compile Include="Model\Question\GroupQuestionModel.cs" />
+    <Compile Include="Model\Question\QuestionsModel.cs" />
+    <Compile Include="Model\Question\QuestionSearchCondition.cs" />
+    <Compile Include="Model\Question\AnswerModel.cs" />
+    <Compile Include="Model\Question\QuestionSearchResult.cs" />
+    <Compile Include="Model\Question\SurveyModel.cs" />
+    <Compile Include="Model\Statistic\ChildDataByWardModel.cs" />
+    <Compile Include="Model\Statistic\ChildDataByWardSearchModel.cs" />
+    <Compile Include="Model\SurveyResult\SurveyResultModel.cs" />
+    <Compile Include="Model\SurveyResult\SurveyResultSearchCondition.cs" />
+    <Compile Include="Model\ReportProfileModel\ReportProfileSearchCondition.cs" />
+    <Compile Include="Model\ReportProfileModel\ReportProfileSearchResult.cs" />
+    <Compile Include="Model\ReportProfileModel\ReportProfilesModel.cs" />
+    <Compile Include="Model\SearchConditionBase.cs" />
+    <Compile Include="Model\SearchResultObject.cs" />
+    <Compile Include="Model\SystemConfig\SchoolModel.cs" />
+    <Compile Include="Model\SystemConfig\SchoolSearchCondition.cs" />
+    <Compile Include="Model\UploadModel.cs" />
+    <Compile Include="Model\UserModels\UserModel.cs" />
+    <Compile Include="Model\UserModels\UserSearchCondition.cs" />
+    <Compile Include="Model\UserModels\UserSearchResult.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="Entity\ChildProfileEntityModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ChildProfileEntityModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Entity\ChildProfileEntityModel.edmx.diagram">
+      <DependentUpon>ChildProfileEntityModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NTS.Common\NTS.Common.csproj">
+      <Project>{23de3d9d-8737-4d57-80f2-bd4ceae61363}</Project>
+      <Name>NTS.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Entity\ChildProfileEntityModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ChildProfileEntityModel.edmx</DependentUpon>
+      <LastGenOutput>ChildProfileEntityModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Entity\ChildProfileEntityModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ChildProfileEntityModel.edmx</DependentUpon>
+      <LastGenOutput>ChildProfileEntityModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

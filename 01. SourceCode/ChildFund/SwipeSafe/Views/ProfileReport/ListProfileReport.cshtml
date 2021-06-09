@@ -1,0 +1,81 @@
+﻿@model IList<SwipeSafe.Model.ProfileReport.ProfileChildSearchResult>
+
+<div style="overflow-x:auto">
+    <table class="table table-bordered table-hover" style="min-width:2000px">
+        <thead>
+            <tr>
+                <th width="60px" class="text-center">STT</th>
+                <th width="100px" class="text-center">Chức năng</th>
+                <th width="120px">Trạng thái</th>
+                <th width="90px">Thời gian</th>
+                <th width="180px" >Tên trẻ</th>
+                <th width="90px">Ngày sinh</th>
+                <th width="80px">Giới tính</th>
+                <th width="250px">Địa chỉ</th>
+                <th width="250px">Loại hình xâm hại</th>
+                <th>Mô tả</th>
+                <th width="200px">Người báo cáo</th>
+                <th width="130px">Điện thoại</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @{ int index = ViewBag.Index; string content = ""; string dateView = ""; string birthdayView = "";}
+            @foreach (var item in Model)
+            {
+                dateView = "";
+                birthdayView = "";
+                if (item.ReceptionDate != null)
+                {
+                    dateView = item.ReceptionDate.Value.ToString("dd/MM/yyyy");
+                }
+                if (item.Birthday != null)
+                {
+                    birthdayView = item.Birthday.Value.ToString("dd/MM/yyyy");
+                }
+                content = NTS.Common.Utils.Common.FormatContentNews(item.ProviderNote, 110);
+                index++;
+                <tr>
+                    <td class="text-center">@index</td>
+                    <td align="center">
+                        <button onclick="Detail('@item.Id')" type="button" class="btn btn-xs btnfuntion" title="Xem chi tiết"><i class="material-icons btnicon" style="color:mediumaquamarine">assignment_ind</i></button>
+                        <button onclick="DeleteConfim('@item.Id')" type="button" class="btn btn-xs btnfuntion" title="Xóa ca báo cáo"><i class="material-icons btnicon" style="color:red">delete</i></button>
+                    </td>
+                    <td>@item.ProcessingName</td>
+                    <td>@dateView</td>
+                    <td >@item.Name</td>
+                    <td>@birthdayView</td>
+                    <td>@item.Gender</td>
+                    <td>@item.FullAddress</td>
+                    <td>@item.FormAbuseName</td>
+                    <td>@content</td>
+                    <td>@item.ProviderName</td>
+                    <td>@item.ProviderPhone</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div class="pagerbottom margin-top-10">
+    <div class="col-md-4 col-sm-4 col-xs-4">
+        <div class="form-group">
+            <div class="controls">
+                <select class="form-control combobox-padding" onchange="ChangeSize()" id="pageSize">
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="30">30</option>
+                    <option value="40">40</option>
+                    <option value="50">50</option>
+                </select>
+                <span>bản ghi/Trang</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8 col-sm-8 col-xs-8">
+        @Html.Raw(ViewBag.pages)
+    </div>
+</div>
+<script>
+    $('#count_data').html(@ViewBag.TotalItem);
+    $('#pageSize').val(@ViewBag.PageSize);
+</script>

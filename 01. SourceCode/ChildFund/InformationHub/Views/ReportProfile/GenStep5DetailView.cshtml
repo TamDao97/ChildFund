@@ -1,0 +1,296 @@
+﻿@model InformationHub.Model.Model.ReportProfile.SupportAfterStatusModel
+<div class="row">
+    <div class="col-md-3 col-sm-3 col-xs-3">
+        <div class="form-group">
+            <label class="form-label" for="field-1">@InformationHub.Resource.Resource.Review_Date<span class="required">*</span></label>
+            <div class="controls">
+                <input type="hidden" value="@Model.Id" id="idSupportAfter" />
+                <input type="text" class="form-control " readonly id="SupAfPerformingDate" value="@(Model.PerformingDate!=null?Model.PerformingDate.Value.ToString("dd/MM/yyyy"):string.Empty)" />
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-3 col-xs-3">
+        <div class="form-group">
+            <label class="form-label" for="field-1">@InformationHub.Resource.Resource.Reviewer<span class="required">*</span></label>
+            <div class="controls">
+                <input type="text" class="form-control" readonly id="SupAfPerformingBy" value="@Model.PerformingBy">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-sm-6 col-xs-6">
+        <div class="form-group">
+            <label class="form-label" for="field-1">@InformationHub.Resource.Resource.PlantAfter_Title<span class="required">*</span></label>
+            <div class="controls">
+                <input type="text" class="form-control" readonly value="@Model.SupportAfterTitle" id="SupAfSupportAfterTitle">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <label class="control-label">2. @InformationHub.Resource.Resource.Assessment_Closing</label>
+    </div>
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <label class="control-label">a) @InformationHub.Resource.Resource.Report_Evaluate_Harm</label>
+        <table class="table table-bordered table-hover" id="table1_tab4">
+            <thead>
+                <tr>
+                    <th rowspan="2" width="25%" style="vertical-align:middle;">@InformationHub.Resource.Resource.Report_Evaluate_Harm</th>
+                    <th colspan="4" class="text-center">@InformationHub.Resource.Resource.Label_Level</th>
+                </tr>
+                <tr>
+                    <th width="10%" class="text-center">@InformationHub.Resource.Resource.ReportProfile_Hight</th>
+                    <th width="10%" class="text-center">@InformationHub.Resource.Resource.ReportProfile_Nomal</th>
+                    <th width="10%" class="text-center">@InformationHub.Resource.Resource.ReportProfile_Low</th>
+                    <th>
+                        @InformationHub.Resource.Resource.Label_Note
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1. @InformationHub.Resource.Resource.Harm_Still_Serious</td>
+                    <td class="text-center">
+                        <label class="icheck icheck-danger tooltip">
+                            <span class="tooltiptext2">@InformationHub.Resource.Resource.M06_SupAfLevelHarmH</span>
+                            <input type="radio" value="2" name="SupAfLevelHarm">
+                            <i></i>
+                        </label>
+                    </td>
+                    <td class="text-center">
+                        <label class="icheck icheck-primary tooltip">
+                            <span class="tooltiptext2">@InformationHub.Resource.Resource.M06_SupAfLevelHarmN</span>
+                            <input type="radio" value="1" name="SupAfLevelHarm">
+                            <i></i>
+                        </label>
+                    </td>
+                    <td class="text-center">
+                        <label class="icheck icheck-info tooltip">
+                            <span class="tooltiptext2">@InformationHub.Resource.Resource.M06_SupAfLevelHarmL</span>
+                            <input type="radio" value="0" name="SupAfLevelHarm">
+                            <i></i>
+                        </label>
+                    </td>
+                    <td>
+                        <textarea class="form-control" readonly id="SupAfLevelHarmNote" maxlength="500">@Model.LevelHarmNote</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2. @InformationHub.Resource.Resource.Report_Attack_Child_Future</td>
+                    <td class="text-center">
+                        <label class="icheck icheck-danger tooltip">
+                            <span class="tooltiptext2">@InformationHub.Resource.Resource.M06_SupAfLevelApproachH</span>
+                            <input type="radio" value="2" name="SupAfLevelApproach">
+                            <i></i>
+                        </label>
+                    </td>
+                    <td class="text-center">
+                        <label class="icheck icheck-primary tooltip">
+                            <span class="tooltiptext2">@InformationHub.Resource.Resource.M06_SupAfLevelApproachN</span>
+                            <input type="radio" value="1" name="SupAfLevelApproach">
+                            <i></i>
+                        </label>
+                    </td>
+                    <td class="text-center">
+                        <label class="icheck icheck-info tooltip">
+                            <span class="tooltiptext2">@InformationHub.Resource.Resource.M06_SupAfLevelApproachL</span>
+                            <input type="radio" value="0" name="SupAfLevelApproach">
+                            <i></i>
+                        </label>
+                    </td>
+                    <td>
+                        <textarea class="form-control" readonly id="SupAfLevelApproachNote" maxlength="500">@Model.LevelApproachNote</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3. @InformationHub.Resource.Resource.Report_Difficult_Care_Child</td>
+                    <td class="text-center">
+                        <label class="icheck icheck-danger tooltip">
+                            <span class="tooltiptext2">@InformationHub.Resource.Resource.M06_SupAfLevelCareObstacleH</span>
+                            <input type="radio" value="2" name="SupAfLevelCareObstacle">
+                            <i></i>
+                        </label>
+                    </td>
+                    <td class="text-center">
+                        <label class="icheck icheck-primary tooltip">
+                            <span class="tooltiptext2">@InformationHub.Resource.Resource.M06_SupAfLevelCareObstacleN</span>
+                            <input type="radio" value="1" name="SupAfLevelCareObstacle">
+                            <i></i>
+                        </label>
+                    </td>
+                    <td class="text-center">
+                        <label class="icheck icheck-info tooltip">
+                            <span class="tooltiptext2">@InformationHub.Resource.Resource.M06_SupAfLevelCareObstacleL</span>
+                            <input type="radio" value="0" name="SupAfLevelCareObstacle">
+                            <i></i>
+                        </label>
+                    </td>
+                    <td>
+                        <textarea class="form-control" readonly id="SupAfLevelCareObstacleNote" maxlength="500">@Model.LevelCareObstacleNote</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>@InformationHub.Resource.Resource.Total_Title</b></td>
+                    <td class="text-center">
+                        <b class="badge badge-danger" id="SupAfTotalLevelHigh"></b>
+                    </td>
+                    <td class="text-center">
+                        <b class="badge badge-primary" id="SupAfTotalLevelAverage"></b>
+                    </td>
+                    <td class="text-center">
+                        <b class="badge badge-info" id="SupAfTotalLevelLow"></b>
+                    </td>
+                    <td class="text-center"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <label class="control-label">b) @InformationHub.Resource.Resource.Report_Evaluate_Protect</label>
+        <table class="table table-bordered table-hover" id="table2_tab4">
+            <thead>
+                <tr>
+                    <th rowspan="2" width="25%" style="vertical-align:middle;">@InformationHub.Resource.Resource.Report_Evaluate_Protect</th>
+                    <th colspan="4" class="text-center">@InformationHub.Resource.Resource.Label_Level</th>
+                </tr>
+                <tr>
+                    <th width="10%" class="text-center">@InformationHub.Resource.Resource.ReportProfile_Hight</th>
+                    <th width="10%" class="text-center">@InformationHub.Resource.Resource.ReportProfile_Nomal</th>
+                    <th width="10%" class="text-center">@InformationHub.Resource.Resource.ReportProfile_Low</th>
+                    <th>@InformationHub.Resource.Resource.Label_Note</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1. @InformationHub.Resource.Resource.Report_Child_Protect</td>
+                    <td class="text-center">
+                        <label class="icheck icheck-danger tooltip">
+                            <span class="tooltiptext2">@InformationHub.Resource.Resource.M06_SupAfAbilityProtectYourselfH</span>
+                            <input type="radio" value="2" name="SupAfAbilityProtectYourself">
+                            <i></i>
+                        </label>
+                    </td>
+                    <td class="text-center">
+                        <label class="icheck icheck-primary tooltip">
+                            <span class="tooltiptext2">@InformationHub.Resource.Resource.M06_SupAfAbilityProtectYourselfN</span>
+                            <input type="radio" value="1" name="SupAfAbilityProtectYourself">
+                            <i></i>
+                        </label>
+                    </td>
+                    <td class="text-center">
+                        <label class="icheck icheck-info tooltip">
+                            <span class="tooltiptext2">@InformationHub.Resource.Resource.M06_SupAfAbilityProtectYourselfL</span>
+                            <input type="radio" value="0" name="SupAfAbilityProtectYourself">
+                            <i></i>
+                        </label>
+                    </td>
+                    <td>
+                        <textarea class="form-control" readonly id="SupAfAbilityProtectYourselfNote" maxlength="500">@Model.AbilityProtectYourselfNote</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2. @InformationHub.Resource.Resource.Report_Other_Care_Child</td>
+                    <td class="text-center">
+                        <label class="icheck icheck-danger tooltip">
+                            <span class="tooltiptext2">@InformationHub.Resource.Resource.M06_SupAfAbilityKnowGuardH</span>
+                            <input type="radio" value="2" name="SupAfAbilityKnowGuard">
+                            <i></i>
+                        </label>
+                    </td>
+                    <td class="text-center">
+                        <label class="icheck icheck-primary tooltip">
+                            <span class="tooltiptext2">@InformationHub.Resource.Resource.M06_SupAfAbilityKnowGuardN</span>
+                            <input type="radio" value="1" name="SupAfAbilityKnowGuard">
+                            <i></i>
+                        </label>
+                    </td>
+                    <td class="text-center">
+                        <label class="icheck icheck-info tooltip">
+                            <span class="tooltiptext2">@InformationHub.Resource.Resource.M06_SupAfAbilityKnowGuardL</span>
+                            <input type="radio" value="0" name="SupAfAbilityKnowGuard">
+                            <i></i>
+                        </label>
+                    </td>
+                    <td>
+                        <textarea class="form-control" readonly id="SupAfAbilityKnowGuardNote" maxlength="500">@Model.AbilityKnowGuardNote</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3. @InformationHub.Resource.Resource.Report_Child_Ask_Protecter</td>
+                    <td class="text-center">
+                        <label class="icheck icheck-danger tooltip">
+                            <span class="tooltiptext2">@InformationHub.Resource.Resource.M06_SupAfAbilityHelpOthersH</span>
+                            <input type="radio" value="2" name="SupAfAbilityHelpOthers">
+                            <i></i>
+                        </label>
+                    </td>
+                    <td class="text-center">
+                        <label class="icheck icheck-primary tooltip">
+                            <span class="tooltiptext2">@InformationHub.Resource.Resource.M06_SupAfAbilityHelpOthersN</span>
+                            <input type="radio" value="1" name="SupAfAbilityHelpOthers">
+                            <i></i>
+                        </label>
+                    </td>
+                    <td class="text-center">
+                        <label class="icheck icheck-info tooltip">
+                            <span class="tooltiptext2">@InformationHub.Resource.Resource.M06_SupAfAbilityHelpOthersL</span>
+                            <input type="radio" value="0" name="SupAfAbilityHelpOthers">
+                            <i></i>
+                        </label>
+                    </td>
+                    <td>
+                        <textarea class="form-control" readonly id="SupAfAbilityHelpOthersNote" maxlength="500">@Model.AbilityHelpOthersNote</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>@InformationHub.Resource.Resource.Total_Title</b></td>
+                    <td class="text-center">
+                        <b class="badge badge-danger" id="SupAfTotalAbilityHigh"></b>
+                    </td>
+                    <td class="text-center">
+                        <b class="badge badge-primary" id="SupAfTotalAbilityAverage"></b>
+                    </td>
+                    <td class="text-center">
+                        <b class="badge badge-info" id="SupAfTotalAbilityLow"></b>
+                    </td>
+                    <td class="text-center"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<label class="control-label">3. @InformationHub.Resource.Resource.Conclusion_Situation</label>
+<textarea class="form-control" id="SupAfResult" readonly rows="6">@Model.Result</textarea>
+<script src="~/Scripts/bootstrap-datepicker.js"></script>
+<script src="~/Scripts/bootstrap-datepicker.vi.min.js"></script>
+<script type="text/javascript">
+    $('.datepickerfml2').datepicker({
+        format: 'dd/mm/yyyy',
+        endDate: '+0d',
+        autoclose: true
+    });
+     //set giá trị step 4
+    $("input[name=SupAfLevelHarm][value=" + @Model.LevelHarm.ToString() + "]").prop('checked', true);
+    $("input[name=SupAfLevelApproach][value=" + @Model.LevelApproach.ToString() + "]").prop('checked', true);
+    $("input[name=SupAfLevelCareObstacle][value=" + @Model.LevelCareObstacle.ToString() + "]").prop('checked', true);
+
+    $("input[name=SupAfAbilityProtectYourself][value=" + @Model.AbilityProtectYourself.ToString() + "]").prop('checked', true);
+    $("input[name=SupAfAbilityKnowGuard][value=" + @Model.AbilityKnowGuard.ToString() + "]").prop('checked', true);
+    $("input[name=SupAfAbilityHelpOthers][value=" + @Model.AbilityHelpOthers.ToString() + "]").prop('checked', true);
+
+    $('#table1_tab4 input[type="radio"]').on('change', function (e) {
+        CounTable1Tab4();
+        AutoCheckTab4();
+    });
+    $('#table2_tab4 input[type="radio"]').on('change', function (e) {
+        CounTable2Tab4();
+        AutoCheckTab4();
+    });
+
+    $(document).ready(function () {
+        CounTable1Tab4();
+        CounTable2Tab4();
+
+    });
+
+</script>

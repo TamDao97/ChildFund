@@ -1,0 +1,153 @@
+﻿<style>
+    #modalProfileUser .modal-dialog {
+        width: 45%;
+    }
+
+    .wrap-avatar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden !important;
+    }
+
+        .wrap-avatar #imgPreview {
+            max-height: 185px;
+            max-width: 185px;
+            flex-shrink: 0;
+        }
+</style>
+<div id="modalProfileUser" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" id="close_producet" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="title" style="color:white">Cập nhật thông tin cá nhân/Update user's profile</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 no-padding">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label class="form-label">Họ tên/Full name <span class="required">*</span></label>
+                                        <div class="controls">
+                                            <input type="text" class="form-control" id="ProfileUser_Name" required="required" ntsvalidate="required,max=100">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label class="form-label">Giới tính/Gender</label>
+                                        <div class="controls">
+                                            <div class="form-control no-border margin-top-10">
+                                                <label class="icheck icheck-primary">
+                                                    <input type="radio" value="1" id="ProfileUser_Gender" name="ProfileUser_Gender" ntsvalidate="required">
+                                                    <i></i> Nam/Male
+                                                </label>&nbsp;
+                                                <label class="icheck icheck-accent">
+                                                    <input type="radio" value="0" id="ProfileUser_Gender" name="ProfileUser_Gender" ntsvalidate="required">
+                                                    <i></i> Nữ/Female
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label class="form-label">Ngày sinh/Date of birth</label>
+                                        <div class="controls">
+                                            <input type="date" class="form-control" id="ProfileUser_DateOfBirth">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label class="form-label">Số CMTND/ID number</label>
+                                        <div class="controls">
+                                            <input type="text" class="form-control" id="ProfileUser_IdentifyNumber" ntsvalidate="max=15">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label class="form-label">Điện thoại/Phone</label>
+                                        <div class="controls">
+                                            <input type="text" class="form-control" id="ProfileUser_PhoneNumber" ntsvalidate="max=50">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label class="form-label">Email <span class="required">*</span></label>
+                                        <div class="controls">
+                                            <input type="text" class="form-control" id="ProfileUser_Email" ntsvalidate="required,email,max=300">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label class="form-label">Địa chỉ/Address</label>
+                                        <div class="controls">
+                                            <input type="text" class="form-control" id="ProfileUser_Address" ntsvalidate="max=500">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 no-padding">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label class="form-label">Ảnh đại diện/Avatar</label>
+                                <div class="controls text-center">
+                                    <button type="button" class="btn btn-success btn-s" onclick="uploadImage()">
+                                        <span class="glyphicon glyphicon-upload"></span> Upload
+                                    </button>
+                                    <button type="button" class="btn btn-danger btn-s" onclick="clearImage()">
+                                        <span class="glyphicon glyphicon-trash"></span> Remove
+                                    </button>
+                                </div>
+                                <input type="file" accept="image/*" id="FileUpload" style="display:none" />
+                                <div class="controls text-center margin-top-10 wrap-avatar" style="display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden!important;">
+                                    <img id="imgPreviewProfile" src="" style="max-height:185px;max-width:185px">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btnSaveProfile" class="btn btn-primary"><i class="glyphicon glyphicon-floppy-save"></i> Lưu lại/Save</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="glyphicon glyphicon-minus-sign"></i> Thoát/Exit</button>
+            </div>
+        </div>
+    </div>
+</div>

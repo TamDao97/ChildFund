@@ -1,0 +1,12 @@
+﻿@model IList<ChildProfiles.Model.ComboboxResult>
+
+<div class="form-group">
+    <div class="controls">
+        <select class="form-control" id="areaUserId" name="areaUserId" onclick="GetAreaDistrict()">
+            @foreach (var item in Model)
+            {
+                <option value="@item.Id">@item.Name</option>
+            }
+        </select>
+    </div>
+</div>

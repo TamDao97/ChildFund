@@ -1,0 +1,254 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+.td-new{position:relative}
+.img-new{position:absolute; width:25px;top:2px;right:3px}
+.table thead{
+    background-color: #54bc97;
+}
+.table thead tr th{color:white !important}
+.table thead tr th  .icheck > i{border: 1px solid 	#FFFFFF !important;}
+.table thead tr th  .icheck input:checked + i:before {color:	#FFFFFF !important;}
+.btnfuntion {
+padding:3px 2px !important;
+    background: transparent;
+    color: #337ab7;
+}
+.btnicon {
+    font-size:20px !important
+}
+.text-black {
+    color: #757575 !important
+}
+.color-red td{color:orangered !important}
+
+
+.img-avata-notify {
+    max-width: 30px;
+    border-radius: 3px
+}
+
+.text-uppercase {
+    text-transform: uppercase
+}
+
+.pagination li span {
+    color: white;
+    background-color: #54bc97
+}
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+
+.combobox-padding {
+    display: inline-block;
+    width: 60px
+}
+
+.material-icons {
+    font-size: 15px;
+}
+
+.funtion-icon {
+    padding: 1px 7px 0px 7px !important;
+}
+
+.view-item-check {
+    width: 30px
+}
+
+.view-item-check {
+    padding-top: 2px !important
+}
+
+    .view-item-check input {
+        width: 20px !important;
+        height: 25px !important
+    }
+
+.table-custom tr td {
+    padding-bottom: 0px !important
+}
+/*css xoay*/
+.loader {
+    position: absolute;
+    left: 48%;
+    top: 50%;
+    z-index: 1000000;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 14px solid blue;
+    border-right: 14px solid green;
+    border-bottom: 14px solid red;
+    border-left: 14px solid pink;
+    width: 100px;
+    height: 100px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+#overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2;
+    cursor: pointer;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.no-border {
+    border: none !important;
+}
+
+.required {
+    color: #f00;
+    font-weight: 700;
+}
+/*Start custom css modal*/
+.modal-dialog {
+}
+
+    .modal-dialog .modal-content {
+        background: #fff;
+    }
+
+        .modal-dialog .modal-content .modal-header {
+            padding: 10px 10px;
+            background: #007044;
+            border-bottom: 1px solid rgba(0, 0, 0, .2) !important;
+        }
+
+            .modal-dialog .modal-content .modal-header .close {
+                color: #f00;
+                text-shadow: none;
+                opacity: 1;
+                font-size: 20px;
+                font-weight: 700;
+                margin-top: -6px;
+            }
+
+            .modal-dialog .modal-content .modal-header .title {
+                margin-bottom: 0px;
+                font-size: 16px;
+                font-weight: 700;
+                text-transform: uppercase;
+            }
+
+        .modal-dialog .modal-content .modal-body {
+            padding: 10px;
+        }
+
+        .modal-dialog .modal-content .modal-footer {
+            /*padding: 5px 10px;*/
+        }
+
+
+/*End custom css modal*/
+.img-avata {
+    max-width: 70px;
+    border-radius: 3px;
+    max-height: 40px
+}
+
+.h4Title {
+    color: white;
+    text-transform: uppercase
+}
+
+/*End custom css modal*/
+
+/*Start custom notify lỗi*/
+.form-validate .form-group, .form-validate .controls, .form-validate .form-group .radio, .form-validate .controls .input-group {
+    margin-bottom: 0px;
+}
+
+    .form-validate .form-group .controls {
+        margin-bottom: 15px;
+    }
+
+.form-group .controls .notify > .form-validate .form-group .controls {
+    margin-bottom: 0px;
+}
+
+.notify {
+    color: #ff0000;
+    font-size: 12px;
+    height: 20px;
+}
+
+    .notify .badge-error {
+        background: #ff0000;
+        padding: 1px 5px;
+        top: -6px;
+        font-size: 11px;
+        -webkit-border-radius: 2px;
+        font-weight: 700;
+        width: 14px;
+        margin-right: 2px;
+    }
+
+.form-label .required {
+    font-weight: 700;
+    color: #ff0000;
+}
+/*End custom notify lỗi*/
+
+@media only screen and (min-width: 1024px) {
+    .modal-story {
+        width: 1200px;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .modal-story {
+        width: 90% !important;
+    }
+}
+
+/*css cho table them moi ho so*/
+.row-bottom52 {
+   margin-bottom:52px
+}
+.row-custom {
+    height: 37px
+}
+.row-custom-block {
+    height: 37px
+}
+.row-custom-footer {
+    height: 50px
+}
+.row-custom-footer52 {
+    height: 52px
+}
+.row-custom-footer-block {
+    height: 50px
+}
+.row-custom-footer62 {
+    height: 62px
+}
+@media only screen and (max-width: 1023px) {
+    .row-custom, .row-custom-footer, .row-custom-footer52 {
+        display: none
+    }
+}

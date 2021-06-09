@@ -1,0 +1,79 @@
+﻿@model IList<ChildProfiles.Model.Question.QuestionSearchResult>
+<div style="overflow-x:auto">
+    <table class="table table-bordered table-hover" style="min-width:1100px">
+        <thead>
+            <tr>
+                <th width="60px" class="text-center">STT</th>
+                <th width="120px" class="text-center">Chức năng</th>
+                <th>Tên khảo sát</th>
+                <th width="130px">Thời gian bắt đầu</th>
+                <th width="130px">Thời gian kết thúc</th>
+                <th width="100px" class="text-center">Thứ tự</th>
+                <th width="100px" class="text-center">Số kết quả</th>
+                <th width="80px" class="text-center">Publish</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{ int index = ViewBag.Index; string dateFrom = ""; string dateEnd = ""; }
+            @foreach (var item in Model)
+            {
+                if (item.OrderNumber != null)
+                {
+                    dateFrom = item.StartDate.Value.ToString("dd/MM/yyyy");
+                    dateEnd = item.EndDate.Value.ToString("dd/MM/yyyy");
+                }
+                index++;
+                <tr>
+                    <td class="text-center">@index</td>
+                    <td align="center">
+                        <a href="/Question/UpdateSurvey/@item.Id" class="btn btn-xs btnfuntion" title="Cập nhật khảo sát"><i class="material-icons btnicon" style="color:orange">edit</i></a>
+                        <button onclick="DeleteConfim('@item.Id')" type="button" class="btn btn-xs btnfuntion" title="Xóa khảo sát"><i class="material-icons btnicon" style="color:red">delete</i></button>
+                        <a href="/Question/DetailSurvey/@item.Id" class="btn btn-xs btnfuntion" title="Chi tiết khảo sát"><i class="material-icons btnicon" style="color:#26C6DA">info</i></a>
+                    </td>
+                    <td>@item.Name</td>
+                    <td>@dateFrom</td>
+                    <td>@dateEnd</td>
+                    <td class="text-center">@item.OrderNumber</td>
+                    <td class="text-center">
+                        <a target="_blank" href="/SurveyResult/Index/@item.Id" title="Danh sách kết quả">@item.CountResult</a>
+                    </td>
+                    <td>
+                        <label class="iswitch bg-accent ">
+                            @if (item.IsPublish.Equals("0"))
+                            {
+                                <input type="checkbox" onchange="ChangeStatus('@item.Id')" checked="checked"> <i></i>
+                            }
+                            else
+                            {
+                                <input type="checkbox" onchange="ChangeStatus('@item.Id')"> <i></i>
+                            }
+                        </label>
+                    </td>
+                </tr>
+            }
+    </table>
+</div>
+<div class="pagerbottom margin-top-10">
+    <div class="col-md-4 col-sm-4 col-xs-4">
+        <div class="form-group">
+            <div class="controls">
+                <select class="form-control combobox-padding" onchange="ChangeSize()" id="pageSize">
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="30">30</option>
+                    <option value="40">40</option>
+                    <option value="50">50</option>
+                </select>
+                <span>bản ghi/Trang</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8 col-sm-8 col-xs-8">
+        @Html.Raw(ViewBag.pages)
+    </div>
+</div>
+<script>
+    $('#count_data').html(@ViewBag.TotalItem);
+    $('#pageSize').val(@ViewBag.PageSize);
+</script>
+

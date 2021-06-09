@@ -1,0 +1,77 @@
+﻿@model IList<InformationHub.Model.Model.Document.DocumentLibrarySearchResult>
+@{ string uploadDate = ""; }
+<div style="overflow-x:auto">
+    <table class="table table-bordered table-hover" style="min-width:1390px">
+        <thead>
+            <tr>
+                <th width="50px">#</th>
+                <th width="180px">Chức năng</th>
+                <th>Tên tài liệu</th>
+                <th width="30%">Mô tả tài liệu</th>
+                <th>Nhóm tài liệu</th>
+                <th>Ngày upload</th>
+                <th>Người upload</th>
+                <th>Hiển thị</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @{ int index = ViewBag.Index; string content = "";}
+            @if (Model != null && Model.Count > 0)
+            {
+                foreach (var item in Model)
+                {
+                    content = NTS.Common.Utils.Common.FormatContentNews(item.Description, 110);
+                    index++;
+                    uploadDate = "";
+                    if (item.UploadDate != null)
+                    {
+                        uploadDate = item.UploadDate.ToString("dd/MM/yyyy");
+                    }
+                    <tr>
+                        <td class="text-center">@index</td>
+                        <td align="center">
+                            <a href="/Document/UpdateDocument/@item.Id" class="btn btn-xs btnfuntion" title="Cập nhật tài liệu"><i class="material-icons btnicon" style="color:orange">edit</i></a>
+                            <button onclick="DeleteConfim('@item.Id')" type="button" class="btn btn-xs btnfuntion" title="Xóa tài liệu"><i class="material-icons btnicon" style="color:red">delete</i></button>
+                            <a href="@item.Path" class="btn btn-xs btn-info" title="Tải tài liệu"><i class="material-icons">file_download</i></a>
+                        </td>
+                        <td>@item.Name</td>
+                        <td>@content</td>
+                        <td>@item.DocumentTypeidView</td>
+                        <td>@uploadDate</td>
+                        <td>@item.UploadBy</td>
+                        <td>
+                            @if (item.IsDisplay == true)
+                            {<span>Hiển thị</span> }
+                            else
+                            { <span>Không hiển thị</span>}
+                        </td>
+
+                    </tr>
+                }
+            }
+    </table>
+</div>
+<div class="pagerbottom margin-top-10">
+    <div class="col-md-4 col-sm-4 col-xs-4">
+        <div class="form-group">
+            <div class="controls">
+                <select class="form-control combobox-padding" onchange="" id="pageSize">
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="30">30</option>
+                    <option value="40">40</option>
+                    <option value="50">50</option>
+                </select>
+                <span>bản ghi/Trang</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8 col-sm-8 col-xs-8">
+        @Html.Raw(ViewBag.pages)
+    </div>
+</div>
+<script>
+    $('#count_data').html(@ViewBag.TotalItem);
+    $('#pageSize').val(@ViewBag.PageSize);
+</script>

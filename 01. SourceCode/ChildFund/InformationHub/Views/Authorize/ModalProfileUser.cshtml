@@ -1,0 +1,161 @@
+﻿<style>
+    #modalProfileUser .modal-dialog {
+        width: 60%;
+    }
+
+    .wrap-avatar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden !important;
+    }
+
+        .wrap-avatar #imgPreview {
+            max-height: 185px;
+            max-width: 185px;
+            flex-shrink: 0;
+        }
+</style>
+
+<div id="modalProfileUser" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" id="close_producet" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="title" style="color:white">@InformationHub.Resource.Resource.Authorize_Update_Info</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 no-padding">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label class="form-label">@InformationHub.Resource.Resource.Label_Name<span class="required">*</span></label>
+                                        <div class="controls">
+                                            <input type="text" class="form-control" id="ProfileUser_Name" required="required" ntsvalidate="required,max=100">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label class="form-label">@InformationHub.Resource.Resource.ReportProfile_Gender</label>
+                                        <div class="controls">
+                                            <div class="form-control no-border margin-top-10">
+                                                <label class="icheck icheck-primary">
+                                                    <input type="radio" value="1" id="ProfileUser_Gender" name="ProfileUser_Gender" ntsvalidate="required">
+                                                    <i></i> @InformationHub.Resource.Resource.ReportProfile_Male
+                                                </label>&nbsp;
+                                                <label class="icheck icheck-accent">
+                                                    <input type="radio" value="0" id="ProfileUser_Gender" name="ProfileUser_Gender" ntsvalidate="required">
+                                                    <i></i> @InformationHub.Resource.Resource.ReportProfile_FeMale
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label class="form-label">@InformationHub.Resource.Resource.Label_Birthday</label>
+                                        <div class="controls">
+                                            <input name="date" typeof="date" class="form-control" id="ProfileUser_DateOfBirth">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label class="form-label">@InformationHub.Resource.Resource.Label_Id_Number</label>
+                                        <div class="controls">
+                                            <input type="text" class="form-control" id="ProfileUser_IdentifyNumber" ntsvalidate="max=15">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label class="form-label">@InformationHub.Resource.Resource.Phone_Title</label>
+                                        <div class="controls">
+                                            <input type="text" class="form-control" id="ProfileUser_PhoneNumber" ntsvalidate="max=50">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label class="form-label">@InformationHub.Resource.Resource.Label_Email<span class="required">*</span></label>
+                                        <div class="controls">
+                                            <input type="text" class="form-control" id="ProfileUser_Email" ntsvalidate="required,email,max=300">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label class="form-label">@InformationHub.Resource.Resource.ReportProfile_Address</label>
+                                        <div class="controls">
+                                            <input type="text" class="form-control" id="ProfileUser_Address" ntsvalidate="max=500">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 no-padding">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label class="form-label">@InformationHub.Resource.Resource.Label_Avatar</label>
+                                <div class="controls text-center">
+                                    <div class="row">
+                                        <button type="button" class="btn btn-success btn-s" onclick="uploadImage()">
+                                            <span class="glyphicon glyphicon-upload"></span> @InformationHub.Resource.Resource.Label_Upload
+                                        </button>
+                                        <button type="button" class="btn btn-danger btn-s" onclick="clearImage()">
+                                            <span class="glyphicon glyphicon-trash"></span> @InformationHub.Resource.Resource.Delete_Title
+                                        </button>
+                                    </div>
+                                </div>
+                                <input type="file" accept="image/*" id="FileUpload" style="display:none" />
+                                <div class="controls text-center margin-top-10 wrap-avatar" style="display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden!important;">
+                                    <img id="imgPreviewProfile" src="" style="max-height:128px;max-width:128px">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btnSaveProfile" class="btn btn-primary"><i class="glyphicon glyphicon-floppy-save"></i>@InformationHub.Resource.Resource.Save_Title</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="glyphicon glyphicon-minus-sign"></i>@InformationHub.Resource.Resource.Exit_Title</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $('#ProfileUser_DateOfBirth').datepicker({
+        format: 'dd/mm/yyyy'
+    });
+</script>

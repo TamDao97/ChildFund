@@ -1,0 +1,52 @@
+﻿
+@model IList<ChildProfiles.Model.Model.Statistic.ChildDataByWardModel>
+<div style="overflow-x:auto">
+    <table class="table table-bordered table-hover" style="min-width:850px">
+        <thead>
+            <tr>
+                <th width="50px" class="text-center">No.</th>
+                <th width="200px">Commune</th>
+                <th width="200px">Number of child</th>
+                <th width="200px">Data saved</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{ int index = ViewBag.Index;}
+            @foreach (var item in Model)
+            {
+                index++;
+
+                <tr>
+                    <td class="text-center">@index</td>
+                    <td>@item.WardName</td>
+                    <td>@item.ChildTotal</td>
+                    <td>@item.SizeString</td>
+                </tr>
+            }
+    </table>
+</div>
+<div class="pagerbottom margin-top-10">
+    <div class="col-md-4 col-sm-4 col-xs-4">
+        <div class="form-group">
+            <div class="controls">
+                <select class="form-control combobox-padding" onchange="ChangeSize()" id="pageSize">
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="30">30</option>
+                    <option value="40">40</option>
+                    <option value="50">50</option>
+                </select>
+                <span>record(s)/Page</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8 col-sm-8 col-xs-8">
+        @Html.Raw(ViewBag.pages)
+    </div>
+</div>
+<script>
+    $('#count_data').html(@ViewBag.TotalItem);
+    $('#pageSize').val(@ViewBag.PageSize);
+     var link = document.getElementById('linkDowload');
+    link.href = '@ViewBag.PathFile';
+</script>

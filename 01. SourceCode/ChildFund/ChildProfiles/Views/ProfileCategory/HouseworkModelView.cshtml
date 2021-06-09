@@ -1,0 +1,129 @@
+﻿@model ChildProfiles.Model.ObjectBaseModel
+@{
+    ChildProfiles.Model.ObjectInputModel objectInputModel = null;
+    var healthModel = (ChildProfiles.Model.ObjectBaseModel)ViewBag.healthModel;
+    int numberCenter = Model.ListObject.Count / 2;
+    if ((Model.ListObject.Count % 2) != 0)
+    {
+        numberCenter = numberCenter + 1;
+        objectInputModel = new ChildProfiles.Model.ObjectInputModel();
+    }
+    var dateRow1 = Model.ListObject.Skip(0).Take(numberCenter).ToList();
+    var dateRow2 = Model.ListObject.Skip(numberCenter).Take(numberCenter).ToList();
+    if (objectInputModel != null)
+    {
+        dateRow2.Add(objectInputModel);
+    }
+    var dateRow3 = healthModel.ListObject;
+    string check1, check2, check3;
+}
+<div class="margin-bottom-10">
+    <textarea hidden id="hidhouseworkModel">@(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(Model))</textarea>
+    <textarea hidden id="hidhealthModel">@(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(healthModel))</textarea>
+    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+        <div class="row">
+            <table class="table table-bordered table-hover" id="tbhouseworkModel">
+                <thead>
+                    <tr>
+                        <th colspan="4">2.8. Các công việc vặt mà trẻ có thể giúp gia đình/ Child can help the family (Có thể khoanh 01 hoăc nhiều việc/more than 1 option is allowed)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < dateRow1.Count; i++)
+                    {
+                        check1 = dateRow1[i].Check ? "checked" : "";
+                        check2 = dateRow2[i].Check ? "checked" : "";
+                        <tr>
+                            <td width="20">
+                                <label class="icheck icheck-primary">
+                                    <input type="checkbox" name="FamilyWork" @check1 value="@dateRow1[i].Id">
+                                    <i></i>
+                                </label>
+                            </td>
+                            <td>@dateRow1[i].Id  @dateRow1[i].Name</td>
+                            <td width="20">
+                                <label class="icheck icheck-primary">
+                                    <input type="checkbox" name="FamilyWork" @check2 value="@dateRow2[i].Id">
+                                    <i></i>
+                                </label>
+                            </td>
+                            <td>@dateRow2[i].Id  @dateRow2[i].Name</td>
+                        </tr>
+                    }
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4" height="74">
+                            <span>@Model.OtherName</span> <input value="@Model.OtherValue" type="text" id="familyWorkOther" class="form-control">
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+        <div class="row">
+            <table class="table table-bordered table-hover" id="tbhealthModel">
+                <thead>
+                    <tr>
+                        <th colspan="2">2.9. Sức khoẻ của trẻ/Child’s health status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in dateRow3)
+                    {
+                        check3 = item.Check ? "checked" : "";
+                        <tr>
+                            <td width="20">
+                                <label class="icheck icheck-primary">
+                                    <input type="checkbox" name="Health" @check3 value="@item.Id" onclick="ChangeCheckbox(@item.Id,'#tbhealthModel','Health')">
+                                    <i></i>
+                                </label>
+                            </td>
+                            @if (!string.IsNullOrEmpty(item.OtherName) && !item.Id.Equals("04"))
+                            {
+                                <td>
+                                    @item.Id  @item.Name
+                                    <span>- @item.OtherName</span> <input value="@item.OtherValue" type="text" id="healthItemOther_@item.Id" class="form-control">
+                                </td>
+                            }
+                            @if (string.IsNullOrEmpty(item.OtherName))
+                            {
+                                <td>
+                                    @item.Id  @item.Name
+                                </td>
+                            }
+                            @if (item.Id.Equals("04"))
+                            {
+                                <td>
+                                    @item.Id  @item.Name
+                                    <span>- @item.OtherName</span> <input value="@item.OtherValue" type="text" id="healthItemOther_@item.Id" class="form-control">
+                                    <span>@item.Question</span>
+                                    <p class="margin-top-10">
+                                        <label class="icheck icheck-primary">
+                                            <input type="radio" name="Certi" @check3 value="@item.YesValue" onclick="ChangeCheckbox(@item.Id,'#tbhealthModel','Health')">
+                                            <i></i>
+                                        </label>Có/Yes&nbsp;&nbsp;
+                                        <label class="icheck icheck-primary">
+                                            <input type="radio" name="Certi" @check3 value="@item.NoValue" onclick="ChangeCheckbox(@item.Id,'#tbhealthModel','Health')">
+                                            <i></i>
+                                        </label>Không/No
+                                    </p>
+                                </td>
+                            }
+                        </tr>
+                    }
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="2" height="74">
+                            <span>@healthModel.OtherName</span> <input value="@healthModel.OtherValue" type="text" id="healthOther" class="form-control">
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+
+        </div>
+    </div>
+</div>
+

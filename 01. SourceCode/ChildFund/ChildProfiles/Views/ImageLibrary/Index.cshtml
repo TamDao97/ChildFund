@@ -1,0 +1,113 @@
+﻿@{
+    ViewBag.Title = "Thư viện ảnh/ Photo library";
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="wrapper main-wrapper">
+    <div ui-view="" class="ng-scope">
+        <div class="content-wrapper">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <section class="box ">
+                    <header class="panel_header">
+                        <h2 class="title pull-left">Tìm kiếm/Search</h2>
+                        <div class="actions panel_actions pull-right">
+                            <i class="box_toggle material-icons">expand_more</i>
+                        </div>
+                    </header>
+                    <div class="content-body padding-bottom-10">
+                        <div class="row">
+                            <div class="col-md-3 col-sm-4 col-xs-4">
+                                <div class="form-group">
+                                    <label class="form-label">Đăng tải ngày/Date uploaded</label>
+                                    <span class="desc"></span>
+                                    <div class="controls">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="datefrom" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-4">
+                                <div class="form-group">
+                                    <label class="form-label">Đến ngày/To</label>
+                                    <span class="desc"></span>
+                                    <div class="controls">
+                                        <div class="input-group" inputgroup="">
+                                            <input  type="text" class="form-control" id="dateto" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-4 col-xs-4">
+                                <div class="form-group">
+                                    <label class="form-label">Người tạo/Created by</label>
+                                    <span class="desc"></span>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" id="createby">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-xs-6">
+                                <div class="form-group">
+                                    <label class="form-label" for="field-1">Mô tả/Description</label>
+                                    <span class="desc"></span>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" id="description">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-sm-6 col-xs-6 text-right">
+                                <div class="form-group margin-top-20">
+                                    <button class="btn btn-success btn-icon right10" onclick="Search()">
+                                        <i class="fa fa-search"></i> &nbsp; <span>Tìm kiếm/Search</span>
+                                    </button>
+                                    <button class="btn btn-default btn-icon right10" onclick="Refresh()">
+                                        <i class="fa fa-refresh"></i> &nbsp; <span>Làm mới/Refresh</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <section class="box ">
+                    <header class="panel_header">
+                        <h2 class="title pull-left">Danh sách thư viện ảnh/Checklist</h2>
+                        <div class="actions panel_actions pull-right">
+                            <i class="box_toggle material-icons">expand_more</i>
+                        </div>
+                    </header>
+                    <div class="content-body padding-bottom-10">
+                        <div class="row margin-bottom-5">
+                            <div class="col-md-12 col-sm-12 col-xs-12 text-left">
+                                <h4>
+                                    Tổng số thư viện ảnh/Total number <b class="badge badge-primary" id="count_data"></b>
+                                </h4>
+                            </div>
+                        </div>
+                        <div class="row" id="divListUploadImage">
+                        
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 margin-bottom-10">
+                                <hr class="margin-bottom-10 margin-top-0" />
+                                <button type="button" class="btn btn-xs btnfuntion" title="Xem ảnh/View photo"><i class="material-icons btnicon" style="color:aquamarine">remove_red_eye</i></button>&nbsp;<small class="padding-right-20">Xem chi tiết ảnh/View photo</small>
+                                <button class="btn btn-xs btnfuntion"><i class="material-icons btnicon" style="color:orange">get_app</i></button>&nbsp;<small class="padding-right-20">Tải ảnh/Download</small>
+                                <button class="btn btn-xs btnfuntion"><i class="material-icons btnicon" style="color:red">lock</i></button>&nbsp;<small class="padding-right-20">Khóa thư viện ảnh/Lock</small>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section> 
+<script src="~/ScriptControllers/ImageLibraryController.js"></script>
+<script>
+    InitModel();
+    window.onload = Search();
+</script>

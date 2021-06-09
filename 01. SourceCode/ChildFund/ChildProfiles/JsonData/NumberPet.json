@@ -1,0 +1,69 @@
+﻿{
+  "OtherName": "",
+  "OtherValue": "",
+  "ListObject": [
+    {
+      "Id": "01",
+      "Check": "false",
+      "Name": "Gà/Chicken",
+      "NameEN": "chickens",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "02",
+      "Check": "false",
+      "Name": "Vịt/Duck",
+      "NameEN": "ducks",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "03",
+      "Check": "false",
+      "Name": "Lợn/Pig",
+      "NameEN": "pigs",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "04",
+      "Check": "false",
+      "Name": "Trâu/Buffalo",
+      "NameEN": "buffaloes",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "05",
+      "Check": "false",
+      "Name": "Bò/Cow",
+      "NameEN": "cows",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "06",
+      "Check": "false",
+      "Name": "Dê/Goat",
+      "NameEN": "goats",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "07",
+      "Check": "false",
+      "Name": "Khác/Other",
+      "NameEN": "",
+      "Value": "",
+      "OtherName": "Chi tiết/Details",
+      "OtherValue": ""
+    }
+  ]
+}

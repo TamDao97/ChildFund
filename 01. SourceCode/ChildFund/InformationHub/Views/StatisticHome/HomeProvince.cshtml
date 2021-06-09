@@ -1,0 +1,338 @@
+﻿@model IList<InformationHub.Model.StatisticModels.HomeChartItemModelByQuatar>
+@{
+    ViewBag.Title = InformationHub.Resource.Resource.ReportProfile_Report_Title;
+    var listCount = (List<InformationHub.Model.StatisticModels.HomeProvinceItemModel>)ViewBag.listCount;
+    var abuseType = (List<InformationHub.Model.ComboboxResult>)ViewBag.abuseType;
+    var lstHomeProvinceLeftModel = (List<InformationHub.Model.StatisticModels.HomeProvinceLeftModel>)ViewBag.lstHomeProvinceLeftModel;
+    var dateNow = DateTime.Now;
+    string type = ViewBag.type;
+}
+
+<section class="wrapper main-wrapper">
+    <div ui-view="" class="ng-scope">
+        <div class="content-wrapper">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <section class="box ">
+                    <header class="panel_header">
+                        <h2 class="title pull-left">@InformationHub.Resource.Resource.ReportProfileHome_Title @ViewBag.year</h2>
+                        <div class="actions panel_actions pull-right">
+                            <i class="box_toggle material-icons">expand_more</i>
+                        </div>
+                    </header>
+                    <div class="content-body padding-bottom-10">
+                        <div class="row">
+                            <div class="col-lg-7 col-md-12 col-sm-12 col-xs-12 padding-5">
+                                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 padding-5">
+                                    <div class="tile-counter bg-info">
+                                        <div class="content">
+                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                                <div class="row">
+                                                    <i class="fa fa-child icon-lg iconleft" aria-hidden="true"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-9 col-md-9 text-left">
+                                                <div class="row padding-left-15">
+                                                    <p>@listCount[0].LableName</p>
+                                                    <span>@InformationHub.Resource.Resource.Year_Title @dateNow.Year: </span>  <a class="number_counter ng-scope" style="display:inline-block" href="javascript:void(0)" onclick="ViewReportByAbuse('@listCount[0].AbuseId')">@listCount[0].Count</a>
+                                                    <br />
+                                                    <span>@InformationHub.Resource.Resource.Period_Title @dateNow.AddYears(-1).Year: </span>   <a class="number_counter ng-scope" style="display:inline-block" href="javascript:void(0)" onclick="ViewReportByAbuseBefore('@listCount[0].AbuseId')">@listCount[0].CountBefore</a>
+                                                    <br />
+                                                    <i class="fa @(listCount[0].Count>listCount[0].CountBefore?"fa-long-arrow-up icon-home-up":"fa-long-arrow-down icon-home-down")" aria-hidden="true"></i> <span>@listCount[0].Percen% @InformationHub.Resource.Resource.Compare_Title</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 padding-5">
+                                    <div class="tile-counter bg-warning">
+                                        <div class="content">
+                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                                <div class="row">
+                                                    <i class="fa fa-female icon-lg iconleft"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-9 col-md-9 text-left">
+                                                <div class="row padding-left-10">
+                                                    <p>@listCount[1].LableName</p>
+                                                    <span>@InformationHub.Resource.Resource.Year_Title @dateNow.Year: </span>  <a class="number_counter ng-scope" style="display:inline-block" href="javascript:void(0)" onclick="ViewReportByAbuse('@listCount[1].AbuseId')">@listCount[1].Count</a>
+                                                    <br />
+                                                    <span>@InformationHub.Resource.Resource.Period_Title @dateNow.AddYears(-1).Year: </span>   <a class="number_counter ng-scope" style="display:inline-block" href="javascript:void(0)" onclick="ViewReportByAbuseBefore('@listCount[1].AbuseId')">@listCount[1].CountBefore</a>
+                                                    <br />
+                                                    <i class="fa @(listCount[1].Count>listCount[1].CountBefore?"fa-long-arrow-up icon-home-up":"fa-long-arrow-down icon-home-down")" aria-hidden="true"></i>
+                                                    <span>@listCount[1].Percen% @InformationHub.Resource.Resource.Compare_Title</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 padding-5">
+                                    <div class="tile-counter bg-secondary">
+                                        <div class="content">
+                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                                <div class="row">
+                                                    <i class="fa fa-user icon-lg iconleft"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-9 col-md-9 text-left">
+                                                <div class="row padding-left-15">
+                                                    <p>@listCount[2].LableName</p>
+                                                    <span>@InformationHub.Resource.Resource.Year_Title @dateNow.Year: </span>  <a class="number_counter ng-scope" style="display:inline-block" href="javascript:void(0)" onclick="ViewReportByAbuse('@listCount[2].AbuseId')">@listCount[2].Count</a>
+                                                    <br />
+                                                    <span>@InformationHub.Resource.Resource.Period_Title @dateNow.AddYears(-1).Year: </span>   <a class="number_counter ng-scope" style="display:inline-block" href="javascript:void(0)" onclick="ViewReportByAbuseBefore('@listCount[2].AbuseId')">@listCount[2].CountBefore</a>
+                                                    <br />
+                                                    <i class="fa @(listCount[2].Count>listCount[2].CountBefore?"fa-long-arrow-up icon-home-up":"fa-long-arrow-down icon-home-down")" aria-hidden="true"></i> <span>@listCount[2].Percen% @InformationHub.Resource.Resource.Compare_Title</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-lg-5 col-md-12 col-sm-12 col-xs-12 padding-5">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 padding-5">
+                                    <div class="tile-counter bg-accent">
+                                        <div class="content">
+                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                                <div class="row">
+                                                    <i class="fa fa-wheelchair icon-lg iconleft" aria-hidden="true"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-9 col-md-9 text-left">
+                                                <div class="row padding-left-15">
+                                                    <p>@listCount[3].LableName</p>
+                                                    <span>@InformationHub.Resource.Resource.Year_Title @dateNow.Year: </span>  <a class="number_counter ng-scope" style="display:inline-block" href="javascript:void(0)" onclick="ViewReportByAbuse('@listCount[3].AbuseId')">@listCount[3].Count</a>
+                                                    <br />
+                                                    <span>@InformationHub.Resource.Resource.Period_Title @dateNow.AddYears(-1).Year: </span>   <a class="number_counter ng-scope" style="display:inline-block" href="javascript:void(0)" onclick="ViewReportByAbuseBefore('@listCount[3].AbuseId')">@listCount[3].CountBefore</a>
+                                                    <br />
+                                                    <i class="fa @(listCount[3].Count>listCount[3].CountBefore?"fa-long-arrow-up icon-home-up":"fa-long-arrow-down icon-home-down")" aria-hidden="true"></i> <span>@listCount[3].Percen% @InformationHub.Resource.Resource.Compare_Title</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 padding-5">
+                                    <div class="tile-counter bg-success">
+                                        <div class="content">
+                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                                <div class="row">
+                                                    <i class="fa fa-frown-o icon-lg iconleft" aria-hidden="true"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-9 col-md-9 text-left">
+                                                <div class="row padding-left-15">
+                                                    <p>@listCount[4].LableName</p>
+                                                    <span>@InformationHub.Resource.Resource.Year_Title @dateNow.Year: </span>  <a class="number_counter ng-scope" style="display:inline-block" href="javascript:void(0)" onclick="ViewReportByAbuse('@listCount[4].AbuseId')">@listCount[4].Count</a>
+                                                    <br />
+                                                    <span>@InformationHub.Resource.Resource.Period_Title @dateNow.AddYears(-1).Year: </span>   <a class="number_counter ng-scope" style="display:inline-block" href="javascript:void(0)" onclick="ViewReportByAbuseBefore('@listCount[4].AbuseId')">@listCount[4].CountBefore</a>
+                                                    <br />
+                                                    <i class="fa @(listCount[4].Count>listCount[4].CountBefore?"fa-long-arrow-up icon-home-up":"fa-long-arrow-down icon-home-down")" aria-hidden="true"></i> <span>@listCount[4].Percen% @InformationHub.Resource.Resource.Compare_Title</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                </section>
+            </div>
+            <div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
+                <section class="box ">
+                    <header class="panel_header">
+                        <h2 class="title pull-left">@InformationHub.Resource.Resource.ReportProfileHome_Title @ViewBag.year</h2>
+                        <div class="actions panel_actions pull-right">
+                            <i class="box_toggle material-icons">expand_more</i>
+                        </div>
+                    </header>
+                    <div class="content-body padding-bottom-0">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div style="overflow-y:auto;overflow-x:auto;height:@(type=="0"?"450px":"380px")">
+                                    <table class="table table-bordered table-hover" style="min-width:625px">
+                                        <thead>
+                                            <tr>
+                                                <th>@InformationHub.Resource.Resource.Place_Title</th>
+                                                <th class="text-center" width="110px">@InformationHub.Resource.Resource.Number_Case</th>
+                                                <th class="text-center" width="135px">@abuseType[0].Name</th>
+                                                <th class="text-center" width="90px">@abuseType[1].Name</th>
+                                                <th class="text-center" width="90px">@abuseType[2].Name</th>
+                                                <th class="text-center" width="90px">@abuseType[3].Name</th>
+                                                <th class="text-center" width="90px">@abuseType[4].Name</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in lstHomeProvinceLeftModel)
+                                            {
+                                            <tr>
+                                                <td>@item.Name</td>
+                                                <td class="text-center">@item.CountAll</td>
+                                                <td class="text-center">@item.CountByAbuse1</td>
+                                                <td class="text-center">@item.CountByAbuse2</td>
+                                                <td class="text-center">@item.CountByAbuse3</td>
+                                                <td class="text-center">@item.CountByAbuse4</td>
+                                                <td class="text-center">@item.CountByAbuse5</td>
+                                            </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="col-lg-5 col-md-12 col-sm-12 col-xs-12">
+                <section class="box ">
+                    <header class="panel_header">
+                        <h2 class="title pull-left">@InformationHub.Resource.Resource.ReportProfile_ByStatus</h2>
+                        <div class="actions panel_actions pull-right">
+                            <i class="box_toggle material-icons">expand_more</i>
+                        </div>
+                    </header>
+                    <div class="content-body padding-bottom-0">
+                        <div class="row">
+                            @if (type == "0")
+                            {
+                                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6" style="margin-left:20px">
+                                    <div class="form-group">
+                                        <label class="form-label" for="field-1">@InformationHub.Resource.Resource.Area_Province</label>
+                                        <div class="controls">
+                                            <select class="form-control" id="provinceIdHome" onchange="ChangeProvince()">
+                                                <option value="">@InformationHub.Resource.Resource.All_Title</option>
+                                                @Html.Action("ProvinceCBB", "Combobox")
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div id="containerXuLy" style="min-width: 310px; height: 380px; margin: 0 auto"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    function ChangeProvince() {
+        var provinceId = $('#provinceIdHome').val();
+        $.post("/StatisticHome/GetChartRightByProvinceId?provinceId=" + provinceId, function (result) {
+
+        if ($('#containerXuLy').length > 0) {
+        Highcharts.chart('containerXuLy', {
+            chart: {
+                type: 'line'
+            },
+            title: {
+                text: ''
+            },
+            colors: colors,
+            xAxis: {
+                categories: result.listLable,
+                crosshair: true
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: '@Html.Raw(InformationHub.Resource.Resource.ReportProfile_NumberChartStatus_Title)'
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y}</b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
+                }
+            },
+            series: [{
+                name: result.listChartCount[0].LableName,
+                data: result.listChartCount[0].ListCount
+
+            }, {
+                    name: result.listChartCount[1].LableName,
+                    data: result.listChartCount[1].ListCount
+
+            }]
+        });
+        }
+        });
+    }
+    function ViewReportByAbuse(value) {
+        sessionStorage.setItem("keyAbuse", value);
+        window.location = '/ReportProfile/Index';
+    }
+    function ViewReportByAbuseBefore(value) {
+        sessionStorage.setItem("keyAbuse", value);
+        sessionStorage.setItem("keyDate",'01/01/'+ '@dateNow.AddYears(-1).Year' + ';' + '@dateNow.AddYears(-1).ToString("dd/MM/yyyy")');
+        window.location = '/ReportProfile/Index';
+    }
+    
+    var colors = ['#26C6DA', 'orange', '#a09e9e', '#00797c', '#84bd00', '#26C6DA'];
+   
+    var mang0 = '@Model[0].ListStr'.split(';').map(function (item) {
+        return parseInt(item, 10);
+    });
+     var mang1 = '@Model[1].ListStr'.split(';').map(function (item) {
+        return parseInt(item, 10);
+    });
+
+    if ($('#containerXuLy').length > 0) {
+        Highcharts.chart('containerXuLy', {
+            chart: {
+                type: 'line'
+            },
+            title: {
+                text: ''
+            },
+            colors: colors,
+            xAxis: {
+                categories: '@ViewBag.listLable'.split(';'),
+                crosshair: true
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: '@Html.Raw(InformationHub.Resource.Resource.ReportProfile_NumberChartStatus_Title)'
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y}</b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
+                }
+            },
+            series: [{
+                name: '@Html.Raw(Model[0].LableName)',
+                data: mang0
+
+            }, {
+                    name: '@Html.Raw(Model[1].LableName)',
+                    data: mang1
+
+            }]
+        });
+    }
+</script>

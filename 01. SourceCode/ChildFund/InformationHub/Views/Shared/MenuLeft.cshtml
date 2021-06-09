@@ -1,0 +1,210 @@
+﻿@{ string type = ViewBag.Type; if (string.IsNullOrEmpty(type))
+    {
+        type = "4";
+    }}
+@if (type == "4")
+{
+    <script>
+        window.location = '/Authorize/Login';
+    </script>
+}
+
+<ul class="wraplist wrapper-menu">
+    @if (type == "0" || type == "1" || type == "2")
+    {
+        <li ui-sref-active="active">
+            <a class="nosub" href="/StatisticHome/HomeProvince">
+                <i class="material-icons">dashboard</i>
+                <span class="title">@InformationHub.Resource.Resource.Label_Home</span>
+            </a>
+        </li>
+    }
+    @if (type == "3")
+    {
+        <li ui-sref-active="active">
+            <a class="nosub" href="/StatisticHome/HomeWard">
+                <i class="material-icons">dashboard</i>
+                <span class="title">@InformationHub.Resource.Resource.Label_Home</span>
+            </a>
+        </li>
+    }
+
+    @if (InformationHub.Common.LoginCommon.CheckPermission("C0010"))
+    {
+        <li ui-sref-active="active">
+            <a class="nosub" href="/ReportProfile/index">
+                <i class="material-icons">view_list</i>
+                <span class="title">@InformationHub.Resource.Resource.ReportProfile_List</span>
+            </a>
+        </li>
+    }
+    @if (type == "0" || type == "1" || type == "2")
+    {
+        if (InformationHub.Common.LoginCommon.CheckPermission("C0016"))
+        {
+            <li ui-sref-active="active">
+                <a class="nosub" href="/ReportProfile/Forward">
+                    <i class="material-icons">view_day</i>
+                    <span class="title">@InformationHub.Resource.Resource.ReportProfile_Forward_List</span>
+                </a>
+            </li>
+        }
+    }
+    @if (type == "3")
+    {
+        if (InformationHub.Common.LoginCommon.CheckPermission("C0011"))
+        {
+            <li ui-sref-active="active">
+                <a ui-sref="app.dashboard" class="nosub" href="/ReportProfile/CreateProfileView">
+                    <i class="material-icons">add_to_photos</i>
+                    <span class="title">@InformationHub.Resource.Resource.ReportProfile_Create</span>
+                </a>
+            </li>
+        }
+    }
+    @*@if (type == "0" || type == "1" || type == "2")
+    {
+        if (InformationHub.Common.LoginCommon.CheckPermission("C0017"))
+        {
+            <li ui-sref-active="active">
+                <a ui-sref="app.dashboard" class="nosub" href="/AreaUser/Index">
+                    <i class="material-icons">view_carousel</i>
+                    <span class="title">@InformationHub.Resource.Resource.Area_Manager_Title</span>
+                </a>
+            </li>
+        }
+    }*@
+    @if (type == "0")
+    {
+        if (InformationHub.Common.LoginCommon.CheckPermission("C0006"))
+        {
+            <li ui-sref-active="active">
+                <a ui-sref="app.dashboard" class="nosub" href="/GroupUser/Index">
+                    <i class="material-icons">people</i>
+                    <span class="title">@InformationHub.Resource.Resource.GroupUser_Manager_Title</span>
+                </a>
+            </li>
+        }
+        if (InformationHub.Common.LoginCommon.CheckPermission("C0001"))
+        {
+            <li ui-sref-active="active">
+                <a ui-sref="app.dashboard" class="nosub" href="/User/Index">
+                    <i class="material-icons">person</i>
+                    <span class="title">@InformationHub.Resource.Resource.User_Manager_Title</span>
+                </a>
+            </li>
+        }
+    }
+    @if (InformationHub.Common.LoginCommon.CheckPermission("C0021"))
+    {
+        <li ui-sref-active="active">
+            <a ui-sref="app.dashboard" class="nosub" href="/Document/Index">
+                <i class="material-icons">attach_file</i>
+                @if (type == "0")
+                {
+                    <span class="title">@InformationHub.Resource.Resource.Document_Title</span>
+                }
+                else
+                {
+                    <span class="title">@InformationHub.Resource.Resource.Lib_Title</span>
+                }
+            </a>
+        </li>
+    }
+
+    <li href="" class="auto">
+        <a href="javascript:;">
+            <i class="material-icons">insert_chart</i>
+            <span class="title">@InformationHub.Resource.Resource.Statistic_Title</span>
+            <span class="arrow material-icons open">keyboard_arrow_right</span>
+        </a>
+        <ul class="wraplist wraplist-sub sub-menu dk">
+            @if (InformationHub.Common.LoginCommon.CheckPermission("C0026"))
+            {
+                <li ui-sref-active="active">
+                    <a ui-sref="app.dashboard" class="nosub" href="/StatisticByAge/Index">
+                        <span class="title" style="color:#fff">@InformationHub.Resource.Resource.Statistic_About_Age</span>
+                    </a>
+                </li>
+            }
+            @if (InformationHub.Common.LoginCommon.CheckPermission("C0027"))
+            {
+                <li ui-sref-active="active">
+                    <a ui-sref="app.dashboard" class="nosub" href="/StatisticByGender/Index">
+                        <span class="title" style="color:#fff">@InformationHub.Resource.Resource.Statistic_About_Gender</span>
+                    </a>
+                </li>
+            }
+            @if (type == "0")
+            {
+                if (InformationHub.Common.LoginCommon.CheckPermission("C0028"))
+                {
+                    <li ui-sref-active="active">
+                        <a ui-sref="app.dashboard" class="nosub" href="/StatisticByLocation/Index">
+                            <span class="title" style="color:#fff">@InformationHub.Resource.Resource.Statistic_About_Location</span>
+                        </a>
+                    </li>
+                }
+            }
+            @if (InformationHub.Common.LoginCommon.CheckPermission("C0034"))
+            {
+                <li ui-sref-active="active">
+                    <a ui-sref="app.dashboard" class="nosub" href="/StatisticHome/ReportWard">
+                        <span class="title" style="color:#fff">@InformationHub.Resource.Resource.Statistic_About_Status_Type</span>
+                    </a>
+                </li>
+            }
+            @if (type == "0" || type == "1" || type == "2")
+            {
+                if (InformationHub.Common.LoginCommon.CheckPermission("C0029"))
+                {
+                    <li ui-sref-active="active">
+                        <a ui-sref="app.dashboard" class="nosub" href="/StatisticByArea/Index">
+                            <span class="title" style="color:#fff">@InformationHub.Resource.Resource.Statistic_About_Area</span>
+                        </a>
+                    </li>
+                }
+                if (false)
+                {
+                    <li ui-sref-active="active">
+                        <a ui-sref="app.dashboard" class="nosub" href="/StatisticByProcessing/Index">
+                            <span class="title" style="color:#fff">@InformationHub.Resource.Resource.Statistic_About_Status_Process</span>
+                        </a>
+                    </li>
+                }
+                if (false)
+                {
+                    <li ui-sref-active="active">
+                        <a ui-sref="app.dashboard" class="nosub" href="/StatisticByProcessing/ReportByAbuse">
+                            <span class="title" style="color:#fff">@InformationHub.Resource.Resource.Statistic_About_AbuseType</span>
+                        </a>
+                    </li>
+                }
+
+
+                if (InformationHub.Common.LoginCommon.CheckPermission("C0032"))
+                {
+                    <li ui-sref-active="active">
+                        <a ui-sref="app.dashboard" class="nosub" href="/StatisticByMostAbuse/Index">
+                            <span class="title" style="color:#fff">@InformationHub.Resource.Resource.Statistic_About_Top_Number</span>
+                        </a>
+                    </li>
+                }
+                @*if (InformationHub.Common.LoginCommon.CheckPermission("C0033"))
+                {
+                    <li ui-sref-active="active">
+                        <a ui-sref="app.dashboard" class="nosub" href="/StatisticByChildFundArea/Index">
+                            <span class="title" style="color:#fff">@InformationHub.Resource.Resource.Statistic_About_Area ChildFund</span>
+                        </a>
+                    </li>
+                }*@
+            }
+            <li ui-sref-active="active">
+                <a ui-sref="app.dashboard" class="nosub" href="/StatisticHome/ReportByYear">
+                    <span class="title" style="color:#fff">@InformationHub.Resource.Resource.KeyByYear</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+
+</ul>

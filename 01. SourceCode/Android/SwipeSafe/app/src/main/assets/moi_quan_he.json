@@ -1,0 +1,46 @@
+[
+{
+    "name": "Bố/Mẹ đẻ",
+    "code": "1"
+  },
+  {
+    "name": "Bố/Mẹ kế",
+    "code": "2"
+  },
+  {
+    "name": "Ông/Bà",
+    "code": "3"
+  },
+  {
+    "name": "Anh Chị em ruột",
+    "code": "4"
+  },
+  {
+    "name": "Họ hàng",
+    "code": "5"
+  },
+  {
+    "name": "Hàng xóm",
+    "code": "6"
+  },
+  {
+    "name": "Giáo viên/ Cán bộ nhà trường",
+    "code": "7"
+  },
+  {
+    "name": "Người lạ",
+    "code": "8"
+  },
+  {
+    "name": "Bạn bè/Người yêu",
+    "code": "9"
+  },
+  {
+    "name": "Người nước ngoài",
+    "code": "10"
+  },
+  {
+    "name": "Khác",
+    "code": "11"
+  }
+]

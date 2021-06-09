@@ -1,0 +1,1003 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Bảo vệ trẻ em</title>
+    <link rel="shortcut icon" href="~/favicon.ico" type="image/x-icon" />
+    <!-- Favicon -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="~/Content/material-icons.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/theme.css" rel="stylesheet" />
+    @Scripts.Render("~/Content/css")
+    <style>
+        .page-topbar .logo-area {
+            background-image: url(../../img/swipesafe.png) !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="ng-scope">
+        <!-- header -->
+        <div class="page-topbar">
+            <!-- START TOPBAR -->
+            <div class="logo-area">
+            </div>
+            <div class="quick-area">
+                <div class="pull-left slantit">
+                    <ul class="info-menu left-links list-inline list-unstyled">
+                        <li class="sidebar-toggle-wrap">
+                            <a href="" data-toggle="sidebar" class="sidebar_toggle" ng-click="app.settings.menuFolded = !app.settings.menuFolded; menuChatToggle('menu',app.settings.menuFolded) ">
+                                <i class="material-icons">menu</i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="pull-left pagetitle">
+                    <span class="line"></span>
+                    <h1 class="ng-binding">@ViewBag.Title</h1>
+                    <div></div>
+                </div>
+                <div class="pull-left quickleft">
+                    <ul class="info-menu right-links list-inline list-unstyled">
+                        <li class="dropdown tab" uib-dropdown="">
+                            <a href="" class="dropdown-toggle toggle" id="messages" data-toggle="dropdown">
+                                <i class="material-icons">comment</i>
+                                <span class="badge badge-warning">7</span>
+                            </a>
+                            <ul class="dropdown-menu messages animated fadeIn" role="menu" aria-labelledby="messages">
+                                <li class="list ng-scope">
+                                    <div wheel-propagation="true" suppress-scroll-x="true" min-scrollbar-length="20" class="ps-scrollbar ps-container">
+                                        <div ng-transclude="">
+                                            <ul class="dropdown-menu-list list-unstyled ng-scope">
+                                                <li class="unread status-available" ng-repeat="message in messages" style="">
+                                                    <a href="javascript:;">
+                                                        <div class="user-img">
+                                                            <img alt="user-image" class="img-circle img-inline" src="~/img/photo.jpg">
+                                                        </div>
+                                                        <div>
+                                                            <span class="name">
+                                                                <h4 class="ng-binding">Nguyễn Minh Tú - Bỏ đói</h4>
+                                                                <span class="time small ng-binding">2 giờ trước - Xã Phú An</span>
+                                                            </span>
+                                                            <span class="desc small ng-binding">
+                                                                Vụ việc nghiêm trọng vượt quá...
+                                                            </span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="unread status-busy" ng-repeat="message in messages" style="">
+                                                    <a href="javascript:;">
+                                                        <div class="user-img">
+                                                            <img alt="user-image" class="img-circle img-inline" src="~/img/photo.jpg">
+                                                        </div>
+                                                        <div>
+                                                            <span class="name">
+                                                                <h4 class="ng-binding">Lý Thị Tơ - Xâm hại tình dục</h4>
+                                                                <span class="time small ng-binding">2 giờ trước - Xã Phú An</span>
+                                                            </span>
+                                                            <span class="desc small ng-binding">
+                                                                Vụ việc nghiêm trọng vượt quá...
+                                                            </span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="read status-away" ng-repeat="message in messages" style="">
+                                                    <a href="javascript:;">
+                                                        <div class="user-img">
+                                                            <img alt="user-image" class="img-circle img-inline" src="~/img/photo.jpg">
+                                                        </div>
+                                                        <div>
+                                                            <span class="name">
+                                                                <h4 class="ng-binding">Nguyễn Thu Thủy - Bạo lực trẻ em</h4>
+                                                                <span class="time small ng-binding">1 giờ trước - Xã Phú Minh</span>
+                                                            </span>
+                                                            <span class="desc small ng-binding">
+                                                                Vụ việc nghiêm trọng vượt quá...
+                                                            </span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div><div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 3px;"><div class="ps-scrollbar-x" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; right: 3px;"><div class="ps-scrollbar-y" style="top: 0px; height: 0px;"></div></div>
+                                    </div>
+                                </li>
+                                <li class="external">
+                                    <a href="javascript:;">
+                                        <span>Xem tất cả trường hợp</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown tab" uib-dropdown="">
+                            <a href="" class="dropdown-toggle toggle" id="notifications" data-toggle="dropdown">
+                                <i class="material-icons">notifications</i>
+                                <span class="badge badge-info">3</span>
+                            </a>
+                            <ul class="dropdown-menu notifications animated fadeIn" role="menu" aria-labelledby="notifications">
+                                <li class="total">
+                                    <span class="small">
+                                        Có <strong>3</strong> báo cáo trường hợp từ cộng đồng.
+                                    </span>
+                                </li>
+                                <li ng-controller="NotificationsDropDownCtrl" class="list ng-scope">
+                                    <div wheel-propagation="true" suppress-scroll-x="true" min-scrollbar-length="20" class="ps-scrollbar ps-container">
+                                        <div ng-transclude="">
+                                            <ul class="dropdown-menu-list list-unstyled ng-scope">
+                                                <li class="read away">
+                                                    <a href="javascript:;">
+                                                        <div class="notice-icon">
+                                                            <i class="material-icons ng-binding">person</i>
+                                                        </div>
+                                                        <div>
+                                                            <span class="name">
+                                                                <h4 class="ng-binding">Nguyễn Minh Tú - Bỏ đói</h4>
+                                                                <span class="time small ng-binding">2 giờ trước - Xã Phú An</span>
+                                                            </span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="unread busy">
+                                                    <a href="javascript:;">
+                                                        <div class="notice-icon">
+                                                            <i class="material-icons ng-binding">person</i>
+                                                        </div>
+                                                        <div>
+                                                            <span class="name">
+                                                                <h4 class="ng-binding">Lý Thị Tơ - Xâm hại tình dục</h4>
+                                                                <span class="time small ng-binding">2 giờ trước - Xã Phú An</span>
+                                                            </span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="read offline">
+                                                    <a href="javascript:;">
+                                                        <div class="notice-icon">
+                                                            <i class="material-icons ng-binding">person</i>
+                                                        </div>
+                                                        <div>
+                                                            <span class="name">
+                                                                <h4 class="ng-binding">Trân Minh An - Bạo lực trẻ em</h4>
+                                                                <span class="time small ng-binding">1 giờ trước - Xã Phú Minh</span>
+                                                            </span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="read offline">
+                                                    <a href="javascript:;">
+                                                        <div class="notice-icon">
+                                                            <i class="material-icons ng-binding">person</i>
+                                                        </div>
+                                                        <div>
+                                                            <span class="name">
+                                                                <h4 class="ng-binding">Nguyễn Thu Thủy - Bạo lực trẻ em</h4>
+                                                                <span class="time small ng-binding">1 giờ trước - Xã Phú Minh</span>
+                                                            </span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div><div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 3px;"><div class="ps-scrollbar-x" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; right: 3px;"><div class="ps-scrollbar-y" style="top: 0px; height: 0px;"></div></div>
+                                    </div>
+                                </li>
+                                <li class="external">
+                                    <a href="javascript:;">
+                                        <span>Xem tất cả báo cáo trường hợp</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="pull-right quickright">
+                    <ul class="info-menu right-links list-inline list-unstyled">
+
+                        <li class="dropdown profile tab" uib-dropdown="" style="">
+                            <a href="" class="dropdown-toggle toggle" id="profile" data-toggle="dropdown">
+                                <img ng-if="app.type == 'general'" src="~/img/avatar.png" alt="user-image" class="img-circle img-inline ng-scope">
+                                <span class="profile-status available"></span>
+
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-right profile" role="menu" aria-labelledby="profile">
+                                <li>
+                                    <a href="#/app/ui/profile">
+                                        <i class="material-icons">person</i> Thông tin cá nhân
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#/app/dashboard">
+                                        <i class="material-icons">vpn_key</i> Đổi mật khẩu
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#/app/dashboard">
+                                        <i class="material-icons">help</i> Hướng dẫn sử dụng
+                                    </a>
+                                </li>
+                                <li class="last">
+                                    <a ui-sref="access.login" href="#/access/login">
+                                        <i class="material-icons">lock</i> Đăng xuất
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="chat-toggle-wrapper chat-slant">
+                            <a href="" class="dropdown-toggle toggle" id="language" data-toggle="dropdown">
+                                <i class="material-icons">language</i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-right profile" role="menu" aria-labelledby="language">
+                                <li>
+                                    <a ui-sref="app.dashboard" href="#/app/dashboard">
+                                        <i class="material-icons"><img src="~/img/vi.png" /></i> Việt Nam
+                                    </a>
+                                </li>
+                                <li>
+                                    <a ui-sref="app.ui.profile" href="#/app/ui/profile">
+                                        <i class="material-icons"><img src="~/img/en.png" /></i> English
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- END TOPBAR -->
+
+        </div>
+        <!-- / header -->
+        <!-- START CONTAINER -->
+
+        <div class="page-container row-fluid ng-scope" ui-sectionbox="" ng-controller="ModalDemoCtrl">
+
+            <!-- leftbar -->
+            <div class="page-sidebar expandit" style="">
+                <!-- SIDEBAR - START -->
+                <!-- MAIN MENU - START -->
+                <div class="page-sidebar-wrapper ps-container ps-active-y" id="main-menu-wrapper" wheel-propagation="true" suppress-scroll-x="true" min-scrollbar-length="20" menuheight="" style="height: 900px;">
+                    <!-- list -->
+                    <ul class="wraplist wrapper-menu">
+                        <div style="display:none">
+                            <li ui-sref-active="active">
+                                <a class="nosub" href="/home/trangchu">
+                                    <i class="material-icons">dashboard</i>
+                                    <span class="title">Trang chủ</span>
+                                </a>
+                            </li>
+
+                            <li href="" class="auto">
+                                <a href="javascript:;">
+                                    <i class="material-icons">archive</i>
+                                    <span class="title">Tiếp nhận trường hợp</span>
+                                    <span class="arrow material-icons open">keyboard_arrow_right</span>
+                                </a>
+                                <ul class="wraplist wraplist-sub sub-menu dk">
+                                    <li ui-sref-active="active">
+                                        <a ui-sref="app.mail.list" href="/home/tiepnhan">Trường hợp chưa xác nhận</a>
+                                    </li>
+                                    <li ui-sref-active="active">
+                                        <a ui-sref="app.ui.calendar" href="/home/tiepnhanxacnhan">Trường hợp đã xác nhận</a>
+                                    </li>
+                                    <li ui-sref-active="active">
+                                        <a ui-sref="app.widgets" href="/home/tiepnhanao">Trường hợp báo cáo ảo</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+
+                            <li ui-sref-active="active">
+                                <a class="nosub" href="/home/timkiemtruonghop">
+                                    <i class="material-icons">search</i>
+                                    <span class="title">Tra cứu trường hợp</span>
+                                </a>
+                            </li>
+
+                            <li ui-sref-active="active">
+                                <a class="nosub" href="/home/danhsachca">
+                                    <i class="material-icons">apps</i>
+                                    <span class="title">Quản lý trường hợp</span>
+                                </a>
+                            </li>
+
+                            <li ui-sref-active="active">
+                                <a ui-sref="app.dashboard" class="nosub" href="/home/themmoica">
+                                    <i class="material-icons">add_to_photos</i>
+                                    <span class="title">Thêm mới trường hợp</span>
+                                </a>
+                            </li>
+
+                            <li ui-sref-active="active">
+                                <a ui-sref="app.dashboard" class="nosub" href="/home/ThongKeTruongHop">
+                                    <i class="material-icons">add_to_photos</i>
+                                    <span class="title">Thống kê trường hợp</span>
+                                </a>
+                            </li>
+
+                            <li href="" class="auto">
+                                <a class="nosub" href="/home/thuvien">
+                                    <i class="material-icons">tune</i>
+                                    <span class="title">Thư viện</span>
+                                </a>
+                            </li>
+
+                            <li ui-sref-active="active">
+                                <a ui-sref="app.dashboard" class="nosub" href="/home/CauHinh">
+                                    <i class="material-icons">add_to_photos</i>
+                                    <span class="title">Quản lý cấu hình</span>
+                                </a>
+                            </li>
+                        </div>
+
+                        <div   >
+                            <li ui-sref-active="active">
+                                <a class="nosub" href="/home/trangchutren">
+                                    <i class="material-icons">dashboard</i>
+                                    <span class="title">Trang chủ</span>
+                                </a>
+                            </li>
+
+                            <li ui-sref-active="active">
+                                <a class="nosub" href="/home/tiepnhancapduoi">
+                                    <i class="material-icons">archive</i>
+                                    <span class="title">Trường hợp cấp dưới gửi lên</span>
+                                </a>
+                            </li>
+
+                            <li ui-sref-active="active">
+                                <a class="nosub" href="/home/timkiemtruonghop">
+                                    <i class="material-icons">search</i>
+                                    <span class="title">Tra cứu trường hợp</span>
+                                </a>
+                            </li>
+
+                            <li ui-sref-active="active">
+                                <a class="nosub" href="/home/baocaosuvucaptren">
+                                    <i class="material-icons">apps</i>
+                                    <span class="title">Báo cáo trường hợp</span>
+                                </a>
+                            </li>
+
+                            <li ui-sref-active="active">
+                                <a ui-sref="app.dashboard" class="nosub" href="/home/ThongKeTruongHop">
+                                    <i class="material-icons">add_to_photos</i>
+                                    <span class="title">Thống kê trường hợp</span>
+                                </a>
+                            </li>
+
+                            <li ui-sref-active="active">
+                                <a class="nosub" href="/home/thongkesuvu">
+                                    <i class="material-icons">apps</i>
+                                    <span class="title">Thống kê báo cáo trên địa bàn</span>
+                                </a>
+                            </li>
+
+                            <li href="" class="auto">
+                                <a class="nosub" href="/home/thuvien">
+                                    <i class="material-icons">tune</i>
+                                    <span class="title">Thư viện</span>
+                                </a>
+                            </li>
+                            <li ui-sref-active="active">
+                                <a ui-sref="app.dashboard" class="nosub" href="/home/CauHinh">
+                                    <i class="material-icons">add_to_photos</i>
+                                    <span class="title">Quản lý cấu hình</span>
+                                </a>
+                            </li>
+                        </div>
+
+                        <div>
+                            <li ui-sref-active="active">
+                                <a class="nosub" href="/home/trangchutren">
+                                    <i class="material-icons">dashboard</i>
+                                    <span class="title">Trang chủ</span>
+                                </a>
+                            </li>
+
+                            <li href="" class="auto">
+                                <a class="nosub" href="/home/hsnhomquyen">
+                                    <i class="material-icons">tune</i>
+                                    <span class="title">Quản lý nhóm quyền</span>
+                                </a>
+                            </li>
+
+                            <li ui-sref-active="active">
+                                <a class="nosub" href="/home/qldanhsachsuvu">
+                                    <i class="material-icons">archive</i>
+                                    <span class="title">Danh sách trường hợp</span>
+                                </a>
+                            </li>
+
+                            <li ui-sref-active="active">
+                                <a class="nosub" href="/home/timkiemtruonghop">
+                                    <i class="material-icons">search</i>
+                                    <span class="title">Tra cứu trường hợp</span>
+                                </a>
+                            </li>
+
+                            <li ui-sref-active="active">
+                                <a ui-sref="app.dashboard" class="nosub" href="/home/ThongKeTruongHop">
+                                    <i class="material-icons">add_to_photos</i>
+                                    <span class="title">Thống kê trường hợp</span>
+                                </a>
+                            </li>
+
+                            <li ui-sref-active="active">
+                                <a class="nosub" href="/home/qlbaocaosuvu">
+                                    <i class="material-icons">apps</i>
+                                    <span class="title">Báo cáo trường hợp</span>
+                                </a>
+                            </li>
+
+                            <li ui-sref-active="active">
+                                <a class="nosub" href="/home/QLThongKeSuVuViTri">
+                                    <i class="material-icons">apps</i>
+                                    <span class="title">Thống kê báo cáo trên vùng địa lý</span>
+                                </a>
+                            </li>
+
+                            <li ui-sref-active="active">
+                                <a class="nosub" href="/home/QLThongKeSuVuTop">
+                                    <i class="material-icons">apps</i>
+                                    <span class="title">Thống kê vị trí địa lý nhiều vụ xâm hại</span>
+                                </a>
+                            </li>
+
+                            <li href="" class="auto">
+                                <a class="nosub" href="/home/qlthuvien">
+                                    <i class="material-icons">tune</i>
+                                    <span class="title">Quản lý tài liệu</span>
+                                </a>
+                            </li>
+
+
+
+                            <li href="" class="auto">
+                                <a class="nosub" href="/home/hsnguoidung">
+                                    <i class="material-icons">people</i>
+                                    <span class="title">Quản lý người dùng</span>
+                                </a>
+                            </li>
+
+
+
+                            @*<li href="" class="auto">
+            <a>
+                <i class="material-icons">tune</i>
+                <span class="title">Quản lý hệ thống</span>
+                <span class="arrow material-icons">keyboard_arrow_right</span>
+            </a>
+            <ul class="wraplist wraplist-sub sub-menu dk">
+                <li ui-sref-active="active">
+                    <a href="/home/qlnhomquyen">Quản lý nhóm quyền</a>
+                </li>
+                <li ui-sref-active="active" class="active">
+                    <a href="/home/qlnguoidung">Quản lý người dùng</a>
+                </li>
+            </ul>
+        </li>*@
+
+                            <li ui-sref-active="active">
+                                <a ui-sref="app.dashboard" class="nosub" href="/home/CauHinh">
+                                    <i class="material-icons">add_to_photos</i>
+                                    <span class="title">Quản lý cấu hình</span>
+                                </a>
+                            </li>
+                        </div>
+
+                        <div style="display:none;">
+                            <li ui-sref-active="active">
+                                <a class="nosub" href="/home/hstrangchu">
+                                    <i class="material-icons">dashboard</i>
+                                    <span class="title">Trang chủ</span>
+                                </a>
+                            </li>
+
+                            <li ui-sref-active="active">
+                                <a class="nosub" href="/home/hschoduyet">
+                                    <i class="material-icons">schedule</i>
+                                    <span class="title">Hồ sơ chờ duyệt</span>
+                                </a>
+                            </li>
+
+                            <li ui-sref-active="active">
+                                <a class="nosub" href="/home/hscapnhat">
+                                    <i class="material-icons">archive</i>
+                                    <span class="title">Hồ sơ cập nhật</span>
+                                </a>
+                            </li>
+
+                            <li ui-sref-active="active">
+                                <a class="nosub" href="/home/hsvietnamduyet">
+                                    <i class="material-icons">perm_contact_calendar</i>
+                                    <span class="title">Hồ sơ đã duyệt</span>
+                                </a>
+                            </li>
+                            <li ui-sref-active="active">
+                                <a class="nosub" href="/home/hsmaucauchuyen">
+                                    <i class="material-icons">description</i>
+                                    <span class="title">Mẫu câu chuyện</span>
+                                </a>
+                            </li>
+                            <li ui-sref-active="active">
+                                <a class="nosub" href="/home/hsthuvienanh">
+                                    <i class="material-icons">photo</i>
+                                    <span class="title">Thư viện ảnh</span>
+                                </a>
+                            </li>
+                            <li href="" class="auto">
+                                <a class="nosub" href="/home/hsnguoidung">
+                                    <i class="material-icons">people</i>
+                                    <span class="title">Quản lý người dùng</span>
+                                </a>
+                            </li>
+
+                            <li href="" class="auto">
+                                <a class="nosub" href="/home/hsnhomquyen">
+                                    <i class="material-icons">tune</i>
+                                    <span class="title">Quản lý nhóm quyền</span>
+                                </a>
+                            </li>
+                        </div>
+
+                        <div style="display:none">
+                            <li ui-sref-active="active">
+                                <a class="nosub" href="/home/qlcauhinh">
+                                    <i class="material-icons">build</i>
+                                    <span class="title">Quản lý cấu hình</span>
+                                </a>
+                            </li>
+                            <li ui-sref-active="active">
+                                <a class="nosub" href="/home/qlmenu">
+                                    <i class="material-icons">dns</i>
+                                    <span class="title">Quản lý menu</span>
+                                </a>
+                            </li>
+                            <li ui-sref-active="active">
+                                <a class="nosub" href="/home/qlslide">
+                                    <i class="material-icons">tab</i>
+                                    <span class="title">Quản lý ảnh slide</span>
+                                </a>
+                            </li>
+                            <li ui-sref-active="active">
+                                <a class="nosub" href="/home/qlnhomtin">
+                                    <i class="material-icons">playlist_add</i>
+                                    <span class="title">Quản lý nhóm tin</span>
+                                </a>
+                            </li>
+                            <li ui-sref-active="active">
+                                <a class="nosub" href="/home/qltintuc">
+                                    <i class="material-icons">assignment</i>
+                                    <span class="title">Quản lý tin tức</span>
+                                </a>
+                            </li>
+
+                            <li ui-sref-active="active">
+                                <a class="nosub" href="/home/qllienhe">
+                                    <i class="material-icons"> recent_actors</i>
+                                    <span class="title">Quản lý liên hệ</span>
+                                </a>
+                            </li>
+                            <li ui-sref-active="active">
+                                <a class="nosub" href="/home/qlthanhvien">
+                                    <i class="material-icons">perm_identity</i>
+                                    <span class="title">Quản lý thành viên</span>
+                                </a>
+                            </li>
+                            <li ui-sref-active="active">
+                                <a class="nosub" href="/home/qlsay">
+                                    <i class="material-icons">announcement</i>
+                                    <span class="title">Nói gì về chúng tôi</span>
+                                </a>
+                            </li>
+                            <li ui-sref-active="active">
+                                <a class="nosub" href="/home/qlcauchuyen">
+                                    <i class="material-icons">book</i>
+                                    <span class="title">Quản lý câu chuyện</span>
+                                </a>
+                            </li>
+                            <li href="" class="auto">
+                                <a class="nosub" href="/home/hsnhomquyen">
+                                    <i class="material-icons">tune</i>
+                                    <span class="title">Quản lý nhóm quyền</span>
+                                </a>
+                            </li>
+                            <li href="" class="auto">
+                                <a class="nosub" href="/home/hsnguoidung">
+                                    <i class="material-icons">people</i>
+                                    <span class="title">Quản lý người dùng</span>
+                                </a>
+                            </li>
+
+                        </div>
+                    </ul>
+                    <!-- / list -->
+                </div>
+                <!-- MAIN MENU - END -->
+                <!--  SIDEBAR - END -->
+
+            </div>
+            <!-- / leftbar -->
+            <!-- START CONTENT -->
+            <section id="main-content" class="" style="">
+                <div class="pull-left mobile-pagetitle">
+                    <h1 class="ng-binding">@ViewBag.Title</h1>
+                </div>
+                @RenderBody()
+            </section>
+            <!-- END CONTENT -->
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script src="~/Scripts/ui-nav.js"></script>
+    <script src="~/Scripts/chart/highcharts.js"></script>
+    <script src="~/Scripts/chart/exporting.js"></script>
+    <script src="~/Scripts/chart/canvg.min.js"></script>
+    @Html.IncludeVersionedJs("/Scripts/JavaScript.js")
+    <script src="~/Scripts/stepwizard.js"></script>
+    <style>
+
+        section .content-body {
+            padding: 15px;
+        }
+
+        section header .title {
+            padding: 10px 18px 0 15px;
+        }
+
+        .content-wrapper {
+            padding: 0px;
+        }
+
+        .highcharts-button {
+            display: none;
+        }
+
+        .form-group, .input-group {
+            margin-bottom: 0px;
+        }
+
+        .form-label-custom {
+            float: left;
+            margin-right: 8px;
+            margin-top: 2px;
+        }
+
+        .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+            border-color: #E0E0E0;
+            padding: 6px 8px 6px 8px;
+        }
+
+        .table > thead:first-child > tr:first-child > th {
+            vertical-align: middle;
+        }
+        /*Step Wizard*/
+        .stepwizard {
+            display: table;
+            width: 100%;
+            position: relative;
+            margin-top: 40px;
+        }
+
+            .stepwizard p {
+                margin-top: 10px;
+            }
+
+        .stepwizard-row {
+            display: table-row;
+        }
+
+            .stepwizard-row:before {
+                top: 14px;
+                bottom: 0;
+                position: absolute;
+                content: " ";
+                width: 100%;
+                height: 2px;
+                background-color: #ccc;
+                z-order: 0;
+            }
+
+        .stepwizard-step {
+            display: table-cell;
+            text-align: center;
+            position: relative;
+        }
+
+            .stepwizard-step .btn.disabled {
+                opacity: 1 !important;
+                filter: alpha(opacity=100) !important;
+            }
+
+        /*
+        *
+        * TOOLTIPTSTER DEFAULT CSS
+        */
+        .tooltipster-default {
+            border-radius: 5px;
+            border: 2px solid #000;
+            background: #4c4c4c;
+            color: #fff
+        }
+
+            .tooltipster-default .tooltipster-content {
+                font-family: Arial,sans-serif;
+                font-size: 14px;
+                line-height: 16px;
+                padding: 8px 10px;
+                overflow: hidden
+            }
+
+        .tooltipster-icon {
+            cursor: help;
+            margin-left: 4px
+        }
+
+        .tooltipster-base {
+            padding: 0;
+            font-size: 0;
+            line-height: 0;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 9999999;
+            pointer-events: none;
+            width: auto;
+            overflow: visible
+        }
+
+            .tooltipster-base .tooltipster-content {
+                overflow: hidden
+            }
+
+        .tooltipster-arrow {
+            display: block;
+            text-align: center;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1
+        }
+
+            .tooltipster-arrow span, .tooltipster-arrow-border {
+                display: block;
+                width: 0;
+                height: 0;
+                position: absolute
+            }
+
+        .tooltipster-arrow-top span,
+        .tooltipster-arrow-top-right span, .tooltipster-arrow-top-left span {
+            border-left: 8px solid transparent !important;
+            border-right: 8px solid transparent !important;
+            border-top: 8px solid;
+            bottom: -7px
+        }
+
+        .tooltipster-arrow-top .tooltipster-arrow-border, .tooltipster-arrow-top-right .tooltipster-arrow-border, .tooltipster-arrow-top-left .tooltipster-arrow-border {
+            border-left: 9px solid transparent !important;
+            border-right: 9px solid transparent !important;
+            border-top: 9px solid;
+            bottom: -7px
+        }
+
+        .tooltipster-arrow-bottom span, .tooltipster-arrow-bottom-right span, .tooltipster-arrow-bottom-left span {
+            border-left: 8px solid transparent !important;
+            border-right: 8px solid transparent !important;
+            border-bottom: 8px solid;
+            top: -7px
+        }
+
+        .tooltipster-arrow-bottom .tooltipster-arrow-border, .tooltipster-arrow-bottom-right .tooltipster-arrow-border, .tooltipster-arrow-bottom-left .tooltipster-arrow-border {
+            border-left: 9px solid transparent !important;
+            border-right: 9px solid transparent !important;
+            border-bottom: 9px solid;
+            top: -7px
+        }
+
+        .tooltipster-arrow-top span, .tooltipster-arrow-top .tooltipster-arrow-border, .tooltipster-arrow-bottom span, .tooltipster-arrow-bottom .tooltipster-arrow-border {
+            left: 0;
+            right: 0;
+            margin: 0 auto
+        }
+
+        .tooltipster-arrow-top-left span, .tooltipster-arrow-bottom-left span {
+            left: 6px
+        }
+
+        .tooltipster-arrow-top-left .tooltipster-arrow-border, .tooltipster-arrow-bottom-left .tooltipster-arrow-border {
+            left: 5px
+        }
+
+        .tooltipster-arrow-top-right span, .tooltipster-arrow-bottom-right span {
+            right: 6px
+        }
+
+        .tooltipster-arrow-top-right .tooltipster-arrow-border, .tooltipster-arrow-bottom-right .tooltipster-arrow-border {
+            right: 5px
+        }
+
+        .tooltipster-arrow-left span, .tooltipster-arrow-left .tooltipster-arrow-border {
+            border-top: 8px solid transparent !important;
+            border-bottom: 8px solid transparent !important;
+            border-left: 8px solid;
+            top: 50%;
+            margin-top: -7px;
+            right: -7px
+        }
+
+        .tooltipster-arrow-left .tooltipster-arrow-border {
+            border-top: 9px solid transparent !important;
+            border-bottom: 9px solid transparent !important;
+            border-left: 9px solid;
+            margin-top: -8px
+        }
+
+        .tooltipster-arrow-right span, .tooltipster-arrow-right .tooltipster-arrow-border {
+            border-top: 8px solid transparent !important;
+            border-bottom: 8px solid transparent !important;
+            border-right: 8px solid;
+            top: 50%;
+            margin-top: -7px;
+            left: -7px
+        }
+
+        .tooltipster-arrow-right .tooltipster-arrow-border {
+            border-top: 9px solid transparent !important;
+            border-bottom: 9px solid transparent !important;
+            border-right: 9px solid;
+            margin-top: -8px
+        }
+
+        .tooltipster-fade {
+            opacity: 0;
+            -webkit-transition-property: opacity;
+            -moz-transition-property: opacity;
+            -o-transition-property: opacity;
+            -ms-transition-property: opacity;
+            transition-property: opacity
+        }
+
+        .tooltipster-fade-show {
+            opacity: 1
+        }
+
+        .tooltipster-grow {
+            -webkit-transform: scale(0,0);
+            -moz-transform: scale(0,0);
+            -o-transform: scale(0,0);
+            -ms-transform: scale(0,0);
+            transform: scale(0,0);
+            -webkit-transition-property: -webkit-transform;
+            -moz-transition-property: -moz-transform;
+            -o-transition-property: -o-transform;
+            -ms-transition-property: -ms-transform;
+            transition-property: transform;
+            -webkit-backface-visibility: hidden
+        }
+
+        .tooltipster-grow-show {
+            -webkit-transform: scale(1,1);
+            -moz-transform: scale(1,1);
+            -o-transform: scale(1,1);
+            -ms-transform: scale(1,1);
+            transform: scale(1,1);
+            -webkit-transition-timing-function: cubic-bezier(0.175,0.885,0.320,1);
+            -webkit-transition-timing-function: cubic-bezier(0.175,0.885,0.320,1.15);
+            -moz-transition-timing-function: cubic-bezier(0.175,0.885,0.320,1.15);
+            -ms-transition-timing-function: cubic-bezier(0.175,0.885,0.320,1.15);
+            -o-transition-timing-function: cubic-bezier(0.175,0.885,0.320,1.15);
+            transition-timing-function: cubic-bezier(0.175,0.885,0.320,1.15)
+        }
+
+        .tooltipster-swing {
+            opacity: 0;
+            -webkit-transform: rotateZ(4deg);
+            -moz-transform: rotateZ(4deg);
+            -o-transform: rotateZ(4deg);
+            -ms-transform: rotateZ(4deg);
+            transform: rotateZ(4deg);
+            -webkit-transition-property: -webkit-transform,opacity;
+            -moz-transition-property: -moz-transform;
+            -o-transition-property: -o-transform;
+            -ms-transition-property: -ms-transform;
+            transition-property: transform
+        }
+
+        .tooltipster-swing-show {
+            opacity: 1;
+            -webkit-transform: rotateZ(0);
+            -moz-transform: rotateZ(0);
+            -o-transform: rotateZ(0);
+            -ms-transform: rotateZ(0);
+            transform: rotateZ(0);
+            -webkit-transition-timing-function: cubic-bezier(0.230,0.635,0.495,1);
+            -webkit-transition-timing-function: cubic-bezier(0.230,0.635,0.495,2.4);
+            -moz-transition-timing-function: cubic-bezier(0.230,0.635,0.495,2.4);
+            -ms-transition-timing-function: cubic-bezier(0.230,0.635,0.495,2.4);
+            -o-transition-timing-function: cubic-bezier(0.230,0.635,0.495,2.4);
+            transition-timing-function: cubic-bezier(0.230,0.635,0.495,2.4)
+        }
+
+        .tooltipster-fall {
+            top: 0;
+            -webkit-transition-property: top;
+            -moz-transition-property: top;
+            -o-transition-property: top;
+            -ms-transition-property: top;
+            transition-property: top;
+            -webkit-transition-timing-function: cubic-bezier(0.175,0.885,0.320,1);
+            -webkit-transition-timing-function: cubic-bezier(0.175,0.885,0.320,1.15);
+            -moz-transition-timing-function: cubic-bezier(0.175,0.885,0.320,1.15);
+            -ms-transition-timing-function: cubic-bezier(0.175,0.885,0.320,1.15);
+            -o-transition-timing-function: cubic-bezier(0.175,0.885,0.320,1.15);
+            transition-timing-function: cubic-bezier(0.175,0.885,0.320,1.15)
+        }
+
+            .tooltipster-fall.tooltipster-dying {
+                -webkit-transition-property: all;
+                -moz-transition-property: all;
+                -o-transition-property: all;
+                -ms-transition-property: all;
+                transition-property: all;
+                top: 0 !important;
+                opacity: 0
+            }
+
+        .tooltipster-slide {
+            left: -40px;
+            -webkit-transition-property: left;
+            -moz-transition-property: left;
+            -o-transition-property: left;
+            -ms-transition-property: left;
+            transition-property: left;
+            -webkit-transition-timing-function: cubic-bezier(0.175,0.885,0.320,1);
+            -webkit-transition-timing-function: cubic-bezier(0.175,0.885,0.320,1.15);
+            -moz-transition-timing-function: cubic-bezier(0.175,0.885,0.320,1.15);
+            -ms-transition-timing-function: cubic-bezier(0.175,0.885,0.320,1.15);
+            -o-transition-timing-function: cubic-bezier(0.175,0.885,0.320,1.15);
+            transition-timing-function: cubic-bezier(0.175,0.885,0.320,1.15)
+        }
+
+            .tooltipster-slide.tooltipster-dying {
+                -webkit-transition-property: all;
+                -moz-transition-property: all;
+                -o-transition-property: all;
+                -ms-transition-property: all;
+                transition-property: all;
+                left: 0 !important;
+                opacity: 0
+            }
+
+        .tooltipster-content-changing {
+            opacity: .5;
+            -webkit-transform: scale(1.1,1.1);
+            -moz-transform: scale(1.1,1.1);
+            -o-transform: scale(1.1,1.1);
+            -ms-transform: scale(1.1,1.1);
+            transform: scale(1.1,1.1)
+        }
+
+        /* *
+         * TOOLTIPTSTER OVERRIDE CSS
+         */
+        .tooltipster-light {
+            border-radius: 5px;
+            background-color: #F0BE00;
+            color: #fff;
+        }
+
+        .tooltipster-content {
+            font-family: Verdana, sans-serif;
+            color: white;
+            font-size: 13px;
+            line-height: 16px;
+            padding: 8px 10px;
+        }
+    </style>
+</body>
+</html>

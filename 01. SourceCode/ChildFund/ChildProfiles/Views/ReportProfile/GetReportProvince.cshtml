@@ -1,0 +1,92 @@
+﻿@model IList<ChildProfiles.Model.ReportProfileModel.ReportProfileSearchResult>
+@{ string createDateView = ""; string approveDate = ""; string content = "";}
+<div style="overflow-x:auto">
+    <table class="table table-bordered table-hover" style="min-width:1820px">
+        <thead>
+            <tr>
+                <th width="50px" class="text-center">No.</th>
+                <th width="90px" class="text-center">Function</th>
+                <th width="125px">Program code</th>
+                <th width="150px">Child number</th>
+                <th width="190px">Child full name</th>
+                <th>Content</th>
+                <th width="120px">Note</th>
+                <th width="70px" class="text-center">Attachment(s)</th>
+                <th width="150px">Created by</th>
+                <th width="120px">Date created</th>
+                <th width="170px">Date approved by ADO</th>
+                <th width="120px">ADO remarks</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{ int index = ViewBag.Index;}
+            @foreach (var item in Model)
+            {
+                index++;
+                createDateView = "";
+                approveDate = "";
+                if (item.CreateDate != null)
+                {
+                    createDateView = item.CreateDate.Value.ToString("dd/MM/yyyy");
+                }
+                if (item.ApproveDate != null)
+                {
+                    approveDate = item.ApproveDate.Value.ToString("dd/MM/yyyy");
+                }
+                content = NTS.Common.Utils.Common.FormatContentNews(item.Content, 70);
+            <tr>
+                <td class="text-center">@index</td>
+                <td >
+                    <button type="button" onclick="DetailProvince('@item.Id')" class="btn btn-xs btnfuntion" title="Xem chi tiêt" ><i class="material-icons btnicon" style="color:mediumaquamarine;">assignment_ind</i></button>
+                    @if (item.CountFile > 0)
+                    {
+                        <button type="button" onclick="Download('@item.Id')" class="btn btn-xs btnfuntion" title="Tải file" ><i class="material-icons btnicon" style="color:orange;">get_app</i></button>
+                    }
+                </td>
+                 <td>@item.ProgramCode</td>
+                <td class="td-new">@item.ChildCode
+                 
+                </td>
+                <td class="td-new">
+                    @item.Name
+                    @if (item.Handicap || item.HealthHandicap)
+                    {
+                        <img src="/img/disabilities.png" class="img-new" />
+                    }
+                </td>
+               
+                <td>@content</td>
+                <td>@item.Description</td>
+                <td  class="text-center">@item.CountFile</td>
+                <td>@item.CreateBy</td>
+                <td>@createDateView</td>
+                <td>@approveDate</td>
+                <td>@item.AreaApproverNotes</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div class="pagerbottom margin-top-10">
+    <div class="col-md-4 col-sm-4 col-xs-4">
+        <div class="form-group">
+            <div class="controls">
+                <select class="form-control combobox-padding" onchange="ChangeSize()" id="pageSize">
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="30">30</option>
+                    <option value="40">40</option>
+                    <option value="50">50</option>
+                </select>
+                <span>bản ghi/Trang</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8 col-sm-8 col-xs-8">
+        @Html.Raw(ViewBag.pages)
+    </div>
+</div>
+<script>
+    $('#count_data').html(@ViewBag.TotalItem);
+    $('#pageSize').val(@ViewBag.PageSize);
+</script>

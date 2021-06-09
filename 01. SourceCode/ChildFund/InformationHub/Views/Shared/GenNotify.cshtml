@@ -1,0 +1,57 @@
+﻿@model IList<InformationHub.Model.CacheModel.NotifyModel>
+
+
+<a href="" class="dropdown-toggle toggle" id="notifications" data-toggle="dropdown">
+    <i class="material-icons" style="font-size:23px !important; margin-top:18px !important">notifications</i>
+    @if (ViewBag.countNotify > 0)
+    {<span class="badge badge-accent">@ViewBag.countNotify</span>}
+</a>
+<ul class="dropdown-menu notifications animated fadeIn" role="menu" aria-labelledby="notifications" style="position:absolute;left:-182px">
+    <li class="total">
+        @if (ViewBag.countNotify > 0)
+        {
+            <span class="small"> @InformationHub.Resource.Resource.Total_Title <strong> @ViewBag.countNotify </strong> @InformationHub.Resource.Resource.NotifyNew_Title</span>
+        }
+        else
+        {
+            <span class="small"> @InformationHub.Resource.Resource.NotNotifyNew_Title</span>
+        }
+    </li>
+    <li ng-controller="NotificationsDropDownCtrl" class="list ng-scope">
+        <div wheel-propagation="true" suppress-scroll-x="true" min-scrollbar-length="20" class="ps-scrollbar ps-container">
+            <div ng-transclude="">
+                <ul class="dropdown-menu-list list-unstyled ng-scope">
+                    @foreach (var item in Model)
+                    {
+                        <li class="read offline ">
+                            <a onclick="ReadNotify('@item.Id','@item.Link')" href="javascript:void(0)" title="Xem chi tiêt">
+                                <div>
+                                    <span class="name">
+                                        <p class="@(item.Status.Equals("0")?"text-danger title-header ":"title-header ")"><i class="fa fa-exclamation-circle" style="color:#54bc97 !important" aria-hidden="true"></i> @Html.Raw(item.Title)</p>
+                                        @if (string.IsNullOrEmpty(item.IdPlan))
+                                        {
+                                            <span class="time small ng-binding">@item.CreateDate.ToString("dd/MM/yyyy HH:mm") - @item.Addres</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="time small ng-binding">@item.Addres</span>
+                                        }
+                                    </span>
+                                </div>
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </div><div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 3px;"><div class="ps-scrollbar-x" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; right: 3px;"><div class="ps-scrollbar-y" style="top: 0px; height: 0px;"></div></div>
+        </div>
+    </li>
+    <li class="external">
+        @if (ViewBag.counAll > 5)
+        {
+            <a href="/Home/Notify">
+                <span> @InformationHub.Resource.Resource.AllNotifyNew_Title</span>
+            </a>
+        }
+    </li>
+</ul>
+

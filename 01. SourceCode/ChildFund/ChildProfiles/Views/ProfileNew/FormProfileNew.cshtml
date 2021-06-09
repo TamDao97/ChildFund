@@ -1,0 +1,673 @@
+﻿@model ChildProfiles.Model.ChildProfileModels.ChildProfileModel
+@{
+    var dateNow = DateTime.Now;
+    var dateTo = dateNow.Day.ToString("D2") + "/" + dateNow.Month.ToString("D2") + "/" + dateNow.Year;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="wrapper main-wrapper">
+    <div ui-view="" class="ng-scope">
+        <div class="content-wrapper">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <section class="box ">
+                    <header class="panel_header">
+                        <h2 class="title pull-left" id="h2title">Thêm mới hồ sơ trẻ/Enrol new children</h2>
+                        <div class="actions panel_actions pull-right">
+                            <i class="box_toggle material-icons">expand_more</i>
+                        </div>
+                    </header>
+                    <div class="content-body padding-bottom-10">
+                        <form id="sFrom">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h4 class="margin-bottom-5 bold text-success">
+                                        1. THÔNG TIN CHUNG VỀ TRẺ VÀ CHƯƠNG TRÌNH/ INFORMATION ABOUT THE CHILD AND PROGRAM
+                                    </h4>
+                                    <hr />
+                                </div>
+                                <div class="col-md-10 col-sm-10 col-xs-10 no-padding">
+                                    <div class="col-md-9 col-sm-9 col-xs-9">
+                                        <div class="form-group">
+                                            <label class="form-label">Họ và tên cán bộ phụ trách/ Full name of information collector</label>&nbsp;<span class="required">*</span>
+                                            <div class="controls">
+                                                <input type="text" value="@ViewBag.Name" class="form-control" maxlength="150" id="employeeName">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-3">
+                                        <div class="form-group">
+                                            <label class="form-label">Chức vụ/ Title</label>
+                                            <div class="controls">
+                                                <select class="form-control" id="employeeTitle">
+                                                    <option value="">Chọn chức vụ/ Select title</option>
+                                                    <option value="1">Giáo viên/ Teacher</option>
+                                                    <option value="2">Điều phối viên/ Community Facilitator</option>
+                                                    <option value="3">Cán bộ ChildFund/ChildFund staff</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="clearfix"></div>
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Ngày thu thập thông tin/ Date of information collection</label>&nbsp;<span class="required">*</span>
+                                            <div class="controls">
+                                                <input type="hidden" value="@dateTo" id="hid_dateTo" />
+                                                <input type="text" value="@dateTo" class="form-control datepicker" name="infoDate" id="infoDate">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Mã số chương trình/ Program Code</label><span class="required">*</span>
+                                            <div class="controls">
+                                                <select class="form-control" id="programCode">
+                                                    <option value="199">199</option>
+                                                    <option value="213">213</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="clearfix"></div>
+                                    <div class="col-md-3 col-sm-3 col-xs-3">
+                                        <div class="form-group">
+                                            <label class="form-label">Tỉnh thành/ Province</label>&nbsp;<span class="required">*</span>
+                                            <div class="controls">
+                                                <div class="form-group">
+                                                    <div class="controls">
+                                                        <select class="form-control" id="provinceId" name="provinceId" onchange="ChangeProvince()">
+                                                            @Html.Action("ProvinceByUser", "Combobox")
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-3">
+                                        <div class="form-group">
+                                            <label class="form-label">Huyện/ District</label> &nbsp;<span class="required">*</span>
+                                            <div class="controls">
+                                                <div class="form-group">
+                                                    <div class="controls">
+                                                        <select class="form-control" id="districtId" name="districtId" onchange="ChangeDistrict()"></select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-3">
+                                        <div class="form-group">
+                                            <label class="form-label">Xã/ Commune</label>&nbsp;<span class="required">*</span>
+                                            <div class="controls">
+                                                <div class="form-group">
+                                                    <div class="controls">
+                                                        <select class="form-control" id="wardId" name="wardId" onchange="ChangeWard()"></select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-3">
+                                        <div class="form-group">
+                                            <label class="form-label">Thôn/ xóm/ Village</label>
+
+                                            <div class="controls">
+                                                @*<input type="text" id="address" name="address" class="form-control">*@
+                                                <div class="input-group primary" inputgroup="">
+                                                    <select class="form-control" id="villageId" onchange="SetVillage()" name="villageId"></select>
+                                                    @*<span class="input-group-addon" onclick="ShowManageVillage()" style="cursor:pointer" title="Thêm"><span class="glyphicon glyphicon-plus-sign"></span></span>*@
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="clearfix"></div>
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Mã số của trẻ/ Child number</label>&nbsp;<span class="required">*</span>
+
+                                            <div class="controls">
+                                                <input type="text" maxlength="100" class="form-control" name="childCode" id="childCode">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Trường-lớp/ School-grade</label>
+                                            <div class="form-group">
+                                                <div class="controls">
+                                                    <select class="form-control" id="SchoolId">
+                                                        @Html.Action("SchoolCBB", "Combobox")
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Trẻ thuộc dân tộc nào?/ Ethnic minority group</label>&nbsp;<span class="required">*</span>
+                                            <div class="form-group">
+                                                <div class="controls">
+                                                    <select class="form-control" id="ethnicId">
+                                                        @Html.Action("NationCBB", "Combobox")
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Trẻ theo tôn giáo gì?/ Religion</label>
+                                            <div class="form-group">
+                                                <div class="controls">
+                                                    <select class="form-control" id="religionId" name="religionId">
+                                                        @Html.Action("ReligionCBB", "Combobox")
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 col-sm- col-xs-2 no-padding">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div class="form-group text-center">
+                                            <label class="form-label">Ảnh của trẻ/ Child'photo</label>
+
+                                            <div class="controls text-center">
+                                                <button type="button" class="btn btn-success btn-s margin-bottom-5" onclick="uploadImage()">
+                                                    <span class="glyphicon glyphicon-upload"></span> Upload
+                                                </button>
+                                                <button type="button" class="btn btn-danger btn-s margin-bottom-5" onclick="clearImage()">
+                                                    <span class="glyphicon glyphicon-trash"></span> Remove
+                                                </button>
+                                            </div>
+                                            <input type="file" accept="image/*" id="FileUpload" style="display:none" />
+                                            <div class="controls text-center margin-top-10">
+                                                <img id="imgPreview" src="~/img/avatar.png" style="max-width:200px; width:100%">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h4 class="margin-bottom-5 bold text-success">2. THÔNG TIN CỤ THỂ VỀ TRẺ/ CHILD INFORMATION</h4>
+                                    <hr />
+                                </div>
+                                <div class="col-md-12">
+                                    <label class="text-success">
+                                        2.1. Họ và tên trẻ/ Child full name (viết chữ in hoa/in capital letters)
+                                    </label>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                    <div class="form-group">
+                                        <label class="form-label">
+                                            Tên theo khai sinh/ Name in Birth Registration Paper
+                                        </label>&nbsp;<span class="required">*</span>
+                                        <div class="controls">
+                                            <input type="text" id="nameChild" maxlength="150" name="nameChild" class="form-control text-uppercase">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                    <div class="form-group">
+                                        <label class="form-label">
+                                            Tên khác (nếu có)/ Other name (if any)
+                                        </label>
+                                        <div class="controls">
+                                            <input type="text" maxlength="100" id="nickName" name="nickName" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                    <div class="form-group">
+                                        <label class="text-success">2.2. Giới tính của trẻ/ Child’s gender</label>
+
+                                        <div class="controls">
+                                            <label class="icheck icheck-primary">
+                                                <input type="radio" value="1" name="gender" checked>
+                                                <i></i> Nam/ Male
+                                            </label>&nbsp;
+                                            <label class="icheck icheck-primary">
+                                                <input type="radio" value="0" name="gender">
+                                                <i></i> Nữ/ Female
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                    <div class="form-group">
+                                        <label class="text-success">
+                                            2.3. Ngày sinh/ DOB (theo giấy khai sinh/ on birth registration paper)
+                                        </label>&nbsp;<span class="required">*</span>
+
+                                        <div class="controls">
+                                            <input type="text" id="DateOfBirth" name="DateOfBirth" class="form-control datepicker">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                    <div class="form-group">
+                                        <label class="text-success">
+                                            2.4. Salesforce ID
+                                        </label>&nbsp;
+
+                                        <div class="controls">
+                                            <input type="text" id="SalesforceID" name="SalesforceID" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="form-group">
+                                        <label class="text-success margin-bottom-10">2.5. Trẻ có đi học không/ Does the child go to school?</label><span class="required">*</span>
+                                        <div class="margin-bottom-10">
+                                            <table class="table table-bordered table-hover" id="tbLeaning">
+                                                <thead>
+                                                    <tr>
+                                                        <th colspan="3" class="text-center">
+                                                            Không đi học (chọn lý do ở dưới)/ No schooling (reason mentioned below)
+                                                        </th>
+                                                        <th class="text-center">
+                                                            Học mẫu giáo/ Attending kindergarten
+                                                        </th>
+                                                        <th class="text-center">
+                                                            Học tiểu học (cấp 1)/ Primary school
+                                                        </th>
+                                                        <th class="text-center">
+                                                            Học trung học cơ sở (cấp 2)/ Secondary school
+                                                        </th>
+                                                        <th class="text-center">
+                                                            Học trung học phổ thông (cấp 3)/ High school
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="text-center">Còn nhỏ/ Too young</td>
+                                                        <td class="text-center">Bỏ học/ Drop-out </td>
+                                                        <td class="text-center">Khuyết tật/ Disability</td>
+                                                        <td class="text-center" style="vertical-align:middle" rowspan="2">
+                                                            <label class="icheck icheck-primary">
+                                                                <input type="checkbox" value="14" onchange="ChangeLeaningStatus('14')">
+                                                                <i></i>
+                                                            </label>
+                                                        </td>
+                                                        <td>
+                                                            <div class="controls">
+                                                                @*<select class="form-control" disabled id="classInfo">
+                                                                        <option value="">Học lớp/ Grade:</option>
+                                                                        <option value="1">Lớp 1</option>
+                                                                        <option value="2">Lớp 2</option>
+                                                                        <option value="3">Lớp 3</option>
+                                                                        <option value="4">Lớp 4</option>
+                                                                        <option value="5">Lớp 5</option>
+                                                                    </select>*@
+                                                                <input type="text" placeholder="Nhập vào tên lớp..." id="classInfo" disabled style="width: 100%;" onkeyup="validateInput('primary',this)" />
+                                                            </div>
+                                                            @*<input type="text" value="Học lớp/ Grade:" maxlength="100" disabled id="classInfo" class="form-control">*@
+                                                        </td>
+                                                        <td>
+                                                            <div class="controls">
+                                                                @*<select class="form-control" disabled id="classInfo2">
+                                                                        <option value="">Học lớp/ Grade:</option>
+                                                                        <option value="6">Lớp 6</option>
+                                                                        <option value="7">Lớp 7</option>
+                                                                        <option value="8">Lớp 8</option>
+                                                                        <option value="9">Lớp 9</option>
+                                                                    </select>*@
+                                                                <input type="text" placeholder="Nhập vào tên lớp..." id="classInfo2" disabled style="width: 100%;" onkeyup="validateInput('secondary',this)" />
+                                                            </div>
+                                                            @*<input type="text" value="Học lớp/ Grade:" maxlength="100" disabled id="classInfo2" class="form-control">*@
+                                                        </td>
+                                                        <td>
+                                                            <div class="controls">
+                                                                @*<select class="form-control" disabled id="classInfo3">
+                                                                        <option value="">Học lớp/ Grade:</option>
+                                                                        <option value="6">Lớp 6</option>
+                                                                        <option value="7">Lớp 7</option>
+                                                                        <option value="8">Lớp 8</option>
+                                                                        <option value="9">Lớp 9</option>
+                                                                    </select>*@
+                                                                <input type="text" placeholder="Nhập vào tên lớp..." id="classInfo3" disabled style="width: 100%;" onkeyup="validateInput('high', this)" />
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-center">
+                                                            <label class="icheck icheck-primary">
+                                                                <input type="checkbox" value="11" onchange="ChangeLeaningStatus('11')">
+                                                                <i></i>
+                                                            </label>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <label class="icheck icheck-primary">
+                                                                <input type="checkbox" value="12" onchange="ChangeLeaningStatus('12')">
+                                                                <i></i>
+                                                            </label>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <label class="icheck icheck-primary">
+                                                                <input type="checkbox" value="13" onchange="ChangeLeaningStatus('13')">
+                                                                <i></i>
+                                                            </label>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <label class="icheck icheck-primary">
+                                                                <input type="checkbox" value="15" onchange="ChangeLeaningStatus('15')">
+                                                                <i></i>
+                                                            </label>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <label class="icheck icheck-primary">
+                                                                <input type="checkbox" value="16" onchange="ChangeLeaningStatus('16')">
+                                                                <i></i>
+                                                            </label>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <label class="icheck icheck-primary">
+                                                                <input type="checkbox" value="17" onchange="ChangeLeaningStatus('17')">
+                                                                <i></i>
+                                                            </label>
+                                                        </td>
+                                                    </tr>
+                                                    <tr></tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-12" id="divSubjectCapacity">
+                                    @Html.Action("FavouriteSubjectModelView", "ProfileCategory", new { favouriteSubjectModel = Model.FavouriteSubjectModel, learningCapacityModel = Model.LearningCapacityModel })
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-12" id="divFamilyWorkHealth">
+                                    @Html.Action("HouseworkModelView", "ProfileCategory", new { houseworkModel = Model.HouseworkModel, healthModel = Model.HealthModel })
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <label class="text-success margin-bottom-10">2.10. Mô tả về tính cách, các trò chơi ưa thích và ước mơ của trẻ/ Description of child's characteristics, hobbies and dream work</label>
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-12" id="divPersonals">
+                                    @Html.Action("PersonalityModelView", "ProfileCategory", new { personalityModel = Model.PersonalityModel, hobbyModel = Model.HobbyModel, dreamModel = Model.DreamModel })
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h4 class="margin-bottom-5 bold text-success">
+                                        3. THÔNG TIN VỀ CÁC THÀNH VIÊN TRONG GIA ĐÌNH TRẺ/ INFORMATION ABOUT CHILD’S FAMILY
+                                    </h4>
+                                    <hr />
+                                </div>
+                                <div class="col-md-12 margin-bottom-10">
+                                    <div class="col-md-6 col-sm-6 text-left">
+                                        <label class="form-label" style="line-height:35px;">Danh sách thành viên gia đình/ Child's family members</label>
+                                    </div>
+                                    <div class="col-md-6 text-right">
+                                        <button type="button" class="btn btn-success" id="btnAddro" onclick="AddRowTableFamilyInfo()">
+                                            <span class="glyphicon glyphicon-plus mc-btn-icon" aria-hidden="true"></span>Thêm mới/Add
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div id="divfamilyInfo" class="margin-bottom-10" style="overflow-x:auto">
+                                        @Html.Action("FamilyInfo", "ProfileCategory")
+
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-12" id="divFamilyQuestion">
+                                    @Html.Action("LivingWithParentModelView", "ProfileCategory", new { livingWithParentModel = Model.LivingWithParentModel, notLivingWithParentModel = Model.NotLivingWithParentModel, livingWithOtherModel = Model.LivingWithOtherModel, letterWriteModel = Model.LetterWriteModel })
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h4 class="margin-bottom-5 bold text-success">
+                                        4. THÔNG TIN CHUNG VỀ ĐIỀU KIỆN SỐNG CỦA GIA ĐÌNH/ INFORMATION ABOUT THE FAMILY’S CONDITION
+                                    </h4>
+                                    <hr />
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-12" id="divConditionHouse">
+                                    @Html.Action("ConditionHouseView", "ProfileCategory", new { houseTypeModel = Model.HouseTypeModel, houseRoofModel = Model.HouseRoofModel, houseWallModel = Model.HouseWallModel, houseFloorModel = Model.HouseFloorModel })
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-12" id="divConditionOthor">
+                                    @Html.Action("UseElectricityModelView", "ProfileCategory", new { useElectricityModel = Model.UseElectricityModel, schoolDistanceModel = Model.SchoolDistanceModel, clinicDistanceModel = Model.ClinicDistanceModel, waterSourceDistanceModel = Model.WaterSourceDistanceModel, waterSourceUseModel = Model.WaterSourceUseModel, roadConditionModel = Model.RoadConditionModel })
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-12" id="divConditionOthor2">
+                                    @Html.Action("RoadConditionModelView", "ProfileCategory", new { incomeOtherModel = Model.IncomeOtherModel, familyType = Model.FamilyType, incomeFamilyModel = Model.IncomeFamilyModel, harvestOutputModel = Model.HarvestOutputModel, numberPetModel = Model.NumberPetModel, totalIncome = Model.TotalIncome })
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h4 class="margin-bottom-5 bold text-success">5. PHẦN CAM KẾT CỦA HỘ GIA ĐÌNH/ CONSENT FORM</h4>
+                                    <hr />
+                                </div>
+                                <div class="col-md-3 col-sm-6 col-xs-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Người cam kết/ Guardian</label>
+                                        <div class="controls">
+                                            <input type="text" id="consentName" maxlength="150" name="consentName" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-6 col-xs-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Mối quan hệ với trẻ/ Relationship</label>
+                                        <div class="controls">
+                                            <select class="form-control" id="consentRelationship" name="consentRelationship">
+                                                <option value="Bố">Bố</option>
+                                                <option value="Mẹ">Mẹ</option>
+                                                <option value="Ông">Ông</option>
+                                                <option value="Bà">Bà</option>
+                                                <option value="Cô, Dì">Cô, Dì</option>
+                                                <option value="Chú, Cậu">Chú, Cậu</option>
+                                                <option value="Bác">Bác</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-6 col-xs-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Xã/ Commune</label>
+                                        <div class="controls">
+                                            <input type="text" id="consentWard" maxlength="150" name="consentWard" class="form-control" value="@Model.ConsentWard">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-6 col-xs-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Sống tại thôn/ xóm/ Village</label>
+                                        <div class="controls">
+                                            <input type="text" id="consentVillage" maxlength="150" name="consentVillage" class="form-control" value="@Model.ConsentVillage">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 bold">
+                                    Đồng ý xác nhận những nội dung thông tin trong Bản kê khai trên do Giáo viên/ Điều phối viên QHTT xã tiến hành thu thập là chính xác.<br />
+                                </div>
+                                <div class="col-md-12">
+                                    Confirms that the information collected in this paper by the School teacher/Community Facilitator is accurate.
+                                </div>
+                                <div class="col-md-12 bold">
+                                    Sau khi được truyền đạt những thông tin cơ bản về Tổ chức ChildFund tại Việt Nam và chương trình hoạt động của Tổ chức, chúng tôi nhất trí tự nguyện cho con em mình tham gia vào các hoạt động chương trình Quan hệ tài trợ trên tinh thần hợp tác tích cực vì lợi ích chung của toàn cộng đồng.<br />
+                                </div>
+                                <div class="col-md-12">
+                                    Learning the basic information on ChildFund in Vietnam and its programs, we are willing to let our child take part in the Child Sponsorship Program for the sake of the whole community.
+                                </div>
+                                <div class="col-md-12 bold" style="font-style: italic;">
+                                    Chúng tôi hiểu rằng khi tham gia chương trình này/ We understand that joining this program means:
+                                </div>
+                                <div class="col-md-12">
+                                    <ul>
+                                        <li>
+                                            <div class="bold">
+                                                Con của chúng tôi sẽ thay mặt trẻ em toàn xã tham gia vào chương trình kêu gọi tài trợ cho toàn bộ trẻ em và người dân trong cộng đồng cùng hưởng lợi
+                                            </div>
+                                            <div>
+                                                Our child will be one representative of the commune to get connected to the sponsor who will contribute to funding the program that the whole community benefits
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-12">
+                                    <ul>
+                                        <li>
+                                            <div class="bold">
+                                                Hoạt động của chương trình Quan hệ tài trợ của ChildFund tại Việt Nam bao gồm các hoạt động giao lưu thư từ thường xuyên với các nhà tài trợ và tham gia vào các hoạt động mà trẻ em toàn cộng đồng sẽ được hưởng lợi trực tiếp
+                                            </div>
+                                            <div>
+                                                ChildFund in Vietnam’s Child Sponsorship Program include letter exchanging activities with sponsors and activities that the children directly benefit
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-12">
+                                    <ul>
+                                        <li>
+                                            <div class="bold">
+                                                Chúng tôi đồng ý với việc tất cả thư từ giao lưu với nhà tài trợ được thực hiện qua tổ chức ChildFund; được mở, dịch và xem xét về tính phù hợp và bảo mật
+                                            </div>
+                                            <div>
+                                                We agree that the letter exchange activities with sponsors are processed by ChildFund: to be unpacked, translated and considered its appropriateness and confidentiality
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-12">
+                                    <ul>
+                                        <li>
+                                            <div class="bold">
+                                                Con chúng tôi khi tham gia vào chương trình của ChildFund tại Việt Nam sẽ có trách nhiệm tuân thủ những nguyên tắc của chương trình và tích cực tham gia vì lợi ích chung và vì tương lai phát triển chung của cộng đồng
+                                            </div>
+                                            <div>
+                                                Our child has the responsibility for complying with the principles of the program and for being active in his/her participation for the sake of the whole community’s development
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-12">
+                                    <ul>
+                                        <li>
+                                            <div class="bold">
+                                                Sự đóng góp công sức của các giáo viên/ điều phối viên cộng đồng phụ trách QHTT và của con chúng tôi cùng với các trẻ em khác cộng đồng là trên tinh thần tự nguyện và tình nguyện, không có thù lao và quyền lợi đặc biệt nào ngoài quyền lợi chung mà toàn cộng đồng được hưởng
+                                            </div>
+                                            <div>
+                                                We understand that the participation of our child and the contribution of the teachers/community facilitator is completely voluntary and without any payment. The only benefit goes to the whole community
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-12">
+                                    <ul>
+                                        <li>
+                                            <div class="bold">
+                                                Chúng tôi đồng ý cho Tổ chức ChildFund sử dụng các thông tin và ảnh chụp của con chúng tôi vào mục đích quảng cáo, tìm nhà tài trợ và gây quỹ.
+                                            </div>
+                                            <div>
+                                                We give permission for our child’s information and photograph to be used by ChildFund for advertising media to raise fund.
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-12">
+                                    <ul>
+                                        <li>
+                                            <div class="bold">
+                                                Trong trường hợp tôi thay đổi ý định, không đồng ý cho ChildFund sử dụng các hạng mục thông tin, tôi sẽ thông báo cho ChildFund Việt Nam qua tổng đài 1900 6706. ChildFund cam kết sẽ xóa toàn bộ dữ liệu của tôi và gia đình tôi trên tất cả các nền tảng lưu trữ thông tin của tổ chức và thông báo về việc xóa dữ liệu này tới tôi bằng văn bản.
+                                            </div>
+                                            <div>
+                                                If I wish to revoke permission, I’ll contact ChildFund, so that it can erase all the data from its storage platforms and confirm this deletion in written.
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <hr />
+                                </div>
+
+                                <div class="col-md-10 col-sm-12 col-xs-12 no-padding">
+                                    <div class="col-md-12 col-sm-12 col-xs-12" id="divSiblingsJoiningChildFund">
+                                        @Html.Action("SpecialInformationView", "ProfileCategory", new { siblingsJoiningChildFundModel = Model.SiblingsJoiningChildFundModel, malformationModel = Model.MalformationModel, orphanModel = Model.OrphanModel })
+                                    </div>
+                                    <div class="col-md-12">
+                                        <h4 class="text-center bold" style="color: black;">Xin chân thành cảm ơn gia đình đã trả lời phỏng vấn!</h4>
+                                        <h4 class="text-center bold" style="color: black;">Thank you for taking your time in the interview!</h4>
+                                        <hr />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2 col-sm-12 col-xs-12 no-padding">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div class="form-group text-center">
+                                            <label class="form-label">Ảnh chữ ký/ Signature photo</label>
+                                            @{ string imageSignature = string.IsNullOrEmpty(Model.ImageSignaturePath) ? "/img/avatar.png" : Model.ImageSignaturePath;}
+                                            <div class="controls text-center">
+                                                <button type="button" class="btn btn-success btn-s margin-bottom-5" onclick="uploadImageSignature()">
+                                                    <span class="glyphicon glyphicon-upload"></span> Upload
+                                                </button>
+                                                <button type="button" class="btn btn-danger btn-s margin-bottom-5" onclick="clearImageSignature()">
+                                                    <span class="glyphicon glyphicon-trash"></span> Remove
+                                                </button>
+                                            </div>
+                                            <input type="file" accept="image/*" id="FileUploadSignature" style="display:none" />
+                                            <div class="controls text-center margin-top-10">
+                                                <img id="imgPreviewSignature" src="@imageSignature" style="max-width:100px; width:100%">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12 text-right">
+                                <div class="form-group margin-bottom-10 ">
+                                    <button onclick="Create(false)" id="btn-create" class="btn btn-success btn-icon right10">
+                                        <i class="fa fa-save "></i> &nbsp; <span>Lưu/Save</span>
+                                    </button>
+                                    @*<button onclick="Create(true)" id="btn-createContinue" class="btn btn-success btn-icon right10">
+                                            <i class="fa fa-save "></i> &nbsp; <span>Lưu và tiếp tục</span>
+                                        </button>*@
+                                    <a href="/ProfileNew/ProfileWard" class="btn btn-default btn-icon">
+                                        <i class="fa fa-power-off"></i> &nbsp; <span>Thoát/Exit</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="modalManageVillage" class="modal fade" role="dialog" onscroll="scroll" data-backdrop="static" style="background-color: rgba(0,0,0,0.3)">
+    <div class="modal-dialog" style="width:500px">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="h4Title">Quản lý thôn/xóm / Village management</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="input-group" inputgroup="">
+                            <input id="txtVillageName" type="text" class="form-control" placeholder="Tên thôn/xóm / Village name">
+                            <input type="hidden" id="txtVillageId" />
+                            <span class="input-group-addon btn-success padding-left-10 padding-right-10" onclick="SaveVillage()" style="color:#fff;cursor:pointer;">Lưu/Save</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-12" id="listVillage">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/ScriptControllers/ProfileNewControllers.js"></script>
+<script type="text/javascript">
+    InitModel();
+</script>

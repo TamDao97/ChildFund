@@ -1,0 +1,42 @@
+﻿{
+  "OtherName": "Khác/Other",
+  "OtherValue": "",
+  "ListObject": [
+    {
+      "Id": "01",
+      "Check": "false",
+      "Name": "Đường đất/Mud road",
+      "NameEN": "mud road",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "02",
+      "Check": "false",
+      "Name": "Đường suối/Stream road",
+      "NameEN": "stream road",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "03",
+      "Check": "false",
+      "Name": "Đường đèo/Hilly road",
+      "NameEN": "hilly road",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "04",
+      "Check": "false",
+      "Name": "Đường bê tông/Concrete road",
+      "NameEN": "concrete road",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    }
+  ]
+}

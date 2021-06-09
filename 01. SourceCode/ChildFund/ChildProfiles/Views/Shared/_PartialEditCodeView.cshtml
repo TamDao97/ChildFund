@@ -1,0 +1,33 @@
+﻿<div id="editCodeModal" class="modal fade" role="dialog" onscroll="scroll" data-backdrop="static" style="background-color: rgba(0,0,0,0.3)">
+    <div class="modal-dialog" style="width:500px">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="h4Title">Cập nhập mã số Chương trình</h4>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" value="@ViewBag.Id" id="Id" />
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="form-group">
+                            <label class="form-label">Mã chương trình/Program code</label>
+                            <span class="desc"></span>
+                            <div class="controls">
+                                <select class="form-control" id="programCode">
+                                    <option value="199" @(ViewBag.programCode == "199" ? "selected" : "")> 199</option>
+                                    <option value="213" @(ViewBag.programCode == "213" ? "selected" : "")>213</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="SaveChange()"><i class="glyphicon glyphicon-floppy-save"></i>Lưu/Save</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="glyphicon glyphicon-minus-sign"></i> Thoát/Exit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,222 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Bảo vệ trẻ em</title>
+    <link rel="shortcut icon" href="~/favicon.ico" type="image/x-icon" />
+    <!-- Favicon -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="~/Content/material-icons.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/theme.css" rel="stylesheet" />
+    <link href="~/Content/customsite.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <link href="~/Content/bootstrap-datepicker.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap-datepicker.js"></script>
+    <script src="~/Scripts/bootstrap-datepicker.vi.min.js"></script>
+    <link href="~/Content/toastr/toastr.min.css" rel="stylesheet" />
+    <script src="~/Content/toastr/toastr.js"></script>
+    <script src="~/Scripts/chart/highcharts.js"></script>
+    @Scripts.Render("~/Content/css")
+    <style>
+        .title-header b {
+            font-weight: bold !important;
+        }
+
+        .img-avata-notify {
+            width: 35px;
+            border-radius: 3px;
+        }
+
+        .margin35 {
+            margin-left: 35px;
+        }
+
+        .notice-icon {
+            float: left;
+            margin-right: 5px;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div id="loader_id"></div>
+    <div id="overlay" onclick="off()"></div>
+
+    <div class="ng-scope">
+        <!-- header -->
+        <div class="page-topbar">
+            <!-- START TOPBAR -->
+            <div class="logo-area">
+            </div>
+            <div class="quick-area">
+                <div class="pull-left slantit">
+                    <ul class="info-menu left-links list-inline list-unstyled">
+                        <li class="sidebar-toggle-wrap">
+                            <a href="" data-toggle="sidebar" class="sidebar_toggle" ng-click="app.settings.menuFolded = !app.settings.menuFolded; menuChatToggle('menu',app.settings.menuFolded) ">
+                                <i class="material-icons">menu</i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="pull-left pagetitle" style="text-align:center">
+                    <h1 class="ng-binding">@ViewBag.Title</h1>
+
+                </div>
+                <div class="pull-left quickleft">
+                    <ul class="info-menu right-links list-inline list-unstyled" id="data-notify">
+                        @Html.Action("GenNotify", "Shared");
+                    </ul>
+                </div>
+
+                <div class="pull-right quickright">
+                    <ul class="info-menu right-links list-inline list-unstyled">
+                        <li class="bold"><span style="margin-top:-5px;color:white">Xin chào: Admin &nbsp;</span></li>
+                        <li class="dropdown profile tab" uib-dropdown="">
+                            <a href="" class="dropdown-toggle toggle" id="profile" data-toggle="dropdown">
+                                <img src="~/img/avatar.png" alt="user-image" class="img-circle img-inline ng-scope">
+                                <span class="profile-status available"></span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-right profile" role="menu" aria-labelledby="profile">
+                                @*<li>
+                                        <a href="javascript:" id="profileUser">
+                                            <i class="material-icons">person</i> Thông tin cá nhân
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:" id="changePassword">
+                                            <i class="material-icons">vpn_key</i> Đổi mật khẩu
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#/app/dashboard">
+                                            <i class="material-icons">help</i> Hướng dẫn sử dụng
+                                        </a>
+                                    </li>
+                                    <li class="last">
+                                        <a href="/Authorize/Logout">
+                                            <i class="material-icons">lock</i> Đăng xuất
+                                        </a>
+                                    </li>*@
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- END TOPBAR -->
+
+        </div>
+        <!-- / header -->
+        <!-- START CONTAINER -->
+
+        <div class="page-container row-fluid ng-scope" ui-sectionbox="" ng-controller="ModalDemoCtrl">
+
+            <!-- leftbar -->
+            <div class="page-sidebar expandit" style="">
+                <!-- SIDEBAR - START -->
+                <!-- MAIN MENU - START -->
+                <div class="page-sidebar-wrapper ps-container ps-active-y" id="main-menu-wrapper" wheel-propagation="true" suppress-scroll-x="true" min-scrollbar-length="20" menuheight="" style="height: 729px;">
+                    <!-- list -->
+                    @Html.Action("MenuLeft", "Shared")
+                    <!-- / list -->
+                </div>
+                <!-- MAIN MENU - END -->
+                <!--  SIDEBAR - END -->
+
+            </div>
+            <!-- / leftbar -->
+            <!-- START CONTENT -->
+            <section id="main-content" class="" style="">
+                <div class="pull-left mobile-pagetitle">
+                    <h1 class="ng-binding">@ViewBag.Title</h1>
+                </div>
+                @RenderBody()
+            </section>
+            <!-- END CONTENT -->
+        </div>
+    </div>
+    <div id="modamDelete" class="modal fade" role="dialog" onscroll="scroll" data-backdrop="static" style="background-color: rgba(0,0,0,0.3)">
+        <div class="modal-dialog" style="width:500px">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="h4Title">Cảnh báo xóa</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label id="labelDelete"></label>
+                                <input type="hidden" id="valueDelete" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" onclick="Delete()" class="btn btn-primary" id="btn-createContinue"><i class="glyphicon glyphicon-floppy-save"></i>Đồng ý</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="glyphicon glyphicon-minus-sign"></i> Thoát</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modamConfirm" class="modal fade" role="dialog" onscroll="scroll" data-backdrop="static" style="background-color: rgba(0,0,0,0.3)">
+        <div class="modal-dialog" style="width:500px">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="h4Title">Xác nhận</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label id="labelConfirm"></label>
+                                <input type="hidden" id="valueConfirm" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" onclick="Confirm()" class="btn btn-primary" id="btn-createContinue"><i class="glyphicon glyphicon-floppy-save"></i>Đồng ý</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="glyphicon glyphicon-minus-sign"></i> Thoát</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script src="~/Scripts/ui-nav.js"></script>
+
+    <script src="~/Scripts/chart/exporting.js"></script>
+    <script src="~/Scripts/chart/canvg.min.js"></script>
+    <script src="~/Scripts/stepwizard.js"></script>
+    <link href="~/Content/style-layout.css" rel="stylesheet" />
+    <script src="~/Scripts/ntscommon.js"></script>
+
+    <script src="~/Scripts/jquery.signalR-2.2.1.min.js"></script>
+    <script src="~/signalr/hubs"></script>
+    <script>
+        $(function () {
+            var chat = $.connection.notifyHub;
+            chat.client.GetNotify = function (name, message) {
+                $('#data-notify').load('/Shared/GenNotify');
+                //if ($("#list_data_notify").length) {
+                //    SearchNotify();
+                //}
+            };
+
+            $.connection.hub.start().done(function () {
+                chat.server.notify('s', 'g');
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,112 @@
+﻿@model IList<InformationHub.Model.StatisticModels.HomeChartItemModelByQuatar>
+@{
+    var yearNow = DateTime.Now.Year;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = InformationHub.Resource.Resource.ReportProfile_Report_Title;
+    var listCount = (List<InformationHub.Model.StatisticModels.HomeProvinceItemModel>)ViewBag.listCount;
+}
+<section class="wrapper main-wrapper">
+    <div ui-view="" class="ng-scope">
+        <div class="content-wrapper">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+
+                <section class="box collapsed">
+                    <header class="panel_header">
+                        <h2 class="title pull-left">@InformationHub.Resource.Resource.Search_Title</h2>
+                        <div class="actions panel_actions pull-right">
+                            <i class="box_toggle material-icons">expand_more</i>
+                        </div>
+                    </header>
+                    <div class="content-body">
+                        <div class="row">
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <div class="form-group">
+                                    <label class="form-label" for="field-1">@InformationHub.Resource.Resource.Year_Title</label>
+                                    <span class="desc"></span>
+                                    <div class="controls">
+                                        <select class="form-control" id="fromYear">
+                                            @for (int i = yearNow - 9; i <= yearNow; i++)
+                                            {
+                                                <option value="@i">@InformationHub.Resource.Resource.Year_Title @i</option>
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <div class="form-group">
+                                    <label class="form-label" for="field-1">@InformationHub.Resource.Resource.Year_Title</label>
+                                    <span class="desc"></span>
+                                    <div class="controls">
+                                        <select class="form-control" id="toYear">
+                                            @for (int i = yearNow - 9; i <= yearNow; i++)
+                                            {
+                                                <option value="@i">@InformationHub.Resource.Resource.Year_Title @i</option>
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 text-right  margin-top-10">
+                                <button class="btn btn-success btn-icon right10" type="button" onclick="SearchChart(0)">
+                                    <i class="fa fa-search"></i> &nbsp; <span>@InformationHub.Resource.Resource.Search_Title</span>
+                                </button>
+                                <button class="btn btn-default btn-icon" type="button" onclick="ResetModel()">
+                                    <i class="fa fa-refresh"></i> &nbsp; <span>@InformationHub.Resource.Resource.Reset_Title</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="box ">
+                    <header class="panel_header">
+                        <h2 class="title pull-left">@InformationHub.Resource.Resource.Report_Statistic_Title</h2>
+                        <div class="actions panel_actions pull-right">
+                            <i class="box_toggle material-icons">expand_more</i>
+                        </div>
+                    </header>
+                    <div class="content-body padding-bottom-0">
+                        <div class="row">
+                            @**@<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right margin-bottom-10">
+                                <a href="#" id="linkDowload"></a>
+                                <button class="btn btn-info btn-icon right10" type="button" onclick="SearchChart(1)">
+                                    <i class="fa fa-file-excel-o" aria-hidden="true"></i> &nbsp; <span>@InformationHub.Resource.Resource.Export_Title</span>
+                                </button>
+                                <button class="btn btn-warning btn-icon right10" type="button" onclick="SearchChart(2)">
+                                    <i class="fa fa-file-pdf-o" aria-hidden="true"></i> &nbsp; <span>@InformationHub.Resource.Resource.ExportPDF_Title</span>
+                                </button>
+                            </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div id="titleLeftChart" class="text-center bold"></div>
+                                    <div id="containerXuLy" style="min-width: 310px; height: 430px; margin: 0 auto"></div>
+                                </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="title  margin-top-10 margin-bottom-10">
+                                    <h4>
+                                        @InformationHub.Resource.Resource.ReportProfile_ByAbuse
+                                    </h4>
+                                </div>
+                                <table class="table table-bordered table-hover margin-top-30">
+                                    <thead>
+                                        <tr>
+                                            <th>@InformationHub.Resource.Resource.Year_Title</th>
+                                            <th class="text-center">@InformationHub.Resource.Resource.Abuse_Type_01</th>
+                                            <th class="text-center">@InformationHub.Resource.Resource.Abuse_Type_02</th>
+                                            <th class="text-center">@InformationHub.Resource.Resource.Abuse_Type_03</th>
+                                            <th class="text-center">@InformationHub.Resource.Resource.Abuse_Type_04</th>
+                                            <th class="text-center">@InformationHub.Resource.Resource.Other_Type</th>
+                                            <th class="text-center">@InformationHub.Resource.Resource.Count_Title</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="~/ScriptControllers/ReportWardControllers.js"></script>

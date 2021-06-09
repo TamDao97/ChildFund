@@ -1,0 +1,128 @@
+﻿@model IList<ChildProfiles.Model.UserModels.UserSearchResult>
+@{ string birthDate = ""; string userLevel = ViewBag.UserLevel; string userid = ViewBag.UserName; if (userLevel == null) { userLevel = ""; }
+    if (userid == null) { userid = ""; } }
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th width="50px" class="text-center">No.</th>
+            <th width="120px" class="text-center">Function</th>
+            <th width="180px">Account</th>
+            <th width="150px">User name</th>
+            @if (!userLevel.Equals("3"))
+            {
+                <th width="280px">Account type</th>
+            }
+            @if (!userLevel.Equals("1"))
+            {
+                <th width="280px">Area</th>
+            }
+            <th width="80px">Gender</th>
+            <th width="100px">Active</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ int index = ViewBag.Index;}
+        @foreach (var item in Model)
+        {
+            index++;
+            birthDate = "";
+            if (item.BirthDate != null)
+            {
+                birthDate = item.BirthDate.Value.ToString("dd/MM/yyyy");
+            }
+            <tr>
+                <td class="text-center">@index</td>
+                @if (!item.Id.Equals(userid))
+                {
+                    <td class="text-center">
+                        <button onclick="ResetPassword('@item.Id')" type="button" class="btn btn-xs btnfuntion" title="Reset mật khẩu/Reset password"><i class="material-icons btnicon" style="color:darkslategrey">autorenew</i></button>
+                        <button onclick="EditUser('@item.Id')" type="button" class="btn btn-xs btnfuntion" title="Cập nhật người dùng/Update"><i class="material-icons btnicon" style="color:orange">edit</i></button>
+                        <button onclick="DeleteConfirmUser('@item.Id')" type="button" class="btn btn-xs btnfuntion" title="Xóa người dùng/Delete"><i class="material-icons btnicon" style="color:red">delete</i></button>
+                    </td>
+                }
+                else
+                {
+                    <td class="text-center"></td>
+                }
+
+                <td>@item.Name</td>
+                <td>@item.FullName</td>
+                @if (!userLevel.Equals("1"))
+                {
+                    if (item.UserLevel.Equals("2"))
+                    {
+                        if (string.IsNullOrEmpty(item.DistrictName))
+                        {
+                            <td>Cấp Tỉnh/Province level</td>
+                        }
+                        else if (!string.IsNullOrEmpty(item.DistrictName))
+                        {
+                            <td>Cấp Huyện/District level</td>
+                        }
+                    }
+                    <td>@(string.IsNullOrEmpty(item.WardName) ? "" : item.WardName + " - ") @(string.IsNullOrEmpty(item.DistrictName) ? "" : item.DistrictName + " - ") @item.ProvinceName</td>
+                }
+                else
+                {
+                    if (item.UserLevel.Equals("0"))
+                    {
+                        <td>Quản trị hệ thống/Admin</td>
+                    }
+                    else if (item.UserLevel.Equals("1"))
+                    {
+                        <td>Cán bộ văn phòng/Office staff</td>
+                    }
+                }
+                <td>
+                    @if (item.Gender == 1)
+                    {<span>Nam/Male</span> }
+                    else
+                    { <span>Nữ/Female</span>}
+                </td>
+                @if (!item.Id.Equals(userid))
+                {
+                    <td>
+                        <label class="iswitch bg-accent">
+                            @if (item.IsDisable)
+                            {
+                                <input type="checkbox" id="isDisable" onchange="Change('@item.Id','@item.IsDisable')"> <i></i>
+                            }
+                            else
+                            {
+                                <input type="checkbox" checked="checked" id="isDisable" name="isDisable" onchange="Change('@item.Id','@item.IsDisable')" )"> <i></i>
+                            }
+                        </label>
+                    </td>
+                }
+                else
+                {
+                    <td></td>
+                }
+
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="pagerbottom">
+    <div class="col-md-4 col-sm-4 col-xs-4">
+        <div class="form-group">
+            <div class="controls">
+                <select class="form-control combobox-padding" onchange="ChangeSize()" id="pageSize">
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="30">30</option>
+                    <option value="40">40</option>
+                    <option value="50">50</option>
+                </select>
+                <span>record(s)/Page</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-4 col-xs-4">
+        @Html.Raw(ViewBag.pages)
+    </div>
+</div>
+<script>
+    $('#count_user').html(@ViewBag.TotalItem);
+    $('#pageSize').val(@ViewBag.PageSize);
+</script>

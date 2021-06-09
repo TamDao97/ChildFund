@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/itemRow"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:orientation="vertical">
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="horizontal"
+        android:weightSum="13">
+
+        <TextView
+            android:id="@+id/txtDoiTuong"
+            style="@style/TextSize"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"
+            android:layout_marginBottom="1dp"
+            android:layout_weight="4"
+
+            android:text="Text" />
+
+        <TextView
+            android:id="@+id/txt03"
+            style="@style/TextSize"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="1dp"
+            android:layout_marginBottom="1dp"
+            android:layout_weight="1"
+
+            android:gravity="center"
+            android:text="Text" />
+
+        <TextView
+            android:id="@+id/txt46"
+            style="@style/TextSize"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="1dp"
+            android:layout_marginBottom="1dp"
+            android:layout_weight="1"
+
+            android:gravity="center"
+            android:text="Text" />
+
+        <TextView
+            android:id="@+id/txt79"
+            style="@style/TextSize"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="1dp"
+            android:layout_marginBottom="1dp"
+            android:layout_weight="1"
+
+            android:gravity="center"
+            android:text="Text" />
+
+        <TextView
+            android:id="@+id/txt10"
+            style="@style/TextSize"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="1dp"
+            android:layout_marginBottom="1dp"
+            android:layout_weight="1"
+
+            android:gravity="center"
+            android:text="Text" />
+
+        <TextView
+            android:id="@+id/txt1112"
+            style="@style/TextSize"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="1dp"
+            android:layout_marginBottom="1dp"
+            android:layout_weight="1"
+
+            android:gravity="center"
+            android:text="Text" />
+
+        <TextView
+            android:id="@+id/txt1314"
+            style="@style/TextSize"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="1dp"
+            android:layout_marginBottom="1dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Text" />
+
+        <TextView
+            android:id="@+id/txt15"
+            style="@style/TextSize"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="1dp"
+            android:layout_marginBottom="1dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Text" />
+
+        <TextView
+            android:id="@+id/txt1618"
+            style="@style/TextSize"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="1dp"
+            android:layout_marginBottom="1dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Text" />
+
+        <TextView
+            android:id="@+id/txt18"
+            style="@style/TextSize"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="1dp"
+            android:layout_marginBottom="1dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Text" />
+    </TableRow>
+</LinearLayout>

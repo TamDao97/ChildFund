@@ -1,0 +1,346 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="wrapper main-wrapper">
+    <div ui-view="" class="ng-scope">
+        <div class="content-wrapper">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <section class="box ">
+                    <header class="panel_header">
+                        <h2 class="title pull-left">Tìm kiếm hồ sơ </h2>
+                        <div class="actions panel_actions pull-right">
+                            <i class="box_toggle material-icons">expand_more</i>
+                        </div>
+                    </header>
+                    <div class="content-body padding-bottom-10">
+                        <div class="row">
+                            <div class="col-md-3 col-sm-4 col-xs-4">
+                                <div class="form-group">
+                                    <label class="form-label" for="field-1">Người duyệt</label>
+                                    <span class="desc"></span>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" id="field-1">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-4">
+                                <div class="form-group">
+                                    <label class="form-label" for="field-1">Tỉnh/Province</label>
+                                    <span class="desc"></span>
+                                    <div class="controls">
+                                        <select class="form-control ">
+                                            <option value="Default Select">Tất cả</option>
+                                            <option value="Option 1">Option 1</option>
+                                            <option value="Option 2">Option 2</option>
+                                            <option value="Option 3">Option 3</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-4">
+                                <div class="form-group">
+                                    <label class="form-label" for="field-1">Huyện/District</label>
+                                    <span class="desc"></span>
+                                    <div class="controls">
+                                        <select class="form-control ">
+                                            <option value="Default Select">Tất cả</option>
+                                            <option value="Option 1">Option 1</option>
+                                            <option value="Option 2">Option 2</option>
+                                            <option value="Option 3">Option 3</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-4">
+                                <div class="form-group">
+                                    <label class="form-label" for="field-1">Xã/Commune</label>
+                                    <span class="desc"></span>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" id="field-1">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-4">
+                                <div class="form-group">
+                                    <label class="form-label" for="field-1">Họ tên trẻ</label>
+                                    <span class="desc"></span>
+                                    <div class="controls">
+                                        <input type="text" class="form-control" id="field-1">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-4">
+                                <div class="form-group">
+                                    <label class="form-label">Duyệt từ ngày</label>
+                                    <span class="desc"></span>
+                                    <div class="controls">
+                                        <div class="input-group" inputgroup="">
+                                            <input type="date" class="form-control datepicker ng-pristine ng-valid ng-isolate-scope ng-valid-required ng-touched" uib-datepicker-popup="" ng-model="dt" is-open="dtpick.opened2" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" required="required"><!-- ngIf: isOpen -->
+                                            <span class="input-group-addon" ng-click="open($event,'opened2')"><i class="fa fa-calendar" style="color: #999;"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-4">
+                                <div class="form-group">
+                                    <label class="form-label">Đến ngày</label>
+                                    <span class="desc"></span>
+                                    <div class="controls">
+                                        <div class="input-group" inputgroup="">
+                                            <input type="date" class="form-control datepicker ng-pristine ng-valid ng-isolate-scope ng-valid-required ng-touched" uib-datepicker-popup="" ng-model="dt" is-open="dtpick.opened2" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" required="required"><!-- ngIf: isOpen -->
+                                            <span class="input-group-addon" ng-click="open($event,'opened2')"><i class="fa fa-calendar" style="color: #999;"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3 col-sm-4 col-xs-4 text-right">
+                                <div class="form-group margin-top-20">
+                                    <button class="btn btn-success btn-icon right10">
+                                        <i class="fa fa-search"></i> &nbsp; <span>Tìm kiếm</span>
+                                    </button>
+                                    <button class="btn btn-default btn-icon">
+                                        <i class="fa fa-refresh"></i> &nbsp; <span>Làm mới</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+            </div>
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <section class="box ">
+                    <header class="panel_header">
+                        <h2 class="title pull-left">Danh sách hồ sơ</h2>
+                        <div class="actions panel_actions pull-right">
+                            <i class="box_toggle material-icons">expand_more</i>
+                        </div>
+                    </header>
+                    <div class="content-body padding-bottom-0">
+                        <div class="row margin-bottom-5">
+                            <div class="col-md-6 col-sm-6 col-xs-6 text-left">
+                                <h4>
+                                    Tổng số <b class="badge badge-primary">10</b> hồ sơ đã duyệt
+                                </h4>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-6 text-right">
+                                <button class="btn btn-default btn-icon">
+                                    <i class="fa fa-download"></i> &nbsp; <span>Tải câu truyện</span>
+                                </button>
+                                <button class="btn btn-default btn-icon">
+                                    <i class="fa fa-download"></i> &nbsp; <span>Tải hồ sơ</span>
+                                </button>
+                                <button class="btn btn-default btn-icon">
+                                    <i class="fa fa-file-excel-o"></i> &nbsp; <span>Xuất Excel</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="margin-bottom-10">
+                                    <table class="table table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th width="50px">#</th>
+                                                <th width="20px">
+                                                    <label class="icheck icheck-primary">
+                                                        <input type="checkbox">
+                                                        <i></i>
+                                                    </label>
+                                                </th>
+                                                <th>Ảnh</th>
+                                                <th>Họ tên trẻ</th>
+                                                <th>Giới tính</th>
+                                                <th>Ngày sinh</th>
+                                                <th>Dân tộc</th>
+                                                <th>Quê quán</th>
+                                                <th>Mã chương trình</th>
+                                                <th>Mã trẻ</th>
+                                                <th>Người duyệt</th>
+                                                <th>Ngày duyệt</th>
+                                                <th width="160px">Chức năng</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>
+                                                    <label class="icheck icheck-primary">
+                                                        <input type="checkbox">
+                                                        <i></i>
+                                                    </label>
+                                                </td>
+                                                <td>
+                                                    <img src="~/img/avatar.png" width="30px">
+                                                </td>
+                                                <td>Trần Thị Minh</td>
+                                                <td>Nữ</td>
+                                                <td>12/12/2007</td>
+                                                <td>Nùng</td>
+                                                <td>xã Phú Minh, Huyện Sơn Lương, tỉnh Sơn La</td>
+                                                <td>989898</td>
+                                                <td>44</td>
+                                                <td>Trần Thị Minh</td>
+                                                <td>20/11/2018</td>
+                                                <td> 
+                                                    <a href="/hosotre/hsxemthongtintre" type="button" class="btn btn-xs btn-info" title="Xem hồ sơ"><i class="material-icons">assignment_ind</i></a> 
+                                                    <a href="/hosotre/hsthemcapnhat" type="button" class="btn btn-xs btn-warning" title="Cập nhật hồ sơ"><i class="material-icons">edit</i></a>
+                                                    <button type="button" class="btn btn-xs btn-danger" title="Đóng hồ sơ"><i class="material-icons">close</i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">2</th>
+                                                <td>
+                                                    <label class="icheck icheck-primary">
+                                                        <input type="checkbox">
+                                                        <i></i>
+                                                    </label>
+                                                </td>
+                                                <td>
+                                                    <img src="~/img/avatar.png" width="30px">
+                                                </td>
+                                                <td>Nguyễn Công Ung</td>
+                                                <td>Nam</td>
+                                                <td>22/11/2011</td>
+                                                <td>Tày</td>
+                                                <td>xã Phú Trung, huyện Hà Trung, tỉnh Thanh Hóa</td>
+                                                <td>989898</td>
+                                                <td>12</td>
+                                                <td>Trần Thị Minh</td>
+                                                <td>20/11/2018</td>
+                                                <td> 
+                                                    <button type="button" class="btn btn-xs btn-info" title="Xem hồ sơ"><i class="material-icons">assignment_ind</i></button> 
+                                                    <button type="button" class="btn btn-xs btn-warning" title="Cập nhật hồ sơ"><i class="material-icons">edit</i></button>
+                                                    <button type="button" class="btn btn-xs btn-danger" title="Đóng hồ sơ"><i class="material-icons">close</i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">3</th>
+                                                <td>
+                                                    <label class="icheck icheck-primary">
+                                                        <input type="checkbox">
+                                                        <i></i>
+                                                    </label>
+                                                </td>
+                                                <td>
+                                                    <img src="~/img/avatar.png" width="30px">
+                                                </td>
+                                                <td>Phan Kim Liên</td>
+                                                <td>Nữ</td>
+                                                <td>22/11/2013</td>
+                                                <td>Thái</td>
+                                                <td>xã Phú Trung, huyện Cao Phong, tỉnh Cao Bằng</td>
+                                                <td>989898</td>
+                                                <td>23</td>
+                                                <td>Trần Thị Minh</td>
+                                                <td>15/11/2018</td>
+                                                <td> 
+                                                    <button type="button" class="btn btn-xs btn-info" title="Xem hồ sơ"><i class="material-icons">assignment_ind</i></button> 
+                                                    <button type="button" class="btn btn-xs btn-warning" title="Cập nhật hồ sơ"><i class="material-icons">edit</i></button>
+                                                    <button type="button" class="btn btn-xs btn-danger" title="Đóng hồ sơ"><i class="material-icons">close</i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">4</th>
+                                                <td>
+                                                    <label class="icheck icheck-primary">
+                                                        <input type="checkbox">
+                                                        <i></i>
+                                                    </label>
+                                                </td>
+                                                <td>
+                                                    <img src="~/img/avatar.png" width="30px">
+                                                </td>
+                                                <td>Ngô Tấn</td>
+                                                <td>Nam</td>
+                                                <td>20/10/2001</td>
+                                                <td>HrMoong</td>
+                                                <td>xã Phú Minh, huyện Sơn Nam, tỉnh Phú Thọ</td>
+                                                <td>989898</td>
+                                                <td>22</td>
+                                                <td>Trần Thị Minh</td>
+                                                <td>10/11/2018</td>
+                                                <td> 
+                                                    <button type="button" class="btn btn-xs btn-info" title="Xem hồ sơ"><i class="material-icons">assignment_ind</i></button> 
+                                                    <button type="button" class="btn btn-xs btn-warning" title="Cập nhật hồ sơ"><i class="material-icons">edit</i></button>
+                                                    <button type="button" class="btn btn-xs btn-danger" title="Đóng hồ sơ"><i class="material-icons">close</i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">5</th>
+                                                <td>
+                                                    <label class="icheck icheck-primary">
+                                                        <input type="checkbox">
+                                                        <i></i>
+                                                    </label>
+                                                </td>
+                                                <td>
+                                                    <img src="~/img/avatar.png" width="30px">
+                                                </td>
+                                                <td>Trần Viết Đan</td>
+                                                <td>Nam</td>
+                                                <td>12/12/2007</td>
+                                                <td>Mường</td>
+                                                <td>xã Phú Nam, huyện Hà Hương, tỉnh Hà Nam</td>
+                                                <td>989898</td>
+                                                <td>44</td>
+                                                <td>Trần Thị Minh</td>
+                                                <td>20/10/2018</td>
+                                                <td> 
+                                                    <button type="button" class="btn btn-xs btn-info" title="Xem hồ sơ"><i class="material-icons">assignment_ind</i></button> 
+                                                    <button type="button" class="btn btn-xs btn-warning" title="Cập nhật hồ sơ"><i class="material-icons">edit</i></button>
+                                                    <button type="button" class="btn btn-xs btn-danger" title="Đóng hồ sơ"><i class="material-icons">close</i></button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 ">
+                                <span class="form-label-custom">
+                                    Số bản ghi/trang:
+                                </span>
+                                <select style="width: 120px;" class="form-control ng-pristine ng-valid ng-touched">
+                                    <option label="10 bản ghi" selected="selected">10 bản ghi</option>
+                                    <option label="15 bản ghi">15 bản ghi</option>
+                                    <option label="20 bản ghi">20 bản ghi</option>
+                                    <option label="30 bản ghi">30 bản ghi</option>
+                                    <option label="40 bản ghi">40 bản ghi</option>
+                                    <option label="50 bản ghi">50 bản ghi</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                                <ul class="pagination-sm pagination ng-isolate-scope ng-valid">
+                                    <!-- ngIf: ::boundaryLinks -->
+                                    <li class="pagination-first ng-scope disabled"><a class="ng-binding">Đầu tiên</a></li>
+                                    <li class="pagination-prev ng-scope disabled"><a class="ng-binding">Trước</a></li>
+                                    <li class="pagination-page ng-scope active"><a>1</a></li>
+                                    <li class="pagination-page ng-scope"><a class="ng-binding">2</a></li>
+                                    <li class="pagination-page ng-scope"><a class="ng-binding">3</a></li>
+                                    <li class="pagination-page ng-scope"><a class="ng-binding">4</a></li>
+                                    <li class="pagination-page ng-scope"><a class="ng-binding">5</a></li>
+                                    <li class="pagination-next ng-scope" style=""><a class="ng-binding">Kế tiếp</a></li>
+                                    <li class="pagination-last ng-scope" style=""><a class="ng-binding">Cuối cùng</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 margin-bottom-10">
+                                <hr class="margin-bottom-10 margin-top-0" />
+                                <button class="btn btn-xs btn-info"><i class="material-icons">assignment_ind</i></button>&nbsp;<small class="padding-right-20">Xem hồ sơ</small> 
+                                <button class="btn btn-xs btn-warning"><i class="material-icons">edit</i></button>&nbsp;<small class="padding-right-20">Cập nhật hồ sơ</small>
+                                <button class="btn btn-xs btn-danger"><i class="material-icons">close</i></button>&nbsp;<small class="padding-right-20">Đóng hồ sơ</small>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section> 

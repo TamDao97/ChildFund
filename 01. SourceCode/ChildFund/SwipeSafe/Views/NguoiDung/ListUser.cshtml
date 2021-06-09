@@ -1,0 +1,107 @@
+﻿@model IList<SwipeSafe.UserModels.UserSearchResult>
+@{ string birthDate = ""; string userLevel = ViewBag.UserLevel; string userid = ViewBag.UserName; if (userLevel == null) { userLevel = ""; }
+    if (userid == null) { userid = ""; } }
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th width="50px" class="text-center">STT</th>
+            <th width="100px" class="text-center">Chức năng</th>
+            <th width="180px">Tài khoản</th>
+            <th>Tên người dùng</th>
+            <th width="130px">Loại tài khoản</th>
+            <th width="120px">Tỉnh/Thành</th>
+            <th width="120px">Quận/Huyện</th>
+            <th width="120px">Xã/Phường</th>
+            <th width="100px">Kích hoạt</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ int index = ViewBag.Index;}
+        @foreach (var item in Model)
+        {
+            index++;
+            birthDate = "";
+            if (item.BirthDate != null)
+            {
+                birthDate = item.BirthDate.Value.ToString("dd/MM/yyyy");
+            }
+            <tr>
+                <td class="text-center">@index</td>
+                @if (!item.Id.Equals(userid))
+                {
+                    <td class="text-center">
+                        <button onclick="ResetPassword('@item.Id')" type="button" class="btn btn-xs btnfuntion" title="Reset mật khẩu"><i class="material-icons btnicon" style="color:darkslategrey">autorenew</i></button>
+                        <button onclick="EditUser('@item.Id')" type="button" class="btn btn-xs btnfuntion" title="Cập nhật người dùng"><i class="material-icons btnicon" style="color:orange">edit</i></button>
+                        <button onclick="DeleteConfirmUser('@item.Id')" type="button" class="btn btn-xs btnfuntion" title="Xóa người dùng"><i class="material-icons btnicon" style="color:red">delete</i></button>
+                    </td>
+                }
+                else
+                {
+                    <td class="text-center"></td>
+                }
+
+                <td>@item.Name</td>
+                <td>@item.FullName</td>
+
+                @if (item.Type == 3)
+                {
+                    <td>Cấp Tỉnh</td>
+                }
+                else if (item.Type == 2)
+                {
+                    <td>Cấp huyện</td>
+                }
+                else if (item.Type == 1)
+                {
+                    <td>Cấp Xã</td>
+                }
+                <td>@item.ProvinceName</td>
+                <td>@item.DistrictName</td>
+                <td>@item.WardName</td>
+                @if (!item.Id.Equals(userid))
+                {
+                    <td>
+                        <label class="iswitch bg-accent">
+                            @if (item.IsDisable)
+                            {
+                                <input type="checkbox" id="isDisable" onchange="Change('@item.Id','@item.IsDisable')"> <i></i>
+                            }
+                            else
+                            {
+                                <input type="checkbox" checked="checked" id="isDisable" name="isDisable" onchange="Change('@item.Id','@item.IsDisable')" )"> <i></i>
+                            }
+                        </label>
+                    </td>
+                }
+                else
+                {
+                    <td></td>
+                }
+
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="pagerbottom">
+    <div class="col-md-4 col-sm-4 col-xs-4">
+        <div class="form-group">
+            <div class="controls">
+                <select class="form-control combobox-padding" onchange="ChangeSize()" id="pageSize">
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="30">30</option>
+                    <option value="40">40</option>
+                    <option value="50">50</option>
+                </select>
+                <span>bản ghi/Trang</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-4 col-xs-4">
+        @Html.Raw(ViewBag.pages)
+    </div>
+</div>
+<script>
+    $('#count_user').html(@ViewBag.TotalItem);
+    $('#pageSize').val(@ViewBag.PageSize);
+</script>

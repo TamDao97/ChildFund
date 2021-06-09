@@ -1,0 +1,27 @@
+﻿@model IList<InformationHub.Model.ComboboxResult>
+@{ string type = ViewBag.type;}
+@if (type.Equals("0"))
+{
+    foreach (var item in Model)
+    {
+        <option value="@item.Id">@item.Name</option>
+    }
+}
+else
+{
+    var newModel = Model.OrderBy(u => u.ThenNumber).ToList();
+    int number = 0;
+    foreach (var item in newModel)
+    {
+        <div class="@((number==0 || number==3)?("col-lg-5 col-md-5 col-sm-5 col-xs-5 padding-bottom-5"):((number==1 || number==4)?("col-lg-4 col-md-4 col-sm-4 col-xs-4 padding-bottom-5"):("col-lg-3 col-md-3 col-sm-3 col-xs-3 padding-bottom-5")) )">
+            <label class="icheck icheck-primary padding-right-10 padding-left-5" style="font-weight:300;">
+                <input name="@item.Name" class="itemp itemType1" type="checkbox" value="@item.Id">
+                <i></i> @item.Name
+            </label>
+        </div>
+        number++;
+    }
+}
+
+
+

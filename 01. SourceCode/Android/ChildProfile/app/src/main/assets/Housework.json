@@ -1,0 +1,114 @@
+﻿{
+  "OtherName": "Việc khác/ Other",
+  "OtherValue": "",
+  "ListObject": [
+    {
+      "Id": "01",
+      "Check": "false",
+      "Name": "Làm việc nhà/ Do housework",
+      "NameEN": "do housework",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "02",
+      "Check": "false",
+      "Name": "Trông em/ Take care of sibling",
+      "NameEN": "look after",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "03",
+      "Check": "false",
+      "Name": "Cho gà/ vịt ăn/ Feed the chickens/ ducks",
+      "NameEN": "feed chicken",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "04",
+      "Check": "false",
+      "Name": "Chăn trâu/ bò/ Tend the buffalo/ cow",
+      "NameEN": "tend buffalo",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "05",
+      "Check": "false",
+      "Name": "Thu hoạch hoa màu (rau, củ, quả)/ Harvest the crops (vegetables, fruits, etc)",
+      "NameEN": "harvest the crops",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "06",
+      "Check": "false",
+      "Name": "Lấy củi/ Collect firewood",
+      "NameEN": "collect fire wood",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "07",
+      "Check": "false",
+      "Name": "Tưới rau/ cây/ Water the vegetables",
+      "NameEN": "fetch water",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "08",
+      "Check": "false",
+      "Name": "Làm ruộng/ nương/ Do farming work",
+      "NameEN": "do farming work",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "09",
+      "Check": "false",
+      "Name": "Làm việc vặt/ Do chores",
+      "NameEN": "do chores",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "10",
+      "Check": "false",
+      "Name": "Nhổ cỏ trong vườn/ Clear weeds",
+      "NameEN": "clear weeds",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "11",
+      "Check": "false",
+      "Name": "Không làm gì - quá nhỏ/ Too young to do",
+      "NameEN": "too young to do",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "12",
+      "Check": "false",
+      "Name": "Không làm gì – khuyết tật/ Cannot do due to disability",
+      "NameEN": "cannot do due to disability",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    }
+  ]
+}

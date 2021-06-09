@@ -1,0 +1,538 @@
+﻿
+@{ 
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="wrapper main-wrapper">
+    <div ui-view="" class="ng-scope">
+        <div class="content-wrapper"> 
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <section class="box ">
+                    <header class="panel_header">
+                        <h2 class="title pull-left">Cập nhật hồ sơ trẻ</h2>
+                        <div class="actions panel_actions pull-right">
+                            <i class="box_toggle material-icons">expand_more</i>
+                        </div>
+                    </header>
+                    <div class="content-body padding-bottom-10">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4 class="margin-bottom-5 bold text-success">1. Thông tin chung về trẻ và chương trình</h4>
+                                <hr />
+                            </div>
+                            <div class="col-md-9 col-sm-9 col-xs-9 no-padding"> 
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <div class="form-group">
+                                        <label class="form-label">Mã số chương trình</label>
+                                        <div class="controls">
+                                            <input value="120321" type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <div class="form-group">
+                                        <label class="form-label">Mã số trẻ</label>
+
+                                        <div class="controls">
+                                            <input value="099202" type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <div class="form-group">
+                                        <label  value="1202" class="form-label">Thứ tự</label>
+
+                                        <div class="controls">
+                                            <input value="1202" type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <div class="form-group">
+                                        <label class="form-label">Dân tộc </label> 
+                                        <div class="controls">
+                                            <select class="form-control">
+                                                <option>Thái</option>
+                                                <option></option>
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <div class="form-group">
+                                        <label class="form-label">Tôn giáo</label> 
+                                        <div class="controls">
+                                            <select class="form-control">
+                                                <option></option>
+                                                <option></option>
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <div class="form-group">
+                                        <label class="form-label">Tỉnh thành</label>
+
+                                        <div class="controls">
+                                            <select class="form-control">
+                                                <option>Hà nội</option>
+                                                <option></option>
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <div class="form-group">
+                                        <label class="form-label">Huyện</label>
+
+                                        <div class="controls">
+                                            <select class="form-control">
+                                                <option>Tuyên quang</option>
+                                                <option></option>
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <div class="form-group">
+                                        <label class="form-label">Xã</label>
+
+                                        <div class="controls">
+                                            <select class="form-control">
+                                                <option>Hưng hóa</option>
+                                                <option></option>
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <div class="form-group">
+                                        <label class="form-label">Thôn/xóm</label>
+
+                                        <div class="controls">
+                                            <input type="text" value="12/23" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-3 no-padding">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="form-group">
+                                        <label class="form-label">Ảnh của trẻ</label>
+
+                                        <div class="controls text-center">
+                                            <button type="button" class="btn btn-success btn-s" ng-click="uploader.uploadAll()">
+                                                <span class="glyphicon glyphicon-upload"></span> Upload
+                                            </button>
+                                            <button type="button" class="btn btn-danger btn-s" ng-click="uploader.clearQueue()">
+                                                <span class="glyphicon glyphicon-trash"></span> Xóa
+                                            </button>
+                                        </div>
+                                        <div class="controls text-center margin-top-10">
+                                            <img src="~/img/avatar.png" width="200">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4 class="margin-bottom-5 bold text-success">2. Thông tin cụ thể về trẻ</h4>
+                                <hr />
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                <div class="form-group">
+                                    <label class="form-label">Họ và tên</label>
+                                    <div class="controls">
+                                        <input type="text" value="Phan văn Long" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                <div class="form-group">
+                                    <label class="form-label">Tên khác (nếu có)</label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                <div class="form-group">
+                                    <label class="form-label">Ngày sinh</label> 
+                                    <div class="controls">
+                                        <input value="12/2/2002" type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                <div class="form-group">
+                                    <label class="form-label">Giới tính</label>
+
+                                    <div class="controls">
+                                        <label class="icheck icheck-primary">
+                                            <input type="radio" name="gender" checked value="">
+                                            <i></i> Nam
+                                        </label>&nbsp;
+                                        <label class="icheck icheck-accent">
+                                            <input type="radio" name="gender" value="">
+                                            <i></i> Nữ
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                <div class="form-group">
+                                    <label class="form-label">Tình trạng học của trẻ</label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                <div class="form-group">
+                                    <label class="form-label">Học lực của trẻ</label>
+
+                                    <div class="controls">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <div class="form-group">
+                                    <label class="form-label">Các môn học trẻ thích</label>
+
+                                    <div class="controls">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <div class="form-group">
+                                    <label class="form-label">Các công việc trẻ giúp gia đình</label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                <div class="form-group">
+                                    <label class="form-label">Sức khỏe của trẻ</label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-4">
+                                <div class="form-group">
+                                    <label class="form-label">Tính cách của trẻ</label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-4">
+                                <div class="form-group">
+                                    <label class="form-label">Trò chơi tính, sở thích</label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-4">
+                                <div class="form-group">
+                                    <label class="form-label">Ước mơ của trẻ</label>
+                                    <div class="controls">
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4 class="margin-bottom-5 bold text-success">3. Thông tin về các thành viên trong gia đình trẻ</h4>
+                                <hr />
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="margin-bottom-10">
+                                    <table class="table table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th rowspan="2" width="50px" style="vertical-align:top;">Stt</th>
+                                                <th class="text-center" style="vertical-align:top;">Liệt kê họ và tên đầy đủ của các thành viên trong gia đình <br /> (không liệt kê trẻ được tuyển)</th>
+                                                <th class="text-center" style="vertical-align:top;">Ngày tháng năm sinh</th>
+                                                <th class="text-center" style="vertical-align:top;" width="150px" rowspan="2"> Mối quan hệ với trẻ được tuyển </th>
+                                                <th class="text-center" style="vertical-align:top;" width="100px">Giới tính</th>
+                                                <th class="text-center" style="vertical-align:top;" rowspan="2">Nghề nghiệp</th>
+                                                <th class="text-center" style="vertical-align:top;" rowspan="2">Có sống cùng với trẻ không?</th>
+                                            </tr>
+                                            <tr>
+                                                <th class="text-center" style="font-weight:300">Tên theo giấy khai sinh</th>
+                                                <th class="text-center" style="font-weight:300">(theo giấy khai sinh)</th>
+                                                <th class="text-center" style="font-weight:300">Nam/Nữ </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <td colspan="3" style="font-weight:600">Tổng số anh/em trai ruột của trẻ: </td>
+
+                                                <td colspan="4" style="font-weight:600">Tổng số chị/em gái ruột của trẻ: </td>
+
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="margin-bottom-10">
+                                    <table class="table table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th colspan="2">Trẻ có sống cùng bố mẹ đẻ không?</th>
+                                                <th colspan="2">Nếu không sống cùng bố/mẹ đẻ, giải thích lý do</th>
+                                                <th colspan="2">Vậy trẻ đang sống với ai?</th>
+                                                <th colspan="2">Ai là người viết thư cho nhà tài trợ?</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td width="20px">
+                                                    <label class="icheck icheck-primary">
+                                                        <input type="checkbox">
+                                                        <i></i>
+                                                    </label>
+                                                </td>
+                                                <td>Có cả hai</td>
+                                                <td width="20px">
+                                                    <label class="icheck icheck-primary">
+                                                        <input type="checkbox">
+                                                        <i></i>
+                                                    </label>
+                                                </td>
+                                                <td>Bố mẹ chết năm 1111</td>
+                                                <td width="20px">
+                                                    <label class="icheck icheck-primary">
+                                                        <input type="checkbox">
+                                                        <i></i>
+                                                    </label>
+                                                </td>
+                                                <td>Ông bà</td>
+                                                <td width="20px">
+                                                    <label class="icheck icheck-primary">
+                                                        <input type="checkbox">
+                                                        <i></i>
+                                                    </label>
+                                                </td>
+                                                <td>Anh/chị</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4 class="margin-bottom-5 bold text-success">4. Thông tin về điều kiện sống của gia đình</h4>
+                                <hr />
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="margin-bottom-10">
+                                    <table class="table table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th colspan="2">Loại nhà</th>
+                                                <th colspan="2">Mái nhà làm băng gì?</th>
+                                                <th colspan="2">Tường nhà làm bằng gì?</th>
+                                                <th colspan="2">Nền nhà làm bằng gì?</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td width="20px">
+                                                    <label class="icheck icheck-primary">
+                                                        <input type="checkbox">
+                                                        <i></i>
+                                                    </label>
+                                                </td>
+                                                <td>Nhà tranh</td>
+                                                <td width="20px">
+                                                    <label class="icheck icheck-primary">
+                                                        <input type="checkbox">
+                                                        <i></i>
+                                                    </label>
+                                                </td>
+                                                <td>Tranh/lá</td>
+                                                <td width="20px">
+                                                    <label class="icheck icheck-primary">
+                                                        <input type="checkbox">
+                                                        <i></i>
+                                                    </label>
+                                                </td>
+                                                <td>Tre/nứa</td>
+                                                <td width="20px">
+                                                    <label class="icheck icheck-primary">
+                                                        <input type="checkbox">
+                                                        <i></i>
+                                                    </label>
+                                                </td>
+                                                <td>Đất</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="margin-bottom-10">
+                                    <table class="table table-bordered table-hover" style="margin-bottom:0px">
+                                        <thead>
+                                            <tr>
+                                                <th colspan="2">Gia đình có điện không?</th>
+                                                <th colspan="2">Từ nhà đến trường bao xa?</th>
+                                                <th colspan="2">Từ nhà tới trạm y tế bao xa?</th>
+                                                <th colspan="2">Từ nhà tới nguồn nước bao xa?</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td width="20px">
+                                                    <label class="icheck icheck-primary">
+                                                        <input type="checkbox">
+                                                        <i></i>
+                                                    </label>
+                                                </td>
+                                                <td>Nhà tranh</td>
+                                                <td width="20px">
+                                                    <label class="icheck icheck-primary">
+                                                        <input type="checkbox">
+                                                        <i></i>
+                                                    </label>
+                                                </td>
+                                                <td>Tranh/lá</td>
+                                                <td width="20px">
+                                                    <label class="icheck icheck-primary">
+                                                        <input type="checkbox">
+                                                        <i></i>
+                                                    </label>
+                                                </td>
+                                                <td>Tre/nứa</td>
+                                                <td width="20px">
+                                                    <label class="icheck icheck-primary">
+                                                        <input type="checkbox">
+                                                        <i></i>
+                                                    </label>
+                                                </td>
+                                                <td>Đất</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <table class="table table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th colspan="2">Nguồn nước gia đình sử dụng</th>
+                                                <th colspan="2">Điều kiện đường xá tới trường, trạm y tế?</th>
+                                                <th colspan="2">Thu nhập bình quân của hộ?</th>
+                                                <th colspan="2">Thuộc loại hộ nào?</th>
+                                                <th colspan="2">nguồn thu nhập của hộ?</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td width="20px">
+                                                    <label class="icheck icheck-primary">
+                                                        <input type="checkbox">
+                                                        <i></i>
+                                                    </label>
+                                                </td>
+                                                <td>500m-1000m</td>
+                                                <td width="20px">
+                                                    <label class="icheck icheck-primary">
+                                                        <input type="checkbox">
+                                                        <i></i>
+                                                    </label>
+                                                </td>
+                                                <td>Nước máy</td>
+                                                <td width="20px">
+                                                    <label class="icheck icheck-primary">
+                                                        <input type="checkbox">
+                                                        <i></i>
+                                                    </label>
+                                                </td>
+                                                <td>Đường đất</td>
+                                                <td width="20px">
+                                                    <label class="icheck icheck-primary">
+                                                        <input type="checkbox">
+                                                        <i></i>
+                                                    </label>
+                                                </td>
+                                                <td>.......</td>
+                                                <td width="20px">
+                                                    <label class="icheck icheck-primary">
+                                                        <input type="checkbox">
+                                                        <i></i>
+                                                    </label>
+                                                </td>
+                                                <td>Làm thuê</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12 text-right">
+                                <div class="form-group margin-bottom-10 ">
+
+                                    <a href="/home/hschoduyet" class="btn btn-success btn-icon right10">
+                                        <i class="fa fa-save "></i> &nbsp; <span>Lưu</span>
+                                    </a>
+
+                                    <button class="btn btn-default btn-icon">
+                                        <i class="fa fa-power-off"></i> &nbsp; <span>Thoát</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+

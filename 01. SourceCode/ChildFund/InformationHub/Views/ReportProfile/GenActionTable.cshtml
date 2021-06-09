@@ -1,0 +1,24 @@
+﻿@{ string id = Guid.NewGuid().ToString();}
+<tr id="trItem_@id">
+    <td><button type="button" onclick="DeleteTable('@id')" class="btn btn-xs btn-danger ibtnDel"><i class="material-icons">delete</i></button></td>
+    <td>
+        <div class="controls margin-bottom-0">
+            <textarea class="form-control" oninput="auto_grow(this)" name="ActionName_@id" cols="40" rows="5"></textarea>
+        </div>
+    </td>
+    <td>
+        <div class="controls margin-bottom-0">
+            <textarea class="form-control" oninput="auto_grow(this)" name="UserNameAction_@id" cols="40" rows="5"></textarea>
+        </div>
+    </td>
+    <td>
+        <div class="controls margin-bottom-0">
+            <textarea class="form-control" oninput="auto_grow(this)" name="UserOtherAction_@id" cols="40" rows="5"></textarea>
+        </div>
+    </td>
+    <td>
+        <div class="controls margin-bottom-0">
+            <textarea  class="form-control"  oninput="auto_grow(this)" name="DateActionAction_@id" cols="40" rows="5"></textarea>
+        </div>
+    </td>
+</tr>

@@ -1,0 +1,109 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string userLever = ViewBag.UserLever;
+    string areaDistrictId = ViewBag.AreaDistrictId;
+    string wardId = ViewBag.WardId;
+}
+@model IList<ChildProfiles.Model.Model.FliesLibrary.ImageChildView>
+<section class="wrapper main-wrapper">
+    <div ui-view="" class="ng-scope">
+        <div class="content-wrapper">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <section>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        @foreach (var item in Model)
+                        {
+                            <li><a href="/ImageLibrary/ViewImageChildByYear?year=@item.Year&wardId=@wardId" title="@item.Year">@item.Year</a></li>
+                        }
+                    </div>
+                </section>
+                <section>
+                    <div class="">
+                        <div id="divListImage">
+                            <div class="row">
+                                @if (userLever.Equals(NTS.Common.Constants.LevelTeacher))
+                                {
+                                    foreach (var item in Model)
+                                    {
+
+                                        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                                            <label class="icheck icheck-primary">
+                                            </label><span class="form-control" style="font-weight: bold;">Năm/Year: @item.Year</span>
+                                            <a class="thumbnail" href="/ImageLibrary/ViewImageChildByYear?year=@item.Year&wardId=@wardId" title="@item.Year">
+                                                <img class="img-thumbnail"
+                                                     src="@item.List[0].ImageThumbnail">
+                                            </a>
+                                        </div>
+                                    }
+                                }
+                                else if (userLever.Equals(NTS.Common.Constants.LevelArea) && !string.IsNullOrEmpty(areaDistrictId))
+                                {
+                                    foreach (var item in Model)
+                                    {
+                                        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                                            <label class="icheck icheck-primary">
+                                            </label><span class="form-control" style="font-weight: bold;">Năm/Year: @item.Year</span>
+                                            <a class="thumbnail" href="/ImageLibrary/ViewImageChildRegionalByYear?year=@item.Year&view=area" title="@item.Year">
+                                                <img class="img-thumbnail"
+                                                     src="@item.List[0].ImageThumbnail">
+                                            </a>
+                                        </div>
+                                    }
+                                }
+                                else if (userLever.Equals(NTS.Common.Constants.LevelArea) && string.IsNullOrEmpty(areaDistrictId))
+                                {
+                                    foreach (var item in Model)
+                                    {
+                                        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                                            <label class="icheck icheck-primary">
+                                            </label><span class="form-control" style="font-weight: bold;">Năm/Year: @item.Year</span>
+                                            <a class="thumbnail" href="/ImageLibrary/ViewImageChildRegionalByYear?year=@item.Year&view=province" title="@item.Year">
+                                                <img class="img-thumbnail"
+                                                     src="@item.List[0].ImageThumbnail">
+                                            </a>
+                                        </div>
+                                    }
+                                }
+                                else
+                                {
+                                    foreach (var item in Model)
+                                    {
+                                        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                                            <label class="icheck icheck-primary">
+                                            </label><span class="form-control" style="font-weight: bold;">Năm/Year: @item.Year</span>
+                                            <a class="thumbnail" href="/ImageLibrary/ViewImageChildRegionalByYear?year=@item.Year&view=office" title="@item.Year">
+                                                <img class="img-thumbnail"
+                                                     src="@item.List[0].ImageThumbnail">
+                                            </a>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                            <div class="row padding-10">
+                                <div class="col-md-11 col-sm-11 col-xs-11 text-right"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+<link href="~/Content/modelImage.css" rel="stylesheet" />
+<style>
+    #divListImage span {
+        background: #84bd00;
+        padding: 5px 10px 10px 10px;
+        border-radius: 3px;
+        color: white;
+        text-transform: uppercase;
+    }
+
+    .modal-title {
+        color: white !important
+    }
+
+    .modal-header .close {
+        margin-top: -3px !important
+    }
+</style>

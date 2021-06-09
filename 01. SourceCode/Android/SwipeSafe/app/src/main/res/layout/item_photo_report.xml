@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/lyFile"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/imgThumbnail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:src="@drawable/ic_image" />
+
+    <ImageView
+        android:id="@+id/imgVideo"
+        android:src="@drawable/ic_video"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_centerInParent="true"
+        />
+
+    <ImageView
+        android:padding="2dp"
+        android:id="@+id/imRemove"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignRight="@+id/imgThumbnail"
+        android:layout_alignBottom="@+id/imgThumbnail"
+        android:src="@drawable/ic_delete"
+        app:rippleColor="@color/grey_5"/>
+</RelativeLayout>

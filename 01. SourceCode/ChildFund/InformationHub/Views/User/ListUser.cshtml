@@ -1,0 +1,115 @@
+﻿@model IList<InformationHub.Model.UserModels.UserSearchResult>
+@{ string birthDate = ""; }
+<div style="overflow-x:auto">
+    <table class="table table-bordered table-hover" style="min-width:1500px">
+        <thead>
+            <tr>
+                <th width="50px" class="text-center">@InformationHub.Resource.Resource.Index_Title</th>
+                <th width="100px" class="text-center">@InformationHub.Resource.Resource.Funtion_Title</th>
+                <th width="80px" class="text-center">@InformationHub.Resource.Resource.Label_Status</th>
+                <th width="150px">@InformationHub.Resource.Resource.User_Acc</th>
+                <th width="150px">@InformationHub.Resource.Resource.User_Name</th>
+                <th width="50px">@InformationHub.Resource.Resource.Label_Birthday</th>
+                <th width="100px">@InformationHub.Resource.Resource.User_Type</th>
+                <th width="100px">@InformationHub.Resource.Resource.Area_Province</th>
+                <th width="100px">@InformationHub.Resource.Resource.Label_District</th>
+                <th width="100px">@InformationHub.Resource.Resource.Label_Ward</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{ int index = ViewBag.Index;}
+            @foreach (var item in Model)
+            {
+                index++;
+                birthDate = "";
+                if (item.BirthDay != null)
+                {
+                    birthDate = item.BirthDay.Value.ToString("dd/MM/yyyy");
+                }
+            <tr>
+                <td class="text-center">@index</td>
+                <td class="text-center">
+                    @if (InformationHub.Common.LoginCommon.CheckPermission("C0005"))
+                    {
+                        <button onclick="ResetPassword('@item.Id')" type="button" class="btn btn-xs btnfuntion" title="@InformationHub.Resource.Resource.User_Reset_Password"><i class="material-icons btnicon" style="color:mediumaquamarine">cached</i></button>
+                    }
+                    @if (InformationHub.Common.LoginCommon.CheckPermission("C0003"))
+                    {
+                        <a href="/User/UpdateUserView/@item.Id" class="btn btn-xs btnfuntion" title="@InformationHub.Resource.Resource.User_Update_Title"><i class="material-icons btnicon" style="color:orange">edit</i></a>
+                    }
+                    @if (item.IsDisable == false)
+                    {
+                        if (InformationHub.Common.LoginCommon.CheckPermission("C0004"))
+                        {
+                            <button onclick="LockUser('@item.Id')" type="button" class="btn btn-xs btnfuntion" title="@InformationHub.Resource.Resource.User_Lock"><i class="material-icons btnicon" style="color:red">lock</i></button>
+                        }
+                    }
+                    else
+                    {
+                        if (InformationHub.Common.LoginCommon.CheckPermission("C0004"))
+                        {
+                            <button onclick="UnLockUser('@item.Id')" type="button" class="btn btn-xs btnfuntion" title="@InformationHub.Resource.Resource.User_Unlock"><i class="material-icons btnicon" style="color:red">lock_open</i></button>
+                        }
+                    }
+                </td>
+                <td class="text-center">
+                    @if (item.IsDisable == true)
+                    {
+                        <span class="badge text_status_0">@InformationHub.Resource.Resource.Label_Locl</span>
+                    }
+                    else {
+                        <span class="badge text_status_4">@InformationHub.Resource.Resource.Label_Status_Active</span>
+                    }</td>
+                <td>@item.Name</td>
+                <td>@item.FullName</td>
+                <td>@birthDate</td>
+                @if (@item.Type == "0")
+                {
+                    <td>@InformationHub.Resource.Resource.GroupUser_Type_Admin</td>
+                }
+                @if (@item.Type == "1")
+                {
+                    <td>@InformationHub.Resource.Resource.GroupUser_Type_Province</td>
+                }
+                @if (@item.Type == "2")
+                {
+                    <td>@InformationHub.Resource.Resource.GroupUser_Type_District</td>
+                }
+                @if (@item.Type == "3")
+                {
+                    <td>@InformationHub.Resource.Resource.GroupUser_Type_Ward</td>
+                }
+                <td>@item.ProvinceName</td>
+                <td>@item.DistrictName</td>
+                <td>@item.WardName</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div class="pagerbottom">
+    <div class="col-md-4 col-sm-4 col-xs-4">
+        <div class="form-group">
+            <div class="controls">
+                <select class="form-control combobox-padding" onchange="ChangeSize()" id="pageSize">
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="30">30</option>
+                    <option value="40">40</option>
+                    <option value="50">50</option>
+                </select>
+                <span>@InformationHub.Resource.Resource.NumberPage_Title</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-4 col-xs-4">
+        @Html.Raw(ViewBag.pages)
+    </div>
+</div>
+<script src="~/Scripts/controller/UserControllers.js"></script>
+<script>
+    $('#count_user').html(@ViewBag.TotalItem);
+    $('#pageSize').val(@ViewBag.PageSize);
+    var link = document.getElementById('linkDonwload');
+    link.href = '@ViewBag.PathFile';
+</script>

@@ -1,0 +1,85 @@
+﻿
+@model ChildProfiles.Model.Model.SystemConfig.SchoolModel
+<div id="modalCreate" class="modal fade" role="dialog" onscroll="scroll" data-backdrop="static" style="background-color: rgba(0,0,0,0.3)">
+    <div class="modal-dialog" style="width:800px">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="h4Title" id="title"></h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <input type="hidden" value="@Model.Id" id="idSchool" />
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="form-label">Tỉnh thành/ Province</label>&nbsp;<span class="required">*</span>
+                            <div class="form-group">
+                                <div class="controls">
+                                    <select class="form-control" id="provinceId" name="provinceId" onchange="ChangeProvince()">
+                                        @foreach (var item in ViewBag.listProvince)
+                                        {
+                                            <option value="@item.Id" @(item.Id == Model.ProvinceId ? "selected" : "")>@item.Name</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="form-label">Huyện/ District</label> &nbsp;<span class="required">*</span>
+                            <div class="form-group">
+                                <div class="controls">
+                                    <select class="form-control" id="districtId" name="districtId" onchange="ChangeDistrict()">
+                                        @foreach (var item in ViewBag.listDistrict)
+                                        {
+                                            <option value="@item.Id" @(item.Id == Model.DistrictId ? "selected" : "")>@item.Name</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <div class="form-group">
+                                <label class="form-label">Xã/ Commune</label>&nbsp;<span class="required">*</span>
+                                <div class="form-group">
+                                    <div class="controls">
+                                        <select class="form-control" id="wardId" name="wardId">
+                                            @foreach (var item in ViewBag.listWard)
+                                            {
+                                                <option value="@item.Id" @(item.Id == Model.WardId ? "selected" : "")>@item.Name</option>
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <div class="form-group">
+                                <label class="form-label">Tên trường học</label>&nbsp;<span class="required">*</span>
+                                <div class="form-group">
+                                    <div class="controls">
+                                        <input class="form-control" value="@Model.SchoolName" name="schoolName" id="schoolName" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" onclick="Save()" style="cursor:pointer" class="btn btn-primary" id="btn-createContinue"><i class="glyphicon glyphicon-floppy-save"></i> Đồng ý/OK</button>
+                    <button type="button" class="btn btn-danger" style="cursor:pointer" data-dismiss="modal"><i class="glyphicon glyphicon-minus-sign"></i> Thoát/Exit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

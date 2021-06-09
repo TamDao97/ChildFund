@@ -1,0 +1,17 @@
+﻿@model IList<ChildProfiles.Model.ComboboxResult>
+@using System.Web.Script.Serialization;
+<div style="overflow:auto;max-height:400px">
+    <table class="table table-bordered table-hover" style="width:100%">
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td class="text-center">
+                        <button onclick="EditVillage(@(new JavaScriptSerializer().Serialize(item)))" type="button" class="btn btn-xs btnfuntion" title="Sửa"><i class="material-icons btnicon" style="color:limegreen">edit</i></button>
+                        <button onclick="DeleteVillage('@item.Id')" type="button" class="btn btn-xs btnfuntion" title="Xóa"><i class="material-icons btnicon" style="color:red">delete</i></button>
+                    </td>
+                </tr>
+            }
+    </table>
+</div>

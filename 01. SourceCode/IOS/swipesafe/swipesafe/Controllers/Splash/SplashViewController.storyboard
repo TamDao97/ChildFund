@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Splash View Controller-->
+        <scene sceneID="72u-KP-D3A">
+            <objects>
+                <viewController storyboardIdentifier="SplashViewController" id="DSm-xG-7Ti" customClass="SplashViewController" customModule="swipesafe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Fge-lj-fmG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9cP-fL-HEa">
+                                <rect key="frame" x="87.5" y="233.5" width="200" height="200"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="KBa-hr-x5w">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_logo" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EOE-X8-4ZM">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="4pc-Zu-DJQ"/>
+                                    <constraint firstAttribute="height" constant="200" id="6Lg-Rx-MyW"/>
+                                    <constraint firstAttribute="bottom" secondItem="KBa-hr-x5w" secondAttribute="bottom" id="84a-xI-GSR"/>
+                                    <constraint firstItem="EOE-X8-4ZM" firstAttribute="leading" secondItem="9cP-fL-HEa" secondAttribute="leading" id="C1f-eY-vnb"/>
+                                    <constraint firstItem="EOE-X8-4ZM" firstAttribute="top" secondItem="9cP-fL-HEa" secondAttribute="top" id="Zvy-4t-Ty7"/>
+                                    <constraint firstAttribute="trailing" secondItem="KBa-hr-x5w" secondAttribute="trailing" id="dgg-Gv-NMr"/>
+                                    <constraint firstItem="KBa-hr-x5w" firstAttribute="leading" secondItem="9cP-fL-HEa" secondAttribute="leading" id="hjS-aM-BKN"/>
+                                    <constraint firstAttribute="trailing" secondItem="EOE-X8-4ZM" secondAttribute="trailing" id="idd-ag-LXf"/>
+                                    <constraint firstAttribute="bottom" secondItem="EOE-X8-4ZM" secondAttribute="bottom" id="rAg-kj-eUr"/>
+                                    <constraint firstItem="KBa-hr-x5w" firstAttribute="top" secondItem="9cP-fL-HEa" secondAttribute="top" id="yYo-88-9J7"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="9ro-BI-47y">
+                                <rect key="frame" x="16" y="554" width="343" height="63"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TỔNG ĐÀI QUỐC GIA" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rIT-IZ-DwT">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="31.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="26"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BẢO VỆ TRẺ EM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9uK-V9-kc2">
+                                        <rect key="frame" x="0.0" y="41.5" width="343" height="21.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.26274509800000001" green="0.62745098040000002" blue="0.2784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="avw-gH-PLV" firstAttribute="bottom" secondItem="9ro-BI-47y" secondAttribute="bottom" constant="50" id="5aC-Nq-91G"/>
+                            <constraint firstItem="9ro-BI-47y" firstAttribute="leading" secondItem="avw-gH-PLV" secondAttribute="leading" constant="16" id="9wN-yz-a2K"/>
+                            <constraint firstItem="avw-gH-PLV" firstAttribute="trailing" secondItem="9ro-BI-47y" secondAttribute="trailing" constant="16" id="drs-PP-bGc"/>
+                            <constraint firstItem="9cP-fL-HEa" firstAttribute="centerY" secondItem="Fge-lj-fmG" secondAttribute="centerY" id="fRt-Xk-YFq"/>
+                            <constraint firstItem="9cP-fL-HEa" firstAttribute="centerX" secondItem="Fge-lj-fmG" secondAttribute="centerX" id="mtW-yJ-nh9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="avw-gH-PLV"/>
+                    </view>
+                    <connections>
+                        <outlet property="circleImageView" destination="EOE-X8-4ZM" id="eDi-61-ug4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qDw-2Y-9OO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="103" y="131"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="bg_logo" width="232" height="232"/>
+        <image name="logo" width="232" height="232"/>
+    </resources>
+</document>

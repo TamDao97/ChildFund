@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="10dp"
+    android:background="@drawable/custom_dialog_round">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:text="TỔNG ĐÀI GỌI KHẨN CẤP"
+            android:textAlignment="center"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            android:textColor="@color/green_600"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/ly111"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@drawable/btn_rounded_red_outline"
+            android:gravity="center">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:clickable="false"
+                android:drawableLeft="@drawable/ic_111"
+                android:drawablePadding="10dp"
+                android:padding="10dp"
+                android:text="Bảo vệ trẻ em 111"
+                android:textAlignment="textStart"
+                android:textColor="@color/green_600"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ly113"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@drawable/btn_rounded_red_outline"
+            android:gravity="center">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:clickable="false"
+                android:drawableLeft="@drawable/ic_113"
+                android:drawablePadding="10dp"
+                android:padding="10dp"
+                android:text="Công an 113"
+                android:textAlignment="textStart"
+                android:textColor="@color/green_600"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ly115"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@drawable/btn_rounded_red_outline"
+            android:gravity="center">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:clickable="false"
+                android:drawableLeft="@drawable/ic_115"
+                android:drawablePadding="10dp"
+                android:padding="10dp"
+                android:text="Cứu thương 115"
+                android:textAlignment="textStart"
+                android:textColor="@color/green_600"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

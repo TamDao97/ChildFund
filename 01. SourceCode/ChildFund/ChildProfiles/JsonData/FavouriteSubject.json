@@ -1,0 +1,161 @@
+﻿{
+  "OtherName": "Các môn học khác/ Other",
+  "OtherValue": "",
+  "OtherName2": "Các môn học trẻ khá nhất/ Child learn best in subjects",
+  "OtherValue2": "",
+  "ListObject": [
+    {
+      "Id": "01",
+      "Check": "false",
+      "Name": "Toán/ Maths",
+      "NameEN": "Maths",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "02",
+      "Check": "false",
+      "Name": "Khoa học tự nhiên - xã hội/ Sciences",
+      "NameEN": "Natural and Social Sciences",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "03",
+      "Check": "false",
+      "Name": "Tiếng Việt/ Vietnamese",
+      "NameEN": "Vietnamese",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "04",
+      "Check": "false",
+      "Name": "Chính tả/ Dictation",
+      "NameEN": "Dictation",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "05",
+      "Check": "false",
+      "Name": "Thủ công/ Handicraft",
+      "NameEN": "Handicraft",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "06",
+      "Check": "false",
+      "Name": "Âm nhạc/ Music",
+      "NameEN": "Music",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "07",
+      "Check": "false",
+      "Name": "Đạo đức/ Moral education",
+      "NameEN": "Moral Education",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "08",
+      "Check": "false",
+      "Name": "Vẽ/Mỹ thuật/ Arts-drawing",
+      "NameEN": "Art",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "09",
+      "Check": "false",
+      "Name": "Sinh học/ Biology",
+      "NameEN": "Biology",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "10",
+      "Check": "false",
+      "Name": "Vật lý/ Physics",
+      "NameEN": "Physics",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "11",
+      "Check": "false",
+      "Name": "Địa lý/ Geography",
+      "NameEN": "Geography",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "12",
+      "Check": "false",
+      "Name": "Lịch sử/ History",
+      "NameEN": "History",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "13",
+      "Check": "false",
+      "Name": "Tiếng Anh/ English",
+      "NameEN": "English",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "14",
+      "Check": "false",
+      "Name": "Tin học/ Informatics",
+      "NameEN": "Informatics",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "15",
+      "Check": "false",
+      "Name": "Hóa học/ Chemistry",
+      "NameEN": "Chemistry",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "16",
+      "Check": "false",
+      "Name": "Văn/ Writing",
+      "NameEN": "Literature",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "17",
+      "Check": "false",
+      "Name": "Thể dục/ Physical education",
+      "NameEN": "Physical Education",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    }
+  ]
+}

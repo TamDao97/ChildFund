@@ -1,0 +1,344 @@
+﻿@model SwipeSafe.Model.SearchResults.ReportSearchResult
+@{
+    ViewBag.Title = "Chi tiết ca báo cáo ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string dateView = ""; string birthdayView = "";
+    if (Model.CreateDate != null)
+    {
+        dateView = Model.CreateDate.Value.ToString("dd/MM/yyyy");
+    }
+    if (Model.Birthday != null)
+    {
+        birthdayView = Model.Birthday.Value.ToString("dd/MM/yyyy");
+    }
+    int indexChild = 0;
+    string birthChild = "";
+    string dateActionChild = "";
+    string birthPs = "";
+    int indexPs = 0;
+    string type = "";
+}
+<section class="wrapper main-wrapper">
+    <div ui-view="" class="ng-scope">
+        <div class="content-wrapper">
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <section class="box ">
+                    <header class="panel_header">
+                        <h2 class="title pull-left">Chi tiết ca báo cáo</h2>
+                        <div class="actions panel_actions pull-right">
+                            <i class="box_toggle material-icons">expand_more</i>
+                        </div>
+                    </header>
+                    <div class="content-body padding-bottom-10">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4 class="margin-bottom-5 bold text-success">Thông tin ca báo cáo</h4>
+                                <hr />
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="col-md-3 col-sm-3 col-xs-3 text-right">
+                                    <label class="form-label">Loại báo cáo:</label>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3 text-left">
+                                    @Model.Type
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3 text-right">
+                                    <label class="form-label">Trạng thái:</label>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3 text-left">
+                                    @Model.Status
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="col-md-3 col-sm-3 col-xs-3 text-right">
+                                    <label class="form-label">Thời gian:</label>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3 text-left">
+                                    @dateView
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3 text-right">
+                                    <label class="form-label">Người báo cáo:</label>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3 text-left">
+                                    @Model.Name
+                                </div>
+                                <div class="clearfix"></div>
+
+                                <div class="col-md-3 col-sm-3 col-xs-3 text-right">
+                                    <label class="form-label">Điện thoại:</label>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3 text-left">
+                                    @Model.Phone
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3 text-right">
+                                    <label class="form-label">Email:</label>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3 text-left">
+                                    @Model.Email
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="col-md-3 col-sm-3 col-xs-3 text-right">
+                                    <label class="form-label">Ngày sinh:</label>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3 text-left">
+                                    @birthdayView
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3 text-right">
+                                    <label class="form-label">Giới tính:</label>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3 text-left">
+                                    @Model.Gender
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="col-md-3 col-sm-3 col-xs-3 text-right">
+                                    <label class="form-label">Mối quan hệ:</label>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3 text-left">
+                                    @Model.Relationship
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3 text-right">
+                                    <label class="form-label">Địa chỉ:</label>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3 text-left">
+                                    @Model.Address
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="col-md-12 col-sm-12 col-xs-12 text-left">
+                                    <label class="form-label">Mô tả:</label>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="col-md-12 col-sm-12 col-xs-12 text-left">
+                                    <p>@Model.Description</p>
+                                </div>
+                                <div class="clearfix"></div>
+                                @foreach (var item in Model.ListFile)
+                                {
+                                    <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                                        @if (item.Type.Equals("0"))
+                                        {
+                                        <a class="thumbnail" href="#" data-image-id="" data-toggle='modal' data-title=""
+                                           data-image="@item.Parth"
+                                           data-target="#image-gallery">
+                                            <img class="img-thumbnail"
+                                                 src="@item.ParthThumbnail"
+                                                 alt="@item.Name">
+                                        </a>
+                                        }
+                                        else
+                                        {
+                                        <a class="thumbnail" href="#" onclick="ShowModelImage('@item.Parth')" data-title=""
+                                           data-image="@item.Parth"
+                                           data-target="#image-gallery">
+                                            <img class="img-thumbnail"
+                                                 src="@item.ParthThumbnail"
+                                                 alt="@item.Name">
+                                        </a>
+                                        }
+                                    </div>
+                                }
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h4 class="margin-bottom-5 bold text-success">Thông tin nạn nhân</h4>
+                                        <hr />
+                                    </div>
+                                    @foreach (var item in Model.ListChildSearchResult)
+                                    {
+                                        type = NTS.Common.Utils.Common.GenLevel(item.Level);
+                                        birthChild = "";
+                                        dateActionChild = "";
+                                        if (item.Birthday != null)
+                                        {
+                                            birthChild = item.Birthday.Value.ToString("dd/MM/yyyy");
+                                        }
+                                        if (item.DateAction != null)
+                                        {
+                                            dateActionChild = item.DateAction.Value.ToString("dd/MM/yyyy HH:mm");
+                                        }
+                                        indexChild++;
+                                        <div class="col-md-6 col-sm-6 col-xs-6 text-right">
+                                            <label class="form-label">@indexChild, Họ và tên:</label>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6 text-left">
+                                            @item.Name
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6 text-right">
+                                            <label class="form-label">Giới tính:</label>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6 text-left">
+                                            @item.Gender
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6 text-right">
+                                            <label class="form-label">Ngày sinh:</label>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6 text-left">
+                                            @birthChild
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6 text-right">
+                                            <label class="form-label">Tuổi bị xâm hại:</label>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6 text-left">
+                                            @item.Age
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6 text-right">
+                                            <label class="form-label">Địa chỉ:</label>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6 text-left">
+                                            @item.Address
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6 text-right">
+                                            <label class="form-label">Mức độ khẩn cấp:</label>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6 text-left">
+                                            @type
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6 text-right">
+                                            <label class="form-label">Hình thức xâm hại:</label>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6 text-left">
+                                            @(string.Join(";", (item.FormAbuse.Select(u => u.AbuseName).ToList())))
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6 text-right">
+                                            <label class="form-label">Thời gian xảy ra :</label>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6 text-left">
+                                            @dateActionChild
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <hr />
+                                    }
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h4 class="margin-bottom-5 bold text-success">Thông tin thủ phạm</h4>
+                                        <hr />
+                                    </div>
+                                    @foreach (var item in Model.ListPrisonerSearchResult)
+                                    {
+                                        birthChild = "";
+                                        if (item.Birthday != null)
+                                        {
+                                            birthChild = item.Birthday.Value.ToString("dd/MM/yyyy");
+                                        }
+                                        indexPs++;
+                                        <div class="col-md-6 col-sm-6 col-xs-6 text-right">
+                                            <label class="form-label">@indexPs, Họ và tên:</label>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6 text-left">
+                                            @item.Name
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6 text-right">
+                                            <label class="form-label">Giới tính:</label>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6 text-left">
+                                            @item.Gender
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6 text-right">
+                                            <label class="form-label">Ngày sinh:</label>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6 text-left">
+                                            @birthChild
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6 text-right">
+                                            <label class="form-label">Địa chỉ:</label>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6 text-left">
+                                            @item.Address
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6 text-right">
+                                            <label class="form-label">Điện thoại:</label>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6 text-left">
+                                            @item.Phone
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6 text-right">
+                                            <label class="form-label">Mối quan hệ:</label>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6 text-left">
+                                            @item.Relationship
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <hr />
+                                    }
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12 text-right">
+                                <div class="form-group margin-bottom-10 ">
+                                    <a href="/Report/" class="btn btn-default btn-icon">
+                                        <i class="fa fa-power-off"></i> &nbsp; <span>Thoát</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="modal fade" id="image-gallery" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg" style="margin-top:auto">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title" id="image-gallery-title"></h4>
+                                            <button type="button" class="close" data-dismiss="modal" style="margin-top:-15px; margin-right:-25px">
+                                                <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="row">
+                                                <img id="image-gallery-image" class="img-responsive col-md-12" src="">
+                                            </div>
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary float-left" id="show-previous-image">
+                                                <i class="fa fa-arrow-left"></i>
+                                            </button>
+                                            <button type="button" id="show-next-image" class="btn btn-secondary float-right">
+                                                <i class="fa fa-arrow-right"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="myModalImage" class="modal fade" role="dialog" tabindex="-1" onscroll="scroll" data-backdrop="static" style="background-color: rgba(0,0,0,0.3)">
+    <div class="modal-dialog modal-sm" style="width:1000px; margin:auto">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" style="margin-top:-13px; right:6px" onclick="CloseModelImage()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="col-md-12">
+                    <div id="div_video"></div>
+                    
+                </div><div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/JsControllers/ViewListUpload.js"></script>
+<link href="~/Content/modelImage.css" rel="stylesheet" />

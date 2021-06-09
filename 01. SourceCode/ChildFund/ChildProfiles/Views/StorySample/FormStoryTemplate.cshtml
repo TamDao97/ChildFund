@@ -1,0 +1,76 @@
+﻿@model ChildProfiles.Model.Model.ChildStory.SampleStoryModel
+<div id="modalStoryTeplate" class="modal fade" role="dialog" onscroll="scroll" data-backdrop="static" style="background-color: rgba(0,0,0,0.3)">
+    <div class="modal-dialog modal-story">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" onclick="CloseModel()">&times;</button>
+                <h4 class="h4Title" id="h4Title">Thêm mới mẫu câu chuyện/Add sample story</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-8 col-sm-8 col-xs-8">
+                        <div class="form-group">
+                            <label class="form-label">Tên mẫu câu chuyện/Narrative template name</label>
+                            <div class="controls">
+                                <input type="text" id="title" class="form-control" maxlength="150" value="@Model.Title">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <div class="form-group">
+                            <label class="form-label">Loại mẫu câu chuyện/Narrative category</label>
+                            <div class="controls">
+                                <select class="form-control" id="type" name="type">
+                                    <option value="1">Too young</option>
+                                    <option value="2">Drop-out</option>
+                                    <option value="3">Disability</option>
+                                    <option value="4">Kindergarten</option>
+                                    <option value="5">School age</option>
+                                </select>
+                                <script>
+                                    $('select[name="type"]').val('@Model.Type');
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                                <tr> 
+                                    <th width="100px">Mã thay thế/Replace code</th>
+                                    <th>Mô tả/Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                               
+                                @foreach (var item in Model.Category)
+                                { 
+                                    <tr onclick="SelectCategory('@item.TextReplace')">
+                                        <td>@item.TextReplace</td>
+                                        <td>@item.Name</td>
+                                    </tr>
+                                    
+                                } 
+                            </tbody>
+                        </table>
+                    </div> 
+                    <div class="col-md-8 col-sm-8 col-xs-8">
+                        <div class="form-group">
+                            <label class="form-label">Nội dung mẫu câu chuyện/Content</label>
+                            <div class="controls">
+                                <textarea class="form-control" id="content" rows="18">@Model.Content</textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" onclick="Update()" class="btn btn-primary" id="btn-update"><i class="glyphicon glyphicon-floppy-save"></i> Lưu lại/Save</button>
+                <button type="button" onclick="Create(false)" class="btn btn-primary" id="btn-create"><i class="glyphicon glyphicon-floppy-save"></i> Lưu lại/Save</button>
+                <button type="button" onclick="Create(true)" class="btn btn-primary" id="btn-createContinue"><i class="glyphicon glyphicon-floppy-save"></i> Lưu và tiếp tục/Save and continue</button>
+                <button type="button" class="btn btn-danger" onclick="CloseModel()"><i class="glyphicon glyphicon-minus-sign"></i> Thoát/Exit</button>
+            </div>
+        </div>
+    </div>
+</div>

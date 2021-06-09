@@ -1,0 +1,89 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string view = ViewBag.view;
+    int year = ViewBag.year;
+}
+@model IList<ChildProfiles.Model.Model.FliesLibrary.ImageChildByYearLevelView>
+<section class="wrapper main-wrapper">
+    <div ui-view="" class="ng-scope">
+        <div class="content-wrapper">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="row">
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="/ImageLibrary/ViewImageChild">CPR photo</a>
+                        </li>
+                        <li><span>@Request["year"]</span></li>
+                    </ul>
+                </div>
+                    <section>
+                        <div class="">
+                            <div id="divListImage">
+                                <div class="row">
+                                    @if (view.Equals("area"))
+                                    {
+                                        foreach (var item in Model)
+                                        {
+                                            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                                                <label class="icheck icheck-primary">
+                                                </label><span class="form-control" style="font-weight: bold;">Năm/Year: @year - @item.AreaName</span>
+                                                <a class="thumbnail" href="/ImageLibrary/ViewImageChildByYear?year=@year&wardId=@item.AreaId" title="@year - @item.AreaName">
+                                                    <img class="img-thumbnail"
+                                                         src="@item.List[0].ImageThumbnail">
+                                                </a>
+                                            </div>
+                                        }
+                                    }
+                                    else if (view.Equals("province"))
+                                    {
+                                        foreach (var item in Model)
+                                        {
+                                            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                                                <label class="icheck icheck-primary">
+                                                </label><span class="form-control" style="font-weight: bold;">Năm/Year: @year - @item.AreaName</span>
+                                                <a class="thumbnail" href="/ImageLibrary/ViewImageChildLevelByYear?year=@year&type=area&areaId=@item.AreaId" title="@year - @item.AreaName">
+                                                    <img class="img-thumbnail"
+                                                         src="@item.List[0].ImageThumbnail">
+                                                </a>
+                                            </div>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        foreach (var item in Model)
+                                        {
+                                            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                                                <label class="icheck icheck-primary">
+                                                </label><span class="form-control" style="font-weight: bold;">Năm/Year: @year - @item.AreaName</span>
+                                                <a class="thumbnail" href="/ImageLibrary/ViewImageChildLevelByYear?year=@year&type=province&areaId=@item.AreaId" title="@year - @item.AreaName">
+                                                    <img class="img-thumbnail"
+                                                         src="@item.List[0].ImageThumbnail">
+                                                </a>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+    </div>
+</section>
+<link href="~/Content/modelImage.css" rel="stylesheet" />
+<style>
+        #divListImage span {
+        background: #84bd00;
+        padding: 5px 10px 10px 10px;
+        border-radius: 3px;
+        color: white;
+        text-transform: uppercase;
+    }
+    .modal-title {
+        color: white !important
+    }
+
+    .modal-header .close {
+        margin-top: -3px !important
+    }
+</style>

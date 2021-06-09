@@ -1,0 +1,105 @@
+﻿{
+  "OtherName": "Lý do khác/ Other",
+  "OtherValue": "",
+  "ListObject": [
+    {
+      "Id": "01",
+      "Check": "false",
+      "Name": "Bố mẹ chết/Parents passed away",
+      "NameEN": "",
+      "Value": "",
+      "OtherName": "năm/year",
+      "OtherValue": ""
+    },
+    {
+      "Id": "02",
+      "Check": "false",
+      "Name": "Bố chết/Father passed away",
+      "NameEN": "",
+      "Value": "",
+      "OtherName": "năm/year",
+      "OtherValue": ""
+    },
+    {
+      "Id": "03",
+      "Check": "false",
+      "Name": "Mẹ chết/Mother passed away",
+      "NameEN": "",
+      "Value": "",
+      "OtherName": "năm/year",
+      "OtherValue": ""
+    },
+    {
+      "Id": "04",
+      "Check": "false",
+      "Name": "Bố rời bỏ gia đình/ Father left home",
+      "NameEN": "",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "05",
+      "Check": "false",
+      "Name": "Mẹ rời bỏ gia đình/ Mother left home",
+      "NameEN": "",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "06",
+      "Check": "false",
+      "Name": "Bố mẹ ly thân/ Parents get separated",
+      "NameEN": "",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "07",
+      "Check": "false",
+      "Name": "Bố mẹ ly hôn/ Parents divorced",
+      "NameEN": "",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "08",
+      "Check": "false",
+      "Name": "Bố mẹ đi làm ở nơi khác/ Parents work far away",
+      "NameEN": "",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "09",
+      "Check": "false",
+      "Name": "Bố đi làm ở nơi khác/ Father works far away",
+      "NameEN": "",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "10",
+      "Check": "false",
+      "Name": "Mẹ đi làm ở nơi khác/ Mother works far away",
+      "NameEN": "",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "11",
+      "Check": "false",
+      "Name": "Con ngoài giá thú/ Single mom",
+      "NameEN": "",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    }
+  ]
+}

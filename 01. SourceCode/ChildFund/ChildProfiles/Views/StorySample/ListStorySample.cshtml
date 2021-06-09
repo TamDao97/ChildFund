@@ -1,0 +1,76 @@
+﻿@model IList<ChildProfiles.Model.Model.ChildStory.SampleStoryModel>
+<div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="margin-bottom-10">
+        <div style="overflow-x:auto">
+            <table class="table table-bordered table-hover" style="min-width:1150px">
+                <thead>
+                    <tr>
+                        <th width="50px" class="text-center">No.</th>
+                        <th width="90px" class="text-center">Function</th>
+                        <th>Narrative template</th>
+                        <th width="190px">Narrative category</th>
+                        <th width="90px">Date Updated</th>
+                        <th width="120px">Updated by</th>
+                        <th width="100px">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                @{int index = ViewBag.Index; string NameType = string.Empty; string Create = string.Empty; string Update = string.Empty;}
+                @foreach (var item in Model)
+                {
+                    index++;
+                    NameType = item.Type == "1" ? "Còn nhỏ/Too young" : (item.Type == "2" ? "Bỏ học/Drop-out" : (item.Type == "3" ? "Khuyết tật/Disability" : item.Type == "4" ? "Học mẫu giáo/Attending kindergarten" : item.Type == "5" ? "Tiểu học/Trung học cơ sở / Primary/Secondary school" : ""));
+                    Update = item.UpdateDate.HasValue ? item.UpdateDate.Value.ToString("dd/MM/yyyy") : "";
+                    Create = item.CreateDate.HasValue ? item.CreateDate.Value.ToString("dd/MM/yyyy") : "";
+                    <tr>
+                        <td class="text-center">@index</td>
+                        <td align="center">
+                            <button type="button" class="btn btn-xs btnfuntion" onclick="EditStoryTemplate('@item.Id')" title="Cập nhật/Update" ><i class="material-icons btnicon" style="color:orange">edit</i></button>
+                        </td>
+                        <td>@item.Title</td>
+                        <td>@NameType</td>
+                        <td>@item.UpdateDate</td>
+                        <td>@item.UpdateBy</td>
+                        <td>
+                            <label class="iswitch bg-accent ">
+                                @if (item.Status.Equals("0"))
+                                {
+                                    <input type="checkbox" onchange="ChangeStatus('@item.Id', '1')" checked="checked"> <i></i>
+                                }
+                                else
+                                {
+                                    <input type="checkbox" onchange="ChangeStatus('@item.Id', '0')"> <i></i>
+                                }
+                            </label>
+                        </td>
+                    </tr>
+                }
+
+                </tbody>
+            </table>
+        </div>
+        <div class="pagerbottom ">
+            <div class="col-md-4 col-sm-4 col-xs-4">
+                <div class="form-group">
+                    <div class="controls">
+                        <select class="form-control combobox-padding" onchange="ChangeSize()" id="pageSize">
+                            <option value="10">10</option>
+                            <option value="20">20</option>
+                            <option value="30">30</option>
+                            <option value="40">40</option>
+                            <option value="50">50</option>
+                        </select>
+                        <span>record(s)/Page</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8 col-sm-8 col-xs-8">
+                @Html.Raw(ViewBag.pages)
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $('#count_data').html(@ViewBag.TotalItem);
+    $('#pageSize').val(@ViewBag.PageSize);
+</script>

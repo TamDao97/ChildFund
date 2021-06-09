@@ -1,0 +1,293 @@
+<resources xmlns:android="http://schemas.android.com/tools">
+
+    <style name="AppTheme" parent="BaseTheme"></style>
+    <!-- Base application theme. -->
+    <style name="BaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">#A1D1FC</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="TitleStyle">
+        <item name="android:textColor">#000000</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:fontFamily">@font/roboto_condensed_bold</item>
+        <item name="android:textAppearance">
+            @style/Base.TextAppearance.Widget.AppCompat.Toolbar.Title
+        </item>
+    </style>
+
+    <style name="SubTitleStyle">
+        <item name="android:textColor">#000000</item>
+        <item name="android:fontFamily">@font/roboto_condensed_bold</item>
+        <item name="android:textAppearance">
+            @style/Base.TextAppearance.Widget.AppCompat.Toolbar.Subtitle
+        </item>
+    </style>
+
+    <style name="TitleCategoryStyle">
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textAppearance">
+            @style/Base.TextAppearance.Widget.AppCompat.Toolbar.Title
+        </item>
+        <item name="android:fontFamily">@font/roboto_condensed_bold</item>
+    </style>
+
+    <style name="TitleSplashStyle">
+        <item name="android:textAppearance">@style/Base.TextAppearance.AppCompat.Display1</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#fff</item>
+        <item name="android:fontFamily">@font/roboto_condensed_bold</item>
+    </style>
+
+    <style name="TitleSubSplashStyle">
+        <item name="android:textAppearance">@style/Base.TextAppearance.AppCompat.Large</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#fff</item>
+        <item name="android:fontFamily">@font/roboto_condensed_bold</item>
+    </style>
+
+    <style name="MainAbout">
+        <item name="android:layout_height">440sp</item>
+    </style>
+
+    <style name="MainAboutTitle">
+        <item name="android:textAppearance">@style/Base.TextAppearance.AppCompat.Display1</item>
+        <item name="android:fontFamily">@font/roboto_black</item>
+        <item name="android:textColor">#fff</item>
+    </style>
+
+    <style name="TitleMainStyle">
+        <item name="android:textAppearance">@style/Base.TextAppearance.AppCompat.Menu</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#fff</item>
+        <item name="android:paddingRight">5dp</item>
+        <item name="android:paddingLeft">5dp</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+    </style>
+
+    <style name="LabelStyle">
+        <item name="android:textColor">@color/grey_700</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:fontFamily">@font/roboto_condensed_bold</item>
+        <item name="android:textAppearance">@style/Base.TextAppearance.AppCompat.Medium</item>
+    </style>
+
+    <style name="LabelRegularStyle">
+        <item name="android:textColor">@color/grey_700</item>
+        <item name="android:textAppearance">@style/Base.TextAppearance.AppCompat.Medium</item>
+        <item name="android:fontFamily">@font/roboto_condensed_regular</item>
+    </style>
+
+    <style name="LabelFilterStyle">
+        <item name="android:textAppearance">@style/Base.TextAppearance.AppCompat.Medium</item>
+        <item name="android:fontFamily">@font/roboto_condensed_regular</item>
+    </style>
+
+    <style name="ItemLabelTitleStyle">
+        <item name="android:textColor">@color/green_600</item>
+        <item name="android:textAppearance">@style/Base.TextAppearance.AppCompat.Medium</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="ItemLabelStyle">
+        <item name="android:textColor">@color/grey_1000</item>
+        <item name="android:textAppearance">@style/Base.TextAppearance.AppCompat.Medium</item>
+        <item name="android:fontFamily">@font/roboto_condensed_regular</item>
+    </style>
+
+    <style name="EditTextStyle">
+        <item name="android:fontFamily">@font/roboto_condensed_regular</item>
+        <item name="android:height">45dp</item>
+        <item name="android:textColor">@color/grey_1000</item>
+        <item name="android:backgroundTint">@color/colorAccent</item>
+        <item name="android:textAppearance">@style/Base.TextAppearance.AppCompat.Large</item>
+    </style>
+
+    <style name="TextareaTextStyle">
+        <item name="android:textSize">21dp</item>
+        <item name="android:fontFamily">@font/roboto_condensed_regular</item>
+        <item name="android:textColor">@color/grey_1000</item>
+        <item name="android:backgroundTint">@color/colorAccent</item>
+    </style>
+
+    <style name="LabelTextStyle">
+        <item name="android:textAppearance">@style/Base.TextAppearance.AppCompat.Medium</item>
+        <item name="android:textColor">@color/grey_1000</item>
+        <item name="android:paddingTop">3dp</item>
+        <item name="android:paddingBottom">3dp</item>
+        <item name="android:fontFamily">@font/roboto_condensed_bold</item>
+    </style>
+
+    <style name="DatePickerStyle">
+        <item name="android:textSize">21dp</item>
+        <item name="android:fontFamily">@font/roboto_condensed_regular</item>
+        <item name="android:height">45dp</item>
+        <item name="android:textColor">@color/grey_1000</item>
+        <item name="android:backgroundTint">@color/colorAccent</item>
+        <item name="android:drawableRight">@drawable/ic_date</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:inputType">none</item>
+        <item name="android:cursorVisible">false</item>
+        <item name="android:focusable">false</item>
+    </style>
+
+    <style name="TimePickerStyle">
+        <item name="android:textSize">21dp</item>
+        <item name="android:fontFamily">@font/roboto_condensed_regular</item>
+        <item name="android:height">45dp</item>
+        <item name="android:textColor">@color/grey_1000</item>
+        <item name="android:backgroundTint">@color/colorAccent</item>
+        <item name="android:drawableRight">@drawable/ic_time</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:inputType">none</item>
+        <item name="android:cursorVisible">false</item>
+        <item name="android:focusable">false</item>
+    </style>
+
+    <style name="SpinnerStyle">
+        <item name="android:textSize">21dp</item>
+        <item name="android:fontFamily">@font/roboto_condensed_regular</item>
+        <item name="android:height">45dp</item>
+        <item name="android:textColor">@color/grey_1000</item>
+        <item name="android:backgroundTint">@color/colorAccent</item>
+        <item name="android:drawableRight">@drawable/ic_arrow_drop_down</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:inputType">none</item>
+        <item name="android:cursorVisible">false</item>
+        <item name="android:focusable">false</item>
+    </style>
+
+    <style name="RippleStyleWhite">
+        <item name="mrl_rippleOverlay">true</item>
+        <item name="mrl_rippleColor">#80FFFFFF</item>
+        <item name="mrl_rippleHover">true</item>
+        <item name="mrl_rippleAlpha">0.2</item>
+    </style>
+
+    <style name="RippleStyleBlack" parent="RippleStyleWhite">
+        <item name="mrl_rippleColor">#8096989A</item>
+    </style>
+
+    <!--Style toolbar menu-->
+    <style name="Toolbar_ImgMenu">
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginRight">20dp</item>
+    </style>
+
+    <style name="Toolbar_CallButton">
+        <item name="android:layout_height">80dp</item>
+    </style>
+
+    <style name="Toolbar_Title">
+        <item name="android:textAppearance">@style/Base.TextAppearance.AppCompat.Medium</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:fontFamily">@font/roboto_bold_italic</item>
+        <item name="android:textColor">#fff</item>
+    </style>
+
+    <style name="Toolbar_ImgCall">
+        <item name="android:layout_width">34sp</item>
+        <item name="android:layout_marginRight">20sp</item>
+    </style>
+
+    <style name="Toolbar_TitleCall">
+        <item name="android:textAppearance">@style/Base.TextAppearance.AppCompat.Headline</item>
+        <item name="android:fontFamily">@font/roboto_black</item>
+        <item name="android:textColor">#fff</item>
+    </style>
+
+    <style name="Toolbar_Line">
+        <item name="android:layout_height">2dp</item>
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:background">#77CBEA</item>
+    </style>
+
+    <style name="TitleMenu">
+        <item name="android:fontFamily">@font/roboto_black</item>
+        <item name="android:textAppearance">@style/Base.TextAppearance.AppCompat.Menu</item>
+        <item name="android:textColor">#fff</item>
+    </style>
+
+    <style name="Menu_Icon">
+        <item name="android:layout_width">30dp</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_margin">10dp</item>
+    </style>
+
+    <style name="Menu_Icon_Search">
+        <item name="android:layout_width">35dp</item>
+        <item name="android:layout_height">35dp</item>
+        <item name="android:paddingLeft">10dp</item>
+    </style>
+
+    <style name="Menu_Layout_Search">
+        <item name="android:layout_height">60dp</item>
+        <item name="android:layout_margin">10dp</item>
+    </style>
+
+    <style name="Menu_Layout_Item">
+        <item name="android:layout_height">60dp</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginBottom">5dp</item>
+    </style>
+
+    <style name="DialogTheme">
+        <item name="android:windowEnterAnimation">@anim/slide_left</item>
+        <item name="android:windowExitAnimation">@anim/slide_right</item>
+    </style>
+
+    <!--Button chức năng-->
+    <style name="Button_IconRight">
+        <item name="android:layout_width">26dp</item>
+        <item name="android:layout_marginLeft">10dp</item>
+    </style>
+
+    <style name="Button_IconLeft">
+        <item name="android:layout_marginRight">10dp</item>
+    </style>
+
+    <style name="Button_Title">
+        <item name="android:fontFamily">@font/roboto_black</item>
+        <item name="android:textColor">#ffffff</item>
+    </style>
+
+    <style name="Button_IconCategory">
+        <item name="android:layout_width">60dp</item>
+    </style>
+
+    <!--Title tin tức-->
+    <style name="TitleNewsStyle">
+        <item name="android:textColor">#37474F</item>
+        <item name="android:textAppearance">@style/Base.TextAppearance.AppCompat.Menu</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:fontFamily">@font/roboto_condensed_bold</item>
+    </style>
+
+    <style name="SubTitleNewsStyle">
+        <item name="android:textColor">#96989A</item>
+        <item name="android:textAppearance">@style/Base.TextAppearance.AppCompat.Small</item>
+        <item name="android:fontFamily">@font/roboto_condensed_bold</item>
+    </style>
+
+    <style name="ImageNewsStyle">
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">100dp</item>
+    </style>
+
+    <style name="ImageMainStyle">
+        <item name="android:layout_marginTop">30sp</item>
+    </style>
+</resources>

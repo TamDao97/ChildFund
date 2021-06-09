@@ -1,0 +1,73 @@
+﻿@model IList<InformationHub.Model.AreaUser.AreaUserSearchResult>
+<div style="overflow-x:auto">
+    <table class="table table-bordered table-hover" style="min-width:1390px">
+        <thead>
+            <tr>
+                <th width="60px" class="text-center">@InformationHub.Resource.Resource.Index_Title</th>
+                <th width="100px" class="text-center">@InformationHub.Resource.Resource.Funtion_Title</th>
+                <th width="220px">@InformationHub.Resource.Resource.Area_Name</th>
+                <th width="180px">@InformationHub.Resource.Resource.Area_Manager</th>
+                <th width="170px">@InformationHub.Resource.Resource.Area_Province</th>
+                <th width="120px" class="text-center">@InformationHub.Resource.Resource.Area_Total_District</th>
+                <th width="120px" class="text-center">@InformationHub.Resource.Resource.Area_Total_Ward</th>
+                <th>@InformationHub.Resource.Resource.Label_Description</th>
+                <th width="130px">@InformationHub.Resource.Resource.Label_Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{ int index = ViewBag.Index; string content = "";}
+            @foreach (var item in Model)
+            {
+                content = NTS.Common.Utils.Common.FormatContentNews(item.Description, 110);
+                index++;
+                <tr>
+                    <td class="text-center">@index</td>
+                    <td align="center">
+                        @if (InformationHub.Common.LoginCommon.CheckPermission("C0019"))
+                        {
+                            <a href="/AreaUser/UpdateAreaUser/@item.Id" class="btn btn-xs btnfuntion" title="@InformationHub.Resource.Resource.Area_Update"><i class="material-icons btnicon" style="color:orange">edit</i></a>
+                        }
+                        @if (InformationHub.Common.LoginCommon.CheckPermission("C0020"))
+                        {
+                            <button onclick="DeleteConfim('@item.Id')" type="button" class="btn btn-xs btnfuntion" title="@InformationHub.Resource.Resource.Area_Delete"><i class="material-icons btnicon" style="color:red">delete</i></button>
+                        }
+                    </td>
+                    <td>@item.Name</td>
+                    <td>@item.Manager</td>
+                    <td>@item.ProvinceName</td>
+                    <td class="text-center">@item.CountDistrict</td>
+                    <td class="text-center">@item.CountWard</td>
+                    <td>@content</td>
+                    <td>
+                        @if (item.IsActivate == true)
+                        {<span>@InformationHub.Resource.Resource.Label_Status_Active</span> }
+                    else
+                    { <span>@InformationHub.Resource.Resource.Label_Status_DeActive</span>}
+                    </td>
+                </tr>
+            }
+    </table>
+</div>
+<div class="pagerbottom margin-top-10">
+    <div class="col-md-4 col-sm-4 col-xs-4">
+        <div class="form-group">
+            <div class="controls">
+                <select class="form-control combobox-padding" onchange="ChangeSize()" id="pageSize">
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="30">30</option>
+                    <option value="40">40</option>
+                    <option value="50">50</option>
+                </select>
+                <span>@InformationHub.Resource.Resource.NumberPage_Title</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8 col-sm-8 col-xs-8">
+        @Html.Raw(ViewBag.pages)
+    </div>
+</div>
+<script>
+    $('#count_data').html(@ViewBag.TotalItem);
+    $('#pageSize').val(@ViewBag.PageSize);
+</script>

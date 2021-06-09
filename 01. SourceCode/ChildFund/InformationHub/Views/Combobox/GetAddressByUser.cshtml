@@ -1,0 +1,61 @@
+﻿@model IList<InformationHub.Model.ComboboxResult>
+@{
+    InformationHub.Model.LoginProfileModel userInfo = ViewBag.userInfo;
+    List<InformationHub.Model.ComboboxResult> listDistrict = ViewBag.listDistrict;
+    List<InformationHub.Model.ComboboxResult> listWard = ViewBag.listWard;
+}
+<div class="col-lg-2 col-md-3 col-sm-3 col-xs-3">
+    <div class="form-group">
+        <label class="form-label" for="field-1">@InformationHub.Resource.Resource.SelectProvince_Title</label>
+        <div class="controls">
+            <select  @(userInfo.Type!="0"?"disabled":"") class="form-control" id="sProvince" onchange="GetDistrict()">
+                <option value="">@InformationHub.Resource.Resource.All_Title</option>
+                @foreach (var item in Model)
+                {
+                    <option value="@item.Id">@item.Name</option>
+                }
+            </select>
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-2 col-md-3 col-sm-3 col-xs-3">
+    <div class="form-group">
+        <label class="form-label" for="field-1">@InformationHub.Resource.Resource.SelectDistrict_Title</label>
+        <div class="controls">
+            <select  @((userInfo.Type!="0" && userInfo.Type!="1")?"disabled":"") class="form-control" id="sDistrict" onchange="GetWard()">
+                <option value="">@InformationHub.Resource.Resource.All_Title</option>
+                @foreach (var item in listDistrict)
+                {
+                    <option value="@item.Id">@item.Name</option>
+                }
+            </select>
+        </div>
+    </div>
+</div>
+<div class="col-lg-2 col-md-3 col-sm-3 col-xs-3">
+    <div class="form-group">
+        <label class="form-label" for="field-1">@InformationHub.Resource.Resource.SelectWard_Title</label>
+        <div class="controls">
+            <select  @((userInfo.Type=="3" || userInfo.Type=="4") ?"disabled":"") class="form-control" id="sWard">
+                <option value="">@InformationHub.Resource.Resource.All_Title</option>
+                @foreach (var item in listWard)
+                {
+                    <option value="@item.Id">@item.Name</option>
+                }
+            </select>
+        </div>
+    </div>
+</div>
+<script>
+    if (@userInfo.Type=='1') {
+        $('#sProvince').val('@userInfo.ProvinceId');
+    } else  if (@userInfo.Type=='2') {
+        $('#sProvince').val('@userInfo.ProvinceId');
+        $('#sDistrict').val('@userInfo.DistrictId');
+    } else  if (@userInfo.Type=='3') {
+        $('#sProvince').val('@userInfo.ProvinceId');
+        $('#sDistrict').val('@userInfo.DistrictId');
+        $('#sWard').val('@userInfo.WardId');
+    }
+</script>

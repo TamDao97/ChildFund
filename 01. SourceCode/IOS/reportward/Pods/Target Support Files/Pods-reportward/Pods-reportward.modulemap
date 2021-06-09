@@ -1,0 +1,6 @@
+framework module Pods_reportward {
+  umbrella header "Pods-reportward-umbrella.h"
+
+  export *
+  module * { export * }
+}

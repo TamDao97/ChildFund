@@ -1,0 +1,51 @@
+﻿@model IList<ChildProfiles.Model.Model.CacheModel.NotifyModel>
+<div style="overflow-x:auto">
+    <table class="table  table-hover" style="min-width:1000px;">
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td width="40px"><img src="@(string.IsNullOrEmpty(item.Image)?"../img/avatar.png":item.Image)" class="img-avata-notify" /></td>
+                    <td width="140px" class="text-center">@item.CreateDate.ToString("dd/MM/yyyy HH:mm")</td>
+                    <td>
+                        <a href="@item.Link" title="Xem chi tiết"> <p class="margin-bottom-5 text-black">@Html.Raw(item.Title)</p></a>
+                        <p class="text-info margin-bottom-5">@item.Addres</p>
+                    </td>
+                    <td width="140px">
+                        @if (item.Status.Equals("0"))
+                        {
+                            <a href="javascript:void(0)" onclick="Tick('@item.Id')" class=" text-success" title="Đánh dấu đã xem">Đánh dấu đã đọc</a>
+                        }
+                    </td>
+                    <td width="50px">
+                        <a href="javascript:void(0)" onclick="DeleteConfim('@item.Id')" class=" text-danger" title="Xóa">Xóa</a>
+                    </td>
+                </tr>
+            }
+    </table>
+</div>
+<div class="pagerbottom margin-top-10">
+    <div class="col-md-4 col-sm-4 col-xs-4">
+        <div class="form-group">
+            <div class="controls">
+                <select class="form-control combobox-padding" onchange="ChangeSize()" id="pageSize">
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="30">30</option>
+                    <option value="40">40</option>
+                    <option value="50">50</option>
+                </select>
+                <span>bản ghi/Trang</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8 col-sm-8 col-xs-8">
+        @Html.Raw(ViewBag.pages)
+    </div>
+</div>
+<script>
+    $('#count_data').html(@ViewBag.countAll);
+    $('#pageSize').val(@ViewBag.PageSize);
+</script>
+

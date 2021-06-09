@@ -1,0 +1,105 @@
+﻿@model ChildProfiles.Model.ObjectBaseModel
+@{
+    var siblingsJoiningChildFundModel = (ChildProfiles.Model.ObjectBaseModel)ViewBag.siblingsJoiningChildFundModel;
+    var malformationModel = (ChildProfiles.Model.ObjectBaseModel)ViewBag.malformationModel;
+    var orphanModel = (ChildProfiles.Model.ObjectBaseModel)ViewBag.orphanModel;
+
+    var dateRow1 = siblingsJoiningChildFundModel.ListObject;
+    var dateRow2 = malformationModel.ListObject;
+    var dateRow3 = orphanModel.ListObject;
+    string check1;
+}
+<div class="margin-bottom-10">
+    <textarea hidden id="hidsiblingsJoiningChildFundModel">@(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(siblingsJoiningChildFundModel))</textarea>
+    <textarea hidden id="hidmalformationModel">@(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(malformationModel))</textarea>
+    <textarea hidden id="hidorphanModel">@(new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(orphanModel))</textarea>
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="row">
+            <table class="table table-bordered table-hover" id="tbsiblingsJoiningChildFundModel" style="margin-bottom:20px">
+                <thead>
+                    <tr>
+                        <th colspan="4">Thông tin đặc biệt/Special information</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="4" style="font-weight:bold">Trẻ có anh/ chị/ em ruột cùng tham gia Chương trình ChildFund tại Việt Nam không?/Does the child have any siblings joining ChildFund’s program?</td>
+                    </tr>
+                    <tr>
+                        @foreach (var item in dateRow1)
+                        {
+                            check1 = item.Check ? "checked" : "";
+                            <td width="20px">
+                                <label class="icheck icheck-primary">
+                                    <input type="checkbox" @check1 value="@item.Id" name="cksiblingsJoining" onclick="ChangeCheckbox(@item.Id,'#tbsiblingsJoiningChildFundModel','cksiblingsJoining')">
+                                    <i></i>
+                                </label>
+                            </td>
+                            <td width="50%">
+                                <span>@item.Name</span><br />
+                                @if (!string.IsNullOrEmpty(item.OtherName))
+                                {
+                                    <span>
+                                        @item.OtherName:&nbsp;<input id="txtNumber" class="form-control" value="@item.OtherValue" type="text" style="width:auto;display:inherit">
+                                    </span>
+                                }
+                            </td>
+                        }
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>
+@*<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="row">
+            <table class="table table-bordered table-hover" id="tbmalformationModel" style="margin-bottom:0px">
+                <tbody>
+                    <tr>
+                        <td colspan="4" style="font-weight:bold">Trẻ có dị tật hoặc bệnh đặc biệt không?/Does the child have any malformation or anything special?</td>
+                    </tr>
+                    <tr>
+                        @foreach (var item in dateRow2)
+                        {
+                            check1 = item.Check ? "checked" : "";
+                            <td  width="20px">
+                                <label class="icheck icheck-primary">
+                                    <input type="checkbox" @check1 value="@item.Id" name="ckmalformation" onclick="ChangeCheckbox(@item.Id,'#tbmalformationModel','ckmalformation')">
+                                    <i></i>
+                                </label>
+                            </td>
+                            <td width="50%">@item.Name</td>
+                        }
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="row">
+            <table class="table table-bordered table-hover" id="tborphanModel">
+                <tbody>
+                    <tr>
+                        <td colspan="4" style="font-weight:bold">Trẻ có mồ côi cha/mẹ không?/Is the child an orphan?</td>
+                    </tr>
+                    <tr>
+                        @foreach (var item in dateRow3)
+                        {
+                            check1 = item.Check ? "checked" : "";
+                            <td  width="20px">
+                                <label class="icheck icheck-primary">
+                                    <input type="checkbox" @check1 value="@item.Id" name="ckorphan" onclick="ChangeCheckbox(@item.Id,'#tborphanModel','ckorphan')">
+                                    <i></i>
+                                </label>
+                            </td>
+                            <td width="50%">@item.Name</td>
+                        }
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>*@

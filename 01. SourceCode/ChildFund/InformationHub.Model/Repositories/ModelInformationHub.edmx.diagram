@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="21ed8cee625e4210853689e4baa068e6" Name="Diagram1" ZoomLevel="88">
+        <EntityTypeShape EntityType="InformationHubModel.AbuseType" Width="1.5" PointX="5.75" PointY="13.25" />
+        <EntityTypeShape EntityType="InformationHubModel.ActivityLog" Width="1.5" PointX="10.25" PointY="10.25" />
+        <EntityTypeShape EntityType="InformationHubModel.AreaDistrict" Width="1.5" PointX="12.75" PointY="10.25" />
+        <EntityTypeShape EntityType="InformationHubModel.AreaUser" Width="1.5" PointX="12.75" PointY="13.25" />
+        <EntityTypeShape EntityType="InformationHubModel.AreaWard" Width="1.5" PointX="7.75" PointY="14.25" />
+        <EntityTypeShape EntityType="InformationHubModel.CaseVerification" Width="1.5" PointX="3" PointY="28.625" />
+        <EntityTypeShape EntityType="InformationHubModel.CodeReport" Width="1.5" PointX="9.75" PointY="14.25" />
+        <EntityTypeShape EntityType="InformationHubModel.District" Width="1.5" PointX="13" PointY="1.375" />
+        <EntityTypeShape EntityType="InformationHubModel.DocumentLibrary" Width="1.5" PointX="15" PointY="5.5" />
+        <EntityTypeShape EntityType="InformationHubModel.DocumentTye" Width="1.5" PointX="12.75" PointY="6" />
+        <EntityTypeShape EntityType="InformationHubModel.EstimateCostAttachment" Width="1.5" PointX="5.25" PointY="17" />
+        <EntityTypeShape EntityType="InformationHubModel.EvaluationFirst" Width="1.5" PointX="3" PointY="9.5" />
+        <EntityTypeShape EntityType="InformationHubModel.GroupFunction" Width="1.5" PointX="14.75" PointY="10.25" />
+        <EntityTypeShape EntityType="InformationHubModel.GroupPermission" Width="1.5" PointX="8" PointY="2.375" />
+        <EntityTypeShape EntityType="InformationHubModel.GroupUser" Width="1.5" PointX="5.75" PointY="4.625" />
+        <EntityTypeShape EntityType="InformationHubModel.Notify" Width="1.5" PointX="14.75" PointY="13.25" />
+        <EntityTypeShape EntityType="InformationHubModel.Permission" Width="1.5" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="InformationHubModel.ProfileAttachment" Width="1.5" PointX="3" PointY="3.125" />
+        <EntityTypeShape EntityType="InformationHubModel.Province" Width="1.5" PointX="10.75" PointY="1.75" />
+        <EntityTypeShape EntityType="InformationHubModel.ReportForward" Width="1.5" PointX="14.75" PointY="16.25" />
+        <EntityTypeShape EntityType="InformationHubModel.ReportHistory" Width="1.5" PointX="7.75" PointY="17.25" />
+        <EntityTypeShape EntityType="InformationHubModel.ReportProfile" Width="1.5" PointX="0.75" PointY="15.125" />
+        <EntityTypeShape EntityType="InformationHubModel.ReportProfileAbuseType" Width="1.5" PointX="3" PointY="6.75" />
+        <EntityTypeShape EntityType="InformationHubModel.SupportAfterStatu" Width="1.5" PointX="3" PointY="21.375" />
+        <EntityTypeShape EntityType="InformationHubModel.SupportPlant" Width="1.5" PointX="3" PointY="16.5" />
+        <EntityTypeShape EntityType="InformationHubModel.User" Width="1.5" PointX="8" PointY="5.875" />
+        <EntityTypeShape EntityType="InformationHubModel.UserPermission" Width="1.5" PointX="10.25" PointY="7" />
+        <EntityTypeShape EntityType="InformationHubModel.Ward" Width="1.5" PointX="15.25" PointY="1.5" />
+        <AssociationConnector Association="InformationHubModel.FK__ActivityL__UserI__3E52440B" />
+        <AssociationConnector Association="InformationHubModel.FK__CaseVerif__Repor__02FC7413" />
+        <AssociationConnector Association="InformationHubModel.FK__District__Provin__5AEE82B9" />
+        <AssociationConnector Association="InformationHubModel.FK__Ward__DistrictId__68487DD7" />
+        <AssociationConnector Association="InformationHubModel.FK__DocumentL__Docum__412EB0B6" />
+        <AssociationConnector Association="InformationHubModel.FK__EstimateC__Suppo__03F0984C" />
+        <AssociationConnector Association="InformationHubModel.FK__Evaluatio__Repor__04E4BC85" />
+        <AssociationConnector Association="InformationHubModel.FK__GroupPerm__Group__440B1D61" />
+        <AssociationConnector Association="InformationHubModel.FK__GroupPerm__Permi__44FF419A" />
+        <AssociationConnector Association="InformationHubModel.FK__User__GroupUserI__4BAC3F29" />
+        <AssociationConnector Association="InformationHubModel.FK__UserPermi__Permi__4D94879B" />
+        <AssociationConnector Association="InformationHubModel.FK__ProfileAt__Repor__05D8E0BE" />
+        <AssociationConnector Association="InformationHubModel.FK__ReportPro__Repor__06CD04F7" />
+        <AssociationConnector Association="InformationHubModel.FK__SupportAf__Repor__07C12930" />
+        <AssociationConnector Association="InformationHubModel.FK__SupportPl__Repor__08B54D69" />
+        <AssociationConnector Association="InformationHubModel.FK__UserPermi__UserI__4E88ABD4" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

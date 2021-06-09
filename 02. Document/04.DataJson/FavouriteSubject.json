@@ -1,0 +1,152 @@
+﻿{
+  "OtherName": "Các môn học khác",
+  "OtherValue": "",
+  "OtherName2": "Các môn học trẻ khá nhất",
+  "OtherValue2": "",
+  "ListObject": [
+    {
+      "Id": "01",
+      "Check": "false",
+      "Name": "Toán",
+      "NameEN": "Maths",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "02",
+      "Check": "false",
+      "Name": "Khoa học tự nhiên - xã hội",
+      "NameEN": "Natural and Social Sciences",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "03",
+      "Check": "false",
+      "Name": "Tiếng Việt",
+      "NameEN": "Vietnamese",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "04",
+      "Check": "false",
+      "Name": "Chính tả",
+      "NameEN": "Dictation",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "05",
+      "Check": "false",
+      "Name": "Tập viết",
+      "NameEN": "Writing",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "06",
+      "Check": "false",
+      "Name": "Âm nhạc",
+      "NameEN": "Music",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "07",
+      "Check": "false",
+      "Name": "Đạo đức",
+      "NameEN": "Moral Education",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "08",
+      "Check": "false",
+      "Name": "Vẽ Mỹ thuật",
+      "NameEN": "Art",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "09",
+      "Check": "false",
+      "Name": "Sinh học",
+      "NameEN": "Biology",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "10",
+      "Check": "false",
+      "Name": "Vật lý",
+      "NameEN": "Physics",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "11",
+      "Check": "false",
+      "Name": "Địa lý",
+      "NameEN": "Geography",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "12",
+      "Check": "false",
+      "Name": "Lịch sử",
+      "NameEN": "History",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "13",
+      "Check": "false",
+      "Name": "Tiếng Anh",
+      "NameEN": "English",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "14",
+      "Check": "false",
+      "Name": "Tin học",
+      "NameEN": "Informatics",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "15",
+      "Check": "false",
+      "Name": "Văn",
+      "NameEN": "Literature",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    },
+    {
+      "Id": "16",
+      "Check": "false",
+      "Name": "Thể dục",
+      "NameEN": "Physical Education",
+      "Value": "",
+      "OtherName": "",
+      "OtherValue": ""
+    }
+  ]
+}

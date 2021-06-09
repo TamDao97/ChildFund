@@ -1,0 +1,72 @@
+﻿@model IList<ChildProfiles.Model.Model.CacheModel.NotifyModel>
+
+<li class="dropdown tab" uib-dropdown="">
+    <a href="" class="dropdown-toggle toggle" id="notifications" data-toggle="dropdown">
+        <i class="material-icons" style="font-size:25px !important; margin-top:18px !important">notifications</i>
+        @if (ViewBag.countNotify > 0)
+        {<span class="badge badge-accent">@ViewBag.countNotify</span>}
+    </a>
+    <ul class="dropdown-menu notifications animated fadeIn" role="menu" aria-labelledby="notifications">
+        <li class="total">
+            @if (ViewBag.countNotify > 0)
+            {
+                <span class="small">  Có <strong> @ViewBag.countNotify </strong> thông báo mới</span>
+            }
+            else
+            {
+                <span class="small"> Không có thông báo mới</span>
+            }
+        </li>
+        <li ng-controller="NotificationsDropDownCtrl" class="list ng-scope">
+            <div wheel-propagation="true" suppress-scroll-x="true" min-scrollbar-length="20" class="ps-scrollbar ps-container">
+                <div ng-transclude="">
+                    <ul class="dropdown-menu-list list-unstyled ng-scope">
+                        @foreach (var item in Model)
+                        {
+                            <li class="read offline ">
+                                <a onclick="ReadNotify('@item.Id','@item.Link')" href="javascript:void(0)" title="Xem chi tiêt">
+                                    <div class="notice-icon">
+                                        <img src="@(string.IsNullOrEmpty(item.Image)?"/img/avatar.png":item.Image)" class="img-avata-notify" />
+                                    </div>
+                                    <div>
+                                        <span class="name">
+                                            <h5 class="@(item.Status.Equals("0")?"text-danger title-header margin35":"title-header margin35")">@Html.Raw(item.Title)</h5>
+                                            <span class="time small ng-binding">@item.CreateDate.ToString("dd/MM/yyyy HH:mm") - @item.Addres</span>
+                                        </span>
+                                    </div>
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </div><div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 3px;"><div class="ps-scrollbar-x" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; right: 3px;"><div class="ps-scrollbar-y" style="top: 0px; height: 0px;"></div></div>
+            </div>
+        </li>
+        <li class="external">
+            @if (ViewBag.counAll > 5)
+            {
+                <a href="/Homes/Notify">
+                    <span>Xem tất cả thông báo</span>
+                </a>
+            }
+        </li>
+    </ul>
+</li>
+<script>
+    function ReadNotify(id, link) {
+        $.ajax({
+            url: "/Homes/TickNotify?id=" + id,
+            type: "POST",
+            success: function (data) {
+                if (data.ok === true) {
+                    window.location = link;
+                } else {
+                    window.location = link;
+                    //toastr.error(data.mess, { timeOut: 5000 });
+                }
+            },
+            error: function (response) {
+                toastr.error("Đã xảy ra lỗi!", { timeOut: 5000 });
+            }
+        });
+    }
+</script>

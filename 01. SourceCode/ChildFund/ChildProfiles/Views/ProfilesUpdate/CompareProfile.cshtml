@@ -1,0 +1,772 @@
+﻿@model IList<ChildProfiles.Model.ChildProfileModels.ChildProfileModel>
+@{
+    ViewBag.Title = "So sánh hồ sơ/Compare profiles";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string leaningStatusLeft = "";
+    string leaningStatusRight = "";
+    string subjectsRight = "";
+    string capacityRight = "";
+    string familyWorkRight = "";
+    string healthRight = "";
+    string personalityRight = "";
+    string homeConditionRight = "";
+    string conditionOtherRight = "";
+    string capacityLeft = "";
+    string subjectsLeft = "";
+    string familyWorkLeft = "";
+    string healthLeft = "";
+    string personalityLeft = "";
+    string homeConditionLeft = "";
+    string conditionOtherLeft = "";
+    string viewDateLeft = "";
+    string viewDateRight = "";
+    string livingWithParentLeft = "";
+    string livingWithParentRight = "";
+    string notLivingWithParentLeft = "";
+    string notLivingWithParentRight = "";
+    string livingWithOtherLeft = "";
+    string livingWithOtherRight = "";
+    var itemLeft = Model != null ? Model.First() : null;
+    var itemRight = Model != null ? Model.Last() : null;
+    int countFamilyMemberLeft = 0;
+    string houseTypeLeft = "", houseTypeRight = "", houseRoofLeft = "", houseRoofRight = "", houseWallLeft = "", houseWallRight = "", houseFloorLeft = "", houseFloorRight = "",
+schoolDistanceLeft = "", schoolDistanceRight = "", clinicDistanceLeft = "", clinicDistanceRight = "", waterSourceDistanceLeft = "", waterSourceDistanceRight = "", waterSourceUseLeft = "", waterSourceUseRight = "",
+roadConditionLeft = "", roadConditionRight = "", harvestOutputLeft = "", harvestOutputRight = "", numberPetLeft = "", numberPetRight = "", incomeOtherLeft = "", incomeOtherRight = "",
+siblingsJoiningChildFundLeft = "", siblingsJoiningChildFundRight = "";
+
+    try
+    {
+        if (itemLeft.UpdateDate != null)
+        {
+            viewDateLeft = itemLeft.UpdateDate.ToString("dd/MM/yyyy");
+        }
+        if (itemRight.UpdateDate != null)
+        {
+            viewDateRight = itemRight.UpdateDate.ToString("dd/MM/yyyy");
+        }
+        leaningStatusLeft = ChildProfiles.Common.CommonProcess.GenLeaningStatus(itemLeft.LeaningStatus, itemLeft.Handicap);
+        leaningStatusRight = ChildProfiles.Common.CommonProcess.GenLeaningStatus(itemRight.LeaningStatus, itemRight.Handicap);
+        #region[xử lý môn học]
+        subjectsLeft = ChildProfiles.Common.CommonProcess.GenInfoBase(itemLeft.FavouriteSubjectModel, true);
+        subjectsRight = ChildProfiles.Common.CommonProcess.GenInfoBase(itemRight.FavouriteSubjectModel, true);
+        #endregion
+        #region[xử lý học lực]
+        capacityLeft = ChildProfiles.Common.CommonProcess.GenInfoBase(itemLeft.LearningCapacityModel, true);
+        capacityRight = ChildProfiles.Common.CommonProcess.GenInfoBase(itemRight.LearningCapacityModel, true);
+        #endregion
+        #region[xử lý công việc giúp gia đình]
+        familyWorkLeft = ChildProfiles.Common.CommonProcess.GenInfoBase(itemLeft.HouseworkModel, true);
+        familyWorkRight = ChildProfiles.Common.CommonProcess.GenInfoBase(itemRight.HouseworkModel, true);
+        #endregion
+        #region[xử lý sk trẻ]
+        healthLeft = ChildProfiles.Common.CommonProcess.GenInfoBase(itemLeft.HealthModel, true);
+        healthRight = ChildProfiles.Common.CommonProcess.GenInfoBase(itemRight.HealthModel, true);
+        #endregion
+        #region[xử lý tính cách trẻ]
+        personalityLeft = ChildProfiles.Common.CommonProcess.GenInfoBase(itemLeft.PersonalityModel, true);
+        personalityRight = ChildProfiles.Common.CommonProcess.GenInfoBase(itemRight.PersonalityModel, true);
+        #endregion
+        #region[xử lý dk gia định]
+        homeConditionLeft = ChildProfiles.Common.CommonProcess.GenInfoBase(itemLeft.HobbyModel, true);
+        homeConditionRight = ChildProfiles.Common.CommonProcess.GenInfoBase(itemRight.HobbyModel, true);
+        #endregion
+        #region[xử lý dk gia đình khác]
+        conditionOtherLeft = ChildProfiles.Common.CommonProcess.GenInfoBase(itemLeft.DreamModel, true);
+        conditionOtherRight = ChildProfiles.Common.CommonProcess.GenInfoBase(itemRight.DreamModel, true);
+        #endregion
+        #region[xử lý sống cùng bố mẹ]
+        livingWithParentLeft = ChildProfiles.Common.CommonProcess.GenInfoBase(itemLeft.LivingWithParentModel);
+        livingWithParentRight = ChildProfiles.Common.CommonProcess.GenInfoBase(itemRight.LivingWithParentModel);
+        #endregion
+        #region[xử lý ko sống cùng bố mẹ]
+        notLivingWithParentLeft = ChildProfiles.Common.CommonProcess.GenInfoBase(itemLeft.NotLivingWithParentModel, true);
+        notLivingWithParentRight = ChildProfiles.Common.CommonProcess.GenInfoBase(itemRight.NotLivingWithParentModel, true);
+        #endregion
+        #region[xử lý đang sống cùng ai]
+        livingWithOtherLeft = ChildProfiles.Common.CommonProcess.GenInfoBase(itemLeft.LivingWithOtherModel, true);
+        livingWithOtherRight = ChildProfiles.Common.CommonProcess.GenInfoBase(itemRight.LivingWithOtherModel, true);
+        #endregion
+        houseTypeLeft = ChildProfiles.Common.CommonProcess.GenInfoBase(itemLeft.HouseTypeModel, true);
+        houseTypeRight = ChildProfiles.Common.CommonProcess.GenInfoBase(itemRight.HouseTypeModel, true);
+        houseRoofLeft = ChildProfiles.Common.CommonProcess.GenInfoBase(itemLeft.HouseRoofModel, true);
+        houseRoofRight = ChildProfiles.Common.CommonProcess.GenInfoBase(itemRight.HouseRoofModel, true);
+        houseWallLeft = ChildProfiles.Common.CommonProcess.GenInfoBase(itemLeft.HouseWallModel, true);
+        houseWallRight = ChildProfiles.Common.CommonProcess.GenInfoBase(itemRight.HouseWallModel, true);
+        houseFloorLeft = ChildProfiles.Common.CommonProcess.GenInfoBase(itemLeft.HouseFloorModel, true);
+        houseFloorRight = ChildProfiles.Common.CommonProcess.GenInfoBase(itemRight.HouseFloorModel, true);
+        schoolDistanceLeft = ChildProfiles.Common.CommonProcess.GenInfoBase(itemLeft.SchoolDistanceModel);
+        schoolDistanceRight = ChildProfiles.Common.CommonProcess.GenInfoBase(itemRight.SchoolDistanceModel);
+        clinicDistanceLeft = ChildProfiles.Common.CommonProcess.GenInfoBase(itemLeft.ClinicDistanceModel);
+        clinicDistanceRight = ChildProfiles.Common.CommonProcess.GenInfoBase(itemRight.ClinicDistanceModel);
+        waterSourceDistanceLeft = ChildProfiles.Common.CommonProcess.GenInfoBase(itemLeft.WaterSourceDistanceModel);
+        waterSourceDistanceRight = ChildProfiles.Common.CommonProcess.GenInfoBase(itemRight.WaterSourceDistanceModel);
+        waterSourceUseLeft = ChildProfiles.Common.CommonProcess.GenInfoBase(itemLeft.WaterSourceUseModel, true);
+        waterSourceUseRight = ChildProfiles.Common.CommonProcess.GenInfoBase(itemRight.WaterSourceUseModel, true);
+        roadConditionLeft = ChildProfiles.Common.CommonProcess.GenInfoBase(itemLeft.RoadConditionModel, true);
+        roadConditionRight = ChildProfiles.Common.CommonProcess.GenInfoBase(itemRight.RoadConditionModel, true);
+        harvestOutputLeft = ChildProfiles.Common.CommonProcess.GenInfoBase(itemLeft.HarvestOutputModel, true);
+        harvestOutputRight = ChildProfiles.Common.CommonProcess.GenInfoBase(itemRight.HarvestOutputModel, true);
+        numberPetLeft = ChildProfiles.Common.CommonProcess.GenInfoBase(itemLeft.NumberPetModel, true);
+        numberPetRight = ChildProfiles.Common.CommonProcess.GenInfoBase(itemRight.NumberPetModel, true);
+        incomeOtherLeft = ChildProfiles.Common.CommonProcess.GenInfoBase(itemLeft.IncomeOtherModel, true);
+        incomeOtherRight = ChildProfiles.Common.CommonProcess.GenInfoBase(itemRight.IncomeOtherModel, true);
+        siblingsJoiningChildFundLeft = ChildProfiles.Common.CommonProcess.GenInfoBase(itemLeft.SiblingsJoiningChildFundModel);
+        siblingsJoiningChildFundRight = ChildProfiles.Common.CommonProcess.GenInfoBase(itemRight.SiblingsJoiningChildFundModel);
+    }
+    catch (Exception ex)
+    {
+    }
+}
+
+<section class="wrapper main-wrapper">
+    <div ui-view="" class="ng-scope">
+        <div class="content-wrapper">
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <section class="box ">
+                    <header class="panel_header">
+                        <h2 class="title pull-left">So sánh thông tin về trẻ/Compare child's information</h2>
+                        <div class="actions panel_actions pull-right">
+                            <i class="box_toggle material-icons">expand_more</i>
+                        </div>
+                    </header>
+                    @if (Model != null && Model.Count > 1)
+                    {
+                        <div class="content-body padding-bottom-10">
+                            <div class="row">
+                                <div class="padding-left-30 padding-right-30">
+                                    <table class="table table-bordered table-hover">
+                                        <thead>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="text-right col-md-4">
+                                                    <label class="form-label">Phiên bản hồ sơ trẻ/ Child profile version:</label>
+                                                </td>
+                                                <td class="text-left col-md-4">
+                                                    <b>@viewDateLeft</b>
+                                                </td>
+                                                <td class="text-left col-md-4">
+                                                    <b>@viewDateRight</b>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="3">
+                                                    <label class="bold text-success">1. Thông tin chung về trẻ và chương trình/ Information about the child and program</label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right">
+                                                    <label class="form-label">Mã số chương trình/ Program Code:</label>
+                                                </td>
+                                                <td class="text-left">
+                                                    @itemLeft.ProgramCode &nbsp;
+                                                </td>
+                                                <td class="text-left">
+                                                    <span class="@(itemRight.ProgramCode.Equals(itemLeft.ProgramCode) ? " " : "text-danger bold")">@itemRight.ProgramCode &nbsp;</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right col-md-4">
+                                                    <label class="form-label">Mã số của trẻ/ Child number:</label>
+                                                </td>
+                                                <td class="text-left col-md-4">
+                                                    @itemLeft.ChildCode &nbsp;
+                                                </td>
+                                                <td class="text-left col-md-4">
+                                                    <span class="@(itemRight.ChildCode.Equals(itemLeft.ChildCode) ? " " : "text-danger bold")">@itemRight.ChildCode &nbsp;</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right col-md-4">
+                                                    <label class="form-label">Dân tộc của trẻ/Child's ethnic:</label>
+                                                </td>
+                                                <td class="text-left col-md-4">
+                                                    @itemLeft.EthnicId &nbsp;
+                                                </td>
+                                                <td class="text-left col-md-4">
+                                                    <span class="@(itemRight.EthnicId.Equals(itemLeft.EthnicId) ? " " : "text-danger bold")">@itemRight.EthnicId &nbsp;</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right col-md-4">
+                                                    <label class="form-label">Tôn giáo của trẻ/Child's religion:</label>
+                                                </td>
+                                                <td class="text-left col-md-4">
+                                                    @itemLeft.ReligionId   &nbsp;
+                                                </td>
+                                                <td class="text-left col-md-4">
+                                                    <span class="@(itemRight.ReligionId.Equals(itemLeft.ReligionId) ? " " : "text-danger bold")">@itemRight.ReligionId &nbsp;</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right col-md-4">
+                                                    <label class="form-label">Tỉnh thành/Province:</label>
+                                                </td>
+                                                <td class="text-left col-md-4">
+                                                    @itemLeft.ProvinceId &nbsp;
+                                                </td>
+                                                <td class="text-left col-md-4">
+                                                    <span class="@(itemRight.ProvinceId.Equals(itemLeft.ProvinceId) ? " " : "text-danger bold")">@itemRight.ProvinceId &nbsp;</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right col-md-4">
+                                                    <label class="form-label">Huyện/District:</label>
+                                                </td>
+                                                <td class="text-left col-md-4">
+                                                    @itemLeft.DistrictId &nbsp;
+                                                </td>
+                                                <td class="text-left col-md-4">
+                                                    <span class="@(itemRight.DistrictId.Equals(itemLeft.DistrictId) ? " " : "text-danger bold")">@itemRight.DistrictId &nbsp;</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right col-md-4">
+                                                    <label class="form-label">Xã/Commune:</label>
+                                                </td>
+                                                <td class="text-left col-md-4">
+                                                    @itemLeft.WardId &nbsp;
+                                                </td>
+                                                <td class="text-left col-md-4">
+                                                    <span class="@(itemRight.WardId.Equals(itemLeft.WardId) ? " " : "text-danger bold")">@itemRight.WardId &nbsp;</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right col-md-4">
+                                                    <label class="form-label">Thôn/xóm/Village:</label>
+                                                </td>
+                                                <td class="text-left col-md-4">
+                                                    @itemLeft.Address &nbsp;
+                                                </td>
+                                                <td class="text-left col-md-4">
+                                                    <span class="@(itemRight.Address.Equals(itemLeft.Address) ? " " : "text-danger bold")">@itemRight.Address &nbsp;</span>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td colspan="3">
+                                                    <label class="bold text-success">2. Thông tin cụ thể về trẻ/ Child information</label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right">
+                                                    <label class="form-label">Họ và tên/Full name:</label>
+                                                </td>
+                                                <td>
+                                                    @itemLeft.Name &nbsp;
+                                                </td>
+                                                <td>
+                                                    <span class="@(itemRight.Name.Equals(itemLeft.Name) ? " " : "text-danger bold")">@itemRight.Name &nbsp;</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right">
+                                                    <label class="form-label">Tên khác/ Other name:</label>
+                                                </td>
+                                                <td>
+                                                    @itemLeft.NickName &nbsp;
+                                                </td>
+                                                <td>
+                                                    <span class="@(itemRight.NickName.Equals(itemLeft.NickName) ? " " : "text-danger bold")">@itemRight.NickName &nbsp;</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right">
+                                                    <label class="form-label">Giới tính/Gender:</label>
+                                                </td>
+                                                <td>
+                                                    @if (itemLeft.Gender == 1)
+                                                    {<span>Nam/Male</span> }
+                                                    else
+                                                    {<span>Nữ/Female</span>}
+                                                </td>
+                                                <td>
+                                                    @if (itemRight.Gender == 1)
+                                                    {<span class="@(itemRight.Gender==itemLeft.Gender ? " " : "text-danger bold")">Nam/Male</span> }
+                                                    else
+                                                    {<span class="@(itemRight.Gender==itemLeft.Gender ? " " : "text-danger bold")">Nữ/Female</span>}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right">
+                                                    <label class="form-label">Ngày sinh/Date of birth:</label>
+                                                </td>
+                                                <td>
+                                                    @itemLeft.DateOfBirth.ToString("dd/MM/yyyy") &nbsp;
+                                                </td>
+                                                <td>
+                                                    <span class="@(itemRight.DateOfBirth.ToString("dd/MM/yyyy").Equals(itemLeft.DateOfBirth.ToString("dd/MM/yyyy")) ? " " : "text-danger bold")">@itemRight.DateOfBirth.ToString("dd/MM/yyyy") &nbsp;</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right">
+                                                    <label class="form-label">Trẻ có đi học không/ Does the child go to school:</label>
+                                                </td>
+                                                <td>
+                                                    @leaningStatusLeft &nbsp;
+                                                </td>
+                                                <td>
+                                                    <span class="@(leaningStatusRight.Equals(leaningStatusLeft) ? " " : "text-danger bold")">@leaningStatusRight &nbsp;</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right">
+                                                    <label class="form-label">Trường học/School:</label>
+                                                </td>
+                                                <td>
+                                                    @itemLeft.SchoolId &nbsp;
+                                                </td>
+                                                <td>
+                                                    <span class="@(itemRight.SchoolId.Equals(itemLeft.SchoolId)==true ? " " : "text-danger bold")">@itemRight.SchoolId &nbsp;</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right">
+                                                    <label class="form-label">Lớp học/Grade:</label>
+                                                </td>
+                                                <td>
+                                                    @itemLeft.ClassInfo &nbsp;
+                                                </td>
+                                                <td>
+                                                    @if (itemRight.ClassInfo != null && itemLeft.ClassInfo != null)
+                                                    {
+                                                        <span class="@(itemRight.ClassInfo.Equals(itemLeft.ClassInfo) ? " " : "text-danger bold")">@itemRight.ClassInfo &nbsp;</span>
+                                                    }
+                                                    else
+                                                    { <span>@itemRight.ClassInfo &nbsp;</span>}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right">
+                                                    <label class="form-label">Các môn học trẻ thích/Favorite subject:</label>
+                                                </td>
+                                                <td>
+                                                    @subjectsLeft &nbsp;
+                                                </td>
+                                                <td>
+                                                    <span class="@(subjectsRight.Equals(subjectsLeft) ? " " : "text-danger bold")">@subjectsRight &nbsp;</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right">
+                                                    <label class="form-label">Lực học của trẻ/ Child’s learning performance:</label>
+                                                </td>
+                                                <td>
+                                                    <span>@capacityLeft &nbsp;</span>
+                                                </td>
+                                                <td>
+                                                    <span class="@(capacityRight.Equals(capacityLeft) ? " " : "text-danger bold")">@capacityRight &nbsp;</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right">
+                                                    <label class="form-label">Các công việc vặt mà trẻ có thể giúp gia đình/ Child can help the family:</label>
+                                                </td>
+                                                <td>
+                                                    @familyWorkLeft &nbsp;
+                                                </td>
+                                                <td>
+                                                    <span class="@(familyWorkRight.Equals(familyWorkLeft) ? " " : "text-danger bold")">@familyWorkRight &nbsp;</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right">
+                                                    <label class="form-label">Sức khoẻ của trẻ/ Child’s health status:</label>
+                                                </td>
+                                                <td>
+                                                    @healthLeft &nbsp;
+                                                </td>
+                                                <td>
+                                                    <span class="@(healthRight.Equals(healthLeft) ? " " : "text-danger bold")">@healthRight &nbsp;</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right">
+                                                    <label class="form-label">Tính cách của trẻ/ Child’s characteristics:</label>
+                                                </td>
+                                                <td>
+                                                    @personalityLeft &nbsp;
+                                                </td>
+                                                <td>
+                                                    <span class="@(personalityRight.Equals(personalityLeft) ? " " : "text-danger bold")">@personalityRight &nbsp;</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right">
+                                                    <label class="form-label">Các trò chơi, sở thích của trẻ/ Hobbies:</label>
+                                                </td>
+                                                <td>
+                                                    @homeConditionLeft &nbsp;
+                                                </td>
+                                                <td>
+                                                    <span class="@(homeConditionRight.Equals(homeConditionLeft) ? " " : "text-danger bold")">@homeConditionRight &nbsp;</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right">
+                                                    <label class="form-label">Lớn lên trẻ muốn trở thành/ Dream work:</label>
+                                                </td>
+                                                <td>
+                                                    @conditionOtherLeft &nbsp;
+                                                </td>
+                                                <td>
+                                                    <span class="@(conditionOtherRight.Equals(conditionOtherLeft) ? " " : "text-danger bold")">@conditionOtherRight &nbsp;</span>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td colspan="3">
+                                                    <label class="bold text-success">3. Thông tin về các thành viên trong gia đình trẻ/ Information about child’s family</label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right">
+                                                    <label class="form-label">Thành viên trong gia đình trẻ/Child's family members:</label>
+                                                </td>
+                                                <td>
+                                                    @if (itemLeft.ListFamilyMember != null && itemLeft.ListFamilyMember.Count > 0)
+                                                    {
+                                                        countFamilyMemberLeft = itemLeft.ListFamilyMember.Count;
+                                                        foreach (var itemFamilyLeft in itemLeft.ListFamilyMember)
+                                                        {
+                                                            <p>@ChildProfiles.Common.CommonProcess.GetInfoFamily(itemFamilyLeft)</p>
+                                                        }
+                                                    }
+                                                </td>
+                                                <td>
+                                                    @if (itemRight.ListFamilyMember != null && itemRight.ListFamilyMember.Count > 0)
+                                                    {
+                                                        int indexLeft = 0;
+                                                        string familyMemberLeft = "", familyMemberRight;
+                                                        foreach (var itemFamilyRight in itemRight.ListFamilyMember)
+                                                        {
+                                                            familyMemberLeft = indexLeft < countFamilyMemberLeft ? ChildProfiles.Common.CommonProcess.GetInfoFamily(itemLeft.ListFamilyMember[indexLeft]) : "";
+                                                            familyMemberRight = ChildProfiles.Common.CommonProcess.GetInfoFamily(itemFamilyRight);
+
+                                                            <p class="@(familyMemberRight.Equals(familyMemberLeft) ? " " : "text-danger bold")">@familyMemberRight &nbsp;</p>
+                                                            indexLeft++;
+                                                        }
+                                                    }
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right">
+                                                    <label class="form-label">Trẻ có sống cùng bố mẹ đẻ không/ Is child living with parents:</label>
+                                                </td>
+                                                <td>
+                                                    @livingWithParentLeft &nbsp;
+                                                </td>
+                                                <td>
+                                                    <span class="@(livingWithParentRight.Equals(livingWithParentLeft) ? " " : "text-danger bold")">@livingWithParentRight &nbsp;</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right">
+                                                    <label class="form-label">Nếu không sống cùng bố/ mẹ đẻ, giải thích lý do/ If child don't live with child's parents, explain why:</label>
+                                                </td>
+                                                <td>
+                                                    @notLivingWithParentLeft &nbsp;
+                                                </td>
+                                                <td>
+                                                    <span class="@(notLivingWithParentRight.Equals(notLivingWithParentLeft) ? " " : "text-danger bold")">@notLivingWithParentRight &nbsp;</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right">
+                                                    <label class="form-label">Vậy trẻ đang sống với ai?/ If so, who is the child living with:</label>
+                                                </td>
+                                                <td>
+                                                    @livingWithOtherLeft &nbsp;
+                                                </td>
+                                                <td>
+                                                    <span class="@(livingWithOtherRight.Equals(livingWithOtherLeft) ? " " : "text-danger bold")">@livingWithOtherRight &nbsp;</span>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td colspan="3">
+                                                    <label class="bold text-success">4. Thông tin chung về điều kiện sống của gia đình/ Information about the family’s condition</label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right">
+                                                    <label class="form-label">Loại nhà/ Types of house:</label>
+                                                </td>
+                                                <td>
+                                                    @houseTypeLeft &nbsp;
+                                                </td>
+                                                <td>
+                                                    <span class="@(houseTypeRight.Equals(houseTypeLeft) ? " " : "text-danger bold")">@houseTypeRight &nbsp;</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right">
+                                                    <label class="form-label">Mái nhà làm bằng gì?/ Roof made from:</label>
+                                                </td>
+                                                <td>
+                                                    @houseRoofLeft &nbsp;
+                                                </td>
+                                                <td>
+                                                    <span class="@(houseRoofRight.Equals(houseRoofLeft) ? " " : "text-danger bold")">@houseRoofRight &nbsp;</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right">
+                                                    <label class="form-label">Tường nhà làm bằng gì?/ Walls made from:</label>
+                                                </td>
+                                                <td>
+                                                    @houseWallLeft &nbsp;
+                                                </td>
+                                                <td>
+                                                    <span class="@(houseWallRight.Equals(houseWallLeft) ? " " : "text-danger bold")">@houseWallRight &nbsp;</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right">
+                                                    <label class="form-label">Nền nhà bằng gì?/ Floor made from:</label>
+                                                </td>
+                                                <td>
+                                                    @houseFloorLeft &nbsp;
+                                                </td>
+                                                <td>
+                                                    <span class="@(houseFloorRight.Equals(houseFloorLeft) ? " " : "text-danger bold")">@houseFloorRight &nbsp;</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right">
+                                                    <label class="form-label">Từ nhà tới trường học bao xa?/ How far from home to school:</label>
+                                                </td>
+                                                <td>
+                                                    @schoolDistanceLeft &nbsp;
+                                                </td>
+                                                <td>
+                                                    <span class="@(schoolDistanceRight.Equals(schoolDistanceLeft) ? " " : "text-danger bold")">@schoolDistanceRight &nbsp;</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right">
+                                                    <label class="form-label">Từ nhà tới trạm y tế bao xa?/ How far from home to health center:</label>
+                                                </td>
+                                                <td>
+                                                    @clinicDistanceLeft &nbsp;
+                                                </td>
+                                                <td>
+                                                    <span class="@(clinicDistanceRight.Equals(clinicDistanceLeft) ? " " : "text-danger bold")">@clinicDistanceRight &nbsp;</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right">
+                                                    <label class="form-label">Từ nhà tới nguồn nước bao xa?/ How far from home to water source:</label>
+                                                </td>
+                                                <td>
+                                                    @waterSourceDistanceLeft &nbsp;
+                                                </td>
+                                                <td>
+                                                    <span class="@(waterSourceDistanceRight.Equals(waterSourceDistanceLeft) ? " " : "text-danger bold")">@waterSourceDistanceRight &nbsp;</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right">
+                                                    <label class="form-label">Gia đình sử dụng nguồn nước chính từ đâu?/Where is the main source of water collected:</label>
+                                                </td>
+                                                <td>
+                                                    @waterSourceUseLeft &nbsp;
+                                                </td>
+                                                <td>
+                                                    <span class="@(waterSourceUseRight.Equals(waterSourceUseLeft) ? " " : "text-danger bold")">@waterSourceUseRight &nbsp;</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right">
+                                                    <label class="form-label">Phần lớn đoạn đường tới trường học, trạm y tế là?/The majority of road to school, health station:</label>
+                                                </td>
+                                                <td>
+                                                    @roadConditionLeft &nbsp;
+                                                </td>
+                                                <td>
+                                                    <span class="@(roadConditionRight.Equals(roadConditionLeft) ? " " : "text-danger bold")">@roadConditionRight &nbsp;</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right">
+                                                    <label class="form-label">Cây trồng/Name of the plants:</label>
+                                                </td>
+                                                <td>
+                                                    @harvestOutputLeft &nbsp;
+                                                </td>
+                                                <td>
+                                                    <span class="@(harvestOutputRight.Equals(harvestOutputLeft) ? " " : "text-danger bold")">@harvestOutputRight &nbsp;</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right">
+                                                    <label class="form-label">Vật nuôi/Name of animals:</label>
+                                                </td>
+                                                <td>
+                                                    @numberPetLeft &nbsp;
+                                                </td>
+                                                <td>
+                                                    <span class="@(numberPetRight.Equals(numberPetLeft) ? " " : "text-danger bold")">@numberPetRight &nbsp;</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right">
+                                                    <label class="form-label">Thuộc loại hộ nào?/ Household type:</label>
+                                                </td>
+                                                <td>
+                                                    @itemLeft.FamilyType &nbsp;
+                                                </td>
+                                                <td>
+                                                    <span class="@(itemRight.FamilyType.Equals(itemLeft.FamilyType) ? " " : "text-danger bold")">@itemRight.FamilyType &nbsp;</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right">
+                                                    <label class="form-label">Gia đình có nguồn thu nhập nào nữa không?/ Other source of income:</label>
+                                                </td>
+                                                <td>
+                                                    @incomeOtherLeft &nbsp;
+                                                </td>
+                                                <td>
+                                                    <span class="@(incomeOtherRight.Equals(incomeOtherLeft) ? " " : "text-danger bold")">@incomeOtherRight &nbsp;</span>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td colspan="3">
+                                                    <label class="bold text-success">5. Phần cam kết của hộ gia đình/ Consent form</label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right">
+                                                    <label class="form-label">Người cam kết/ Guardian:</label>
+                                                </td>
+                                                <td>
+                                                    @itemLeft.ConsentName &nbsp;
+                                                </td>
+                                                <td>
+                                                    <span class="@(itemRight.ConsentName.Equals(itemLeft.ConsentName) ? " " : "text-danger bold")">@itemRight.ConsentName &nbsp;</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right">
+                                                    <label class="form-label">Mối quan hệ/ Relationship:</label>
+                                                </td>
+                                                <td>
+                                                    @itemLeft.ConsentRelationship &nbsp;
+                                                </td>
+                                                <td>
+                                                    <span class="@(itemRight.ConsentRelationship.Equals(itemLeft.ConsentRelationship) ? " " : "text-danger bold")">@itemRight.ConsentRelationship &nbsp;</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right">
+                                                    <label class="form-label">Sống tại thôn/ xóm/ Village:</label>
+                                                </td>
+                                                <td>
+                                                    @itemLeft.ConsentVillage &nbsp;
+                                                </td>
+                                                <td>
+                                                    <span class="@(itemRight.ConsentVillage.Equals(itemLeft.ConsentVillage) ? " " : "text-danger bold")">@itemRight.ConsentVillage &nbsp;</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right">
+                                                    <label class="form-label">Xã/ Commune:</label>
+                                                </td>
+                                                <td>
+                                                    @itemLeft.ConsentWard &nbsp;
+                                                </td>
+                                                <td>
+                                                    <span class="@(itemRight.ConsentWard.Equals(itemLeft.ConsentWard) ? " " : "text-danger bold")">@itemRight.ConsentWard &nbsp;</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right">
+                                                    <label class="form-label">Trẻ có anh/ chị/ em ruột cùng tham gia Chương trình ChildFund tại Việt Nam không?/ Does the child have any siblings joining ChildFund’s program:</label>
+                                                </td>
+                                                <td>
+                                                    @siblingsJoiningChildFundLeft &nbsp;
+                                                </td>
+                                                <td>
+                                                    <span class="@(siblingsJoiningChildFundRight.Equals(siblingsJoiningChildFundLeft) ? " " : "text-danger bold")">@siblingsJoiningChildFundRight &nbsp;</span>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td colspan="3">
+                                                    <label class="bold text-success">6. Một số hình ảnh của trẻ/Photos of child</label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right">
+                                                    <label class="form-label">Ảnh/ Photo:</label>
+                                                </td>
+                                                <td>
+                                                    <div class="controls text-center margin-top-10">
+                                                        <img src="@itemLeft.ImagePath" width="230">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="controls text-center margin-top-10">
+                                                        <img src="@itemRight.ImagePath" width="230">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="3">
+                                                    <label class="bold text-success">7. Bản đồng thuận/Consent</label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="3">
+                                                    <div class="controls text-center margin-top-10">
+                                                        <img src="@itemLeft.ImageSignaturePath" width="230">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12 text-right">
+                                    <div class="form-group margin-bottom-10 ">
+                                        <button @(!itemRight.Status.Equals("2") ? "" : "disabled") onclick="confim3('@itemRight.Id')" type="button" class="btn btn-success btn-icon" title="Duyệt hồ sơ/Approve">
+                                            <i class="fa fa-file-excel-o"></i>Duyệt/Approve
+                                        </button>
+
+                                        <a href="/ProfilesUpdate/@ViewBag.backUrl" class="btn btn-default btn-icon">
+                                            <i class="fa fa-power-off"></i> &nbsp; <span>Thoát/Exit</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="content-body padding-bottom-10">
+                            <h4 class="margin-bottom-5 bold text-success">Không có thông tin hồ sơ/No information</h4>
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12 text-right">
+                                    <div class="form-group margin-bottom-10 ">
+                                        @*<button onclick="confim3(itemLeft.Id)" title="Xuất Excel/Export to excel" class="btn btn-success btn-icon">
+                                                <i class="fa fa-file-excel-o"></i>Duyệt/Approve
+                                            </button>*@
+                                        <a href="/ProfilesUpdate/@ViewBag.backUrl" class="btn btn-default btn-icon">
+                                            <i class="fa fa-power-off"></i> &nbsp; <span>Thoát/Exit</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </section>
+            </div>
+
+        </div>
+    </div>
+</section>
+<script src="~/ScriptControllers/ProfileUpdateListWardControllers.js"></script>

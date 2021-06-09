@@ -1,0 +1,71 @@
+﻿@model IList<ChildProfiles.Model.FamilyMemberModel>
+
+@{
+    int i = 0; string gender1 = "", gender0 = "", check0 = "", check1 = "";
+    foreach (var item in Model)
+    {
+        i++;
+        gender1 = item.Gender == 1 ? "checked" : "";
+        gender0 = item.Gender == 0 ? "checked" : "";
+        check1 = item.LiveWithChild == 1 ? "checked" : "";
+        check0 = item.LiveWithChild == 0 ? "checked" : "";
+        <tr>
+            <td style="vertical-align:bottom">
+                @i
+            </td>
+            <td style="vertical-align:bottom">
+                <input type="text" name="name" id="name_@i" value="@item.Name" maxlength="150" class="form-control">
+            </td>
+            <td style="vertical-align:bottom">
+                @if (item.DateOfBirth.HasValue)
+                {
+                    <input type="text" placeholder="Năm sinh" id="dateb_@i" name="dateb" value="@item.DateOfBirth.Value.ToString("dd/MM/yyyy").Substring(6,4)" class="form-control">
+                }
+                else
+                {
+                    <input type="text" placeholder="Năm sinh" id="dateb_@i" name="dateb" class="form-control" value="@item.Dateb">
+                }
+            </td>
+            <td style="vertical-align:bottom">
+                <select class="form-control" id="relationship_@i" onchange="CountGender(@i)" name="relationship">
+                    @Html.Action("RelationshipCBB", "Combobox")
+                </select>
+                <script type="text/javascript">
+                    $("#relationship_@i").val('@item.RelationshipId');
+                </script>
+            </td>
+            <td style="vertical-align:bottom">
+                <label class="icheck icheck-primary">
+                    <input type="radio" value="1" id="gender_@i" name="gender_@i" @gender1>
+                    <i></i> Nam
+                </label>&nbsp;
+                <label class="icheck icheck-primary">
+                    <input type="radio" value="0" id="gender2_@i" name="gender_@i" @gender0>
+                    <i></i> Nữ
+                </label>
+            </td>
+            <td style="vertical-align:bottom">
+                <select class="form-control" id="job_@i" name="job">
+                    @Html.Action("JobCBB", "Combobox")
+                </select>
+                <script type="text/javascript">
+                    $("#job_@i").val('@item.Job');
+                </script>
+            </td>
+            <td style="vertical-align:bottom" class="abc">
+                <label class="icheck icheck-primary">
+                    <input type="radio" value="1" id="live_@i" name="check_@i" @check1 onclick="SetCheckboxLivingWithParent()">
+                    <i></i> Có
+                </label>&nbsp;
+                <label class="icheck icheck-primary">
+                    <input type="radio" value="0" id="live2_@i" name="check_@i" @check0 onclick="SetCheckboxLivingWithParent()">
+                    <i></i> Không
+                </label>
+            </td>
+            <td style="vertical-align:bottom">
+                <button type="button" onclick="DeleteRow(@i)" class="btn btn-xs btn-danger" title="Xóa hồ sơ"><i class="material-icons">delete</i></button>
+            </td>
+        </tr>
+    };
+}
+

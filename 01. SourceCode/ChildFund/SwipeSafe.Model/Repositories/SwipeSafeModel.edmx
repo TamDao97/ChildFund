@@ -1,0 +1,961 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ReportAppModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Child">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="ReportId" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" />
+          <Property Name="Gender" Type="char" MaxLength="1" />
+          <Property Name="Birthday" Type="datetime" />
+          <Property Name="Age" Type="int" />
+          <Property Name="Level" Type="char" MaxLength="1" />
+          <Property Name="Address" Type="nvarchar" MaxLength="300" />
+          <Property Name="FullAddress" Type="nvarchar" MaxLength="500" />
+          <Property Name="ProvinceId" Type="varchar" MaxLength="36" />
+          <Property Name="DistrictId" Type="varchar" MaxLength="36" />
+          <Property Name="WardId" Type="varchar" MaxLength="36" />
+          <Property Name="DateAction" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ChildAbuse">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="ChildId" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="AbuseId" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="AbuseName" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="District">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="ProvinceId" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="Location" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="FileAttach">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="ReportId" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" />
+          <Property Name="Size" Type="int" />
+          <Property Name="Parth" Type="nvarchar" MaxLength="500" />
+          <Property Name="ParthThumbnail" Type="nvarchar" MaxLength="500" />
+          <Property Name="Type" Type="char" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FormsAbuse">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="OrderNumber" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Prisoner">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="ReportId" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" />
+          <Property Name="Gender" Type="char" MaxLength="1" />
+          <Property Name="Birthday" Type="datetime" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="100" />
+          <Property Name="Relationship" Type="nvarchar" MaxLength="200" />
+          <Property Name="ProvinceId" Type="varchar" MaxLength="36" />
+          <Property Name="DistrictId" Type="varchar" MaxLength="36" />
+          <Property Name="WardId" Type="varchar" MaxLength="36" />
+          <Property Name="Address" Type="nvarchar" MaxLength="300" />
+          <Property Name="FullAddress" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="ProcessingContent">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="ProfileChildId" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="ProfileChildId" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ProcessingDate" Type="datetime" Nullable="false" />
+          <Property Name="ProcessingBy" Type="varchar" MaxLength="36" />
+        </EntityType>
+        <EntityType Name="ProfileChild">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="InformationSources" Type="int" Nullable="false" />
+          <Property Name="ReceptionDate" Type="datetime" />
+          <Property Name="ChildName" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="ChildBirthdate" Type="datetime" />
+          <Property Name="Gender" Type="int" />
+          <Property Name="Age" Type="int" />
+          <Property Name="CaseLocation" Type="nvarchar" MaxLength="300" />
+          <Property Name="WardId" Type="varchar" MaxLength="36" />
+          <Property Name="DistrictId" Type="varchar" MaxLength="36" />
+          <Property Name="ProvinceId" Type="varchar" MaxLength="36" />
+          <Property Name="FullAddress" Type="nvarchar" MaxLength="500" />
+          <Property Name="CurrentHealth" Type="nvarchar" MaxLength="300" />
+          <Property Name="SequelGuess" Type="nvarchar" MaxLength="300" />
+          <Property Name="FatherName" Type="nvarchar" MaxLength="150" />
+          <Property Name="FatherAge" Type="int" />
+          <Property Name="FatherJob" Type="nvarchar" MaxLength="150" />
+          <Property Name="MotherName" Type="nvarchar" MaxLength="150" />
+          <Property Name="MotherAge" Type="int" />
+          <Property Name="MotherJob" Type="nvarchar" MaxLength="150" />
+          <Property Name="FamilySituation" Type="nvarchar" MaxLength="300" />
+          <Property Name="PeopleCare" Type="nvarchar" MaxLength="300" />
+          <Property Name="Support" Type="nvarchar" MaxLength="300" />
+          <Property Name="ProviderName" Type="nvarchar" MaxLength="150" />
+          <Property Name="ProviderPhone" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProviderAddress" Type="nvarchar" MaxLength="500" />
+          <Property Name="ProviderNote" Type="nvarchar" MaxLength="500" />
+          <Property Name="ProcessingStatus" Type="int" Nullable="false" />
+          <Property Name="SeverityLevel" Type="int" />
+          <Property Name="FinishDate" Type="datetime" />
+          <Property Name="FinishNote" Type="nvarchar" MaxLength="500" />
+          <Property Name="ClosedDate" Type="datetime" />
+          <Property Name="ClosedNote" Type="nvarchar" MaxLength="500" />
+          <Property Name="CreateBy" Type="varchar" MaxLength="36" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="UpdateBy" Type="varchar" MaxLength="36" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="ReportId" Type="varchar" MaxLength="36" />
+        </EntityType>
+        <EntityType Name="ProfileChildAbuse">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="ProfileChildId" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="AbuseId" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="AbuseName" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="ProfileFileAttach">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="ProfileChildId" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" />
+          <Property Name="Size" Type="int" />
+          <Property Name="Parth" Type="nvarchar" MaxLength="500" />
+          <Property Name="ParthThumbnail" Type="nvarchar" MaxLength="500" />
+          <Property Name="Type" Type="char" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProfilePrisoner">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="ProfileChildId" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Gender" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Birthday" Type="datetime" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="100" />
+          <Property Name="Relationship" Type="nvarchar" MaxLength="200" />
+          <Property Name="ProvinceId" Type="varchar" MaxLength="36" />
+          <Property Name="DistrictId" Type="varchar" MaxLength="36" />
+          <Property Name="WardId" Type="varchar" MaxLength="36" />
+          <Property Name="Address" Type="nvarchar" MaxLength="300" />
+          <Property Name="FullAddress" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="ProfileReporter">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="150" />
+          <Property Name="ProvinceId" Type="varchar" MaxLength="36" />
+          <Property Name="DistrictId" Type="varchar" MaxLength="36" />
+          <Property Name="WardId" Type="varchar" MaxLength="36" />
+          <Property Name="Address" Type="nvarchar" MaxLength="300" />
+          <Property Name="FullAddress" Type="nvarchar" MaxLength="500" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="100" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="Relationship" Type="nvarchar" MaxLength="200" />
+          <Property Name="Birthday" Type="datetime" />
+          <Property Name="Gender" Type="char" MaxLength="1" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Type" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="CreateBy" Type="varchar" MaxLength="36" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="UpdateBy" Type="varchar" MaxLength="36" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="ProfileChildId" Type="varchar" MaxLength="36" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Province">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Relationship">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="OrderNumber" Type="int" />
+        </EntityType>
+        <EntityType Name="Report">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="150" />
+          <Property Name="ProvinceId" Type="varchar" MaxLength="36" />
+          <Property Name="DistrictId" Type="varchar" MaxLength="36" />
+          <Property Name="WardId" Type="varchar" MaxLength="36" />
+          <Property Name="Address" Type="nvarchar" MaxLength="300" />
+          <Property Name="FullAddress" Type="nvarchar" MaxLength="500" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="100" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="Relationship" Type="nvarchar" MaxLength="200" />
+          <Property Name="Birthday" Type="datetime" />
+          <Property Name="Gender" Type="char" MaxLength="1" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Type" Type="char" MaxLength="1" />
+          <Property Name="Status" Type="char" MaxLength="1" />
+          <Property Name="CreateBy" Type="varchar" MaxLength="36" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="UpdateBy" Type="varchar" MaxLength="36" />
+          <Property Name="UpdateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Type" Type="int" Nullable="false" />
+          <Property Name="WardId" Type="varchar" MaxLength="36" />
+          <Property Name="DistrictId" Type="varchar" MaxLength="36" />
+          <Property Name="ProvinceId" Type="varchar" MaxLength="36" />
+          <Property Name="SecurityStamp" Type="nvarchar" MaxLength="32" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="HomeURL" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="150" />
+          <Property Name="Gender" Type="int" Nullable="false" />
+          <Property Name="Birthdate" Type="datetime" />
+          <Property Name="Email" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Phone" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="500" />
+          <Property Name="AvatarPath" Type="nvarchar" MaxLength="256" />
+          <Property Name="IsDisable" Type="bit" Nullable="false" />
+          <Property Name="CreateBy" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdateBy" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ward">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="DistrictId" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="Location" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK__District__Provin__276EDEB3">
+          <End Role="Province" Type="Self.Province" Multiplicity="1" />
+          <End Role="District" Type="Self.District" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Province">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="District">
+              <PropertyRef Name="ProvinceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ward__DistrictId__286302EC">
+          <End Role="District" Type="Self.District" Multiplicity="1" />
+          <End Role="Ward" Type="Self.Ward" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="District">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ward">
+              <PropertyRef Name="DistrictId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ReportAppModelStoreContainer">
+          <EntitySet Name="Child" EntityType="Self.Child" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ChildAbuse" EntityType="Self.ChildAbuse" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="District" EntityType="Self.District" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FileAttach" EntityType="Self.FileAttach" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FormsAbuse" EntityType="Self.FormsAbuse" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Prisoner" EntityType="Self.Prisoner" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProcessingContent" EntityType="Self.ProcessingContent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProfileChild" EntityType="Self.ProfileChild" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProfileChildAbuse" EntityType="Self.ProfileChildAbuse" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProfileFileAttach" EntityType="Self.ProfileFileAttach" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProfilePrisoner" EntityType="Self.ProfilePrisoner" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProfileReporter" EntityType="Self.ProfileReporter" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Province" EntityType="Self.Province" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Relationship" EntityType="Self.Relationship" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Report" EntityType="Self.Report" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ward" EntityType="Self.Ward" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__District__Provin__276EDEB3" Association="Self.FK__District__Provin__276EDEB3">
+            <End Role="Province" EntitySet="Province" />
+            <End Role="District" EntitySet="District" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ward__DistrictId__286302EC" Association="Self.FK__Ward__DistrictId__286302EC">
+            <End Role="District" EntitySet="District" />
+            <End Role="Ward" EntitySet="Ward" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ReportAppModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ReportAppEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Children" EntityType="ReportAppModel.Child" />
+          <EntitySet Name="ChildAbuses" EntityType="ReportAppModel.ChildAbuse" />
+          <EntitySet Name="Districts" EntityType="ReportAppModel.District" />
+          <EntitySet Name="FileAttaches" EntityType="ReportAppModel.FileAttach" />
+          <EntitySet Name="FormsAbuses" EntityType="ReportAppModel.FormsAbuse" />
+          <EntitySet Name="Prisoners" EntityType="ReportAppModel.Prisoner" />
+          <EntitySet Name="ProcessingContents" EntityType="ReportAppModel.ProcessingContent" />
+          <EntitySet Name="ProfileChilds" EntityType="ReportAppModel.ProfileChild" />
+          <EntitySet Name="ProfileChildAbuses" EntityType="ReportAppModel.ProfileChildAbuse" />
+          <EntitySet Name="ProfileFileAttaches" EntityType="ReportAppModel.ProfileFileAttach" />
+          <EntitySet Name="ProfilePrisoners" EntityType="ReportAppModel.ProfilePrisoner" />
+          <EntitySet Name="ProfileReporters" EntityType="ReportAppModel.ProfileReporter" />
+          <EntitySet Name="Provinces" EntityType="ReportAppModel.Province" />
+          <EntitySet Name="Relationships" EntityType="ReportAppModel.Relationship" />
+          <EntitySet Name="Reports" EntityType="ReportAppModel.Report" />
+          <EntitySet Name="Users" EntityType="ReportAppModel.User" />
+          <EntitySet Name="Wards" EntityType="ReportAppModel.Ward" />
+          <AssociationSet Name="FK__District__Provin__276EDEB3" Association="ReportAppModel.FK__District__Provin__276EDEB3">
+            <End Role="Province" EntitySet="Provinces" />
+            <End Role="District" EntitySet="Districts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ward__DistrictId__286302EC" Association="ReportAppModel.FK__Ward__DistrictId__286302EC">
+            <End Role="District" EntitySet="Districts" />
+            <End Role="Ward" EntitySet="Wards" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Child">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="ReportId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Birthday" Type="DateTime" Precision="3" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="Level" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="FullAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ProvinceId" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="DistrictId" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="WardId" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="DateAction" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="ChildAbuse">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="ChildId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="AbuseId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="AbuseName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="District">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="ProvinceId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Province" Relationship="ReportAppModel.FK__District__Provin__276EDEB3" FromRole="District" ToRole="Province" />
+          <NavigationProperty Name="Wards" Relationship="ReportAppModel.FK__Ward__DistrictId__286302EC" FromRole="District" ToRole="Ward" />
+        </EntityType>
+        <EntityType Name="FileAttach">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="ReportId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Size" Type="Int32" />
+          <Property Name="Parth" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ParthThumbnail" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="FormsAbuse">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="OrderNumber" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Prisoner">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="ReportId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Birthday" Type="DateTime" Precision="3" />
+          <Property Name="Phone" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Relationship" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ProvinceId" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="DistrictId" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="WardId" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="FullAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ProcessingContent">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="ProfileChildId" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="ProfileChildId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="Content" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProcessingDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ProcessingBy" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ProfileChild">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="InformationSources" Type="Int32" Nullable="false" />
+          <Property Name="ReceptionDate" Type="DateTime" Precision="3" />
+          <Property Name="ChildName" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="ChildBirthdate" Type="DateTime" Precision="3" />
+          <Property Name="Gender" Type="Int32" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="CaseLocation" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="WardId" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="DistrictId" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="ProvinceId" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="FullAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CurrentHealth" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="SequelGuess" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="FatherName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="FatherAge" Type="Int32" />
+          <Property Name="FatherJob" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="MotherName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="MotherAge" Type="Int32" />
+          <Property Name="MotherJob" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="FamilySituation" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="PeopleCare" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Support" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="ProviderName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ProviderPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProviderAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ProviderNote" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ProcessingStatus" Type="Int32" Nullable="false" />
+          <Property Name="SeverityLevel" Type="Int32" />
+          <Property Name="FinishDate" Type="DateTime" Precision="3" />
+          <Property Name="FinishNote" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ClosedDate" Type="DateTime" Precision="3" />
+          <Property Name="ClosedNote" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CreateBy" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="ReportId" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ProfileChildAbuse">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="ProfileChildId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="AbuseId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="AbuseName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ProfileFileAttach">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="ProfileChildId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Size" Type="Int32" />
+          <Property Name="Parth" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ParthThumbnail" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ProfilePrisoner">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="ProfileChildId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Birthday" Type="DateTime" Precision="3" />
+          <Property Name="Phone" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Relationship" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ProvinceId" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="DistrictId" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="WardId" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="FullAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ProfileReporter">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ProvinceId" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="DistrictId" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="WardId" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="FullAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Relationship" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Birthday" Type="DateTime" Precision="3" />
+          <Property Name="Gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="CreateBy" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="ProfileChildId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Province">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Districts" Relationship="ReportAppModel.FK__District__Provin__276EDEB3" FromRole="Province" ToRole="District" />
+        </EntityType>
+        <EntityType Name="Relationship">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="OrderNumber" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Report">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ProvinceId" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="DistrictId" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="WardId" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="FullAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Relationship" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Birthday" Type="DateTime" Precision="3" />
+          <Property Name="Gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="CreateBy" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="Int32" Nullable="false" />
+          <Property Name="WardId" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="DistrictId" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="ProvinceId" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="SecurityStamp" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordHash" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="HomeURL" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FullName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="Int32" Nullable="false" />
+          <Property Name="Birthdate" Type="DateTime" Precision="3" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="AvatarPath" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="IsDisable" Type="Boolean" Nullable="false" />
+          <Property Name="CreateBy" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdateBy" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Ward">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="DistrictId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="District" Relationship="ReportAppModel.FK__Ward__DistrictId__286302EC" FromRole="Ward" ToRole="District" />
+        </EntityType>
+        <Association Name="FK__District__Provin__276EDEB3">
+          <End Type="ReportAppModel.Province" Role="Province" Multiplicity="1" />
+          <End Type="ReportAppModel.District" Role="District" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Province">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="District">
+              <PropertyRef Name="ProvinceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ward__DistrictId__286302EC">
+          <End Type="ReportAppModel.District" Role="District" Multiplicity="1" />
+          <End Type="ReportAppModel.Ward" Role="Ward" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="District">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ward">
+              <PropertyRef Name="DistrictId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ReportAppModelStoreContainer" CdmEntityContainer="ReportAppEntities">
+          <EntitySetMapping Name="Children">
+            <EntityTypeMapping TypeName="ReportAppModel.Child">
+              <MappingFragment StoreEntitySet="Child">
+                <ScalarProperty Name="DateAction" ColumnName="DateAction" />
+                <ScalarProperty Name="WardId" ColumnName="WardId" />
+                <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
+                <ScalarProperty Name="ProvinceId" ColumnName="ProvinceId" />
+                <ScalarProperty Name="FullAddress" ColumnName="FullAddress" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ReportId" ColumnName="ReportId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ChildAbuses">
+            <EntityTypeMapping TypeName="ReportAppModel.ChildAbuse">
+              <MappingFragment StoreEntitySet="ChildAbuse">
+                <ScalarProperty Name="AbuseName" ColumnName="AbuseName" />
+                <ScalarProperty Name="AbuseId" ColumnName="AbuseId" />
+                <ScalarProperty Name="ChildId" ColumnName="ChildId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Districts">
+            <EntityTypeMapping TypeName="ReportAppModel.District">
+              <MappingFragment StoreEntitySet="District">
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ProvinceId" ColumnName="ProvinceId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FileAttaches">
+            <EntityTypeMapping TypeName="ReportAppModel.FileAttach">
+              <MappingFragment StoreEntitySet="FileAttach">
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="ParthThumbnail" ColumnName="ParthThumbnail" />
+                <ScalarProperty Name="Parth" ColumnName="Parth" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ReportId" ColumnName="ReportId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FormsAbuses">
+            <EntityTypeMapping TypeName="ReportAppModel.FormsAbuse">
+              <MappingFragment StoreEntitySet="FormsAbuse">
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Prisoners">
+            <EntityTypeMapping TypeName="ReportAppModel.Prisoner">
+              <MappingFragment StoreEntitySet="Prisoner">
+                <ScalarProperty Name="FullAddress" ColumnName="FullAddress" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="WardId" ColumnName="WardId" />
+                <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
+                <ScalarProperty Name="ProvinceId" ColumnName="ProvinceId" />
+                <ScalarProperty Name="Relationship" ColumnName="Relationship" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ReportId" ColumnName="ReportId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProcessingContents">
+            <EntityTypeMapping TypeName="ReportAppModel.ProcessingContent">
+              <MappingFragment StoreEntitySet="ProcessingContent">
+                <ScalarProperty Name="ProcessingBy" ColumnName="ProcessingBy" />
+                <ScalarProperty Name="ProcessingDate" ColumnName="ProcessingDate" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="ProfileChildId" ColumnName="ProfileChildId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProfileChilds">
+            <EntityTypeMapping TypeName="ReportAppModel.ProfileChild">
+              <MappingFragment StoreEntitySet="ProfileChild">
+                <ScalarProperty Name="ReportId" ColumnName="ReportId" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="ClosedNote" ColumnName="ClosedNote" />
+                <ScalarProperty Name="ClosedDate" ColumnName="ClosedDate" />
+                <ScalarProperty Name="FinishNote" ColumnName="FinishNote" />
+                <ScalarProperty Name="FinishDate" ColumnName="FinishDate" />
+                <ScalarProperty Name="SeverityLevel" ColumnName="SeverityLevel" />
+                <ScalarProperty Name="ProcessingStatus" ColumnName="ProcessingStatus" />
+                <ScalarProperty Name="ProviderNote" ColumnName="ProviderNote" />
+                <ScalarProperty Name="ProviderAddress" ColumnName="ProviderAddress" />
+                <ScalarProperty Name="ProviderPhone" ColumnName="ProviderPhone" />
+                <ScalarProperty Name="ProviderName" ColumnName="ProviderName" />
+                <ScalarProperty Name="Support" ColumnName="Support" />
+                <ScalarProperty Name="PeopleCare" ColumnName="PeopleCare" />
+                <ScalarProperty Name="FamilySituation" ColumnName="FamilySituation" />
+                <ScalarProperty Name="MotherJob" ColumnName="MotherJob" />
+                <ScalarProperty Name="MotherAge" ColumnName="MotherAge" />
+                <ScalarProperty Name="MotherName" ColumnName="MotherName" />
+                <ScalarProperty Name="FatherJob" ColumnName="FatherJob" />
+                <ScalarProperty Name="FatherAge" ColumnName="FatherAge" />
+                <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+                <ScalarProperty Name="SequelGuess" ColumnName="SequelGuess" />
+                <ScalarProperty Name="CurrentHealth" ColumnName="CurrentHealth" />
+                <ScalarProperty Name="FullAddress" ColumnName="FullAddress" />
+                <ScalarProperty Name="ProvinceId" ColumnName="ProvinceId" />
+                <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
+                <ScalarProperty Name="WardId" ColumnName="WardId" />
+                <ScalarProperty Name="CaseLocation" ColumnName="CaseLocation" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="ChildBirthdate" ColumnName="ChildBirthdate" />
+                <ScalarProperty Name="ChildName" ColumnName="ChildName" />
+                <ScalarProperty Name="ReceptionDate" ColumnName="ReceptionDate" />
+                <ScalarProperty Name="InformationSources" ColumnName="InformationSources" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProfileChildAbuses">
+            <EntityTypeMapping TypeName="ReportAppModel.ProfileChildAbuse">
+              <MappingFragment StoreEntitySet="ProfileChildAbuse">
+                <ScalarProperty Name="AbuseName" ColumnName="AbuseName" />
+                <ScalarProperty Name="AbuseId" ColumnName="AbuseId" />
+                <ScalarProperty Name="ProfileChildId" ColumnName="ProfileChildId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProfileFileAttaches">
+            <EntityTypeMapping TypeName="ReportAppModel.ProfileFileAttach">
+              <MappingFragment StoreEntitySet="ProfileFileAttach">
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="ParthThumbnail" ColumnName="ParthThumbnail" />
+                <ScalarProperty Name="Parth" ColumnName="Parth" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ProfileChildId" ColumnName="ProfileChildId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProfilePrisoners">
+            <EntityTypeMapping TypeName="ReportAppModel.ProfilePrisoner">
+              <MappingFragment StoreEntitySet="ProfilePrisoner">
+                <ScalarProperty Name="FullAddress" ColumnName="FullAddress" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="WardId" ColumnName="WardId" />
+                <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
+                <ScalarProperty Name="ProvinceId" ColumnName="ProvinceId" />
+                <ScalarProperty Name="Relationship" ColumnName="Relationship" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ProfileChildId" ColumnName="ProfileChildId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProfileReporters">
+            <EntityTypeMapping TypeName="ReportAppModel.ProfileReporter">
+              <MappingFragment StoreEntitySet="ProfileReporter">
+                <ScalarProperty Name="ProfileChildId" ColumnName="ProfileChildId" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="Relationship" ColumnName="Relationship" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="FullAddress" ColumnName="FullAddress" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="WardId" ColumnName="WardId" />
+                <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
+                <ScalarProperty Name="ProvinceId" ColumnName="ProvinceId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Provinces">
+            <EntityTypeMapping TypeName="ReportAppModel.Province">
+              <MappingFragment StoreEntitySet="Province">
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Relationships">
+            <EntityTypeMapping TypeName="ReportAppModel.Relationship">
+              <MappingFragment StoreEntitySet="Relationship">
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reports">
+            <EntityTypeMapping TypeName="ReportAppModel.Report">
+              <MappingFragment StoreEntitySet="Report">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="Relationship" ColumnName="Relationship" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="FullAddress" ColumnName="FullAddress" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="WardId" ColumnName="WardId" />
+                <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
+                <ScalarProperty Name="ProvinceId" ColumnName="ProvinceId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="ReportAppModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="IsDisable" ColumnName="IsDisable" />
+                <ScalarProperty Name="AvatarPath" ColumnName="AvatarPath" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Birthdate" ColumnName="Birthdate" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="HomeURL" ColumnName="HomeURL" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="ProvinceId" ColumnName="ProvinceId" />
+                <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
+                <ScalarProperty Name="WardId" ColumnName="WardId" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wards">
+            <EntityTypeMapping TypeName="ReportAppModel.Ward">
+              <MappingFragment StoreEntitySet="Ward">
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

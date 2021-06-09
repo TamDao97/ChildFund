@@ -1,0 +1,65 @@
+﻿@model IList<ChildProfiles.Model.Question.QuestionsModel>
+@{ string nameGroup = ViewBag.nameGroup; string id = "";}
+@foreach (var item in Model)
+{
+    id = Guid.NewGuid().ToString();
+<div class="row-question @nameGroup" id="row-question_@id">
+    <div class="row-question-child" id="row-question-child_@id">
+        <div class="col-md-10 col-sm-10 col-xs-10">
+            <div class="form-group">
+                <label class="text-success">Câu hỏi</label>
+                <div class="controls">
+                    <input type="text" value="@item.Contents" disabled placeholder="Nhập câu hỏi" class="form-control question-item" id="ques_@id">
+                    <input type="hidden" id="hid_@id" value="0" />
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 col-sm-2 col-xs-2">
+            <div class="form-group">
+                <label class="form-label">Loại câu hỏi</label>
+                <div class="controls">
+                    <select class="form-control question-item-type" disabled onchange="ChangeType('@id')" id="type_@id">
+                        <option value="0" @(item.Type.Equals("0") ? "selected" : "")>Trắc nghiệm</option>
+                        <option value="1" @(item.Type.Equals("1") ? "selected" : "")>Hộp kiểm</option>
+                        <option value="2" @(item.Type.Equals("2") ? "selected" : "")>Đoạn</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        @if (item.Type.Equals("2"))
+        {
+            <div class="col-md-12 col-sm-12 col-xs-12 list-answer" id="answer_@id">
+                <div class="form-group">
+                    <div class="controls">
+                        <input type="text" typeof="2" disabled class="form-control items-input-type3" />
+                    </div>
+                </div>
+            </div>
+        }
+        else
+        {
+            @Html.Action("GenListAnserDetail", "Question", new { model = new ChildProfiles.Model.Question.AnswerModelTemp { type = item.Type, idq = id, lstReult = item.ListAnswer } });
+        }
+
+    </div>
+    @*  <div class="col-md-12 col-sm-12 col-xs-12" id="add-item_@id" @(item.Type.Equals("2") ? "style=display:none" : "")>
+            <div class="form-group">
+                <a href="javascript:void(0)" onclick="AddAnswer('@id')">Thêm tùy chọn</a>
+                @if (item.Type.Equals("2"))
+                {
+                    <span id="sp_@id">hoặc</span>
+                    <a href="javascript:void(0)" id="taga_@id" onclick="AddOtherAnswer('@id')">Thêm khác</a>
+                }
+                else
+                {
+                    <span id="sp_@id" @(item.ListAnswer.Where(u => u.Type.Equals("1")).Count() > 0 ? "style=display:none" : "")>hoặc</span>
+                    <a @(item.ListAnswer.Where(u => u.Type.Equals("1")).Count() > 0 ? "style=display:none" : "") href="javascript:void(0)" id="taga_@id" onclick="AddOtherAnswer('@id')">Thêm khác</a>
+                }
+            </div>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12 text-right">
+            <button onclick="DeleteQuestion('@id')" type="button" class="btn btn-xs btnfuntion" title="Xóa câu hỏi"><i class="material-icons btnicon" style="color:red">delete</i></button>
+        </div>*@
+</div>
+}
+

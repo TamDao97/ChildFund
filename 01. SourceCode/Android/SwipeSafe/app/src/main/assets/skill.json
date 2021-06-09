@@ -1,0 +1,30 @@
+[
+//  {
+//    "Title": "Quy tắc 5 ngón tay' dạy trẻ tránh bị xâm hại",
+//    "SubTitle": "Cha mẹ có thể dạy con xác định được 5 nhóm người thường gặp trong cuộc sống hàng ngày, từ đó đưa ra định hướng giao tiếp phù hợp, giúp trẻ tránh bị lạm dụng, mua chuộc hay xâm hại tình dục...",
+//    "DateTime": "02 Mar 2018",
+//    "FileHTML": "file_quytac5ngon.html",
+//    "ImageThumbnail":"lib_5ngon"
+//  },
+  {
+    "Title": "6 kỹ năng phòng chống xâm hại trẻ em",
+    "SubTitle": "Hàng loạt các vụ cáo buộc xâm hại trẻ em gần đây là hồi chuông cảnh tỉnh cho các bậc cha mẹ và xã hội về việc bảo vệ trẻ em khỏi vấn nạn này. Sau đây là những kỹ năng phòng chống xâm hại trẻ em được các chuyên gia về giới tính và trẻ em khuyến nghị cha mẹ và nhà trường nên giáo dục cho trẻ...",
+    "DateTime": "02 Mar 2018",
+    "FileHTML": "file_6quytac.html",
+    "ImageThumbnail":"lib_6kynang"
+  },
+  {
+    "Title": "7 kỹ năng phòng tránh xâm hại trẻ em",
+    "SubTitle": "Những kỹ năng này có thể đơn giản nhưng cũng hiệu quả trong việc giúp trẻ tránh xa nguy hiểm khi cần thiết...",
+    "DateTime": "02 Mar 2018",
+    "FileHTML": "file_7kynang.html",
+    "ImageThumbnail":"lib_7kynang"
+  },
+  {
+    "Title": "Kỹ năng sống cần thiết cho trẻ",
+    "SubTitle": "Cha mẹ nào sinh con ra cũng mong con mình khỏe mạnh, thông minh và cố gắng tạo điều kiện tốt nhất để con phát triển. Tuy nhiên bên cạnh việc chăm sóc để con phát triển thể chất, dạy dỗ con để con học hành giỏi giang, nhiệm vụ giúp con định hướng, xây dựng và phát triển các kỹ năng sống cơ bản là không thể thiếu được...",
+    "DateTime": "02 Mar 2018",
+    "FileHTML": "file_kynangsong.html",
+    "ImageThumbnail":"lib_kynangsong"
+  }
+]

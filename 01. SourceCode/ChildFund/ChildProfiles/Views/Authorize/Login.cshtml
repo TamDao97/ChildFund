@@ -1,0 +1,33 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutAuthorize.cshtml";
+}
+<style>
+    ::placeholder {
+        color: #999999;
+        opacity: 1; /* Firefox */
+    }
+
+    :-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: #999999;
+    }
+
+    ::-ms-input-placeholder { /* Microsoft Edge */
+        color: #999999;
+    }
+</style>
+<div class="content">
+    <h2><img class="logo" src="/img/logo.png" /></h2>
+    <form id="login">
+        <div class="controls">
+            <input type="text" id="UserName" placeholder="Tên đăng nhập/Username" ntsvalidate="required">
+        </div>
+        <div class="controls">
+            <input type="password" id="Password" placeholder="Mật khẩu/Password" ntsvalidate="required">
+        </div>
+        <div class="aitssend">
+            <input type="button" id="btnLogin" value="ĐĂNG NHẬP/LOGIN">
+            <p id="forwardPassword" style="cursor:pointer;">Quên mật khẩu?<br />Forgot your password?</p>
+            <div class="clear"></div>
+        </div>
+    </form>
+</div>

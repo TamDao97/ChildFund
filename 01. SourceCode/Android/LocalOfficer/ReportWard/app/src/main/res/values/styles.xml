@@ -1,0 +1,233 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="BaseTheme"></style>
+
+
+    <!-- Base application theme. -->
+    <style name="BaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="TitleStyle">
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="ButtonStyle">
+        <item name="android:textSize">16dp</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="TitleLabel">
+        <item name="android:textColor">@color/grey_1000</item>
+        <item name="android:textSize">18dp</item>
+    </style>
+
+    <style name="SubTitleLabel">
+        <item name="android:textColor">@color/grey_40</item>
+        <item name="android:textSize">18dp</item>
+    </style>
+
+    <style name="LabelIcon">
+        <item name="android:textColor">@color/grey_90</item>
+        <item name="android:textSize">16dp</item>
+    </style>
+
+    <style name="LabelStyle">
+        <item name="android:textColor">@color/grey_40</item>
+        <item name="android:textSize">16dp</item>
+    </style>
+
+    <style name="LabelStyleRequired">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textColor">@color/grey_40</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:drawableRight">@drawable/ic_required</item>
+        <item name="android:drawablePadding">5dp</item>
+    </style>
+
+    <style name="LabelBlackStyle">
+        <item name="android:textColor">@color/grey_1000</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:layout_marginBottom">5dp</item>
+    </style>
+
+    <style name="ItemLabelTitleStyle">
+        <item name="android:textColor">@color/grey_1000</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="ItemLabelStyle">
+        <item name="android:textColor">@color/grey_40</item>
+        <item name="android:textSize">18dp</item>
+    </style>
+
+    <style name="ItemSubLabelStyle">
+        <item name="android:textColor">@color/grey_40</item>
+        <item name="android:textSize">16dp</item>
+    </style>
+
+    <style name="EditTextStyle">
+        <item name="android:textSize">18dp</item>
+        <item name="android:height">40dp</item>
+        <item name="android:textColor">@color/grey_1000</item>
+        <item name="android:backgroundTint">@color/grey_40</item>
+    </style>
+
+    <style name="TextareaTextStyle">
+        <item name="android:textSize">20dp</item>
+        <item name="android:textColor">@color/grey_1000</item>
+        <item name="android:backgroundTint">@color/grey_40</item>
+    </style>
+
+    <style name="LabelTextStyle">
+        <item name="android:textSize">16dp</item>
+        <item name="android:textColor">@color/grey_1000</item>
+        <item name="android:paddingTop">3dp</item>
+        <item name="android:paddingBottom">3dp</item>
+    </style>
+
+    <style name="DatePickerStyle">
+        <item name="android:textSize">18dp</item>
+        <item name="android:height">40dp</item>
+        <item name="android:textColor">@color/grey_1000</item>
+        <item name="android:backgroundTint">@color/grey_40</item>
+        <item name="android:drawableRight">@drawable/ic_date</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:inputType">none</item>
+        <item name="android:cursorVisible">false</item>
+        <item name="android:focusable">false</item>
+    </style>
+
+    <style name="TimePickerStyle">
+        <item name="android:textSize">18dp</item>
+        <item name="android:height">40dp</item>
+        <item name="android:textColor">@color/grey_1000</item>
+        <item name="android:backgroundTint">@color/grey_40</item>
+        <item name="android:drawableRight">@drawable/ic_time</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:inputType">none</item>
+        <item name="android:cursorVisible">false</item>
+        <item name="android:focusable">false</item>
+    </style>
+
+    <style name="SpinnerStyle">
+        <item name="android:textSize">18dp</item>
+        <item name="android:height">40dp</item>
+        <item name="android:textColor">@color/grey_1000</item>
+        <item name="android:backgroundTint">@color/grey_40</item>
+        <item name="android:drawableRight">@drawable/ic_arrow_drop_down</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:inputType">none</item>
+        <item name="android:cursorVisible">false</item>
+        <item name="android:focusable">false</item>
+    </style>
+
+    <style name="ChooseListStyle">
+        <item name="android:textSize">18dp</item>
+        <item name="android:height">40dp</item>
+        <item name="android:textColor">@color/grey_40</item>
+        <item name="android:backgroundTint">@color/grey_40</item>
+        <item name="android:drawableRight">@drawable/ic_view_list</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:inputType">none</item>
+        <item name="android:cursorVisible">false</item>
+        <item name="android:focusable">false</item>
+    </style>
+
+    <style name="SwitchStyle">
+        <item name="android:textSize">18dp</item>
+        <item name="android:height">40dp</item>
+        <item name="android:textColor">@color/grey_1000</item>
+        <item name="android:backgroundTint">@color/grey_40</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:inputType">none</item>
+        <item name="android:cursorVisible">false</item>
+        <item name="android:focusable">false</item>
+    </style>
+
+    <!--style for ripple library-->
+    <style name="RippleStyleWhite">
+        <item name="mrl_rippleOverlay">true</item>
+        <item name="mrl_rippleColor">#ffff</item>
+        <item name="mrl_rippleHover">true</item>
+        <item name="mrl_rippleAlpha">0.8</item>
+    </style>
+
+    <style name="RippleStyleBlack" parent="RippleStyleWhite">
+        <item name="mrl_rippleColor">#8096989A</item>
+        <item name="mrl_rippleOverlay">true</item>
+        <item name="mrl_rippleHover">true</item>
+        <item name="mrl_rippleAlpha">0.2</item>
+    </style>
+
+    <style name="Logout">
+        <item name="android:layout_marginTop">190dp</item>
+        <item name="android:layout_marginRight">20dp</item>
+        <item name="android:paddingLeft">5dp</item>
+    </style>
+
+    <style name="notity_menu_fragment">
+        <item name="android:layout_marginLeft">130dp</item>
+        <item name="android:layout_marginTop">15dp</item>
+        <item name="android:textSize">15dp</item>
+    </style>
+
+    <style name="DialogTheme">
+        <item name="android:windowEnterAnimation">@anim/slide_left</item>
+        <item name="android:windowExitAnimation">@anim/slide_right</item>
+    </style>
+
+    <style name="Button_Title">
+        <item name="android:textSize">20dp</item>
+        <item name="android:textColor">#ffffff</item>
+    </style>
+
+    <style name="Login">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="TextForgotPassword">
+        <item name="android:textSize">14dp</item>
+        <item name="android:textColor">#2962FF</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextSize">
+        <item name="android:textSize">14dp</item>
+    </style>
+
+    <style name="TextSizeHeader">
+        <item name="android:textSize">16dp</item>
+    </style>
+
+    <style name="SearchButtonStatic">
+        <item name="android:layout_height">30dp</item>
+    </style>
+
+    <style name="TextHeadingDetail">
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingLeft">15dp</item>
+        <item name="android:textSize">14dp</item>
+    </style>
+    <style name="LabelFilterStyle">
+        <item name="android:textSize">16dp</item>
+    </style>
+</resources>

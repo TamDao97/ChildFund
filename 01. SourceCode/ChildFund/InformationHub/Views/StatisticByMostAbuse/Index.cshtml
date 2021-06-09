@@ -1,0 +1,157 @@
+﻿@{
+    ViewBag.Title = @InformationHub.Resource.Resource.ReportProfile_MostAbuse;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var dateTimeNow = DateTime.Now;
+}
+
+<section class="wrapper main-wrapper">
+    <div ui-view="" class="ng-scope">
+        <div class="content-wrapper">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <section class="box collapsed">
+                    <header class="panel_header">
+                        <h2 class="title pull-left">@InformationHub.Resource.Resource.Search_Title</h2>
+                        <div class="actions panel_actions pull-right">
+                            <i class="box_toggle material-icons">expand_more</i>
+                        </div>
+                    </header>
+                    <div class="content-body padding-bottom-10">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                        <div class="form-group">
+                                            <div class="controls">
+                                                <label class="form-label">@InformationHub.Resource.Resource.DayFrom_Title</label>
+                                                <input placeholder="@InformationHub.Resource.Resource.Label_Date" id="dateFromSearch" type="text" class="form-control datepicker" value="01/01/@dateTimeNow.Year">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                        <div class="form-group">
+                                            <label class="form-label">@InformationHub.Resource.Resource.DayTo_Title</label>
+                                            <div class="controls">
+                                                <input placeholder="@InformationHub.Resource.Resource.Label_Date" id="dateToSearch" type="text" class="form-control datepicker" value="@dateTimeNow.ToString("dd/MM/yyyy")">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-6 text-right">
+                                <div class="form-group margin-top-20">
+                                    <button onclick="Search()" class="btn btn-success btn-icon right10">
+                                        <i class="fa fa-search"></i> &nbsp; <span>@InformationHub.Resource.Resource.Search_Title</span>
+                                    </button>
+                                    <button onclick="Refresh()" class="btn btn-default btn-icon">
+                                        <i class="fa fa-refresh"></i> &nbsp; <span>@InformationHub.Resource.Resource.Reset_Title</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div class="col-lg-12 col-md-12">
+            <section class="box ">
+                <header class="panel_header">
+                    <h2 class="title pull-left">
+                        @InformationHub.Resource.Resource.GroupUser_Type_Province
+                    </h2>
+                    <div class="actions panel_actions pull-right">
+                        <i class="box_toggle material-icons">expand_more</i>
+                    </div>
+                </header>
+                <div class="content-body padding-bottom-10">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>@InformationHub.Resource.Resource.ReportProfile_MostArea_AbuseType</th>
+                                        <th class="text-center">@InformationHub.Resource.Resource.Abuse_Type_01</th>
+                                        <th class="text-center">@InformationHub.Resource.Resource.Abuse_Type_02</th>
+                                        <th class="text-center">@InformationHub.Resource.Resource.Abuse_Type_03</th>
+                                        <th class="text-center">@InformationHub.Resource.Resource.Abuse_Type_04</th>
+                                        <th class="text-center">@InformationHub.Resource.Resource.Other_Type</th>
+                                        <th class="text-center">@InformationHub.Resource.Resource.Count_Title</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="province_table"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="col-lg-12 col-md-12">
+            <section class="box ">
+                <header class="panel_header">
+                    <h2 class="title pull-left">
+                        @InformationHub.Resource.Resource.GroupUser_Type_District
+                    </h2>
+                    <div class="actions panel_actions pull-right">
+                        <i class="box_toggle material-icons">expand_more</i>
+                    </div>
+                </header>
+                <div class="content-body padding-bottom-10">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>@InformationHub.Resource.Resource.ReportProfile_MostArea_AbuseType</th>
+                                        <th class="text-center">@InformationHub.Resource.Resource.Abuse_Type_01</th>
+                                        <th class="text-center">@InformationHub.Resource.Resource.Abuse_Type_02</th>
+                                        <th class="text-center">@InformationHub.Resource.Resource.Abuse_Type_03</th>
+                                        <th class="text-center">@InformationHub.Resource.Resource.Abuse_Type_04</th>
+                                        <th class="text-center">@InformationHub.Resource.Resource.Other_Type</th>
+                                        <th class="text-center">@InformationHub.Resource.Resource.Count_Title</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="district_table"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="col-lg-12 col-md-12">
+            <section class="box ">
+                <header class="panel_header">
+                    <h2 class="title pull-left">
+                        @InformationHub.Resource.Resource.GroupUser_Type_Ward
+                    </h2>
+                    <div class="actions panel_actions pull-right">
+                        <i class="box_toggle material-icons">expand_more</i>
+                    </div>
+                </header>
+                <div class="content-body padding-bottom-10">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>@InformationHub.Resource.Resource.ReportProfile_MostArea_AbuseType</th>
+                                        <th class="text-center">@InformationHub.Resource.Resource.Abuse_Type_01</th>
+                                        <th class="text-center">@InformationHub.Resource.Resource.Abuse_Type_02</th>
+                                        <th class="text-center">@InformationHub.Resource.Resource.Abuse_Type_03</th>
+                                        <th class="text-center">@InformationHub.Resource.Resource.Abuse_Type_04</th>
+                                        <th class="text-center">@InformationHub.Resource.Resource.Other_Type</th>
+                                        <th class="text-center">@InformationHub.Resource.Resource.Count_Title</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="ward_table"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</section>
+
+<script src="~/ScriptControllers/StatisticByMostAbuseController.js"></script>
+<script>
+    window.onload = Search();
+</script>

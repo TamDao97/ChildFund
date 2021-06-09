@@ -1,0 +1,26 @@
+﻿@model SwipeSafe.Model.ProfileReport.ProfileChildSearchResult
+    @{   var dateView = "";}
+<ul class="timeline">
+    @for (int i = 0; i < Model.ListProcessingContent.Count; i++)
+    {
+        dateView = Model.ListProcessingContent[i].ProcessingDate.ToString("dd/MM/yyyy HH:mm");
+        <li class="@(i%2==0?"":"timeline-inverted")">
+            <div class="timeline-badge animated fadeIn"><i class="material-icons">autorenew</i></div>
+            <div class="timeline-panel animated fadeIn">
+                <div class="timeline-time @(i%2==0?"pull-right":"pull-left")">
+                    @dateView
+                </div>
+                <div class="clearfix"></div>
+                <div class="timeline-heading margin-top-10">
+                    <a>@Model.ListProcessingContent[i].ProcessingBy</a>
+                </div>
+                <div class="timeline-body">
+                    @*<p class="date">Ngày tạo: 17/12/2018</p>
+                        <p style="font-size:12px;">Bước xử lý: Chưa xử lý</p>*@
+                    <p style="font-size:12px;">@Model.ListProcessingContent[i].Content</p>
+                </div>
+            </div>
+        </li>
+    }
+    
+</ul>

@@ -1,0 +1,24 @@
+﻿@model  IList<InformationHub.Model.StatisticModels.StatisticByProcessingModel>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th width="300px">Tình trạng xử lý</th>
+            <th class="text-center">Thể chất</th>
+            <th class="text-center">Tình dục</th>
+            <th class="text-center">Tinh thần</th>
+            <th class="text-center">Xao nhãng</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+            {
+            <tr>
+                <td>@item.StatusView</td>
+                <td class="text-center">@item.Count1</td>
+                <td class="text-center">@item.Count2</td>
+                <td class="text-center">@item.Count3</td>
+                <td class="text-center">@item.Count4</td>
+            </tr>
+        }
+    </tbody>
+</table>

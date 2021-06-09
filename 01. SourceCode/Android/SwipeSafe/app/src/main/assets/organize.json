@@ -1,0 +1,47 @@
+[
+  {
+    "Name": "Cục trẻ em ",
+    "Website": "http://treem.gov.vn/",
+    "Icon": "ic_web_treem"
+  },
+  {
+    "Name": "Hội Bảo vệ quyền trẻ em Việt Nam",
+    "Website": "http://treemviet.vn/",
+    "Icon": "ic_web_treemviet"
+  },
+  {
+    "Name": "UNICEF",
+    "Website": "https://www.unicef.org/vietnam/vi",
+    "Icon": "ic_web_unicef"
+  },
+  {
+    "Name": "ChildFund",
+    "Website": "http://www.childfund.org.vn/vi",
+    "Icon": "ic_web_childfund"
+  },
+  {
+    "Name": "Plan International",
+    "Website": "https://plan-international.org/vietnam",
+    "Icon": "ic_web_plan_international"
+  },
+  {
+    "Name": "World Vision",
+    "Website": "https://www.wvi.org/vi/vi%E1%BB%87t-nam",
+    "Icon": "ic_web_world_vision"
+  },
+  {
+    "Name": "Save the Children",
+    "Website": "https://vietnam.savethechildren.net/",
+    "Icon": "ic_web_save_children"
+  },
+  {
+    "Name": "Hagar International",
+    "Website": "https://hagarinternational.org/vietnam/",
+    "Icon": "ic_web_hagar_international"
+  },
+  {
+    "Name": "Good Neighbors ",
+    "Website": "http://goodneighbors.vn/",
+    "Icon": "ic_web_good_neighbors"
+  }
+]

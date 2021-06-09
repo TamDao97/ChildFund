@@ -1,0 +1,187 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="wrapper main-wrapper">
+    <div ui-view="" class="ng-scope">
+        <div class="content-wrapper">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <section class="box ">
+                    <header class="panel_header">
+                        <h2 class="title pull-left">Hồ sơ trẻ em năm 2018</h2>
+                        <div class="actions panel_actions pull-right">
+                            <i class="box_toggle material-icons">expand_more</i>
+                        </div>
+                    </header>
+                    <div class="content-body padding-bottom-0">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                <div class="tile-counter bg-warning">
+                                    <div class="content">
+                                        <i class="fa fa-meh-o icon-lg"></i>
+                                        <h2 count-to="1001" value="0" duration="5" class="number_counter ng-scope">70</h2>
+                                        <div class="clearfix"></div>
+                                        <span>Hồ sơ trẻ chờ duyệt</span>
+
+                                        <div class="progress ng-isolate-scope margin-top-5" value="40">
+                                            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" aria-valuetext="40%" aria-labelledby="progressbar" style="min-width: 0px; width: 40%;" ng-transclude=""></div>
+                                        </div>
+                                        <span>Tăng 40% so năm 2017</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                <div class="tile-counter bg-info">
+                                    <div class="content">
+                                        <i class="fa fa-child icon-lg"></i>
+                                        <h2 count-to="1001" value="0" duration="5" class="number_counter ng-scope">50</h2>
+                                        <div class="clearfix"></div>
+                                        <span>Hồ sơ trẻ cập nhật</span>
+
+                                        <div class="progress ng-isolate-scope margin-top-5" value="40">
+                                            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" aria-valuetext="60%" aria-labelledby="progressbar" style="min-width: 0px; width: 60%;" ng-transclude=""></div>
+                                        </div>
+                                        <span>Tăng 60% so năm 2017</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                <div class="tile-counter bg-secondary">
+                                    <div class="content">
+                                        <i class="fa fa-user icon-lg"></i>
+                                        <h2 count-to="1601" value="100" duration="5" class="number_counter ng-scope">10</h2>
+                                        <div class="clearfix"></div>
+                                        <span>Hồ sơ trẻ đã được duyệt</span>
+
+                                        <div class="progress ng-isolate-scope margin-top-5" value="40">
+                                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" aria-valuetext="80%" aria-labelledby="progressbar" style="min-width: 0px; width: 80%;" ng-transclude=""></div>
+                                        </div>
+                                        <span>Giảm 80% so năm 2017</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 no-padding">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <section class="box ">
+                        <header class="panel_header">
+                            <h2 class="title pull-left">Hồ sơ trẻ chờ duyệt</h2>
+                            <div class="actions panel_actions pull-right">
+                                <i class="box_toggle material-icons">expand_more</i>
+                            </div>
+                        </header>
+                        <div class="content-body padding-bottom-0">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    @*<div class="title  margin-top-10 margin-bottom-10">
+                                    <div class="pull-right">
+                                        <a href="/home/tiepnhan"> <button type="button" class="btn btn-primary"><i class="fa fa-list-ul"></i></button></a>
+                                    </div>
+                                </div>*@
+                                    <div class="ps-project-tasks margin-bottom-10" style="height:auto;">
+                                        <div class="task"><span class="label label-accent">09:30</span> &nbsp; Nguyễn Văn A - xã Phú Trung, huyện Cao Phong, tỉnh Cao Bằng</div>
+                                        <div class="task"><span class="label label-primary">11:30</span> &nbsp; Lê Thị B - xã Phú Minh, Huyện Sơn Lương, tỉnh Sơn La</div>
+                                        <div class="task"><span class="label label-accent">16:30</span> &nbsp; Trần Minh E - xã Phú Nam, huyện Hà Hương, tỉnh Hà Nam</div>
+                                        <div class="task"><span class="label label-accent">18:30</span> &nbsp; Nguyễn Văn A - xã Phú Trung, huyện Phú Quốc, tỉnh Kiên Giang</div>
+                                        <div class="task"><span class="label label-primary">19:30</span> &nbsp; Lê Thị B - xã Phú Minh, huyện Sơn Nam, tỉnh Phú Thọ</div>
+                                        <div class="task"><span class="label label-accent">20:00</span> &nbsp; Nguyễn Văn A - xã Phú Trung, huyện Hà Trung, tỉnh Thanh Hóa</div>
+                                        <div class="task"><span class="label label-warning">21:00</span> &nbsp; Trần Minh E - xã Phú Nam, huyện Nam Hà, tỉnh Hà Nam</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <section class="box ">
+                        <header class="panel_header">
+                            <h2 class="title pull-left">Hồ sơ trẻ cập nhật</h2>
+                            <div class="actions panel_actions pull-right">
+                                <i class="box_toggle material-icons">expand_more</i>
+                            </div>
+                        </header>
+                        <div class="content-body padding-bottom-0">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div wheel-propagation="true" suppress-scroll-x="true" min-scrollbar-length="20" class="ps-project-tasks ps-container ps-active-y margin-bottom-10" style="height:auto;">
+                                        <div ng-transclude="">
+                                            <div class="task"><span class="label label-accent">09:30</span> &nbsp; Nguyễn Văn A - xã Phú Trung, huyện Cao Phong, tỉnh Cao Bằng</div>
+                                            <div class="task"><span class="label label-primary">11:30</span> &nbsp; Lê Thị B - xã Phú Minh, Huyện Sơn Lương, tỉnh Sơn La</div>
+                                            <div class="task"><span class="label label-accent">16:30</span> &nbsp; Trần Minh E - xã Phú Nam, huyện Hà Hương, tỉnh Hà Nam</div>
+                                            <div class="task"><span class="label label-accent">18:30</span> &nbsp; Nguyễn Văn A - xã Phú Trung, huyện Phú Quốc, tỉnh Kiên Giang</div>
+                                            <div class="task"><span class="label label-primary">19:30</span> &nbsp; Lê Thị B - xã Phú Minh, huyện Sơn Nam, tỉnh Phú Thọ</div>
+                                            <div class="task"><span class="label label-accent">20:00</span> &nbsp; Nguyễn Văn A - xã Phú Trung, huyện Hà Trung, tỉnh Thanh Hóa</div>
+                                            <div class="task"><span class="label label-warning">21:00</span>&nbsp; Trần Minh E - xã Phú Nam, huyện Nam Hà, tỉnh Hà Nam</div>
+                                            <div class="task"><span class="label label-accent">18:30</span> &nbsp; Nguyễn Văn A - xã Phú Trung, huyện Phú Quốc, tỉnh Kiên Giang</div>
+                                            <div class="task"><span class="label label-primary">19:30</span> &nbsp; Lê Thị B - xã Phú Minh, huyện Sơn Nam, tỉnh Phú Thọ</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-6 col-sm-6 col-xs-6 no-padding">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <section class="box ">
+                        <header class="panel_header">
+                            <h2 class="title pull-left">Thống kê hồ sơ trẻ em đang được hỗ trợ</h2>
+                            <div class="actions panel_actions pull-right">
+                                <i class="box_toggle material-icons">expand_more</i>
+                            </div>
+                        </header>
+                        <div class="content-body padding-bottom-0">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div id="thongkeHS" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <table class="table table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th rowspan="2" style="vertical-align:middle">Tiêu chí</th>
+                                                <th colspan="4" class="text-center">Giáo dục</th>
+                                                <th colspan="2" class="text-center">Giới tính</th>
+                                                <th colspan="2" class="text-center">Dân tộc</th>
+                                            </tr>
+                                            <tr>
+                                                <th width="130px" class="text-center">Không đi học</th>
+                                                <th width="130px" class="text-center">Trẻ mầm non</th>
+                                                <th width="130px" class="text-center">Học tiểu học</th>
+                                                <th width="130px" class="text-center">Học trung học</th>
+                                                <th width="120px" class="text-center">Nam</th>
+                                                <th width="120px" class="text-center">Nữ</th>
+                                                <th width="120px" class="text-center">Kinh</th>
+                                                <th width="120px" class="text-center">Tiểu số</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Số lượng (Hồ sơ)</td>
+                                                <td class="text-center">10</td>
+                                                <td class="text-center">5</td>
+                                                <td class="text-center">26</td>
+                                                <td class="text-center">10</td>
+                                                <td class="text-center">5</td>
+                                                <td class="text-center">2</td>
+                                                <td class="text-center">1</td>
+                                                <td class="text-center">18</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                </div>
+            </div>
+        </div>
+</section>

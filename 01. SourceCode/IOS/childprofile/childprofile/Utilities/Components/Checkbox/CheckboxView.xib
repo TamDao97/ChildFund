@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CheckboxView" customModule="childprofile" customModuleProvider="target">
+            <connections>
+                <outlet property="imageView" destination="fwz-K7-ohB" id="U06-Xh-JSw"/>
+                <outlet property="titleLabel" destination="RpB-fr-e5s" id="Lq7-kY-3Mc"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="164" height="25"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RpB-fr-e5s">
+                    <rect key="frame" x="33" y="12.5" width="123" height="0.0"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unselected_checkbox" translatesAutoresizingMaskIntoConstraints="NO" id="fwz-K7-ohB">
+                    <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="25" id="TN6-7k-gIs"/>
+                        <constraint firstAttribute="height" constant="25" id="dxJ-vM-yek"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hj0-qr-N0Z">
+                    <rect key="frame" x="0.0" y="0.0" width="164" height="25"/>
+                    <connections>
+                        <action selector="toggleButtonWasTouched:" destination="-1" eventType="touchUpInside" id="UAe-k4-w1d"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="hj0-qr-N0Z" secondAttribute="bottom" id="00t-y2-Psi"/>
+                <constraint firstAttribute="bottom" secondItem="hj0-qr-N0Z" secondAttribute="bottom" id="17N-vA-RVf"/>
+                <constraint firstItem="fwz-K7-ohB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="2Qf-8p-KTm"/>
+                <constraint firstItem="hj0-qr-N0Z" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="B7L-YO-aF0"/>
+                <constraint firstItem="hj0-qr-N0Z" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="QgP-vO-ZV1"/>
+                <constraint firstItem="fwz-K7-ohB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Z0c-Me-1Be"/>
+                <constraint firstAttribute="trailing" secondItem="hj0-qr-N0Z" secondAttribute="trailing" id="e1J-nY-vbf"/>
+                <constraint firstItem="RpB-fr-e5s" firstAttribute="centerY" secondItem="fwz-K7-ohB" secondAttribute="centerY" id="jOf-Rf-U3o"/>
+                <constraint firstItem="RpB-fr-e5s" firstAttribute="leading" secondItem="fwz-K7-ohB" secondAttribute="trailing" constant="8" id="mqI-Jk-X0j"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="RpB-fr-e5s" secondAttribute="trailing" constant="8" id="osA-1P-S2o"/>
+                <constraint firstItem="hj0-qr-N0Z" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="x3V-87-Ruw"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="-14.4" y="-2.2488755622188905"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="unselected_checkbox" width="180" height="180"/>
+    </resources>
+</document>

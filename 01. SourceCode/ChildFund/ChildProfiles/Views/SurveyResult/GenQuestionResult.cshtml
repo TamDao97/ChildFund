@@ -1,0 +1,32 @@
+﻿@model IList<ChildProfiles.Model.Question.QuestionsModel>
+@{ string nameGroup = ViewBag.nameGroup; string id = "";}
+@foreach (var item in Model)
+{
+    id = Guid.NewGuid().ToString();
+    <div class="row-question @nameGroup" id="row-question_@id">
+        <div class="row-question-child" id="row-question-child_@id">
+            <div class="col-md-10 col-sm-10 col-xs-10">
+                <div class="form-group">
+                    <label class="text-success">Câu hỏi</label>
+                    <div class="controls">
+                        <input disabled type="text" value="@item.Contents" placeholder="Nhập câu hỏi" class="form-control question-item" id="ques_@id">
+                    </div>
+                </div>
+            </div>
+            @if (item.Type.Equals("2"))
+            {
+                <div class="col-md-12 col-sm-12 col-xs-12 list-answer" id="answer_@id">
+                    <div class="form-group">
+                        <div class="controls">
+                            <input type="text" typeof="2" disabled class="form-control" />
+                        </div>
+                    </div>
+                </div>
+            }
+            else
+            {
+                @Html.Action("GenListAnswerResult", "SurveyResult", new { model = new ChildProfiles.Model.Question.AnswerModelTemp { type = item.Type, idq = id, lstReult = item.ListAnswer } });
+            }
+        </div>
+    </div>
+}

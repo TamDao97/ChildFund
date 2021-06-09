@@ -1,0 +1,217 @@
+﻿@model InformationHub.Model.UserModels.UserModel
+@{
+    ViewBag.Title = InformationHub.Resource.Resource.User_Update_Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="wrapper main-wrapper">
+    <div ui-view="" class="ng-scope">
+        <div class="content-wrapper">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <section class="box ">
+                    <header class="panel_header">
+                        <h2 class="title pull-left">@InformationHub.Resource.Resource.User_Info</h2>
+                        <div class="actions panel_actions pull-right">
+                            <i class="box_toggle material-icons">expand_more</i>
+                        </div>
+                    </header>
+                    <div class="content-body padding-bottom-10">
+                        <div class="row">
+                            <div class="col-md-9 col-sm-9 col-xs-9 no-padding">
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <div class="form-group">
+                                        <label class="form-label">@InformationHub.Resource.Resource.User_Acc</label>&nbsp;<span class="required">*</span>
+
+                                        <div class="controls">
+                                            <input type="text" class="form-control" id="UserName" value="@Model.UserName">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <div class="form-group">
+                                        <label class="form-label">@InformationHub.Resource.Resource.Label_Name</label>&nbsp;<span class="required">*</span>
+
+                                        <div class="controls">
+                                            <input type="text" class="form-control" id="FullName" value="@Model.FullName">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <div class="form-group">
+                                        <label class="form-label">@InformationHub.Resource.Resource.Label_Birthday</label>
+
+                                        @if (Model.Birthdate != null)
+                                        {
+                                            <div class="controls">
+                                                <input type="text" class="form-control datepicker" id="Birthdate" value="@Model.Birthdate.Value.ToString("dd/MM/yyyy")">
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <div class="controls">
+                                                <input type="text" class="form-control datepicker" id="Birthdate">
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <div class="form-group">
+                                        <label class="form-label">@InformationHub.Resource.Resource.ReportProfile_Gender</label>&nbsp;<span class="required">*</span>
+                                        <div class="controls">
+                                            <label class="icheck icheck-primary">
+                                                <input type="radio" value="1" name="gender" id="male">
+                                                <i></i> @InformationHub.Resource.Resource.ReportProfile_Male
+                                            </label>&nbsp;
+                                            <label class="icheck icheck-accent">
+                                                <input type="radio" value="0" name="gender" id="female" >
+                                                <i></i>@InformationHub.Resource.Resource.ReportProfile_FeMale
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <div class="form-group">
+                                        <label class="form-label">@InformationHub.Resource.Resource.Label_Email</label>&nbsp;<span class="required">*</span>
+
+                                        <div class="controls">
+                                            <input type="text" class="form-control" id="Email" maxlength="50" value="@Model.Email">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <div class="form-group">
+                                        <label class="form-label">@InformationHub.Resource.Resource.Phone_Title</label>
+
+                                        <div class="controls">
+                                            <input type="text" class="form-control"  maxlength="15" id="Phone" value="@Model.Phone">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                    <div class="form-group">
+                                        <label class="form-label">@InformationHub.Resource.Resource.ReportProfile_Address</label>
+
+                                        <div class="controls">
+                                            <input type="text" class="form-control" id="Address" value="@Model.Address">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3">
+                                    <div class="form-group">
+                                        <label class="form-label">@InformationHub.Resource.Resource.User_Type</label>&nbsp;<span class="required">*</span>
+                                        <div class="controls">
+                                            <select class="form-control" id="Type" value="@Model.Type">
+                                                <option selected value="0">@InformationHub.Resource.Resource.GroupUser_Type_Admin</option>
+                                                <option value="1">@InformationHub.Resource.Resource.GroupUser_Type_Province</option>
+                                                <option value="2">@InformationHub.Resource.Resource.GroupUser_Type_District</option>
+                                                <option value="3">@InformationHub.Resource.Resource.GroupUser_Type_Ward</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3" id="provinceCBB">
+                                    <div class="form-group">
+                                        <label class="form-label">@InformationHub.Resource.Resource.Area_Province</label>
+                                        <select class="form-control" id="provinceId" onchange="GetDistrict()">
+                                            @Html.Action("ProvinceCBB", "Combobox")
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3" id="districtCBB">
+                                    <div class="form-group">
+                                        <label class="form-label">@InformationHub.Resource.Resource.Label_District</label>
+                                        <select class="form-control" id="districtId" onchange="GetWard()"></select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-3" id="wardCBB">
+                                    <div class="form-group">
+                                        <label class="form-label">@InformationHub.Resource.Resource.Label_Ward</label>
+                                        <select class="form-control" id="wardId"></select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-3 no-padding">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="form-group">
+                                        <label class="form-label">@InformationHub.Resource.Resource.Label_Avatar</label>
+
+                                        <div class="controls text-center">
+                                            <div class="row">
+                                                <button type="button" class="btn btn-success btn-s" onclick="uploadUpdateUserImage()">
+                                                    <span class="glyphicon glyphicon-upload"></span> @InformationHub.Resource.Resource.Label_Upload
+                                                </button>
+                                                <button type="button" class="btn btn-danger btn-s" onclick="clearUpdateUserImage()">
+                                                    <span class="glyphicon glyphicon-trash"></span> @InformationHub.Resource.Resource.Delete_Title
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <input type="file" accept="image/*" id="FileUpdateUserUpload" style="display:none" />
+                                        <div class="controls text-center margin-top-10">
+                                            <img id="imgUpdateUserPreview" src="" style="max-height:128px;max-width:128px">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <section class="box margin-top-20">
+                    <header class="panel_header">
+                        <h2 class="title pull-left">@InformationHub.Resource.Resource.GroupUser_Permission_Acc</h2>
+                        <div class="actions panel_actions pull-right">
+                            <i class="box_toggle material-icons">expand_more</i>
+                        </div>
+                    </header>
+                    <div class="content-body padding-bottom-0">
+                        <div class="row margin-bottom-5">
+                            <div class="col-md-6 col-sm-6 col-xs-6 text-left">
+                                <div class="col-md-3 col-sm-4 col-xs-4 no-padding">
+                                    <label class="form-label padding-top-10">@InformationHub.Resource.Resource.GroupUser_Group</label>&nbsp;<span class="required">*</span>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-6 no-padding">
+                                    <div class="form-group">
+                                        <select class="form-control" id="groupUserId" onchange="GetListPermission()" value="@Model.GroupUserId"></select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-6 text-right">
+                                <h4>
+                                    @InformationHub.Resource.Resource.Total_Title <b class="badge badge-primary" id="count_data"></b> @InformationHub.Resource.Resource.GroupUser
+                                </h4>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="margin-bottom-10" id="list_data">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12 text-right">
+                                <div class="form-group margin-bottom-10 ">
+                                    <button type="button" onclick="Update()" class="btn btn-primary" id="btn-create">
+                                        <i class="glyphicon glyphicon-floppy-save"></i> @InformationHub.Resource.Resource.Save_Title
+                                    </button>
+                                    <a class="btn btn-default btn-icon" href="/user/index">
+                                        <i class="fa fa-power-off"></i> &nbsp; <span>@InformationHub.Resource.Resource.Exit_Title</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="~/Scripts/controller/UpdateUserController.js"></script>
+<script>
+    $('#imgUpdateUserPreview').attr("src", "@Model.AvatarPath");
+    $('#count_data').html(@ViewBag.TotalItem);
+    $("input[name=gender][value=" + @Model.Gender.ToString() + "]").prop('checked', true);
+    window.onload = InitModel('@Model.Type', '@Model.GroupUserId', '@Model.ProvinceId', '@Model.DistrictId', '@Model.WardId', '@Model.Id');
+</script>

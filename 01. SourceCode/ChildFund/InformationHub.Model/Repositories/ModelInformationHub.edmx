@@ -1,0 +1,2101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="InformationHubModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AbuseType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Note" Type="nvarchar" MaxLength="500" />
+          <Property Name="OrderNumber" Type="int" Nullable="false" />
+          <Property Name="ThenNumber" Type="int" />
+        </EntityType>
+        <EntityType Name="ActivityLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="UserId" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="LogDate" Type="datetime" Nullable="false" />
+          <Property Name="LogContent" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="OldValue" Type="nvarchar" MaxLength="100" />
+          <Property Name="NewValue" Type="nvarchar" MaxLength="100" />
+          <Property Name="TableName" Type="varchar" MaxLength="100" />
+          <Property Name="ObjectId" Type="varchar" MaxLength="36" />
+          <Property Name="LogType" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AreaDistrict">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="DistrictId" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ProvinceId" Type="varchar" MaxLength="36" />
+          <Property Name="AreaUserId" Type="varchar" MaxLength="36" />
+          <Property Name="IsActivate" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AreaUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" />
+          <Property Name="Manager" Type="nvarchar" MaxLength="200" />
+          <Property Name="ProvinceId" Type="varchar" MaxLength="36" />
+          <Property Name="ProvinceName" Type="nvarchar" MaxLength="150" />
+          <Property Name="IsActivate" Type="bit" Nullable="false" />
+          <Property Name="CreateBy" Type="varchar" MaxLength="36" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="UpdateBy" Type="varchar" MaxLength="36" />
+          <Property Name="UpdateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="AreaWard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="AreaDistrictId" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="DistrictId" Type="varchar" MaxLength="36" />
+          <Property Name="WardId" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="IsActivate" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CaseVerification">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="ReportProfileId" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="PerformingDate" Type="datetime" />
+          <Property Name="PerformingBy" Type="nvarchar" MaxLength="450" />
+          <Property Name="Condition" Type="nvarchar(max)" />
+          <Property Name="FamilySituation" Type="nvarchar(max)" />
+          <Property Name="CurrentQualityCareOK" Type="nvarchar(max)" />
+          <Property Name="CurrentQualityCareNG" Type="nvarchar(max)" />
+          <Property Name="PeopleCareFuture" Type="nvarchar(max)" />
+          <Property Name="FutureQualityCareOK" Type="nvarchar(max)" />
+          <Property Name="FutureQualityCareNG" Type="nvarchar(max)" />
+          <Property Name="LevelHarm" Type="int" />
+          <Property Name="LevelApproach" Type="int" />
+          <Property Name="LevelDevelopmentEffect" Type="int" />
+          <Property Name="LevelCareObstacle" Type="int" />
+          <Property Name="LevelNoGuardian" Type="int" />
+          <Property Name="TotalLevelHigh" Type="int" />
+          <Property Name="TotalLevelAverage" Type="int" />
+          <Property Name="TotalLevelLow" Type="int" />
+          <Property Name="AbilityProtectYourself" Type="int" />
+          <Property Name="AbilityKnowGuard" Type="int" />
+          <Property Name="AbilityEstablishRelationship" Type="int" />
+          <Property Name="AbilityRelyGuard" Type="int" />
+          <Property Name="AbilityHelpOthers" Type="int" />
+          <Property Name="TotalAbilityHigh" Type="int" />
+          <Property Name="TotalAbilityAverage" Type="int" />
+          <Property Name="TotalAbilityLow" Type="int" />
+          <Property Name="Result" Type="nvarchar(max)" />
+          <Property Name="ProblemIdentify" Type="nvarchar(max)" />
+          <Property Name="ChildAspiration" Type="nvarchar(max)" />
+          <Property Name="FamilyAspiration" Type="nvarchar(max)" />
+          <Property Name="ServiceNeeds" Type="nvarchar(max)" />
+          <Property Name="CreateBy" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdateBy" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+          <Property Name="LevelHarmNote" Type="nvarchar(max)" />
+          <Property Name="LevelApproachNote" Type="nvarchar(max)" />
+          <Property Name="LevelDevelopmentEffectNote" Type="nvarchar(max)" />
+          <Property Name="LevelCareObstacleNote" Type="nvarchar(max)" />
+          <Property Name="LevelNoGuardianNote" Type="nvarchar(max)" />
+          <Property Name="AbilityProtectYourselfNote" Type="nvarchar(max)" />
+          <Property Name="AbilityKnowGuardNote" Type="nvarchar(max)" />
+          <Property Name="AbilityEstablishRelationshipNote" Type="nvarchar(max)" />
+          <Property Name="AbilityRelyGuardNote" Type="nvarchar(max)" />
+          <Property Name="AbilityHelpOthersNote" Type="nvarchar(max)" />
+          <Property Name="Extend" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="CodeReport">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Year" Type="int" />
+          <Property Name="Number" Type="int" />
+        </EntityType>
+        <EntityType Name="District">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="ProvinceId" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="Location" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="DocumentLibrary">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="DocumentTyeId" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="FileName" Type="nvarchar" MaxLength="300" />
+          <Property Name="Name" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Path" Type="nvarchar" MaxLength="256" />
+          <Property Name="Size" Type="int" />
+          <Property Name="Extension" Type="varchar" MaxLength="30" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" />
+          <Property Name="IsDisplay" Type="bit" Nullable="false" />
+          <Property Name="UploadBy" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="UploadDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdateBy" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DocumentTye">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="300" />
+          <Property Name="IsDisplay" Type="bit" Nullable="false" />
+          <Property Name="CreateBy" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdateBy" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EstimateCostAttachment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="SupportPlantId" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="300" />
+          <Property Name="Path" Type="nvarchar" MaxLength="256" />
+          <Property Name="Size" Type="int" />
+          <Property Name="Extension" Type="varchar" MaxLength="30" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" />
+          <Property Name="UploadBy" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="UploadDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EvaluationFirst">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="ReportProfileId" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="PerformingDate" Type="datetime" />
+          <Property Name="LevelHarm" Type="int" />
+          <Property Name="LevelHarmNote" Type="nvarchar(max)" />
+          <Property Name="LevelHarmContinue" Type="int" />
+          <Property Name="LevelHarmContinueNote" Type="nvarchar(max)" />
+          <Property Name="TotalLevelHigh" Type="int" />
+          <Property Name="TotalLevelAverage" Type="int" />
+          <Property Name="TotalLevelLow" Type="int" />
+          <Property Name="AbilityProtectYourself" Type="int" />
+          <Property Name="AbilityReceiveSupport" Type="int" />
+          <Property Name="AbilityProtectYourselfNote" Type="nvarchar(max)" />
+          <Property Name="AbilityReceiveSupportNote" Type="nvarchar(max)" />
+          <Property Name="TotalAbilityHigh" Type="int" />
+          <Property Name="TotalAbilityAverage" Type="int" />
+          <Property Name="TotalAbilityLow" Type="int" />
+          <Property Name="Result" Type="nvarchar(max)" />
+          <Property Name="UnitProvideLiving" Type="nvarchar(max)" />
+          <Property Name="UnitProvideCare" Type="nvarchar(max)" />
+          <Property Name="CreateBy" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdateBy" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+          <Property Name="ServiceProvideLiving" Type="nvarchar(max)" />
+          <Property Name="ServiceProvideCare" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="GroupFunction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GroupPermission">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="GroupUserId" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="PermissionId" Type="varchar" MaxLength="36" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GroupUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Type" Type="int" />
+          <Property Name="IsDisable" Type="bit" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="300" />
+          <Property Name="CreateBy" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdateBy" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Notify">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="UserId" Type="varchar" MaxLength="36" />
+          <Property Name="NotifyKey" Type="varchar" MaxLength="36" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Permission">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="GroupFunctionId" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="TypeLevel1" Type="bit" Nullable="false" />
+          <Property Name="TypeLevel2" Type="bit" Nullable="false" />
+          <Property Name="TypeLevel3" Type="bit" Nullable="false" />
+          <Property Name="TypeLevel4" Type="bit" Nullable="false" />
+          <Property Name="IndexNumber" Type="int" />
+        </EntityType>
+        <EntityType Name="ProfileAttachment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="ReportProfileId" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Path" Type="nvarchar" MaxLength="256" />
+          <Property Name="Size" Type="int" />
+          <Property Name="Extension" Type="varchar" MaxLength="30" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" />
+          <Property Name="UploadBy" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="UploadDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Province">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ReportForward">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="ReportProfileId" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="CreateBy" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="ForwardNote" Type="nvarchar(max)" />
+          <Property Name="ForwardLevel" Type="char" MaxLength="1" />
+          <Property Name="Status" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="ReportHistory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="ReportProfileId" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="400" Nullable="false" />
+          <Property Name="Age" Type="int" />
+          <Property Name="Abuse" Type="nvarchar(max)" />
+          <Property Name="FullAddress" Type="nvarchar(max)" />
+          <Property Name="StatusProcess" Type="int" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="WardId" Type="varchar" MaxLength="36" />
+          <Property Name="LocalAddress" Type="nvarchar(max)" />
+          <Property Name="Code" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ReportProfile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="InformationSources" Type="int" Nullable="false" />
+          <Property Name="SourceNote" Type="nvarchar(max)" />
+          <Property Name="ReceptionTime" Type="varchar" MaxLength="15" />
+          <Property Name="ReceptionDate" Type="datetime" />
+          <Property Name="ChildName" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="ChildBirthdate" Type="datetime" />
+          <Property Name="Gender" Type="int" />
+          <Property Name="Age" Type="int" />
+          <Property Name="CaseLocation" Type="nvarchar(max)" />
+          <Property Name="WardId" Type="varchar" MaxLength="36" />
+          <Property Name="DistrictId" Type="varchar" MaxLength="36" />
+          <Property Name="ProvinceId" Type="varchar" MaxLength="36" />
+          <Property Name="FullAddress" Type="nvarchar(max)" />
+          <Property Name="CurrentHealth" Type="nvarchar(max)" />
+          <Property Name="SequelGuess" Type="nvarchar(max)" />
+          <Property Name="FatherName" Type="nvarchar" MaxLength="150" />
+          <Property Name="FatherAge" Type="int" />
+          <Property Name="FatherJob" Type="nvarchar" MaxLength="250" />
+          <Property Name="MotherName" Type="nvarchar" MaxLength="150" />
+          <Property Name="MotherAge" Type="int" />
+          <Property Name="MotherJob" Type="nvarchar" MaxLength="250" />
+          <Property Name="FamilySituation" Type="nvarchar(max)" />
+          <Property Name="PeopleCare" Type="nvarchar(max)" />
+          <Property Name="Support" Type="nvarchar(max)" />
+          <Property Name="ProviderName" Type="nvarchar" MaxLength="150" />
+          <Property Name="ProviderPhone" Type="nvarchar" MaxLength="150" />
+          <Property Name="ProviderAddress" Type="nvarchar(max)" />
+          <Property Name="ProviderNote" Type="nvarchar(max)" />
+          <Property Name="SeverityLevel" Type="int" />
+          <Property Name="FinishDate" Type="datetime" />
+          <Property Name="FinishNote" Type="nvarchar(max)" />
+          <Property Name="CreateBy" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdateBy" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+          <Property Name="StatusStep1" Type="bit" />
+          <Property Name="StatusStep2" Type="bit" />
+          <Property Name="StatusStep3" Type="bit" />
+          <Property Name="StatusStep4" Type="bit" />
+          <Property Name="StatusStep5" Type="bit" />
+          <Property Name="StatusStep6" Type="bit" />
+          <Property Name="CloseDate" Type="datetime" />
+          <Property Name="IsDelete" Type="bit" />
+          <Property Name="WordTitle" Type="nvarchar(max)" />
+          <Property Name="IsPublish" Type="bit" />
+          <Property Name="SummaryCase" Type="nvarchar(max)" />
+          <Property Name="Alias" Type="nvarchar(max)" />
+          <Property Name="TypeOther" Type="nvarchar(max)" />
+          <Property Name="Code" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ReportProfileAbuseType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="ReportProfileId" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="AbuseTypeId" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="AbuseTypeName" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="SupportAfterStatus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="ReportProfileId" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="PerformingDate" Type="datetime" />
+          <Property Name="PerformingBy" Type="nvarchar" MaxLength="200" />
+          <Property Name="LevelHarm" Type="int" />
+          <Property Name="LevelApproach" Type="int" />
+          <Property Name="LevelCareObstacle" Type="int" />
+          <Property Name="TotalLevelHigh" Type="int" />
+          <Property Name="TotalLevelAverage" Type="int" />
+          <Property Name="TotalLevelLow" Type="int" />
+          <Property Name="AbilityProtectYourself" Type="int" />
+          <Property Name="AbilityKnowGuard" Type="int" />
+          <Property Name="AbilityHelpOthers" Type="int" />
+          <Property Name="TotalAbilityHigh" Type="int" />
+          <Property Name="TotalAbilityAverage" Type="int" />
+          <Property Name="TotalAbilityLow" Type="int" />
+          <Property Name="Result" Type="nvarchar(max)" />
+          <Property Name="CreateBy" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdateBy" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+          <Property Name="SupportAfterTitle" Type="nvarchar(max)" />
+          <Property Name="LevelHarmNote" Type="nvarchar(max)" />
+          <Property Name="LevelApproachNote" Type="nvarchar(max)" />
+          <Property Name="LevelCareObstacleNote" Type="nvarchar(max)" />
+          <Property Name="AbilityProtectYourselfNote" Type="nvarchar(max)" />
+          <Property Name="AbilityKnowGuardNote" Type="nvarchar(max)" />
+          <Property Name="AbilityHelpOthersNote" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="SupportPlant">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="ReportProfileId" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="PlantDate" Type="datetime" />
+          <Property Name="TitlePlant" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="TargetNote" Type="nvarchar(max)" />
+          <Property Name="ActionNote" Type="nvarchar(max)" />
+          <Property Name="OrganizationActivities" Type="nvarchar(max)" />
+          <Property Name="CreateBy" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdateBy" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+          <Property Name="IsEstimateCost" Type="bit" />
+          <Property Name="IsRemind75" Type="bit" />
+          <Property Name="IsRemind90" Type="bit" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="GroupUserId" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Type" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="AreaUserId" Type="varchar" MaxLength="36" />
+          <Property Name="WardId" Type="varchar" MaxLength="36" />
+          <Property Name="DistrictId" Type="varchar" MaxLength="36" />
+          <Property Name="ProvinceId" Type="varchar" MaxLength="36" />
+          <Property Name="FullAddress" Type="nvarchar" MaxLength="500" />
+          <Property Name="Password" Type="nvarchar" MaxLength="36" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="HomeURL" Type="varchar" MaxLength="100" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="150" />
+          <Property Name="Gender" Type="int" Nullable="false" />
+          <Property Name="Birthdate" Type="datetime" />
+          <Property Name="Email" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Phone" Type="varchar" MaxLength="50" />
+          <Property Name="IdentifyNumber" Type="varchar" MaxLength="15" />
+          <Property Name="Address" Type="nvarchar" MaxLength="500" />
+          <Property Name="AvatarPath" Type="nvarchar" MaxLength="256" />
+          <Property Name="IsDisable" Type="bit" Nullable="false" />
+          <Property Name="CreateBy" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdateBy" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserPermission">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="UserId" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="PermissionId" Type="varchar" MaxLength="36" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ward">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="DistrictId" Type="varchar" MaxLength="36" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="Location" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK__ActivityL__UserI__3E52440B">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="ActivityLog" Type="Self.ActivityLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ActivityLog">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CaseVerif__Repor__02FC7413">
+          <End Role="ReportProfile" Type="Self.ReportProfile" Multiplicity="1" />
+          <End Role="CaseVerification" Type="Self.CaseVerification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReportProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CaseVerification">
+              <PropertyRef Name="ReportProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__District__Provin__5AEE82B9">
+          <End Role="Province" Type="Self.Province" Multiplicity="1" />
+          <End Role="District" Type="Self.District" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Province">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="District">
+              <PropertyRef Name="ProvinceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DocumentL__Docum__412EB0B6">
+          <End Role="DocumentTye" Type="Self.DocumentTye" Multiplicity="1" />
+          <End Role="DocumentLibrary" Type="Self.DocumentLibrary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DocumentTye">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DocumentLibrary">
+              <PropertyRef Name="DocumentTyeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EstimateC__Suppo__03F0984C">
+          <End Role="SupportPlant" Type="Self.SupportPlant" Multiplicity="1" />
+          <End Role="EstimateCostAttachment" Type="Self.EstimateCostAttachment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SupportPlant">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EstimateCostAttachment">
+              <PropertyRef Name="SupportPlantId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Evaluatio__Repor__04E4BC85">
+          <End Role="ReportProfile" Type="Self.ReportProfile" Multiplicity="1" />
+          <End Role="EvaluationFirst" Type="Self.EvaluationFirst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReportProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EvaluationFirst">
+              <PropertyRef Name="ReportProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GroupPerm__Group__440B1D61">
+          <End Role="GroupUser" Type="Self.GroupUser" Multiplicity="1" />
+          <End Role="GroupPermission" Type="Self.GroupPermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GroupUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GroupPermission">
+              <PropertyRef Name="GroupUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GroupPerm__Permi__44FF419A">
+          <End Role="Permission" Type="Self.Permission" Multiplicity="1" />
+          <End Role="GroupPermission" Type="Self.GroupPermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Permission">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GroupPermission">
+              <PropertyRef Name="PermissionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProfileAt__Repor__05D8E0BE">
+          <End Role="ReportProfile" Type="Self.ReportProfile" Multiplicity="1" />
+          <End Role="ProfileAttachment" Type="Self.ProfileAttachment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReportProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProfileAttachment">
+              <PropertyRef Name="ReportProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ReportPro__Repor__06CD04F7">
+          <End Role="ReportProfile" Type="Self.ReportProfile" Multiplicity="1" />
+          <End Role="ReportProfileAbuseType" Type="Self.ReportProfileAbuseType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReportProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReportProfileAbuseType">
+              <PropertyRef Name="ReportProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SupportAf__Repor__07C12930">
+          <End Role="ReportProfile" Type="Self.ReportProfile" Multiplicity="1" />
+          <End Role="SupportAfterStatus" Type="Self.SupportAfterStatus" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReportProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SupportAfterStatus">
+              <PropertyRef Name="ReportProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SupportPl__Repor__08B54D69">
+          <End Role="ReportProfile" Type="Self.ReportProfile" Multiplicity="1" />
+          <End Role="SupportPlant" Type="Self.SupportPlant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReportProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SupportPlant">
+              <PropertyRef Name="ReportProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__User__GroupUserI__4BAC3F29">
+          <End Role="GroupUser" Type="Self.GroupUser" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GroupUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="GroupUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserPermi__Permi__4D94879B">
+          <End Role="Permission" Type="Self.Permission" Multiplicity="1" />
+          <End Role="UserPermission" Type="Self.UserPermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Permission">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserPermission">
+              <PropertyRef Name="PermissionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserPermi__UserI__4E88ABD4">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="UserPermission" Type="Self.UserPermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserPermission">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ward__DistrictId__68487DD7">
+          <End Role="District" Type="Self.District" Multiplicity="1" />
+          <End Role="Ward" Type="Self.Ward" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="District">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ward">
+              <PropertyRef Name="DistrictId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="InformationHubModelStoreContainer">
+          <EntitySet Name="AbuseType" EntityType="Self.AbuseType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ActivityLog" EntityType="Self.ActivityLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AreaDistrict" EntityType="Self.AreaDistrict" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AreaUser" EntityType="Self.AreaUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AreaWard" EntityType="Self.AreaWard" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CaseVerification" EntityType="Self.CaseVerification" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CodeReport" EntityType="Self.CodeReport" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="District" EntityType="Self.District" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DocumentLibrary" EntityType="Self.DocumentLibrary" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DocumentTye" EntityType="Self.DocumentTye" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EstimateCostAttachment" EntityType="Self.EstimateCostAttachment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EvaluationFirst" EntityType="Self.EvaluationFirst" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GroupFunction" EntityType="Self.GroupFunction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GroupPermission" EntityType="Self.GroupPermission" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GroupUser" EntityType="Self.GroupUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Notify" EntityType="Self.Notify" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Permission" EntityType="Self.Permission" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProfileAttachment" EntityType="Self.ProfileAttachment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Province" EntityType="Self.Province" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReportForward" EntityType="Self.ReportForward" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReportHistory" EntityType="Self.ReportHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReportProfile" EntityType="Self.ReportProfile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReportProfileAbuseType" EntityType="Self.ReportProfileAbuseType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SupportAfterStatus" EntityType="Self.SupportAfterStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SupportPlant" EntityType="Self.SupportPlant" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserPermission" EntityType="Self.UserPermission" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ward" EntityType="Self.Ward" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__ActivityL__UserI__3E52440B" Association="Self.FK__ActivityL__UserI__3E52440B">
+            <End Role="User" EntitySet="User" />
+            <End Role="ActivityLog" EntitySet="ActivityLog" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CaseVerif__Repor__02FC7413" Association="Self.FK__CaseVerif__Repor__02FC7413">
+            <End Role="ReportProfile" EntitySet="ReportProfile" />
+            <End Role="CaseVerification" EntitySet="CaseVerification" />
+          </AssociationSet>
+          <AssociationSet Name="FK__District__Provin__5AEE82B9" Association="Self.FK__District__Provin__5AEE82B9">
+            <End Role="Province" EntitySet="Province" />
+            <End Role="District" EntitySet="District" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DocumentL__Docum__412EB0B6" Association="Self.FK__DocumentL__Docum__412EB0B6">
+            <End Role="DocumentTye" EntitySet="DocumentTye" />
+            <End Role="DocumentLibrary" EntitySet="DocumentLibrary" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EstimateC__Suppo__03F0984C" Association="Self.FK__EstimateC__Suppo__03F0984C">
+            <End Role="SupportPlant" EntitySet="SupportPlant" />
+            <End Role="EstimateCostAttachment" EntitySet="EstimateCostAttachment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Evaluatio__Repor__04E4BC85" Association="Self.FK__Evaluatio__Repor__04E4BC85">
+            <End Role="ReportProfile" EntitySet="ReportProfile" />
+            <End Role="EvaluationFirst" EntitySet="EvaluationFirst" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GroupPerm__Group__440B1D61" Association="Self.FK__GroupPerm__Group__440B1D61">
+            <End Role="GroupUser" EntitySet="GroupUser" />
+            <End Role="GroupPermission" EntitySet="GroupPermission" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GroupPerm__Permi__44FF419A" Association="Self.FK__GroupPerm__Permi__44FF419A">
+            <End Role="Permission" EntitySet="Permission" />
+            <End Role="GroupPermission" EntitySet="GroupPermission" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProfileAt__Repor__05D8E0BE" Association="Self.FK__ProfileAt__Repor__05D8E0BE">
+            <End Role="ReportProfile" EntitySet="ReportProfile" />
+            <End Role="ProfileAttachment" EntitySet="ProfileAttachment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ReportPro__Repor__06CD04F7" Association="Self.FK__ReportPro__Repor__06CD04F7">
+            <End Role="ReportProfile" EntitySet="ReportProfile" />
+            <End Role="ReportProfileAbuseType" EntitySet="ReportProfileAbuseType" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SupportAf__Repor__07C12930" Association="Self.FK__SupportAf__Repor__07C12930">
+            <End Role="ReportProfile" EntitySet="ReportProfile" />
+            <End Role="SupportAfterStatus" EntitySet="SupportAfterStatus" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SupportPl__Repor__08B54D69" Association="Self.FK__SupportPl__Repor__08B54D69">
+            <End Role="ReportProfile" EntitySet="ReportProfile" />
+            <End Role="SupportPlant" EntitySet="SupportPlant" />
+          </AssociationSet>
+          <AssociationSet Name="FK__User__GroupUserI__4BAC3F29" Association="Self.FK__User__GroupUserI__4BAC3F29">
+            <End Role="GroupUser" EntitySet="GroupUser" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserPermi__Permi__4D94879B" Association="Self.FK__UserPermi__Permi__4D94879B">
+            <End Role="Permission" EntitySet="Permission" />
+            <End Role="UserPermission" EntitySet="UserPermission" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserPermi__UserI__4E88ABD4" Association="Self.FK__UserPermi__UserI__4E88ABD4">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserPermission" EntitySet="UserPermission" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ward__DistrictId__68487DD7" Association="Self.FK__Ward__DistrictId__68487DD7">
+            <End Role="District" EntitySet="District" />
+            <End Role="Ward" EntitySet="Ward" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="InformationHubModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="InformationHubEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AbuseTypes" EntityType="InformationHubModel.AbuseType" />
+          <EntitySet Name="ActivityLogs" EntityType="InformationHubModel.ActivityLog" />
+          <EntitySet Name="AreaDistricts" EntityType="InformationHubModel.AreaDistrict" />
+          <EntitySet Name="AreaUsers" EntityType="InformationHubModel.AreaUser" />
+          <EntitySet Name="AreaWards" EntityType="InformationHubModel.AreaWard" />
+          <EntitySet Name="CaseVerifications" EntityType="InformationHubModel.CaseVerification" />
+          <EntitySet Name="CodeReports" EntityType="InformationHubModel.CodeReport" />
+          <EntitySet Name="Districts" EntityType="InformationHubModel.District" />
+          <EntitySet Name="DocumentLibraries" EntityType="InformationHubModel.DocumentLibrary" />
+          <EntitySet Name="DocumentTyes" EntityType="InformationHubModel.DocumentTye" />
+          <EntitySet Name="EstimateCostAttachments" EntityType="InformationHubModel.EstimateCostAttachment" />
+          <EntitySet Name="EvaluationFirsts" EntityType="InformationHubModel.EvaluationFirst" />
+          <EntitySet Name="GroupFunctions" EntityType="InformationHubModel.GroupFunction" />
+          <EntitySet Name="GroupPermissions" EntityType="InformationHubModel.GroupPermission" />
+          <EntitySet Name="GroupUsers" EntityType="InformationHubModel.GroupUser" />
+          <EntitySet Name="Notifies" EntityType="InformationHubModel.Notify" />
+          <EntitySet Name="Permissions" EntityType="InformationHubModel.Permission" />
+          <EntitySet Name="ProfileAttachments" EntityType="InformationHubModel.ProfileAttachment" />
+          <EntitySet Name="Provinces" EntityType="InformationHubModel.Province" />
+          <EntitySet Name="ReportForwards" EntityType="InformationHubModel.ReportForward" />
+          <EntitySet Name="ReportHistories" EntityType="InformationHubModel.ReportHistory" />
+          <EntitySet Name="ReportProfiles" EntityType="InformationHubModel.ReportProfile" />
+          <EntitySet Name="ReportProfileAbuseTypes" EntityType="InformationHubModel.ReportProfileAbuseType" />
+          <EntitySet Name="SupportAfterStatus" EntityType="InformationHubModel.SupportAfterStatu" />
+          <EntitySet Name="SupportPlants" EntityType="InformationHubModel.SupportPlant" />
+          <EntitySet Name="Users" EntityType="InformationHubModel.User" />
+          <EntitySet Name="UserPermissions" EntityType="InformationHubModel.UserPermission" />
+          <EntitySet Name="Wards" EntityType="InformationHubModel.Ward" />
+          <AssociationSet Name="FK__ActivityL__UserI__3E52440B" Association="InformationHubModel.FK__ActivityL__UserI__3E52440B">
+            <End Role="User" EntitySet="Users" />
+            <End Role="ActivityLog" EntitySet="ActivityLogs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CaseVerif__Repor__02FC7413" Association="InformationHubModel.FK__CaseVerif__Repor__02FC7413">
+            <End Role="ReportProfile" EntitySet="ReportProfiles" />
+            <End Role="CaseVerification" EntitySet="CaseVerifications" />
+          </AssociationSet>
+          <AssociationSet Name="FK__District__Provin__5AEE82B9" Association="InformationHubModel.FK__District__Provin__5AEE82B9">
+            <End Role="Province" EntitySet="Provinces" />
+            <End Role="District" EntitySet="Districts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ward__DistrictId__68487DD7" Association="InformationHubModel.FK__Ward__DistrictId__68487DD7">
+            <End Role="District" EntitySet="Districts" />
+            <End Role="Ward" EntitySet="Wards" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DocumentL__Docum__412EB0B6" Association="InformationHubModel.FK__DocumentL__Docum__412EB0B6">
+            <End Role="DocumentTye" EntitySet="DocumentTyes" />
+            <End Role="DocumentLibrary" EntitySet="DocumentLibraries" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EstimateC__Suppo__03F0984C" Association="InformationHubModel.FK__EstimateC__Suppo__03F0984C">
+            <End Role="SupportPlant" EntitySet="SupportPlants" />
+            <End Role="EstimateCostAttachment" EntitySet="EstimateCostAttachments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Evaluatio__Repor__04E4BC85" Association="InformationHubModel.FK__Evaluatio__Repor__04E4BC85">
+            <End Role="ReportProfile" EntitySet="ReportProfiles" />
+            <End Role="EvaluationFirst" EntitySet="EvaluationFirsts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GroupPerm__Group__440B1D61" Association="InformationHubModel.FK__GroupPerm__Group__440B1D61">
+            <End Role="GroupUser" EntitySet="GroupUsers" />
+            <End Role="GroupPermission" EntitySet="GroupPermissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GroupPerm__Permi__44FF419A" Association="InformationHubModel.FK__GroupPerm__Permi__44FF419A">
+            <End Role="Permission" EntitySet="Permissions" />
+            <End Role="GroupPermission" EntitySet="GroupPermissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__User__GroupUserI__4BAC3F29" Association="InformationHubModel.FK__User__GroupUserI__4BAC3F29">
+            <End Role="GroupUser" EntitySet="GroupUsers" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserPermi__Permi__4D94879B" Association="InformationHubModel.FK__UserPermi__Permi__4D94879B">
+            <End Role="Permission" EntitySet="Permissions" />
+            <End Role="UserPermission" EntitySet="UserPermissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProfileAt__Repor__05D8E0BE" Association="InformationHubModel.FK__ProfileAt__Repor__05D8E0BE">
+            <End Role="ReportProfile" EntitySet="ReportProfiles" />
+            <End Role="ProfileAttachment" EntitySet="ProfileAttachments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ReportPro__Repor__06CD04F7" Association="InformationHubModel.FK__ReportPro__Repor__06CD04F7">
+            <End Role="ReportProfile" EntitySet="ReportProfiles" />
+            <End Role="ReportProfileAbuseType" EntitySet="ReportProfileAbuseTypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SupportAf__Repor__07C12930" Association="InformationHubModel.FK__SupportAf__Repor__07C12930">
+            <End Role="ReportProfile" EntitySet="ReportProfiles" />
+            <End Role="SupportAfterStatu" EntitySet="SupportAfterStatus" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SupportPl__Repor__08B54D69" Association="InformationHubModel.FK__SupportPl__Repor__08B54D69">
+            <End Role="ReportProfile" EntitySet="ReportProfiles" />
+            <End Role="SupportPlant" EntitySet="SupportPlants" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserPermi__UserI__4E88ABD4" Association="InformationHubModel.FK__UserPermi__UserI__4E88ABD4">
+            <End Role="User" EntitySet="Users" />
+            <End Role="UserPermission" EntitySet="UserPermissions" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AbuseType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Note" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="OrderNumber" Type="Int32" Nullable="false" />
+          <Property Name="ThenNumber" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ActivityLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="LogDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LogContent" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OldValue" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NewValue" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TableName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ObjectId" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="LogType" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="InformationHubModel.FK__ActivityL__UserI__3E52440B" FromRole="ActivityLog" ToRole="User" />
+        </EntityType>
+        <EntityType Name="AreaDistrict">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="DistrictId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ProvinceId" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="AreaUserId" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="IsActivate" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AreaUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Manager" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ProvinceId" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="ProvinceName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="IsActivate" Type="Boolean" Nullable="false" />
+          <Property Name="CreateBy" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="AreaWard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="AreaDistrictId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="DistrictId" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="WardId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="IsActivate" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CaseVerification">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="ReportProfileId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="PerformingDate" Type="DateTime" Precision="3" />
+          <Property Name="PerformingBy" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="Condition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FamilySituation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CurrentQualityCareOK" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CurrentQualityCareNG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PeopleCareFuture" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FutureQualityCareOK" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FutureQualityCareNG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LevelHarm" Type="Int32" />
+          <Property Name="LevelApproach" Type="Int32" />
+          <Property Name="LevelDevelopmentEffect" Type="Int32" />
+          <Property Name="LevelCareObstacle" Type="Int32" />
+          <Property Name="LevelNoGuardian" Type="Int32" />
+          <Property Name="TotalLevelHigh" Type="Int32" />
+          <Property Name="TotalLevelAverage" Type="Int32" />
+          <Property Name="TotalLevelLow" Type="Int32" />
+          <Property Name="AbilityProtectYourself" Type="Int32" />
+          <Property Name="AbilityKnowGuard" Type="Int32" />
+          <Property Name="AbilityEstablishRelationship" Type="Int32" />
+          <Property Name="AbilityRelyGuard" Type="Int32" />
+          <Property Name="AbilityHelpOthers" Type="Int32" />
+          <Property Name="TotalAbilityHigh" Type="Int32" />
+          <Property Name="TotalAbilityAverage" Type="Int32" />
+          <Property Name="TotalAbilityLow" Type="Int32" />
+          <Property Name="Result" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProblemIdentify" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ChildAspiration" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FamilyAspiration" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ServiceNeeds" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreateBy" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdateBy" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LevelHarmNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LevelApproachNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LevelDevelopmentEffectNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LevelCareObstacleNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LevelNoGuardianNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AbilityProtectYourselfNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AbilityKnowGuardNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AbilityEstablishRelationshipNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AbilityRelyGuardNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AbilityHelpOthersNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Extend" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ReportProfile" Relationship="InformationHubModel.FK__CaseVerif__Repor__02FC7413" FromRole="CaseVerification" ToRole="ReportProfile" />
+        </EntityType>
+        <EntityType Name="CodeReport">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Year" Type="Int32" />
+          <Property Name="Number" Type="Int32" />
+        </EntityType>
+        <EntityType Name="District">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="ProvinceId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Province" Relationship="InformationHubModel.FK__District__Provin__5AEE82B9" FromRole="District" ToRole="Province" />
+          <NavigationProperty Name="Wards" Relationship="InformationHubModel.FK__Ward__DistrictId__68487DD7" FromRole="District" ToRole="Ward" />
+        </EntityType>
+        <EntityType Name="DocumentLibrary">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="DocumentTyeId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="FileName" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Path" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Size" Type="Int32" />
+          <Property Name="Extension" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="IsDisplay" Type="Boolean" Nullable="false" />
+          <Property Name="UploadBy" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="UploadDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdateBy" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="DocumentTye" Relationship="InformationHubModel.FK__DocumentL__Docum__412EB0B6" FromRole="DocumentLibrary" ToRole="DocumentTye" />
+        </EntityType>
+        <EntityType Name="DocumentTye">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="IsDisplay" Type="Boolean" Nullable="false" />
+          <Property Name="CreateBy" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdateBy" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="DocumentLibraries" Relationship="InformationHubModel.FK__DocumentL__Docum__412EB0B6" FromRole="DocumentTye" ToRole="DocumentLibrary" />
+        </EntityType>
+        <EntityType Name="EstimateCostAttachment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="SupportPlantId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Path" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Size" Type="Int32" />
+          <Property Name="Extension" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="UploadBy" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="UploadDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="SupportPlant" Relationship="InformationHubModel.FK__EstimateC__Suppo__03F0984C" FromRole="EstimateCostAttachment" ToRole="SupportPlant" />
+        </EntityType>
+        <EntityType Name="EvaluationFirst">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="ReportProfileId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="PerformingDate" Type="DateTime" Precision="3" />
+          <Property Name="LevelHarm" Type="Int32" />
+          <Property Name="LevelHarmNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LevelHarmContinue" Type="Int32" />
+          <Property Name="LevelHarmContinueNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TotalLevelHigh" Type="Int32" />
+          <Property Name="TotalLevelAverage" Type="Int32" />
+          <Property Name="TotalLevelLow" Type="Int32" />
+          <Property Name="AbilityProtectYourself" Type="Int32" />
+          <Property Name="AbilityReceiveSupport" Type="Int32" />
+          <Property Name="AbilityProtectYourselfNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AbilityReceiveSupportNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TotalAbilityHigh" Type="Int32" />
+          <Property Name="TotalAbilityAverage" Type="Int32" />
+          <Property Name="TotalAbilityLow" Type="Int32" />
+          <Property Name="Result" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UnitProvideLiving" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UnitProvideCare" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreateBy" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdateBy" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ServiceProvideLiving" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ServiceProvideCare" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ReportProfile" Relationship="InformationHubModel.FK__Evaluatio__Repor__04E4BC85" FromRole="EvaluationFirst" ToRole="ReportProfile" />
+        </EntityType>
+        <EntityType Name="GroupFunction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="GroupPermission">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="GroupUserId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="PermissionId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="GroupUser" Relationship="InformationHubModel.FK__GroupPerm__Group__440B1D61" FromRole="GroupPermission" ToRole="GroupUser" />
+          <NavigationProperty Name="Permission" Relationship="InformationHubModel.FK__GroupPerm__Permi__44FF419A" FromRole="GroupPermission" ToRole="Permission" />
+        </EntityType>
+        <EntityType Name="GroupUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="Int32" />
+          <Property Name="IsDisable" Type="Boolean" Nullable="false" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="CreateBy" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdateBy" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="GroupPermissions" Relationship="InformationHubModel.FK__GroupPerm__Group__440B1D61" FromRole="GroupUser" ToRole="GroupPermission" />
+          <NavigationProperty Name="Users" Relationship="InformationHubModel.FK__User__GroupUserI__4BAC3F29" FromRole="GroupUser" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Notify">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="UserId" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="NotifyKey" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Permission">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="GroupFunctionId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TypeLevel1" Type="Boolean" Nullable="false" />
+          <Property Name="TypeLevel2" Type="Boolean" Nullable="false" />
+          <Property Name="TypeLevel3" Type="Boolean" Nullable="false" />
+          <Property Name="TypeLevel4" Type="Boolean" Nullable="false" />
+          <Property Name="IndexNumber" Type="Int32" />
+          <NavigationProperty Name="GroupPermissions" Relationship="InformationHubModel.FK__GroupPerm__Permi__44FF419A" FromRole="Permission" ToRole="GroupPermission" />
+          <NavigationProperty Name="UserPermissions" Relationship="InformationHubModel.FK__UserPermi__Permi__4D94879B" FromRole="Permission" ToRole="UserPermission" />
+        </EntityType>
+        <EntityType Name="ProfileAttachment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="ReportProfileId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Path" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Size" Type="Int32" />
+          <Property Name="Extension" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="UploadBy" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="UploadDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="ReportProfile" Relationship="InformationHubModel.FK__ProfileAt__Repor__05D8E0BE" FromRole="ProfileAttachment" ToRole="ReportProfile" />
+        </EntityType>
+        <EntityType Name="Province">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Districts" Relationship="InformationHubModel.FK__District__Provin__5AEE82B9" FromRole="Province" ToRole="District" />
+        </EntityType>
+        <EntityType Name="ReportForward">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="ReportProfileId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="CreateBy" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ForwardNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ForwardLevel" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ReportHistory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="ReportProfileId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="Abuse" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FullAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StatusProcess" Type="Int32" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="WardId" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="LocalAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ReportProfile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="InformationSources" Type="Int32" Nullable="false" />
+          <Property Name="SourceNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ReceptionTime" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="ReceptionDate" Type="DateTime" Precision="3" />
+          <Property Name="ChildName" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="ChildBirthdate" Type="DateTime" Precision="3" />
+          <Property Name="Gender" Type="Int32" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="CaseLocation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="WardId" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="DistrictId" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="ProvinceId" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="FullAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CurrentHealth" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SequelGuess" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FatherName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="FatherAge" Type="Int32" />
+          <Property Name="FatherJob" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="MotherName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="MotherAge" Type="Int32" />
+          <Property Name="MotherJob" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="FamilySituation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PeopleCare" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Support" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProviderName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ProviderPhone" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ProviderAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProviderNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SeverityLevel" Type="Int32" />
+          <Property Name="FinishDate" Type="DateTime" Precision="3" />
+          <Property Name="FinishNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreateBy" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdateBy" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="StatusStep1" Type="Boolean" />
+          <Property Name="StatusStep2" Type="Boolean" />
+          <Property Name="StatusStep3" Type="Boolean" />
+          <Property Name="StatusStep4" Type="Boolean" />
+          <Property Name="StatusStep5" Type="Boolean" />
+          <Property Name="StatusStep6" Type="Boolean" />
+          <Property Name="CloseDate" Type="DateTime" Precision="3" />
+          <Property Name="IsDelete" Type="Boolean" />
+          <Property Name="WordTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsPublish" Type="Boolean" />
+          <Property Name="SummaryCase" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Alias" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TypeOther" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CaseVerifications" Relationship="InformationHubModel.FK__CaseVerif__Repor__02FC7413" FromRole="ReportProfile" ToRole="CaseVerification" />
+          <NavigationProperty Name="EvaluationFirsts" Relationship="InformationHubModel.FK__Evaluatio__Repor__04E4BC85" FromRole="ReportProfile" ToRole="EvaluationFirst" />
+          <NavigationProperty Name="ProfileAttachments" Relationship="InformationHubModel.FK__ProfileAt__Repor__05D8E0BE" FromRole="ReportProfile" ToRole="ProfileAttachment" />
+          <NavigationProperty Name="ReportProfileAbuseTypes" Relationship="InformationHubModel.FK__ReportPro__Repor__06CD04F7" FromRole="ReportProfile" ToRole="ReportProfileAbuseType" />
+          <NavigationProperty Name="SupportAfterStatus" Relationship="InformationHubModel.FK__SupportAf__Repor__07C12930" FromRole="ReportProfile" ToRole="SupportAfterStatu" />
+          <NavigationProperty Name="SupportPlants" Relationship="InformationHubModel.FK__SupportPl__Repor__08B54D69" FromRole="ReportProfile" ToRole="SupportPlant" />
+        </EntityType>
+        <EntityType Name="ReportProfileAbuseType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="ReportProfileId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="AbuseTypeId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="AbuseTypeName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ReportProfile" Relationship="InformationHubModel.FK__ReportPro__Repor__06CD04F7" FromRole="ReportProfileAbuseType" ToRole="ReportProfile" />
+        </EntityType>
+        <EntityType Name="SupportAfterStatu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="ReportProfileId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="PerformingDate" Type="DateTime" Precision="3" />
+          <Property Name="PerformingBy" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="LevelHarm" Type="Int32" />
+          <Property Name="LevelApproach" Type="Int32" />
+          <Property Name="LevelCareObstacle" Type="Int32" />
+          <Property Name="TotalLevelHigh" Type="Int32" />
+          <Property Name="TotalLevelAverage" Type="Int32" />
+          <Property Name="TotalLevelLow" Type="Int32" />
+          <Property Name="AbilityProtectYourself" Type="Int32" />
+          <Property Name="AbilityKnowGuard" Type="Int32" />
+          <Property Name="AbilityHelpOthers" Type="Int32" />
+          <Property Name="TotalAbilityHigh" Type="Int32" />
+          <Property Name="TotalAbilityAverage" Type="Int32" />
+          <Property Name="TotalAbilityLow" Type="Int32" />
+          <Property Name="Result" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreateBy" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdateBy" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="SupportAfterTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LevelHarmNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LevelApproachNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LevelCareObstacleNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AbilityProtectYourselfNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AbilityKnowGuardNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AbilityHelpOthersNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ReportProfile" Relationship="InformationHubModel.FK__SupportAf__Repor__07C12930" FromRole="SupportAfterStatu" ToRole="ReportProfile" />
+        </EntityType>
+        <EntityType Name="SupportPlant">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="ReportProfileId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="PlantDate" Type="DateTime" Precision="3" />
+          <Property Name="TitlePlant" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="TargetNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ActionNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OrganizationActivities" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreateBy" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdateBy" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsEstimateCost" Type="Boolean" />
+          <Property Name="IsRemind75" Type="Boolean" />
+          <Property Name="IsRemind90" Type="Boolean" />
+          <NavigationProperty Name="EstimateCostAttachments" Relationship="InformationHubModel.FK__EstimateC__Suppo__03F0984C" FromRole="SupportPlant" ToRole="EstimateCostAttachment" />
+          <NavigationProperty Name="ReportProfile" Relationship="InformationHubModel.FK__SupportPl__Repor__08B54D69" FromRole="SupportPlant" ToRole="ReportProfile" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="GroupUserId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="AreaUserId" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="WardId" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="DistrictId" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="ProvinceId" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="FullAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordHash" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="HomeURL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FullName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="Int32" Nullable="false" />
+          <Property Name="Birthdate" Type="DateTime" Precision="3" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IdentifyNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="AvatarPath" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="IsDisable" Type="Boolean" Nullable="false" />
+          <Property Name="CreateBy" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdateBy" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="ActivityLogs" Relationship="InformationHubModel.FK__ActivityL__UserI__3E52440B" FromRole="User" ToRole="ActivityLog" />
+          <NavigationProperty Name="GroupUser" Relationship="InformationHubModel.FK__User__GroupUserI__4BAC3F29" FromRole="User" ToRole="GroupUser" />
+          <NavigationProperty Name="UserPermissions" Relationship="InformationHubModel.FK__UserPermi__UserI__4E88ABD4" FromRole="User" ToRole="UserPermission" />
+        </EntityType>
+        <EntityType Name="UserPermission">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="PermissionId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Permission" Relationship="InformationHubModel.FK__UserPermi__Permi__4D94879B" FromRole="UserPermission" ToRole="Permission" />
+          <NavigationProperty Name="User" Relationship="InformationHubModel.FK__UserPermi__UserI__4E88ABD4" FromRole="UserPermission" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Ward">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="DistrictId" Type="String" Nullable="false" MaxLength="36" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="District" Relationship="InformationHubModel.FK__Ward__DistrictId__68487DD7" FromRole="Ward" ToRole="District" />
+        </EntityType>
+        <Association Name="FK__ActivityL__UserI__3E52440B">
+          <End Type="InformationHubModel.User" Role="User" Multiplicity="1" />
+          <End Type="InformationHubModel.ActivityLog" Role="ActivityLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ActivityLog">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CaseVerif__Repor__02FC7413">
+          <End Type="InformationHubModel.ReportProfile" Role="ReportProfile" Multiplicity="1" />
+          <End Type="InformationHubModel.CaseVerification" Role="CaseVerification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReportProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CaseVerification">
+              <PropertyRef Name="ReportProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__District__Provin__5AEE82B9">
+          <End Type="InformationHubModel.Province" Role="Province" Multiplicity="1" />
+          <End Type="InformationHubModel.District" Role="District" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Province">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="District">
+              <PropertyRef Name="ProvinceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ward__DistrictId__68487DD7">
+          <End Type="InformationHubModel.District" Role="District" Multiplicity="1" />
+          <End Type="InformationHubModel.Ward" Role="Ward" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="District">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ward">
+              <PropertyRef Name="DistrictId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DocumentL__Docum__412EB0B6">
+          <End Type="InformationHubModel.DocumentTye" Role="DocumentTye" Multiplicity="1" />
+          <End Type="InformationHubModel.DocumentLibrary" Role="DocumentLibrary" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DocumentTye">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DocumentLibrary">
+              <PropertyRef Name="DocumentTyeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EstimateC__Suppo__03F0984C">
+          <End Type="InformationHubModel.SupportPlant" Role="SupportPlant" Multiplicity="1" />
+          <End Type="InformationHubModel.EstimateCostAttachment" Role="EstimateCostAttachment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SupportPlant">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EstimateCostAttachment">
+              <PropertyRef Name="SupportPlantId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Evaluatio__Repor__04E4BC85">
+          <End Type="InformationHubModel.ReportProfile" Role="ReportProfile" Multiplicity="1" />
+          <End Type="InformationHubModel.EvaluationFirst" Role="EvaluationFirst" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReportProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EvaluationFirst">
+              <PropertyRef Name="ReportProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GroupPerm__Group__440B1D61">
+          <End Type="InformationHubModel.GroupUser" Role="GroupUser" Multiplicity="1" />
+          <End Type="InformationHubModel.GroupPermission" Role="GroupPermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GroupUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GroupPermission">
+              <PropertyRef Name="GroupUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GroupPerm__Permi__44FF419A">
+          <End Type="InformationHubModel.Permission" Role="Permission" Multiplicity="1" />
+          <End Type="InformationHubModel.GroupPermission" Role="GroupPermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Permission">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GroupPermission">
+              <PropertyRef Name="PermissionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__User__GroupUserI__4BAC3F29">
+          <End Type="InformationHubModel.GroupUser" Role="GroupUser" Multiplicity="1" />
+          <End Type="InformationHubModel.User" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GroupUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="GroupUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserPermi__Permi__4D94879B">
+          <End Type="InformationHubModel.Permission" Role="Permission" Multiplicity="1" />
+          <End Type="InformationHubModel.UserPermission" Role="UserPermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Permission">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserPermission">
+              <PropertyRef Name="PermissionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProfileAt__Repor__05D8E0BE">
+          <End Type="InformationHubModel.ReportProfile" Role="ReportProfile" Multiplicity="1" />
+          <End Type="InformationHubModel.ProfileAttachment" Role="ProfileAttachment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReportProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProfileAttachment">
+              <PropertyRef Name="ReportProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ReportPro__Repor__06CD04F7">
+          <End Type="InformationHubModel.ReportProfile" Role="ReportProfile" Multiplicity="1" />
+          <End Type="InformationHubModel.ReportProfileAbuseType" Role="ReportProfileAbuseType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReportProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ReportProfileAbuseType">
+              <PropertyRef Name="ReportProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SupportAf__Repor__07C12930">
+          <End Type="InformationHubModel.ReportProfile" Role="ReportProfile" Multiplicity="1" />
+          <End Type="InformationHubModel.SupportAfterStatu" Role="SupportAfterStatu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReportProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SupportAfterStatu">
+              <PropertyRef Name="ReportProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SupportPl__Repor__08B54D69">
+          <End Type="InformationHubModel.ReportProfile" Role="ReportProfile" Multiplicity="1" />
+          <End Type="InformationHubModel.SupportPlant" Role="SupportPlant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReportProfile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SupportPlant">
+              <PropertyRef Name="ReportProfileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserPermi__UserI__4E88ABD4">
+          <End Type="InformationHubModel.User" Role="User" Multiplicity="1" />
+          <End Type="InformationHubModel.UserPermission" Role="UserPermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserPermission">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="InformationHubModelStoreContainer" CdmEntityContainer="InformationHubEntities">
+          <EntitySetMapping Name="AbuseTypes">
+            <EntityTypeMapping TypeName="InformationHubModel.AbuseType">
+              <MappingFragment StoreEntitySet="AbuseType">
+                <ScalarProperty Name="ThenNumber" ColumnName="ThenNumber" />
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ActivityLogs">
+            <EntityTypeMapping TypeName="InformationHubModel.ActivityLog">
+              <MappingFragment StoreEntitySet="ActivityLog">
+                <ScalarProperty Name="LogType" ColumnName="LogType" />
+                <ScalarProperty Name="ObjectId" ColumnName="ObjectId" />
+                <ScalarProperty Name="TableName" ColumnName="TableName" />
+                <ScalarProperty Name="NewValue" ColumnName="NewValue" />
+                <ScalarProperty Name="OldValue" ColumnName="OldValue" />
+                <ScalarProperty Name="LogContent" ColumnName="LogContent" />
+                <ScalarProperty Name="LogDate" ColumnName="LogDate" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AreaDistricts">
+            <EntityTypeMapping TypeName="InformationHubModel.AreaDistrict">
+              <MappingFragment StoreEntitySet="AreaDistrict">
+                <ScalarProperty Name="IsActivate" ColumnName="IsActivate" />
+                <ScalarProperty Name="AreaUserId" ColumnName="AreaUserId" />
+                <ScalarProperty Name="ProvinceId" ColumnName="ProvinceId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AreaUsers">
+            <EntityTypeMapping TypeName="InformationHubModel.AreaUser">
+              <MappingFragment StoreEntitySet="AreaUser">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="IsActivate" ColumnName="IsActivate" />
+                <ScalarProperty Name="ProvinceName" ColumnName="ProvinceName" />
+                <ScalarProperty Name="ProvinceId" ColumnName="ProvinceId" />
+                <ScalarProperty Name="Manager" ColumnName="Manager" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AreaWards">
+            <EntityTypeMapping TypeName="InformationHubModel.AreaWard">
+              <MappingFragment StoreEntitySet="AreaWard">
+                <ScalarProperty Name="IsActivate" ColumnName="IsActivate" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="WardId" ColumnName="WardId" />
+                <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
+                <ScalarProperty Name="AreaDistrictId" ColumnName="AreaDistrictId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CaseVerifications">
+            <EntityTypeMapping TypeName="InformationHubModel.CaseVerification">
+              <MappingFragment StoreEntitySet="CaseVerification">
+                <ScalarProperty Name="Extend" ColumnName="Extend" />
+                <ScalarProperty Name="AbilityHelpOthersNote" ColumnName="AbilityHelpOthersNote" />
+                <ScalarProperty Name="AbilityRelyGuardNote" ColumnName="AbilityRelyGuardNote" />
+                <ScalarProperty Name="AbilityEstablishRelationshipNote" ColumnName="AbilityEstablishRelationshipNote" />
+                <ScalarProperty Name="AbilityKnowGuardNote" ColumnName="AbilityKnowGuardNote" />
+                <ScalarProperty Name="AbilityProtectYourselfNote" ColumnName="AbilityProtectYourselfNote" />
+                <ScalarProperty Name="LevelNoGuardianNote" ColumnName="LevelNoGuardianNote" />
+                <ScalarProperty Name="LevelCareObstacleNote" ColumnName="LevelCareObstacleNote" />
+                <ScalarProperty Name="LevelDevelopmentEffectNote" ColumnName="LevelDevelopmentEffectNote" />
+                <ScalarProperty Name="LevelApproachNote" ColumnName="LevelApproachNote" />
+                <ScalarProperty Name="LevelHarmNote" ColumnName="LevelHarmNote" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="ServiceNeeds" ColumnName="ServiceNeeds" />
+                <ScalarProperty Name="FamilyAspiration" ColumnName="FamilyAspiration" />
+                <ScalarProperty Name="ChildAspiration" ColumnName="ChildAspiration" />
+                <ScalarProperty Name="ProblemIdentify" ColumnName="ProblemIdentify" />
+                <ScalarProperty Name="Result" ColumnName="Result" />
+                <ScalarProperty Name="TotalAbilityLow" ColumnName="TotalAbilityLow" />
+                <ScalarProperty Name="TotalAbilityAverage" ColumnName="TotalAbilityAverage" />
+                <ScalarProperty Name="TotalAbilityHigh" ColumnName="TotalAbilityHigh" />
+                <ScalarProperty Name="AbilityHelpOthers" ColumnName="AbilityHelpOthers" />
+                <ScalarProperty Name="AbilityRelyGuard" ColumnName="AbilityRelyGuard" />
+                <ScalarProperty Name="AbilityEstablishRelationship" ColumnName="AbilityEstablishRelationship" />
+                <ScalarProperty Name="AbilityKnowGuard" ColumnName="AbilityKnowGuard" />
+                <ScalarProperty Name="AbilityProtectYourself" ColumnName="AbilityProtectYourself" />
+                <ScalarProperty Name="TotalLevelLow" ColumnName="TotalLevelLow" />
+                <ScalarProperty Name="TotalLevelAverage" ColumnName="TotalLevelAverage" />
+                <ScalarProperty Name="TotalLevelHigh" ColumnName="TotalLevelHigh" />
+                <ScalarProperty Name="LevelNoGuardian" ColumnName="LevelNoGuardian" />
+                <ScalarProperty Name="LevelCareObstacle" ColumnName="LevelCareObstacle" />
+                <ScalarProperty Name="LevelDevelopmentEffect" ColumnName="LevelDevelopmentEffect" />
+                <ScalarProperty Name="LevelApproach" ColumnName="LevelApproach" />
+                <ScalarProperty Name="LevelHarm" ColumnName="LevelHarm" />
+                <ScalarProperty Name="FutureQualityCareNG" ColumnName="FutureQualityCareNG" />
+                <ScalarProperty Name="FutureQualityCareOK" ColumnName="FutureQualityCareOK" />
+                <ScalarProperty Name="PeopleCareFuture" ColumnName="PeopleCareFuture" />
+                <ScalarProperty Name="CurrentQualityCareNG" ColumnName="CurrentQualityCareNG" />
+                <ScalarProperty Name="CurrentQualityCareOK" ColumnName="CurrentQualityCareOK" />
+                <ScalarProperty Name="FamilySituation" ColumnName="FamilySituation" />
+                <ScalarProperty Name="Condition" ColumnName="Condition" />
+                <ScalarProperty Name="PerformingBy" ColumnName="PerformingBy" />
+                <ScalarProperty Name="PerformingDate" ColumnName="PerformingDate" />
+                <ScalarProperty Name="ReportProfileId" ColumnName="ReportProfileId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CodeReports">
+            <EntityTypeMapping TypeName="InformationHubModel.CodeReport">
+              <MappingFragment StoreEntitySet="CodeReport">
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Districts">
+            <EntityTypeMapping TypeName="InformationHubModel.District">
+              <MappingFragment StoreEntitySet="District">
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ProvinceId" ColumnName="ProvinceId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DocumentLibraries">
+            <EntityTypeMapping TypeName="InformationHubModel.DocumentLibrary">
+              <MappingFragment StoreEntitySet="DocumentLibrary">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="UploadDate" ColumnName="UploadDate" />
+                <ScalarProperty Name="UploadBy" ColumnName="UploadBy" />
+                <ScalarProperty Name="IsDisplay" ColumnName="IsDisplay" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Extension" ColumnName="Extension" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="DocumentTyeId" ColumnName="DocumentTyeId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DocumentTyes">
+            <EntityTypeMapping TypeName="InformationHubModel.DocumentTye">
+              <MappingFragment StoreEntitySet="DocumentTye">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="IsDisplay" ColumnName="IsDisplay" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EstimateCostAttachments">
+            <EntityTypeMapping TypeName="InformationHubModel.EstimateCostAttachment">
+              <MappingFragment StoreEntitySet="EstimateCostAttachment">
+                <ScalarProperty Name="UploadDate" ColumnName="UploadDate" />
+                <ScalarProperty Name="UploadBy" ColumnName="UploadBy" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Extension" ColumnName="Extension" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="SupportPlantId" ColumnName="SupportPlantId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EvaluationFirsts">
+            <EntityTypeMapping TypeName="InformationHubModel.EvaluationFirst">
+              <MappingFragment StoreEntitySet="EvaluationFirst">
+                <ScalarProperty Name="ServiceProvideCare" ColumnName="ServiceProvideCare" />
+                <ScalarProperty Name="ServiceProvideLiving" ColumnName="ServiceProvideLiving" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="UnitProvideCare" ColumnName="UnitProvideCare" />
+                <ScalarProperty Name="UnitProvideLiving" ColumnName="UnitProvideLiving" />
+                <ScalarProperty Name="Result" ColumnName="Result" />
+                <ScalarProperty Name="TotalAbilityLow" ColumnName="TotalAbilityLow" />
+                <ScalarProperty Name="TotalAbilityAverage" ColumnName="TotalAbilityAverage" />
+                <ScalarProperty Name="TotalAbilityHigh" ColumnName="TotalAbilityHigh" />
+                <ScalarProperty Name="AbilityReceiveSupportNote" ColumnName="AbilityReceiveSupportNote" />
+                <ScalarProperty Name="AbilityProtectYourselfNote" ColumnName="AbilityProtectYourselfNote" />
+                <ScalarProperty Name="AbilityReceiveSupport" ColumnName="AbilityReceiveSupport" />
+                <ScalarProperty Name="AbilityProtectYourself" ColumnName="AbilityProtectYourself" />
+                <ScalarProperty Name="TotalLevelLow" ColumnName="TotalLevelLow" />
+                <ScalarProperty Name="TotalLevelAverage" ColumnName="TotalLevelAverage" />
+                <ScalarProperty Name="TotalLevelHigh" ColumnName="TotalLevelHigh" />
+                <ScalarProperty Name="LevelHarmContinueNote" ColumnName="LevelHarmContinueNote" />
+                <ScalarProperty Name="LevelHarmContinue" ColumnName="LevelHarmContinue" />
+                <ScalarProperty Name="LevelHarmNote" ColumnName="LevelHarmNote" />
+                <ScalarProperty Name="LevelHarm" ColumnName="LevelHarm" />
+                <ScalarProperty Name="PerformingDate" ColumnName="PerformingDate" />
+                <ScalarProperty Name="ReportProfileId" ColumnName="ReportProfileId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GroupFunctions">
+            <EntityTypeMapping TypeName="InformationHubModel.GroupFunction">
+              <MappingFragment StoreEntitySet="GroupFunction">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GroupPermissions">
+            <EntityTypeMapping TypeName="InformationHubModel.GroupPermission">
+              <MappingFragment StoreEntitySet="GroupPermission">
+                <ScalarProperty Name="PermissionId" ColumnName="PermissionId" />
+                <ScalarProperty Name="GroupUserId" ColumnName="GroupUserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GroupUsers">
+            <EntityTypeMapping TypeName="InformationHubModel.GroupUser">
+              <MappingFragment StoreEntitySet="GroupUser">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="IsDisable" ColumnName="IsDisable" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Notifies">
+            <EntityTypeMapping TypeName="InformationHubModel.Notify">
+              <MappingFragment StoreEntitySet="Notify">
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="NotifyKey" ColumnName="NotifyKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Permissions">
+            <EntityTypeMapping TypeName="InformationHubModel.Permission">
+              <MappingFragment StoreEntitySet="Permission">
+                <ScalarProperty Name="IndexNumber" ColumnName="IndexNumber" />
+                <ScalarProperty Name="TypeLevel4" ColumnName="TypeLevel4" />
+                <ScalarProperty Name="TypeLevel3" ColumnName="TypeLevel3" />
+                <ScalarProperty Name="TypeLevel2" ColumnName="TypeLevel2" />
+                <ScalarProperty Name="TypeLevel1" ColumnName="TypeLevel1" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="GroupFunctionId" ColumnName="GroupFunctionId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProfileAttachments">
+            <EntityTypeMapping TypeName="InformationHubModel.ProfileAttachment">
+              <MappingFragment StoreEntitySet="ProfileAttachment">
+                <ScalarProperty Name="UploadDate" ColumnName="UploadDate" />
+                <ScalarProperty Name="UploadBy" ColumnName="UploadBy" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Extension" ColumnName="Extension" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ReportProfileId" ColumnName="ReportProfileId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Provinces">
+            <EntityTypeMapping TypeName="InformationHubModel.Province">
+              <MappingFragment StoreEntitySet="Province">
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReportForwards">
+            <EntityTypeMapping TypeName="InformationHubModel.ReportForward">
+              <MappingFragment StoreEntitySet="ReportForward">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ForwardLevel" ColumnName="ForwardLevel" />
+                <ScalarProperty Name="ForwardNote" ColumnName="ForwardNote" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="ReportProfileId" ColumnName="ReportProfileId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReportHistories">
+            <EntityTypeMapping TypeName="InformationHubModel.ReportHistory">
+              <MappingFragment StoreEntitySet="ReportHistory">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="LocalAddress" ColumnName="LocalAddress" />
+                <ScalarProperty Name="WardId" ColumnName="WardId" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="StatusProcess" ColumnName="StatusProcess" />
+                <ScalarProperty Name="FullAddress" ColumnName="FullAddress" />
+                <ScalarProperty Name="Abuse" ColumnName="Abuse" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ReportProfileId" ColumnName="ReportProfileId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReportProfiles">
+            <EntityTypeMapping TypeName="InformationHubModel.ReportProfile">
+              <MappingFragment StoreEntitySet="ReportProfile">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="TypeOther" ColumnName="TypeOther" />
+                <ScalarProperty Name="Alias" ColumnName="Alias" />
+                <ScalarProperty Name="SummaryCase" ColumnName="SummaryCase" />
+                <ScalarProperty Name="IsPublish" ColumnName="IsPublish" />
+                <ScalarProperty Name="WordTitle" ColumnName="WordTitle" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="CloseDate" ColumnName="CloseDate" />
+                <ScalarProperty Name="StatusStep6" ColumnName="StatusStep6" />
+                <ScalarProperty Name="StatusStep5" ColumnName="StatusStep5" />
+                <ScalarProperty Name="StatusStep4" ColumnName="StatusStep4" />
+                <ScalarProperty Name="StatusStep3" ColumnName="StatusStep3" />
+                <ScalarProperty Name="StatusStep2" ColumnName="StatusStep2" />
+                <ScalarProperty Name="StatusStep1" ColumnName="StatusStep1" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="FinishNote" ColumnName="FinishNote" />
+                <ScalarProperty Name="FinishDate" ColumnName="FinishDate" />
+                <ScalarProperty Name="SeverityLevel" ColumnName="SeverityLevel" />
+                <ScalarProperty Name="ProviderNote" ColumnName="ProviderNote" />
+                <ScalarProperty Name="ProviderAddress" ColumnName="ProviderAddress" />
+                <ScalarProperty Name="ProviderPhone" ColumnName="ProviderPhone" />
+                <ScalarProperty Name="ProviderName" ColumnName="ProviderName" />
+                <ScalarProperty Name="Support" ColumnName="Support" />
+                <ScalarProperty Name="PeopleCare" ColumnName="PeopleCare" />
+                <ScalarProperty Name="FamilySituation" ColumnName="FamilySituation" />
+                <ScalarProperty Name="MotherJob" ColumnName="MotherJob" />
+                <ScalarProperty Name="MotherAge" ColumnName="MotherAge" />
+                <ScalarProperty Name="MotherName" ColumnName="MotherName" />
+                <ScalarProperty Name="FatherJob" ColumnName="FatherJob" />
+                <ScalarProperty Name="FatherAge" ColumnName="FatherAge" />
+                <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+                <ScalarProperty Name="SequelGuess" ColumnName="SequelGuess" />
+                <ScalarProperty Name="CurrentHealth" ColumnName="CurrentHealth" />
+                <ScalarProperty Name="FullAddress" ColumnName="FullAddress" />
+                <ScalarProperty Name="ProvinceId" ColumnName="ProvinceId" />
+                <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
+                <ScalarProperty Name="WardId" ColumnName="WardId" />
+                <ScalarProperty Name="CaseLocation" ColumnName="CaseLocation" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="ChildBirthdate" ColumnName="ChildBirthdate" />
+                <ScalarProperty Name="ChildName" ColumnName="ChildName" />
+                <ScalarProperty Name="ReceptionDate" ColumnName="ReceptionDate" />
+                <ScalarProperty Name="ReceptionTime" ColumnName="ReceptionTime" />
+                <ScalarProperty Name="SourceNote" ColumnName="SourceNote" />
+                <ScalarProperty Name="InformationSources" ColumnName="InformationSources" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReportProfileAbuseTypes">
+            <EntityTypeMapping TypeName="InformationHubModel.ReportProfileAbuseType">
+              <MappingFragment StoreEntitySet="ReportProfileAbuseType">
+                <ScalarProperty Name="AbuseTypeName" ColumnName="AbuseTypeName" />
+                <ScalarProperty Name="AbuseTypeId" ColumnName="AbuseTypeId" />
+                <ScalarProperty Name="ReportProfileId" ColumnName="ReportProfileId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SupportAfterStatus">
+            <EntityTypeMapping TypeName="InformationHubModel.SupportAfterStatu">
+              <MappingFragment StoreEntitySet="SupportAfterStatus">
+                <ScalarProperty Name="AbilityHelpOthersNote" ColumnName="AbilityHelpOthersNote" />
+                <ScalarProperty Name="AbilityKnowGuardNote" ColumnName="AbilityKnowGuardNote" />
+                <ScalarProperty Name="AbilityProtectYourselfNote" ColumnName="AbilityProtectYourselfNote" />
+                <ScalarProperty Name="LevelCareObstacleNote" ColumnName="LevelCareObstacleNote" />
+                <ScalarProperty Name="LevelApproachNote" ColumnName="LevelApproachNote" />
+                <ScalarProperty Name="LevelHarmNote" ColumnName="LevelHarmNote" />
+                <ScalarProperty Name="SupportAfterTitle" ColumnName="SupportAfterTitle" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="Result" ColumnName="Result" />
+                <ScalarProperty Name="TotalAbilityLow" ColumnName="TotalAbilityLow" />
+                <ScalarProperty Name="TotalAbilityAverage" ColumnName="TotalAbilityAverage" />
+                <ScalarProperty Name="TotalAbilityHigh" ColumnName="TotalAbilityHigh" />
+                <ScalarProperty Name="AbilityHelpOthers" ColumnName="AbilityHelpOthers" />
+                <ScalarProperty Name="AbilityKnowGuard" ColumnName="AbilityKnowGuard" />
+                <ScalarProperty Name="AbilityProtectYourself" ColumnName="AbilityProtectYourself" />
+                <ScalarProperty Name="TotalLevelLow" ColumnName="TotalLevelLow" />
+                <ScalarProperty Name="TotalLevelAverage" ColumnName="TotalLevelAverage" />
+                <ScalarProperty Name="TotalLevelHigh" ColumnName="TotalLevelHigh" />
+                <ScalarProperty Name="LevelCareObstacle" ColumnName="LevelCareObstacle" />
+                <ScalarProperty Name="LevelApproach" ColumnName="LevelApproach" />
+                <ScalarProperty Name="LevelHarm" ColumnName="LevelHarm" />
+                <ScalarProperty Name="PerformingBy" ColumnName="PerformingBy" />
+                <ScalarProperty Name="PerformingDate" ColumnName="PerformingDate" />
+                <ScalarProperty Name="ReportProfileId" ColumnName="ReportProfileId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SupportPlants">
+            <EntityTypeMapping TypeName="InformationHubModel.SupportPlant">
+              <MappingFragment StoreEntitySet="SupportPlant">
+                <ScalarProperty Name="IsRemind90" ColumnName="IsRemind90" />
+                <ScalarProperty Name="IsRemind75" ColumnName="IsRemind75" />
+                <ScalarProperty Name="IsEstimateCost" ColumnName="IsEstimateCost" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="OrganizationActivities" ColumnName="OrganizationActivities" />
+                <ScalarProperty Name="ActionNote" ColumnName="ActionNote" />
+                <ScalarProperty Name="TargetNote" ColumnName="TargetNote" />
+                <ScalarProperty Name="TitlePlant" ColumnName="TitlePlant" />
+                <ScalarProperty Name="PlantDate" ColumnName="PlantDate" />
+                <ScalarProperty Name="ReportProfileId" ColumnName="ReportProfileId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="InformationHubModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="IsDisable" ColumnName="IsDisable" />
+                <ScalarProperty Name="AvatarPath" ColumnName="AvatarPath" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="IdentifyNumber" ColumnName="IdentifyNumber" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Birthdate" ColumnName="Birthdate" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="HomeURL" ColumnName="HomeURL" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="FullAddress" ColumnName="FullAddress" />
+                <ScalarProperty Name="ProvinceId" ColumnName="ProvinceId" />
+                <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
+                <ScalarProperty Name="WardId" ColumnName="WardId" />
+                <ScalarProperty Name="AreaUserId" ColumnName="AreaUserId" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="GroupUserId" ColumnName="GroupUserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserPermissions">
+            <EntityTypeMapping TypeName="InformationHubModel.UserPermission">
+              <MappingFragment StoreEntitySet="UserPermission">
+                <ScalarProperty Name="PermissionId" ColumnName="PermissionId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wards">
+            <EntityTypeMapping TypeName="InformationHubModel.Ward">
+              <MappingFragment StoreEntitySet="Ward">
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

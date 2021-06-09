@@ -1,0 +1,51 @@
+﻿@model IList<InformationHub.Model.GroupPermissonViewModel>
+<div style="overflow-x:auto">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th width="60px" class="text-center">@InformationHub.Resource.Resource.Index_Title</th>
+                <th class="text-center">@InformationHub.Resource.Resource.GroupUser_Permission_Code</th>
+                <th class="text-center">@InformationHub.Resource.Resource.GroupUser_Permission_Name</th>
+                <th width="50px" class="text-center">
+                    <label class="icheck icheck-primary">
+                        <input type="checkbox" onchange="CheckAllData()" id="checkAllData" />
+                        <i></i>
+                    </label>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @{int index = ViewBag.Index; }
+            @foreach (var item in Model)
+            {
+                if (item.GroupUserId == "1")
+                {
+                    <tr style="background-color: #D8F0DA;">
+                        <td></td>
+                        <td>@item.Code</td>
+                        <td>@item.Name</td>
+                        <td class="text-center"></td>
+                    </tr>
+                }
+                else
+                {
+                    index++;
+                    <tr>
+                        <td class="text-center">@index</td>
+                        <td>@item.Code</td>
+                        <td>@item.Name</td>
+                        <td class="text-center">
+                            <label class="icheck icheck-primary">
+                                <input type="checkbox" @item.ItemChecked onchange="CheckData('@item.PermissionId')" class="itemp" id="ck_@item.PermissionId" value="@item.PermissionId" />
+                                <i></i>
+                            </label>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+<script>
+    $('#count_data').html(@ViewBag.TotalItem);
+</script>
